@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Pricing | HR Compliance Compass</title>
+  <meta name="description" content="Simple pricing: $40/month or $399/year. Professional discounts start at 25% off."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.png"/>
+
+  <style>
+    :root{ --navy:#1a4a7c; --sage:#6b8e6b; --orange:#e67e22; --teal:#2c9faf; --bg-light:#f8fafc; --text-main:#1e293b; --text-muted:#64748b; --white:#fff; --border:#e2e8f0; --shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05); }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ font-family:'Inter',sans-serif; background:var(--bg-light); color:var(--text-main); line-height:1.6; -webkit-font-smoothing:antialiased; }
+    h1,h2,h3{ font-family:'Plus Jakarta Sans',sans-serif; color:var(--navy); line-height:1.1; }
+    .container{ max-width:1200px; margin:0 auto; padding:0 2rem; }
+
+    .topbar{ background:var(--white); border-bottom:1px solid var(--border); padding:1rem 0; position:sticky; top:0; z-index:1000; }
+    .header{ display:flex; justify-content:space-between; align-items:center; }
+    .brand{ display:flex; align-items:center; text-decoration:none; gap:12px; }
+    .brand img{ height:45px; }
+    .brand .name{ font-weight:800; font-size:1.25rem; color:var(--navy); letter-spacing:-.02em; }
+    .brand .tag{ font-size:.75rem; color:var(--sage); font-weight:600; text-transform:uppercase; letter-spacing:.05em; }
+
+    nav a{ text-decoration:none; color:var(--text-muted); font-weight:500; font-size:.95rem; margin-left:2rem; transition:color .2s; }
+    nav a:hover{ color:var(--navy); }
+    nav a.active{ color:var(--navy); font-weight:700; }
+    nav a.cta{ color:var(--orange); font-weight:700; }
+
+    .hero{ padding:64px 0 30px; background: radial-gradient(circle at top right, #f1f5f9, #ffffff); border-bottom:1px solid var(--border); }
+    .kicker{ color:var(--teal); font-weight:800; font-size:.85rem; text-transform:uppercase; letter-spacing:.1em; margin-bottom:1rem; }
+    .h1{ font-size:3rem; letter-spacing:-.03em; margin-bottom:1rem; }
+    .sub{ font-size:1.1rem; color:var(--text-muted); max-width:940px; }
+
+    .section{ padding:60px 0; }
+    .grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+    .card{ background:var(--white); border-radius:20px; box-shadow:var(--shadow); border:1px solid #f1f5f9; padding:2rem; border-top:6px solid var(--border); }
+    .badge{ display:inline-block; padding:.35rem .7rem; font-size:.8rem; font-weight:800; border-radius:999px; margin-bottom:12px; }
+    .price{ font-size:2.5rem; font-weight:900; color:var(--navy); margin:8px 0; letter-spacing:-.02em; }
+    .muted{ color:var(--text-muted); }
+    .list{ margin-top: 14px; padding-left: 18px; color:var(--text-muted); }
+    .list li{ margin: 8px 0; }
+
+    .callout{
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      border-radius: 14px;
+      color: var(--text-muted);
+    }
+    .callout strong{ color: var(--navy); }
+
+    .btnRow{ display:flex; gap:12px; flex-wrap:wrap; margin-top:16px; }
+    .btn{
+      padding: 12px 22px; border-radius: 10px; text-decoration:none; font-weight:800;
+      transition:all .2s; display:inline-block; border:2px solid var(--border); color:var(--navy);
+      background: transparent;
+    }
+    .btnPrimary{
+      background: var(--orange); color:#fff; border-color: transparent;
+      box-shadow: 0 4px 14px 0 rgba(230,126,34,.35);
+    }
+    .btnPrimary:hover{ transform: translateY(-2px); box-shadow: 0 6px 20px rgba(230,126,34,.23); }
+    .btnGhost:hover{ border-color: rgba(26,74,124,.35); }
+
+    .fine{ margin-top: 10px; color: var(--text-muted); font-size:.9rem; }
+
+    .footer{ border-top:1px solid var(--border); padding:40px 0; display:flex; justify-content:space-between; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:12px; }
+    .footer a{ color:var(--text-muted); text-decoration:none; margin-right:15px; }
+    .footer a:hover{ color:var(--navy); }
+
+    @media (max-width: 1020px){ .grid{ grid-template-columns:1fr; } .h1{ font-size:2.35rem; } nav a{ margin-left:1rem; } }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container header">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="HR Compliance Compass logo"/>
+        <div class="lines">
+          <div class="name">CompassLine</div>
+          <div class="tag">Built by HR, for HR</div>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="product.html">Product</a>
+        <a class="active" href="pricing.html">Pricing</a>
+        <a href="pilot.html">Pilot</a>
+        <a href="waitlist.html">Waitlist</a>
+        <a href="faq.html">FAQ</a>
+        <a class="cta" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">Pricing</div>
+      <h1 class="h1">Simple pricing — no surprises</h1>
+      <p class="sub">
+        Standard pricing is <strong>$40/month</strong> or <strong>$399/year</strong>.
+        Professional discounts start at <strong>50% off</strong> (larger partner discounts may apply).
+      </p>
+
+      <div class="callout">
+        <strong>Pilot note:</strong> Pilot access is invite-only and may include discounted terms in exchange for feedback.
+        If you’re ready to use HRCC weekly and share input, apply for the pilot.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid">
+        <!-- Monthly -->
+        <div class="card" style="border-top-color: var(--navy);">
+          <span class="badge" style="background:#eff6ff; color:#2563eb;">Monthly</span>
+          <div class="price">$40<span style="font-size:1rem; font-weight:700; color:var(--text-muted);">/mo</span></div>
+          <p class="muted">Best if you want flexibility.</p>
+          <ul class="list">
+            <li>State-by-state guidance</li>
+            <li>People-first talk tracks</li>
+            <li>Templates + checklists</li>
+            <li>Email support</li>
+          </ul>
+          <div class="btnRow">
+            <a class="btn btnGhost" href="waitlist.html">Join waitlist</a>
+            <a class="btn btnPrimary" href="pilot.html">Apply for pilot</a>
+          </div>
+        </div>
+
+        <!-- Annual -->
+        <div class="card" style="border-top-color: var(--teal);">
+          <span class="badge" style="background:#ecfeff; color:#0e7490;">Annual</span>
+          <div class="price">$399<span style="font-size:1rem; font-weight:700; color:var(--text-muted);">/yr</span></div>
+          <p class="muted">Save vs monthly. Best for year-round use.</p>
+          <ul class="list">
+            <li>Everything in monthly</li>
+            <li>Priority update notes</li>
+            <li>Early feature access</li>
+            <li>Founding customer perks</li>
+          </ul>
+          <div class="btnRow">
+            <a class="btn btnGhost" href="waitlist.html">Join waitlist</a>
+            <a class="btn btnPrimary" href="pilot.html">Apply for pilot</a>
+          </div>
+        </div>
+
+        <!-- Professional Discount -->
+        <div class="card" style="border-top-color: var(--orange);">
+          <span class="badge" style="background:#fff7ed; color:#c2410c;">Professional discount</span>
+          <div class="price">25% + off</div>
+          <p class="muted">
+            Discounts at 25% off standard pricing. Discount based on tiers (see pilot tab for tier pricing).
+            Larger discounts may apply for approved partners.
+          </p>
+          <ul class="list">
+            <li>HR consultants / fractional HR</li>
+            <li>Recruiting & HR service providers</li>
+            <li> Educators/community partners (as approved)</li>
+          </ul>
+          <div class="btnRow">
+            <a class="btn btnPrimary" href="contact.html">Request discount</a>
+          </div>
+          <p class="fine">Discounts require verification and may not be combinable with other offers.</p>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div>
+          <a href="terms.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="contact.html">Support</a>
+        </div>
+        <div>© <span id="year"></span> CompassLine LLC. All rights reserved.</div>
+      </footer>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

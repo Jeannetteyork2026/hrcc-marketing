@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Request Pilot Access | HR Compliance Compass</title>
+  <meta name="description" content="Apply for invite-only pilot access to HR Compliance Compass. Built by HR, for HR."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.png"/>
+
+  <style>
+    :root{
+      --navy:#1a4a7c;
+      --sage:#6b8e6b;
+      --orange:#e67e22;
+      --teal:#2c9faf;
+      --bg-light:#f8fafc;
+      --text-main:#1e293b;
+      --text-muted:#64748b;
+      --white:#ffffff;
+      --border:#e2e8f0;
+      --shadow:0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+      --danger:#b91c1c;
+      --danger-bg:#fef2f2;
+      --success:#047857;
+      --success-bg:#ecfdf5;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:'Inter',sans-serif;
+      background-color:var(--bg-light);
+      color:var(--text-main);
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+    h1,h2,h3{
+      font-family:'Plus Jakarta Sans',sans-serif;
+      color:var(--navy);
+      line-height:1.1;
+    }
+    .container{max-width:1100px;margin:0 auto;padding:0 2rem;}
+
+    /* Topbar */
+    .topbar{
+      background:var(--white);
+      border-bottom:1px solid var(--border);
+      padding:1rem 0;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+    .header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 2rem;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      text-decoration:none;
+      gap:12px;
+    }
+    .brand img{height:45px;width:auto;}
+    .brand .name{
+      font-weight:800;
+      font-size:1.25rem;
+      color:var(--navy);
+      letter-spacing:-0.02em;
+    }
+    .brand .tag{
+      font-size:0.75rem;
+      color:var(--sage);
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--text-muted);
+      font-weight:500;
+      font-size:0.95rem;
+      margin-left:2rem;
+      transition:color 0.2s;
+    }
+    nav a:hover{color:var(--navy);}
+    nav a.active{color:var(--navy);font-weight:700;}
+    nav a.cta{color:var(--orange);font-weight:700;}
+
+    /* Hero */
+    .hero{
+      padding:64px 0 30px;
+      background:radial-gradient(circle at top right,#f1f5f9,#ffffff);
+      border-bottom:1px solid var(--border);
+    }
+    .kicker{
+      color:var(--teal);
+      font-weight:800;
+      font-size:0.85rem;
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      margin-bottom:1rem;
+    }
+    .h1{font-size:3rem;margin-bottom:0.75rem;letter-spacing:-0.03em;}
+    .sub{
+      font-size:1.05rem;
+      color:var(--text-muted);
+      max-width:920px;
+    }
+
+    /* Layout */
+    .section{padding:60px 0;}
+    .grid{
+      display:grid;
+      grid-template-columns:1.15fr 0.85fr;
+      gap:28px;
+      align-items:start;
+    }
+    .panel{
+      background:var(--white);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      border:1px solid #f1f5f9;
+      padding:2.2rem;
+    }
+
+    /* Info Cards */
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--text-muted);
+      font-size:0.85rem;
+      margin-bottom:14px;
+    }
+    .badge strong{color:var(--navy);}
+    .callout{
+      border-radius:16px;
+      padding:14px 16px;
+      border:1px solid var(--border);
+      background:#f8fafc;
+      color:var(--text-muted);
+      font-size:0.95rem;
+      margin-top:14px;
+    }
+    .callout strong{color:var(--navy);}
+
+    .callout.danger{
+      border-color:#fecaca;
+      background:var(--danger-bg);
+    }
+    .callout.danger strong{color:var(--danger);}
+
+    .callout.success{
+      border-color:#a7f3d0;
+      background:var(--success-bg);
+    }
+    .callout.success strong{color:var(--success);}
+
+    /* Form */
+    form{margin-top:10px;}
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-bottom:14px;
+    }
+    .field{margin-bottom:14px;}
+    label{
+      display:block;
+      font-size:0.9rem;
+      font-weight:700;
+      color:var(--navy);
+      margin-bottom:6px;
+    }
+    label .req{color:var(--danger); font-weight:800; margin-left:4px;}
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--text-main);
+      font-size:0.95rem;
+      outline:none;
+      transition:border 0.2s, box-shadow 0.2s;
+    }
+    textarea{min-height:120px; resize:vertical;}
+    input:focus, select:focus, textarea:focus{
+      border-color:#9cc7e6;
+      box-shadow:0 0 0 4px rgba(44,159,175,0.12);
+    }
+    .hint{
+      margin-top:6px;
+      font-size:0.85rem;
+      color:var(--text-muted);
+    }
+
+    /* Buttons */
+    .btnRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;}
+    .btn{
+      padding:12px 18px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      display:inline-block;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .btnPrimary{
+      background:var(--orange);
+      color:var(--white);
+      box-shadow:0 4px 14px 0 rgba(230,126,34,0.30);
+    }
+    .btnPrimary:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(230,126,34,0.18);}
+    .btnGhost{
+      background:#fff;
+      color:var(--navy);
+      border-color:var(--border);
+    }
+    .btnGhost:hover{background:#f1f5f9;}
+
+    /* Footer */
+    .footer{
+      border-top:1px solid var(--border);
+      padding:40px 0;
+      display:flex;
+      justify-content:space-between;
+      color:var(--text-muted);
+      font-size:0.85rem;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .footer a{color:var(--text-muted); text-decoration:none; margin-right:15px;}
+    .footer a:hover{color:var(--navy);}
+
+    /* Mobile */
+    @media (max-width: 968px){
+      nav{display:none;}
+      .header{padding:0 1rem;}
+      .container{padding:0 1rem;}
+      .grid{grid-template-columns:1fr;}
+      .row{grid-template-columns:1fr;}
+      .h1{font-size:2.35rem;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="header">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="HR Compliance Compass logo"/>
+        <div class="lines">
+          <div class="name">CompassLine</div>
+          <div class="tag">Built by HR, for HR</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="product.html">Product</a>
+        <a href="pricing.html">Pricing</a>
+        <a class="active" href="pilot.html" aria-current="page">Pilot</a>
+        <a href="waitlist.html">Waitlist</a>
+        <a href="faq.html">FAQ</a>
+        <a class="cta" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">Invite-only pilot</div>
+      <h1 class="h1">Request Pilot Access</h1>
+      <p class="sub">
+        We're running this pilot with people who will use HR Compliance Compass <strong>regularly</strong> and give candid feedback.
+        Detailed answers help us choose the best fit.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid">
+        <!-- LEFT: FORM -->
+        <div class="panel">
+          <div class="badge"><strong>Pilot expectation:</strong> Weekly use + regular feedback</div>
+
+          <!-- Netlify form -->
+          <form name="pilot-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-email-support="true" action="thanks.html">
+            <input type="hidden" name="form-name" value="pilot-access"/>
+            <p style="display:none;">
+              <label>Don't fill this out: <input name="bot-field"/></label>
+            </p>
+
+            <div class="row">
+              <div class="field">
+                <label for="fullName">Full name <span class="req">*</span></label>
+                <input id="fullName" name="fullName" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Work email <span class="req">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="field">
+                <label for="company">Company <span class="req">*</span></label>
+                <input id="company" name="company" type="text" required />
+                <div class="hint"><strong>Not optional.</strong> We're selecting pilot users based on real usage context.</div>
+              </div>
+              <div class="field">
+                <label for="role">Your role/title <span class="req">*</span></label>
+                <input id="role" name="role" type="text" required />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="field">
+                <label for="persona">Which best describes you? <span class="req">*</span></label>
+                <select id="persona" name="persona" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option>HR professional (in-house)</option>
+                  <option>HR consultant / fractional HR</option>
+                  <option>Small business owner / operator</option>
+                  <option>Manager (people leader)</option>
+                  <option>HR student / early-career HR</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="companySize">Company size <span class="req">*</span></label>
+                <select id="companySize" name="companySize" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option>1-10</option>
+                  <option>11-50</option>
+                  <option>51-200</option>
+                  <option>201-1,000</option>
+                  <option>1,001+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="states">What states do you support? (if applicable)</label>
+              <input id="states" name="states" type="text" placeholder="Example: OH, PA, MI, multi-state, or N/A" />
+              <div class="hint">If this is personal/research use, you can put "N/A" or "primarily my state."</div>
+            </div>
+
+            <div class="field">
+              <label for="aboutYou">Tell me about yourself <span class="req">*</span></label>
+              <textarea id="aboutYou" name="aboutYou" required
+                placeholder="A few lines is fine - what do you do day-to-day, what kind of environments you've worked in, and what you want to get better at."></textarea>
+            </div>
+
+            <div class="field">
+              <label for="interest">What interests you in this product? <span class="req">*</span></label>
+              <textarea id="interest" name="interest" required
+                placeholder="What problem are you hoping HRCC solves? Where do you lose time today? What moments feel the most chaotic?"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="howUse">How will you use this product? <span class="req">*</span></label>
+              <textarea id="howUse" name="howUse" required
+                placeholder="Be specific: client work or internal use; hiring, investigations, coaching, leave, policy updates, talk tracks, etc. What would weekly usage look like?"></textarea>
+              <div class="hint">We're looking for real-world usage (not "someday"). Detail helps you get selected.</div>
+            </div>
+
+            <div class="row">
+              <div class="field">
+                <label for="useFrequency">How often will you realistically use HRCC? <span class="req">*</span></label>
+                <select id="useFrequency" name="useFrequency" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option>Daily</option>
+                  <option>2-3x per week</option>
+                  <option>Weekly</option>
+                  <option>1-2x per month</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="feedbackComfort">Are you willing to give regular feedback? <span class="req">*</span></label>
+                <select id="feedbackComfort" name="feedbackComfort" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option>Yes - happy to share what works/doesn't</option>
+                  <option>Yes - but I prefer quick surveys</option>
+                  <option>Maybe - depends on time</option>
+                  <option>No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="feedbackStyle">What feedback format works best for you?</label>
+              <select id="feedbackStyle" name="feedbackStyle">
+                <option value="" selected disabled>Select one (optional)</option>
+                <option>Short weekly check-in (5-10 min)</option>
+                <option>Monthly longer feedback call (20-30 min)</option>
+                <option>Quick forms/surveys</option>
+                <option>Asynchronous notes (email/DM)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="notes">Anything else you want me to know?</label>
+              <textarea id="notes" name="notes"
+                placeholder="What would make this a 'can't-live-without-it' tool for you? Any features you're hoping are coming soon?"></textarea>
+            </div>
+
+            <div class="callout danger">
+              <strong>Heads up:</strong> If you're accepted, pilot pricing is engagement-based: starting at 25% off, up to 50% off (verification required; confirmed at acceptance).
+              Participation tier and regular feedback determine the final discount.
+            </div>
+
+            <div class="btnRow">
+              <button class="btn btnPrimary" type="submit">Submit request</button>
+              <a class="btn btnGhost" href="pilot.html">Pilot details</a>
+            </div>
+
+            <div class="hint" style="margin-top:10px;">
+              By submitting, you agree to our <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy</a>.
+            </div>
+          </form>
+        </div>
+
+        <!-- RIGHT: SIDE PANEL -->
+        <div class="panel">
+          <h2 style="font-size:1.4rem; margin-bottom:10px;">What you're applying for</h2>
+          <p style="color:var(--text-muted); margin-bottom:14px;">
+            HR Compliance Compass is built for the messy reality of HR - the days where you need the right answer, a safe framework,
+            and a human script... fast.
+          </p>
+
+          <div class="callout success">
+            <strong>Built by HR, for HR:</strong> We're prioritizing people-first guidance that's practical, compliant, and usable under pressure.
+          </div>
+
+          <div class="callout">
+            <strong>Great pilot fits:</strong>
+            <ul style="margin:10px 0 0 18px;">
+              <li>HR professionals supporting real employees weekly</li>
+              <li>Consultants who need fast, consistent frameworks</li>
+              <li>Small business owners doing HR "in the cracks"</li>
+              <li>Seasoned HR who want fewer research rabbit holes</li>
+            </ul>
+          </div>
+
+          <div class="callout">
+            <strong>What we'll ask from you:</strong>
+            <ul style="margin:10px 0 0 18px;">
+              <li>Use it regularly (weekly is ideal)</li>
+              <li>Tell us what's confusing, missing, or brilliant</li>
+              <li>Share real scenarios (sanitized / no sensitive data)</li>
+            </ul>
+          </div>
+
+          <p style="color:var(--text-muted); margin-top:16px; font-size:0.95rem;">
+            Questions before applying? Email <a href="mailto:support@hrcompliancecompass.com">support@hrcompliancecompass.com</a>.
+          </p>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div>
+          <a href="terms.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="contact.html">Support</a>
+        </div>
+        <div>&copy; <span id="year"></span> CompassLine LLC. All rights reserved.</div>
+      </footer>
+    </div>
+  </section>
+
+  <script src="form-email.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

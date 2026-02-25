@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Product | HR Compliance Compass</title>
+  <meta name="description" content="What's inside HR Compliance Compass: people-first talk tracks, state-by-state compliance guidance, and practical HR tools."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.png"/>
+
+  <style>
+    :root {
+      --navy: #1a4a7c;
+      --sage: #6b8e6b;
+      --orange: #e67e22;
+      --teal: #2c9faf;
+      --bg-light: #f8fafc;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); line-height: 1.1; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    .topbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      position: sticky; top: 0; z-index: 1000;
+    }
+    .header { display: flex; justify-content: space-between; align-items: center; }
+    .brand { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+    .brand img { height: 45px; width: auto; }
+    .brand .name { font-weight: 800; font-size: 1.25rem; color: var(--navy); letter-spacing: -0.02em; }
+    .brand .tag { font-size: 0.75rem; color: var(--sage); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-left: 2rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--navy); }
+    nav a.active { color: var(--navy); font-weight: 700; }
+    nav a.cta { color: var(--orange); font-weight: 700; }
+
+    .hero {
+      padding: 64px 0 40px;
+      background: radial-gradient(circle at top right, #f1f5f9, #ffffff);
+      border-bottom: 1px solid var(--border);
+    }
+    .heroInner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+    .kicker {
+      color: var(--teal);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .h1 { font-size: 3rem; margin-bottom: 1rem; letter-spacing: -0.03em; }
+    .sub { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 1.75rem; }
+
+    .btnRow { display: flex; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .btn {
+      padding: 12px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btnPrimary {
+      background-color: var(--orange);
+      color: var(--white);
+      box-shadow: 0 4px 14px 0 rgba(230, 126, 34, 0.35);
+    }
+    .btnPrimary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(230, 126, 34, 0.23); }
+    .btnGhost { border: 2px solid var(--border); color: var(--navy); background: transparent; }
+    .btnGhost:hover { background: #f1f5f9; }
+
+    .preview {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      border: 1px solid #f1f5f9;
+    }
+    .previewBadge {
+      background: #ecfdf5;
+      color: #059669;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .previewTitle { font-weight: 800; color: var(--navy); font-size: 1.05rem; margin-bottom: 12px; }
+    .miniList { list-style: none; display: grid; gap: 10px; }
+    .miniItem { display: flex; gap: 12px; align-items: flex-start; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--teal); margin-top: 6px; flex-shrink: 0; }
+    .dot.blue { background: var(--navy); }
+    .dot.orange { background: var(--orange); }
+    .miniItem strong { display: block; color: var(--navy); }
+    .miniItem span { color: var(--text-muted); font-size: 0.9rem; }
+
+    .section { padding: 72px 0; }
+    .section h2 { text-align: center; font-size: 2.1rem; margin-bottom: 1.25rem; }
+    .lead { text-align: center; max-width: 860px; margin: 0 auto 3rem; font-size: 1.05rem; color: var(--text-muted); }
+
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .card {
+      background: var(--white);
+      padding: 2.2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      transition: transform 0.25s;
+      border-top: 4px solid var(--sage);
+    }
+    .card:hover { transform: translateY(-4px); }
+    .card h3 { margin-bottom: 0.75rem; font-size: 1.2rem; }
+    .card p { color: var(--text-muted); }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    .panel {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      border: 1px solid #f1f5f9;
+    }
+    .panel h3 { margin-bottom: 0.75rem; font-size: 1.25rem; }
+    .bullets { margin-top: 10px; list-style: none; }
+    .bullets li { margin: 10px 0; padding-left: 22px; position: relative; color: var(--text-muted); }
+    .bullets li::before { content: "\2713"; position: absolute; left: 0; color: var(--teal); font-weight: 900; }
+
+    .ctaBand {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #f8fafc;
+      border-radius: 20px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 20px;
+      align-items: center;
+    }
+    .ctaBand h3 { color: #fff; font-size: 1.6rem; margin-bottom: 8px; }
+    .ctaBand p { color: #cbd5e1; }
+    .ctaBand .btnPrimary { width: 100%; text-align: center; }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer a { color: var(--text-muted); text-decoration: none; margin-right: 15px; }
+    .footer a:hover { color: var(--navy); }
+
+    @media (max-width: 968px) {
+      .heroInner, .grid3, .split, .ctaBand { grid-template-columns: 1fr; }
+      .h1 { font-size: 2.35rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container header">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="HR Compliance Compass logo"/>
+        <div class="lines">
+          <div class="name">CompassLine</div>
+          <div class="tag">Built by HR, for HR</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a class="active" href="product.html" aria-current="page">Product</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="pilot.html">Pilot</a>
+        <a href="waitlist.html">Waitlist</a>
+        <a href="faq.html">FAQ</a>
+        <a class="cta" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="heroInner">
+        <div>
+          <div class="kicker">Product</div>
+          <h1 class="h1">Everything you need to make confident, people-first decisions&mdash;fast.</h1>
+          <p class="sub">
+            HR Compliance Compass is a practical hub for <strong>state-by-state guidance</strong>, <strong>people-first talk tracks</strong>,
+            and <strong>actionable workflows</strong> you can use on your busiest days.
+          </p>
+
+          <div class="btnRow">
+            <a class="btn btnPrimary" href="pilot.html">Request Pilot Access</a>
+            <a class="btn btnGhost" href="pricing.html">View Pricing</a>
+          </div>
+
+          <div style="font-size:0.8rem; color:var(--text-muted); font-style: italic;">
+            Built for real-world HR: investigations, performance, hiring, leave, policy decisions.
+          </div>
+        </div>
+
+        <div class="preview">
+          <span class="previewBadge">Inside the platform</span>
+          <div class="previewTitle">What you'll actually use</div>
+          <ul class="miniList">
+            <li class="miniItem">
+              <span class="dot"></span>
+              <div>
+                <strong>Compliance guidance (by state)</strong>
+                <span>Plain-English direction + a clear path to verify.</span>
+              </div>
+            </li>
+            <li class="miniItem">
+              <span class="dot blue"></span>
+              <div>
+                <strong>People-first talk tracks</strong>
+                <span>Investigations, coaching, performance, conflict.</span>
+              </div>
+            </li>
+            <li class="miniItem">
+              <span class="dot orange"></span>
+              <div>
+                <strong>Templates & checklists</strong>
+                <span>Consistent steps so nothing falls through the cracks.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Core modules</h2>
+      <p class="lead">
+        Designed like an HR operating system&mdash;not a "go read 40 pages" library.
+      </p>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Compliance Wizard</h3>
+          <p>State-by-state rules and flags with fast routes to source guidance.</p>
+        </div>
+        <div class="card" style="border-top-color: var(--navy);">
+          <h3>People-first Frameworks</h3>
+          <p>Talk tracks and scripts that keep things human and consistent.</p>
+        </div>
+        <div class="card" style="border-top-color: var(--teal);">
+          <h3>Tools & Templates</h3>
+          <p>Checklists, documentation prompts, and workflow helpers.</p>
+        </div>
+      </div>
+
+      <div style="height: 40px;"></div>
+
+      <div class="split">
+        <div class="panel">
+          <h3>Investigations support</h3>
+          <p style="color:var(--text-muted);">
+            A calm, consistent process&mdash;from intake to close-out&mdash;without overpromising confidentiality.
+          </p>
+          <ul class="bullets">
+            <li>Non-retaliation + participation language</li>
+            <li>Confidentiality limits explained clearly</li>
+            <li>Witness instructions that protect integrity</li>
+            <li>Documentation structure + follow-up steps</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Performance & coaching support</h3>
+          <p style="color:var(--text-muted);">
+            People-first conversations that still drive accountability.
+          </p>
+          <ul class="bullets">
+            <li>Expectation-setting scripts</li>
+            <li>Coaching notes + improvement planning</li>
+            <li>Consistency guardrails (reduce bias risk)</li>
+            <li>Follow-through prompts and reminders</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="height: 34px;"></div>
+
+      <div class="ctaBand">
+        <div>
+          <h3>Want to help shape the product?</h3>
+          <p>Invite-only pilot. Discounts are engagement-based: starting at 25% off, up to 50% off (verification required; confirmed at acceptance). Regular feedback required.</p>
+        </div>
+        <div>
+          <a class="btn btnPrimary" href="pilot.html">Apply for Pilot</a>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div>
+          <a href="terms.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="contact.html">Support</a>
+        </div>
+        <div>&copy; <span id="year"></span> CompassLine LLC. All rights reserved.</div>
+      </footer>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

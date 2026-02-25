@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contact | HR Compliance Compass</title>
+  <meta name="description" content="Contact CompassLine support for HR Compliance Compass pilot, partnerships, or questions."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.png"/>
+
+  <style>
+    :root{ --navy:#1a4a7c; --sage:#6b8e6b; --orange:#e67e22; --teal:#2c9faf; --bg-light:#f8fafc; --text-main:#1e293b; --text-muted:#64748b; --white:#fff; --border:#e2e8f0; --shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05); }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ font-family:'Inter',sans-serif; background:var(--bg-light); color:var(--text-main); line-height:1.6; -webkit-font-smoothing:antialiased; }
+    h1,h2,h3{ font-family:'Plus Jakarta Sans',sans-serif; color:var(--navy); line-height:1.1; }
+    .container{ max-width:1200px; margin:0 auto; padding:0 2rem; }
+
+    .topbar{ background:var(--white); border-bottom:1px solid var(--border); padding:1rem 0; position:sticky; top:0; z-index:1000; }
+    .header{ display:flex; justify-content:space-between; align-items:center; }
+    .brand{ display:flex; align-items:center; text-decoration:none; gap:12px; }
+    .brand img{ height:45px; }
+    .brand .name{ font-weight:800; font-size:1.25rem; color:var(--navy); letter-spacing:-.02em; }
+    .brand .tag{ font-size:.75rem; color:var(--sage); font-weight:600; text-transform:uppercase; letter-spacing:.05em; }
+    nav a{ text-decoration:none; color:var(--text-muted); font-weight:500; font-size:.95rem; margin-left:2rem; transition:color .2s; }
+    nav a:hover{ color:var(--navy); }
+    nav a.active{ color:var(--navy); font-weight:700; }
+    nav a.cta{ color:var(--orange); font-weight:700; }
+
+    .hero{ padding:64px 0 30px; background: radial-gradient(circle at top right, #f1f5f9, #ffffff); border-bottom:1px solid var(--border); }
+    .kicker{ color:var(--teal); font-weight:800; font-size:.85rem; text-transform:uppercase; letter-spacing:.1em; margin-bottom:1rem; }
+    .h1{ font-size:3rem; letter-spacing:-.03em; margin-bottom:1rem; }
+    .sub{ font-size:1.1rem; color:var(--text-muted); max-width:920px; }
+
+    .section{ padding:60px 0; }
+    .split{ display:grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    .panel{ background:var(--white); border-radius:20px; box-shadow:var(--shadow); border:1px solid #f1f5f9; padding:2rem; }
+
+    label{ display:block; font-weight:800; margin:14px 0 6px; color:var(--navy); }
+    input, select, textarea{
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border);
+      background:#fff; font-size:1rem; outline:none;
+    }
+    textarea{ min-height:140px; resize:vertical; }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(44,159,175,.6);
+      box-shadow: 0 0 0 4px rgba(44,159,175,.12);
+    }
+    .btn{
+      padding: 12px 22px; border-radius: 10px; text-decoration:none; font-weight:800;
+      transition:all .2s; display:inline-block; border:2px solid var(--border); color:var(--navy);
+      background: transparent; cursor:pointer;
+    }
+    .btnPrimary{
+      background: var(--orange); color:#fff; border-color: transparent;
+      box-shadow: 0 4px 14px 0 rgba(230,126,34,.35);
+    }
+    .btnPrimary:hover{ transform: translateY(-2px); box-shadow: 0 6px 20px rgba(230,126,34,.23); }
+    .fine{ margin-top: 10px; color: var(--text-muted); font-size:.9rem; }
+
+    .footer{ border-top:1px solid var(--border); padding:40px 0; display:flex; justify-content:space-between; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:12px; }
+    .footer a{ color:var(--text-muted); text-decoration:none; margin-right:15px; }
+    .footer a:hover{ color:var(--navy); }
+
+    @media (max-width: 968px){ .split{ grid-template-columns:1fr; } .h1{ font-size:2.35rem; } }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container header">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="HR Compliance Compass logo"/>
+        <div class="lines">
+          <div class="name">CompassLine</div>
+          <div class="tag">Built by HR, for HR</div>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="product.html">Product</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="pilot.html">Pilot</a>
+        <a href="waitlist.html">Waitlist</a>
+        <a href="faq.html">FAQ</a>
+        <a class="active cta" href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">Contact</div>
+      <h1 class="h1">Let's talk.</h1>
+      <p class="sub">Pilot questions, partnerships, press, or "help I'm in HR chaos" &mdash; send a note.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="panel">
+          <h3 style="margin-bottom:8px;">Fastest route</h3>
+          <p style="color:var(--text-muted); margin-bottom:14px;">
+            Email support directly:
+            <strong><a href="mailto:support@hrcompliancecompass.com" style="color:var(--navy); text-decoration:none;">support@hrcompliancecompass.com</a></strong>
+          </p>
+          <p class="fine">If you're requesting pilot access, the Pilot page is the best path (it captures what I need to evaluate fit).</p>
+          <p style="margin-top:16px;">
+            <a class="btn btnPrimary" href="pilot.html">Apply for Pilot</a>
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3 style="margin-bottom:8px;">Send a message</h3>
+
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-email-support="true" action="thanks.html">
+            <input type="hidden" name="form-name" value="contact"/>
+            <p style="display:none;">
+              <label>Don't fill this out: <input name="bot-field"/></label>
+            </p>
+
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name"/>
+
+            <label for="topic">Topic <span style="color:var(--orange);">*</span></label>
+            <select id="topic" name="topic" required>
+              <option value="" selected disabled>Select a topic</option>
+              <option>General question</option>
+              <option>Pilot application question</option>
+              <option>Pilot feedback</option>
+              <option>Pricing / discount request</option>
+              <option>Partnership inquiry</option>
+            </select>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="email"/>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell me what you need."></textarea>
+
+            <p style="margin-top:14px;">
+              <button class="btn btnPrimary" type="submit">Send</button>
+            </p>
+            <div class="fine">Use the Topic field so we can route your message quickly.</div>
+          </form>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div>
+          <a href="terms.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="contact.html">Support</a>
+        </div>
+        <div>&copy; <span id="year"></span> CompassLine LLC. All rights reserved.</div>
+      </footer>
+    </div>
+  </section>
+
+  <script src="form-email.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

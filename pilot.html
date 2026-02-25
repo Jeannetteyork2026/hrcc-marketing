@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Pilot | HR Compliance Compass</title>
+  <meta name="description" content="Request invite-only pilot access. Regular use + regular feedback required."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.png"/>
+
+  <style>
+    :root{ --navy:#1a4a7c; --sage:#6b8e6b; --orange:#e67e22; --teal:#2c9faf; --bg-light:#f8fafc; --text-main:#1e293b; --text-muted:#64748b; --white:#fff; --border:#e2e8f0; --shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05); }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ font-family:'Inter',sans-serif; background:var(--bg-light); color:var(--text-main); line-height:1.6; -webkit-font-smoothing:antialiased; }
+    h1,h2,h3{ font-family:'Plus Jakarta Sans',sans-serif; color:var(--navy); line-height:1.1; }
+    .container{ max-width:1200px; margin:0 auto; padding:0 2rem; }
+
+    .topbar{ background:var(--white); border-bottom:1px solid var(--border); padding:1rem 0; position:sticky; top:0; z-index:1000; }
+    .header{ display:flex; justify-content:space-between; align-items:center; }
+    .brand{ display:flex; align-items:center; text-decoration:none; gap:12px; }
+    .brand img{ height:45px; }
+    .brand .name{ font-weight:800; font-size:1.25rem; color:var(--navy); letter-spacing:-.02em; }
+    .brand .tag{ font-size:.75rem; color:var(--sage); font-weight:600; text-transform:uppercase; letter-spacing:.05em; }
+    nav a{ text-decoration:none; color:var(--text-muted); font-weight:500; font-size:.95rem; margin-left:2rem; transition:color .2s; }
+    nav a:hover{ color:var(--navy); }
+    nav a.active{ color:var(--navy); font-weight:700; }
+    nav a.cta{ color:var(--orange); font-weight:700; }
+
+    .hero{ padding:64px 0 34px; background: radial-gradient(circle at top right, #f1f5f9, #ffffff); border-bottom:1px solid var(--border); }
+    .kicker{ color:var(--teal); font-weight:800; font-size:.85rem; text-transform:uppercase; letter-spacing:.1em; margin-bottom:1rem; }
+    .h1{ font-size:3rem; letter-spacing:-.03em; margin-bottom:1rem; }
+    .sub{ font-size:1.1rem; color:var(--text-muted); max-width:980px; }
+
+    .section{ padding:60px 0; }
+    .panel{ background:var(--white); border-radius:20px; box-shadow:var(--shadow); border:1px solid #f1f5f9; padding:2rem; }
+    label{ display:block; font-weight:800; margin:14px 0 6px; color:var(--navy); }
+    .req{ color:var(--orange); }
+    .hint{ font-size:.85rem; color:var(--text-muted); margin-top:4px; }
+    input, select, textarea{
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border);
+      background:#fff; font-size:1rem; outline:none;
+    }
+    textarea{ min-height:140px; resize:vertical; }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(44,159,175,.6);
+      box-shadow: 0 0 0 4px rgba(44,159,175,.12);
+    }
+    .formGrid{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .full{ grid-column: 1 / -1; }
+
+    .checkZone{
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+    }
+    .tierGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 16px 0 12px;
+    }
+    .tierBlock{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      background: #ffffff;
+    }
+    .tierBlock h3{
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+    .tierBlock ul{
+      margin: 8px 0 0 18px;
+      color: var(--text-muted);
+      font-size: .92rem;
+    }
+    .tierNotes{
+      color: var(--text-muted);
+      font-size: .92rem;
+      margin-top: 10px;
+    }
+    .radioGroup{
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+    }
+    .radioRow{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 10px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid #f1f5f9;
+      margin-top: 10px;
+    }
+    .radioRow input{
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      flex: 0 0 auto;
+    }
+    .radioRow strong{ color: var(--navy); }
+    .checkRow{
+      display:flex; gap:12px; align-items:flex-start;
+      padding: 10px 10px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid #f1f5f9;
+      margin-top: 10px;
+    }
+    .checkRow input{ width:18px; height:18px; margin-top:3px; }
+    .checkRow strong{ color: var(--navy); display:block; }
+    .checkRow span{ color: var(--text-muted); font-size:.9rem; display:block; }
+
+    .btnRow{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+    .btn{
+      padding: 12px 22px; border-radius: 10px; text-decoration:none; font-weight:800;
+      transition:all .2s; display:inline-block; border:2px solid var(--border); color:var(--navy);
+      background: transparent;
+      cursor:pointer;
+    }
+    .btnPrimary{
+      background: var(--orange); color:#fff; border-color: transparent;
+      box-shadow: 0 4px 14px 0 rgba(230,126,34,.35);
+    }
+    .btnPrimary:hover{ transform: translateY(-2px); box-shadow: 0 6px 20px rgba(230,126,34,.23); }
+    .fine{ margin-top: 12px; color: var(--text-muted); font-size:.85rem; font-style: italic; }
+
+    .footer{ border-top:1px solid var(--border); padding:40px 0; display:flex; justify-content:space-between; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:12px; }
+    .footer a{ color:var(--text-muted); text-decoration:none; margin-right:15px; }
+    .footer a:hover{ color:var(--navy); }
+
+    @media (max-width: 968px){
+      .formGrid{ grid-template-columns: 1fr; }
+      .tierGrid{ grid-template-columns: 1fr; }
+      .h1{ font-size:2.35rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container header">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="HR Compliance Compass logo"/>
+        <div class="lines">
+          <div class="name">CompassLine</div>
+          <div class="tag">Built by HR, for HR</div>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="product.html">Product</a>
+        <a href="pricing.html">Pricing</a>
+        <a class="active" href="pilot.html" aria-current="page">Pilot</a>
+        <a href="waitlist.html">Waitlist</a>
+        <a href="faq.html">FAQ</a>
+        <a class="cta" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">Pilot Program</div>
+      <h1 class="h1">Apply for invite-only pilot access</h1>
+      <p class="sub">
+        I'm running a pilot with people who will use this regularly and give honest feedback.
+        If accepted, pilot pricing is discounted (25%&ndash;50% off) based on participation tier &mdash; and it requires consistent use + feedback.
+        Being detailed helps me pick the right pilot group.
+      </p>
+      <p class="sub" style="margin-top:10px; font-style: italic;">
+        This is built by HR, for HR. The goal is real use&mdash;so the app becomes a true people-ops safety net.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="panel">
+        <p style="margin: 0 0 16px; color: var(--text-muted);">
+          Not ready for the pilot?
+          <a href="waitlist.html" style="color: var(--navy); font-weight: 700; text-decoration: none;">Join the waitlist &rarr;</a>
+        </p>
+
+        <h2 style="font-size:1.5rem;">Pilot participation tiers</h2>
+        <div class="tierGrid">
+          <div class="tierBlock">
+            <h3>Explorer &mdash; 25% off</h3>
+            <ul>
+              <li>self-attested weekly use</li>
+              <li>1 monthly check-in form (3 minutes)</li>
+            </ul>
+          </div>
+          <div class="tierBlock">
+            <h3>Builder &mdash; 35% off</h3>
+            <ul>
+              <li>self-attested 2x/week use</li>
+              <li>1 monthly 20-minute feedback call</li>
+              <li>2 feedback submissions/month (form or email)</li>
+            </ul>
+          </div>
+          <div class="tierBlock">
+            <h3>Founding Partner &mdash; 50% off</h3>
+            <ul>
+              <li>self-attested 3x/week use</li>
+              <li>2 monthly 20-minute calls</li>
+              <li>4 feedback submissions/month (form or email)</li>
+              <li>testimonial/quote optional</li>
+            </ul>
+          </div>
+        </div>
+        <p class="tierNotes">Discount level is confirmed in your acceptance email and may be adjusted only at renewal or by mutual agreement.</p>
+        <p class="tierNotes">Feedback submissions are tracked via the Contact form (Topic: Pilot feedback) or by emailing support@hrcompliancecompass.com with subject starting [HRCC Feedback].</p>
+
+        <form name="pilot-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-email-support="true" action="thanks.html">
+          <input type="hidden" name="form-name" value="pilot-request"/>
+          <p style="display:none;">
+            <label>Don't fill this out: <input name="bot-field"/></label>
+          </p>
+
+          <div class="formGrid">
+            <div>
+              <label for="name">Full name <span class="req">*</span></label>
+              <input id="name" name="name" required autocomplete="name"/>
+            </div>
+
+            <div>
+              <label for="email">Work email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email"/>
+            </div>
+
+            <div class="full">
+              <label for="company">Company <span class="req">*</span></label>
+              <input id="company" name="company" required/>
+              <div class="hint"><strong>Not optional.</strong> I am selecting pilot users based on real usage context.</div>
+            </div>
+
+            <div>
+              <label for="role">Which best describes you? <span class="req">*</span></label>
+              <select id="role" name="role" required>
+                <option value="" selected disabled>Select one</option>
+                <option>New HR / early-career HR</option>
+                <option>Seasoned HR / HR leader</option>
+                <option>HR Consultant</option>
+                <option>Small business owner (doing HR)</option>
+                <option>Manager / People leader (HR-adjacent)</option>
+                <option>People Ops / Operations supporting HR</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="orgSize">Company size <span class="req">*</span></label>
+              <select id="orgSize" name="company_size" required>
+                <option value="" selected disabled>Select one</option>
+                <option>1-10</option>
+                <option>11-50</option>
+                <option>51-200</option>
+                <option>201-1,000</option>
+                <option>1,000+</option>
+              </select>
+            </div>
+
+            <div class="full">
+              <label for="states">Primary state(s) you work in <span class="req">*</span></label>
+              <input id="states" name="states" required placeholder="Example: OH, PA, CA"/>
+            </div>
+          </div>
+
+          <div class="radioGroup">
+            <label style="margin-top:0;">Choose your participation tier <span class="req">*</span></label>
+            <div class="hint">This tier selection is required with your application.</div>
+
+            <label class="radioRow">
+              <input type="radio" name="participation_tier" value="Explorer (25%)" required/>
+              <div>
+                <strong>Explorer (25%)</strong>
+              </div>
+            </label>
+
+            <label class="radioRow">
+              <input type="radio" name="participation_tier" value="Builder (35%)" required/>
+              <div>
+                <strong>Builder (35%)</strong>
+              </div>
+            </label>
+
+            <label class="radioRow">
+              <input type="radio" name="participation_tier" value="Founding Partner (50%)" required/>
+              <div>
+                <strong>Founding Partner (50%)</strong>
+              </div>
+            </label>
+          </div>
+
+          <div class="checkZone">
+            <label style="margin-top:0;">How will you use this product? <span class="req">*</span></label>
+            <div class="hint">Choose at least one. Real use = real feedback.</div>
+
+            <!-- Hidden required field to enforce "at least one checkbox checked" -->
+            <input type="text" id="useCaseRequired" name="use_case_confirm" required style="position:absolute; left:-9999px; opacity:0;" aria-hidden="true"/>
+
+            <label class="checkRow">
+              <input type="checkbox" name="use_cases" value="Client work (consulting / multiple companies)"/>
+              <div>
+                <strong>Client work</strong>
+                <span>Using it with/for clients (consulting).</span>
+              </div>
+            </label>
+
+            <label class="checkRow">
+              <input type="checkbox" name="use_cases" value="Internal HR role (my employer / my team)"/>
+              <div>
+                <strong>Internal HR</strong>
+                <span>Day-to-day HR usage for your organization.</span>
+              </div>
+            </label>
+
+            <label class="checkRow">
+              <input type="checkbox" name="use_cases" value="Small business owner doing HR"/>
+              <div>
+                <strong>Small business HR</strong>
+                <span>Owner/operator wearing the HR hat.</span>
+              </div>
+            </label>
+
+            <label class="checkRow">
+              <input type="checkbox" name="use_cases" value="Personal use for faster research on chaotic days"/>
+              <div>
+                <strong>Faster research</strong>
+                <span>Quick clarity when your day is chaos.</span>
+              </div>
+            </label>
+          </div>
+
+          <label for="about">Tell me about yourself <span class="req">*</span></label>
+          <textarea id="about" name="about" required placeholder="Role, experience level, your current HR responsibilities, what's hard right now..."></textarea>
+
+          <label for="interest">What interests you in this product? <span class="req">*</span></label>
+          <textarea id="interest" name="interest" required placeholder="What problem are you hoping this solves?"></textarea>
+
+          <label for="howUse">How will you use this product? <span class="req">*</span></label>
+          <textarea id="howUse" name="how_will_use" required placeholder="Be specific: how often, what scenarios, which modules, what &quot;regular use&quot; means for you..."></textarea>
+
+          <div class="formGrid">
+            <div>
+              <label for="freq">Expected usage frequency <span class="req">*</span></label>
+              <select id="freq" name="frequency" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Daily</option>
+                <option>3-5x per week</option>
+                <option>1-2x per week</option>
+                <option>2-3x per month</option>
+                <option>As needed (rare)</option>
+              </select>
+            </div>
+            <div>
+              <label for="tools">What do you use today? <span class="req">*</span></label>
+              <input id="tools" name="current_tools" required placeholder="Examples: SHRM, DOL sites, attorney, HRIS, handbook tools..."/>
+            </div>
+          </div>
+
+          <label for="feedback">If accepted, what feedback can you commit to? <span class="req">*</span></label>
+          <textarea id="feedback" name="feedback_commitment" required placeholder="Examples: 10 minutes weekly, monthly call, screenshots, bugs, feature requests..."></textarea>
+
+          <div class="checkZone">
+            <label style="margin-top:0;">Pilot commitment <span class="req">*</span></label>
+
+            <label class="checkRow">
+              <input type="checkbox" name="commit_feedback" required/>
+              <div>
+                <strong>I will provide regular feedback during the pilot</strong>
+                <span>Required &mdash; this pilot is built on usage + feedback.</span>
+              </div>
+            </label>
+
+            <label class="checkRow">
+              <input type="checkbox" name="commit_discount" required/>
+              <div>
+                <strong>I understand pilot pricing is engagement-based (25%&ndash;50% off) and depends on my participation tier.</strong>
+                <span>Discount level is confirmed at acceptance.</span>
+              </div>
+            </label>
+
+            <label class="checkRow">
+              <input type="checkbox" name="commit_contact" required/>
+              <div>
+                <strong>I agree to be contacted about onboarding</strong>
+                <span>So you can be set up quickly if accepted.</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="btnRow">
+            <button class="btn btnPrimary" type="submit">Submit Pilot Application</button>
+            <a class="btn" href="product.html">See what's inside</a>
+          </div>
+
+          <div class="fine">Not legal advice. For legal guidance, consult qualified counsel.</div>
+        </form>
+      </div>
+
+      <footer class="footer">
+        <div>
+          <a href="terms.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="contact.html">Support</a>
+        </div>
+        <div>&copy; <span id="year"></span> CompassLine LLC. All rights reserved.</div>
+      </footer>
+    </div>
+  </section>
+
+  <script src="form-email.js"></script>
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // enforce "at least one checkbox checked"
+    const useCaseRequired = document.getElementById('useCaseRequired');
+    const useCaseChecks = Array.from(document.querySelectorAll('input[type="checkbox"][name="use_cases"]'));
+
+    function syncUseCaseRequired(){
+      const anyChecked = useCaseChecks.some(cb => cb.checked);
+      useCaseRequired.value = anyChecked ? "yes" : "";
+    }
+    useCaseChecks.forEach(cb => cb.addEventListener('change', syncUseCaseRequired));
+    syncUseCaseRequired();
+  </script>
+</body>
+</html>
+

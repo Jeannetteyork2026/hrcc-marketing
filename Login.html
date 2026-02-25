@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <main class="container" style="padding:48px 0;">
+    <h1>Pilot Login</h1>
+    <button class="btn primary" type="button" onclick="netlifyIdentity.open()">Log in</button>
+  </main>
+
+  <script>
+    // This makes invite/reset links actually open the right modal.
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", () => {
+        const h = window.location.hash || "";
+        if (h.includes("invite_token") || h.includes("recovery_token")) {
+          window.netlifyIdentity.open();
+        }
+      });
+      window.netlifyIdentity.init();
+    }
+  </script>
+</body>
+</html>
