@@ -1,29 +1,430 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Login</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HR Compliance Compass</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 48px 20px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .wrap {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .logo {
+      max-width: 200px;
+      margin: 0 auto 24px;
+      display: block;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 24px;
+      color: #0f172a;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      margin-bottom: 24px;
+      color: #475569;
+      font-size: 15px;
+    }
+
+    .panel {
+      margin-top: 16px;
+      padding: 24px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      text-align: left;
+      box-shadow: 0 4px 16px rgba(0,0,0,.06);
+    }
+
+    .field {
+      display: block;
+      margin-bottom: 14px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #334155;
+    }
+
+    .input {
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      font: inherit;
+      color: #0f172a;
+      background: #ffffff;
+    }
+
+    .input:focus {
+      outline: none;
+      border-color: #e67e22;
+      box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.18);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .btn {
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: 0;
+      background: #e67e22;
+      color: #ffffff;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn.secondary {
+      background: #334155;
+    }
+
+    .btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .status {
+      margin-top: 14px;
+      color: #0f172a;
+      min-height: 20px;
+      text-align: left;
+    }
+
+    .subtle {
+      color: #475569;
+    }
+
+    .warn {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #fff7ed;
+      color: #9a3412;
+      text-align: left;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .early-access {
+      margin-top: 24px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+  </style>
 </head>
 <body>
-  <main class="container" style="padding:48px 0;">
-    <h1>Pilot Login</h1>
-    <button class="btn primary" type="button" onclick="netlifyIdentity.open()">Log in</button>
+  <main class="wrap">
+    <img src="/hrcc-logo.png" alt="HR Compliance Compass" class="logo" />
+    <h1>HR Compliance Compass</h1>
+    <p class="subtitle">Access your HR Compliance Compass</p>
+
+    <section id="loginSection" class="panel">
+      <label class="field" for="email">
+        Email
+        <input id="email" class="input" type="email" autocomplete="email" placeholder="name@company.com" />
+      </label>
+
+      <label class="field" for="password">
+        Password
+        <input id="password" class="input" type="password" autocomplete="current-password" placeholder="Password" />
+      </label>
+
+      <div class="actions">
+        <button id="loginBtn" class="btn" type="button">Log in</button>
+        <button id="resetBtn" class="btn secondary" type="button">Send password reset</button>
+      </div>
+    </section>
+
+    <section id="recoverySection" class="panel hidden">
+      <h2>Set new password</h2>
+      <p class="subtle">Your recovery link was verified. Enter a new password below.</p>
+
+      <label class="field" for="newPassword">
+        New password
+        <input id="newPassword" class="input" type="password" autocomplete="new-password" placeholder="New password" />
+      </label>
+
+      <label class="field" for="confirmPassword">
+        Confirm new password
+        <input id="confirmPassword" class="input" type="password" autocomplete="new-password" placeholder="Confirm new password" />
+      </label>
+
+      <div class="actions">
+        <button id="updatePasswordBtn" class="btn" type="button">Update password</button>
+      </div>
+    </section>
+
+    <div id="userInfo" class="status" role="status" aria-live="polite"></div>
+    <div id="status" class="status subtle" role="status" aria-live="polite"></div>
+    <div id="error" class="warn hidden" role="alert"></div>
+
+    <button id="logoutBtn" class="btn secondary hidden" style="margin-top:14px;" type="button">Log out</button>
+
+    <p class="early-access">Currently in early access</p>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    // This makes invite/reset links actually open the right modal.
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", () => {
-        const h = window.location.hash || "";
-        if (h.includes("invite_token") || h.includes("recovery_token")) {
-          window.netlifyIdentity.open();
-        }
-      });
-      window.netlifyIdentity.init();
+    const SUPABASE_URL = "https://xexfhdtkqhyhswpyaiwy.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_FHxZ18wDMPrk8ucrdDmrMg_cLB5udRW";
+
+    const REDIRECT_AFTER_LOGIN = true;
+    const REDIRECT_ONCE_KEY = "hrcc_login_redirected_once";
+
+    const loginSection = document.getElementById("loginSection");
+    const recoverySection = document.getElementById("recoverySection");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const loginBtn = document.getElementById("loginBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const newPasswordInput = document.getElementById("newPassword");
+    const confirmPasswordInput = document.getElementById("confirmPassword");
+    const updatePasswordBtn = document.getElementById("updatePasswordBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const userInfoEl = document.getElementById("userInfo");
+    const statusEl = document.getElementById("status");
+    const errorEl = document.getElementById("error");
+
+    function setStatus(message) {
+      statusEl.textContent = message || "";
     }
+
+    function setError(message) {
+      errorEl.textContent = message || "";
+      errorEl.classList.toggle("hidden", !message);
+    }
+
+    function setUser(user) {
+      if (user && user.email) {
+        userInfoEl.textContent = "Logged in as " + user.email;
+        logoutBtn.classList.remove("hidden");
+      } else {
+        userInfoEl.textContent = "Not logged in.";
+        logoutBtn.classList.add("hidden");
+      }
+    }
+
+    function showLoginMode() {
+      loginSection.classList.remove("hidden");
+      recoverySection.classList.add("hidden");
+    }
+
+    function showRecoveryMode() {
+      loginSection.classList.add("hidden");
+      recoverySection.classList.remove("hidden");
+    }
+
+    function disableButtons(isDisabled) {
+      loginBtn.disabled = isDisabled;
+      resetBtn.disabled = isDisabled;
+      updatePasswordBtn.disabled = isDisabled;
+      logoutBtn.disabled = isDisabled;
+    }
+
+    function redirectToAppOnce() {
+      if (!REDIRECT_AFTER_LOGIN) {
+        return;
+      }
+
+      if (sessionStorage.getItem(REDIRECT_ONCE_KEY) === "1") {
+        return;
+      }
+
+      sessionStorage.setItem(REDIRECT_ONCE_KEY, "1");
+      window.location.assign("/");
+    }
+
+    function validateSupabaseConfig() {
+      if (
+        !SUPABASE_URL ||
+        !SUPABASE_ANON_KEY ||
+        SUPABASE_URL.includes("PASTE_YOUR_SUPABASE_URL_HERE") ||
+        SUPABASE_ANON_KEY.includes("PASTE_YOUR_SUPABASE_ANON_OR_PUBLISHABLE_KEY_HERE")
+      ) {
+        setError("Set SUPABASE_URL and SUPABASE_ANON_KEY in login.html before using this page.");
+        return false;
+      }
+
+      return true;
+    }
+
+    async function init() {
+      if (!window.supabase || typeof window.supabase.createClient !== "function") {
+        setError("Supabase client library failed to load.");
+        return;
+      }
+
+      if (!validateSupabaseConfig()) {
+        return;
+      }
+
+      const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      supabase.auth.onAuthStateChange(function (_event, session) {
+        setUser(session ? session.user : null);
+      });
+
+      const sessionResult = await supabase.auth.getSession();
+      if (sessionResult.error) {
+        setError(sessionResult.error.message);
+      }
+      setUser(sessionResult.data && sessionResult.data.session ? sessionResult.data.session.user : null);
+
+      const url = new URL(window.location.href);
+      const code = url.searchParams.get("code");
+
+      if (code) {
+        showRecoveryMode();
+        setStatus("Verifying recovery link...");
+        setError("");
+
+        const exchangeResult = await supabase.auth.exchangeCodeForSession(code);
+        if (exchangeResult.error) {
+          setError(exchangeResult.error.message);
+          setStatus("Recovery link verification failed.");
+        } else {
+          setStatus("Recovery link verified. Set your new password.");
+          url.searchParams.delete("code");
+          url.searchParams.delete("type");
+          const nextQuery = url.searchParams.toString();
+          const cleanUrl = nextQuery ? url.pathname + "?" + nextQuery : url.pathname;
+          window.history.replaceState({}, document.title, cleanUrl);
+        }
+      } else {
+        showLoginMode();
+      }
+
+      loginBtn.addEventListener("click", async function () {
+        setError("");
+        setStatus("");
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+
+        if (!email || !password) {
+          setError("Enter both email and password.");
+          return;
+        }
+
+        disableButtons(true);
+        const loginResult = await supabase.auth.signInWithPassword({ email: email, password: password });
+        disableButtons(false);
+
+        if (loginResult.error) {
+          setError(loginResult.error.message);
+          return;
+        }
+
+        setUser(loginResult.data && loginResult.data.user ? loginResult.data.user : null);
+        setStatus("Login successful.");
+        redirectToAppOnce();
+      });
+
+      resetBtn.addEventListener("click", async function () {
+        setError("");
+        setStatus("");
+
+        const email = emailInput.value.trim();
+        if (!email) {
+          setError("Enter your email first, then send a reset link.");
+          return;
+        }
+
+        disableButtons(true);
+        const resetResult = await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: new URL("/login.html", window.location.origin).toString(),
+        });
+        disableButtons(false);
+
+        if (resetResult.error) {
+          setError(resetResult.error.message);
+          return;
+        }
+
+        setStatus("Password reset email sent. Check your inbox.");
+      });
+
+      updatePasswordBtn.addEventListener("click", async function () {
+        setError("");
+        setStatus("");
+
+        const newPassword = newPasswordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+
+        if (!newPassword || !confirmPassword) {
+          setError("Enter and confirm your new password.");
+          return;
+        }
+
+        if (newPassword !== confirmPassword) {
+          setError("New password and confirmation do not match.");
+          return;
+        }
+
+        disableButtons(true);
+        const updateResult = await supabase.auth.updateUser({ password: newPassword });
+        disableButtons(false);
+
+        if (updateResult.error) {
+          setError(updateResult.error.message);
+          return;
+        }
+
+        setStatus("Password updated successfully. You can now log in.");
+        newPasswordInput.value = "";
+        confirmPasswordInput.value = "";
+        showLoginMode();
+      });
+
+      logoutBtn.addEventListener("click", async function () {
+        setError("");
+        setStatus("");
+
+        disableButtons(true);
+        const logoutResult = await supabase.auth.signOut();
+        disableButtons(false);
+
+        if (logoutResult.error) {
+          setError(logoutResult.error.message);
+          return;
+        }
+
+        sessionStorage.removeItem(REDIRECT_ONCE_KEY);
+        setUser(null);
+        setStatus("Logged out.");
+      });
+    }
+
+    init().catch(function (error) {
+      setError(error && error.message ? error.message : "Unexpected login page error.");
+    });
   </script>
 </body>
 </html>
