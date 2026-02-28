@@ -1,40 +1,34 @@
 /* eslint-env browser */
 
 (() => {
-  const EMAIL_ENDPOINT = "https://formsubmit.co/ajax/support@hrcompliancecompass.com";
-  const TARGET_FORM_SELECTOR = "form[data-email-support='true']";
+  const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxg-MyKPVdNQnMiV6hzGheP7q-TZmYHT6-sq21Ma-idDDm03wv6ECPqBatT2sj-XohV2A/exec";
   const THANKS_PAGE = "thanks.html";
-  const SENDING_LABEL = "Sending...";
-  const FORWARD_TIMEOUT_MS = 12000;
+  const TARGET_FORM_SELECTOR = "form[data-netlify='true']";
 
   const forms = Array.from(document.querySelectorAll(TARGET_FORM_SELECTOR));
-  if (!forms.length) {
-    return;
-  }
+  if (!forms.length) return;
 
-  async function forwardToSupport(form) {
+  async function sendToSheet(form) {
     const formData = new FormData(form);
-    const formName = (form.getAttribute("name") || "submission").trim();
-    const controller = new AbortController();
-    const timeoutId = window.setTimeout(() => controller.abort(), FORWARD_TIMEOUT_MS);
+    const data = { formName: form.getAttribute("name") || "contact" };
 
-    formData.set("_subject", `HRCC form submission: ${formName}`);
-    formData.set("_template", "table");
-    formData.set("_captcha", "false");
+    formData.forEach((value, key) => {
+      if (key === "bot-field") return;
+      if (data[key]) {
+        // handle multiple checkboxes with same name
+        data[key] = data[key] + ", " + value;
+      } else {
+        data[key] = value;
+      }
+    });
 
-    const response = await fetch(EMAIL_ENDPOINT, {
+    const response = await fetch(GOOGLE_SHEET_URL, {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-      },
-      body: formData,
-      signal: controller.signal,
-    }).finally(() => {
-      window.clearTimeout(timeoutId);
+      body: JSON.stringify(data),
     });
 
     if (!response.ok) {
-      throw new Error(`Email forward failed: ${response.status}`);
+      throw new Error("Sheet post failed: " + response.status);
     }
   }
 
@@ -53,14 +47,14 @@
 
       if (submitButton) {
         submitButton.disabled = true;
-        submitButton.textContent = SENDING_LABEL;
+        submitButton.textContent = "Sending...";
       }
 
       try {
-        await forwardToSupport(form);
+        await sendToSheet(form);
         window.location.href = THANKS_PAGE;
       } catch (error) {
-        console.error(error);
+        console.error("Sheet error, falling back to native submit:", error);
         form.submit();
       } finally {
         if (submitButton) {
