@@ -16,11 +16,10 @@
 
     <style>
         :root {
-            /* Logo-Derived Color Palette */
-            --navy: #1a4a7c;        /* Professional / Serious */
-            --sage: #6b8e6b;        /* Calm / Growth */
-            --orange: #e67e22;      /* Action / Exciting */
-            --teal: #2c9faf;        /* Clarity */
+            --navy: #1a4a7c;
+            --sage: #6b8e6b;
+            --orange: #e67e22;
+            --teal: #2c9faf;
             --bg-light: #f8fafc;
             --text-main: #1e293b;
             --text-muted: #64748b;
@@ -118,10 +117,9 @@
         }
 
         .h1 { font-size: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
-
         .sub { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem; }
 
-        .btnRow { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .btnRow { display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
 
         .btn {
             padding: 12px 28px;
@@ -142,6 +140,23 @@
 
         .btnGhost { border: 2px solid #e2e8f0; color: var(--navy); }
         .btnGhost:hover { background: #f1f5f9; }
+
+        /* Demo nudge line */
+        .demoNudge {
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .demoNudge a {
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .demoNudge a:hover { color: var(--navy); }
 
         /* App Preview Mockup */
         .preview {
@@ -204,6 +219,25 @@
         .pro-list li { margin-bottom: 12px; padding-left: 25px; position: relative; font-size: 0.95rem; }
         .pro-list li::before { content: "\2192"; position: absolute; left: 0; color: var(--orange); font-weight: bold; }
 
+        /* See it first box */
+        .seeItFirst {
+            padding: 2rem;
+            border: 1px dashed #cbd5e1;
+            border-radius: 20px;
+        }
+
+        .seeItFirst h3 { margin-bottom: 0.75rem; }
+
+        .seeItFirst p { margin-bottom: 1.25rem; color: var(--text-muted); }
+
+        .seeItFirst .demoSubtext {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            font-style: italic;
+        }
+
         /* Footer */
         .footer {
             border-top: 1px solid #e2e8f0;
@@ -219,7 +253,7 @@
         @media (max-width: 968px) {
             .heroInner, .grid3, .split { grid-template-columns: 1fr; }
             .h1 { font-size: 2.5rem; }
-            nav { display: none; } /* Simplified for mobile example */
+            nav { display: none; }
         }
     </style>
 </head>
@@ -260,7 +294,13 @@
                         <a class="btn btnPrimary" href="pilot.html">Apply for Pilot</a>
                         <a class="btn btnGhost" href="waitlist.html">Join the Waitlist</a>
                     </div>
-                    <p style="margin-top: -1rem; margin-bottom: 1.5rem;">
+
+                    <!-- Demo nudge — low pressure middle option -->
+                    <p class="demoNudge">
+                        Not ready to commit? <a href="https://meetings-na2.hubspot.com/jeannette-york" target="_blank">Book a 30-minute demo first &rarr;</a>
+                    </p>
+
+                    <p style="margin-bottom: 1.5rem;">
                         <a href="product.html" style="color: var(--navy); font-weight: 600; text-decoration: underline;">See what's inside</a>
                     </p>
 
@@ -338,10 +378,15 @@
                     <p style="color: var(--sage); font-weight: 600;">The Goal: Give honest feedback; build the future of HR.</p>
                 </div>
                 
-                <div style="padding: 2rem; border: 1px dashed #cbd5e1; border-radius: 20px;">
-                    <h3 style="margin-bottom: 1.5rem;">Join the Inner Circle</h3>
-                    <p style="margin-bottom: 2rem;">We are looking for early adopters to dive in weekly and help us refine the workflows that make people leadership feel effortless.</p>
-                    <a class="btn btnPrimary" href="pilot.html" style="width: 100%; text-align: center;">Apply for Pilot Access</a>
+                <div class="seeItFirst">
+                    <h3>Want to see it before you decide?</h3>
+                    <p>Book a 30-minute demo — no commitment, no pitch deck, just a real look at the tool and whether it fits how you work.</p>
+                    <a class="btn btnPrimary" href="https://meetings-na2.hubspot.com/jeannette-york" target="_blank" style="width: 100%; text-align: center; display: block;">Book a Demo &rarr;</a>
+                    <p class="demoSubtext">Tuesdays &amp; Thursdays &bull; 30 minutes &bull; Google Meet</p>
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+                        <p style="margin-bottom: 1rem; font-size: 0.9rem;">Ready to commit?</p>
+                        <a class="btn btnGhost" href="pilot.html" style="width: 100%; text-align: center; display: block;">Apply for Pilot Access</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -361,4 +406,3 @@
     </script>
 </body>
 </html>
-
