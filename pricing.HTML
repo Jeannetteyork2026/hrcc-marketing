@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Pricing | HR Compliance Compass</title>
+  <meta name="description" content="Simple, transparent pricing. Solo HR Pro from $29/month. Small Team from $99/month. 14-day free trial, no surprises."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.png"/>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9CXFF6HMVN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9CXFF6HMVN');
+  </script>
+
+  <style>
+    :root{
+      --navy:#1a4a7c; --sage:#6b8e6b; --orange:#e67e22; --teal:#2c9faf;
+      --bg-light:#f8fafc; --text-main:#1e293b; --text-muted:#64748b;
+      --white:#fff; --border:#e2e8f0;
+      --shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ font-family:'Inter',sans-serif; background:var(--bg-light); color:var(--text-main); line-height:1.6; -webkit-font-smoothing:antialiased; }
+    h1,h2,h3{ font-family:'Plus Jakarta Sans',sans-serif; color:var(--navy); line-height:1.1; }
+    .container{ max-width:1100px; margin:0 auto; padding:0 2rem; }
+
+    /* Nav */
+    .topbar{ background:var(--white); border-bottom:1px solid var(--border); padding:1rem 0; position:sticky; top:0; z-index:1000; }
+    .header{ display:flex; justify-content:space-between; align-items:center; }
+    .brand{ display:flex; align-items:center; text-decoration:none; gap:12px; }
+    .brand img{ height:45px; }
+    .brand .name{ font-weight:800; font-size:1.25rem; color:var(--navy); letter-spacing:-.02em; }
+    .brand .tag{ font-size:.75rem; color:var(--sage); font-weight:600; text-transform:uppercase; letter-spacing:.05em; }
+    nav a{ text-decoration:none; color:var(--text-muted); font-weight:500; font-size:.95rem; margin-left:2rem; transition:color .2s; }
+    nav a:hover{ color:var(--navy); }
+    nav a.active{ color:var(--navy); font-weight:700; }
+    nav a.cta{ color:var(--orange); font-weight:700; }
+
+    /* Hero */
+    .hero{ padding:60px 0 40px; background:radial-gradient(circle at top right, #f1f5f9, #ffffff); border-bottom:1px solid var(--border); text-align:center; }
+    .kicker{ color:var(--teal); font-weight:800; font-size:.85rem; text-transform:uppercase; letter-spacing:.1em; margin-bottom:1rem; }
+    .h1{ font-size:2.75rem; letter-spacing:-.03em; margin-bottom:1rem; }
+    .sub{ font-size:1.1rem; color:var(--text-muted); max-width:600px; margin:0 auto 1.5rem; }
+
+    /* Trial banner */
+    .trial-banner{
+      display:inline-flex; align-items:center; gap:10px;
+      background:#ecfdf5; border:1px solid #6ee7b7; border-radius:999px;
+      padding:.5rem 1.25rem; font-size:.9rem; color:#065f46; font-weight:600;
+      margin-bottom:0.5rem;
+    }
+    .trial-banner .dot{ width:8px; height:8px; border-radius:50%; background:#10b981; flex-shrink:0; }
+
+    .attorney-line{
+      font-size:.85rem; color:var(--text-muted); margin-top:.5rem; font-style:italic;
+    }
+
+    /* Toggle */
+    .toggle-wrap{ display:flex; justify-content:center; align-items:center; gap:12px; margin:2rem 0 0; }
+    .toggle-label{ font-size:.95rem; font-weight:600; color:var(--text-muted); }
+    .toggle-label.active{ color:var(--navy); }
+    .toggle-track{
+      position:relative; width:52px; height:28px;
+      background:#e2e8f0; border-radius:999px; cursor:pointer;
+      transition:background .2s;
+    }
+    .toggle-track.on{ background:var(--teal); }
+    .toggle-thumb{
+      position:absolute; top:3px; left:3px;
+      width:22px; height:22px; border-radius:50%; background:#fff;
+      transition:transform .2s; box-shadow:0 1px 3px rgba(0,0,0,.2);
+    }
+    .toggle-track.on .toggle-thumb{ transform:translateX(24px); }
+    .save-badge{
+      background:#fef3c7; color:#92400e; font-size:.75rem; font-weight:700;
+      padding:.2rem .6rem; border-radius:999px; margin-left:4px;
+    }
+
+    /* Plans grid */
+    .section{ padding:50px 0 60px; }
+    .plans{ display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:860px; margin:0 auto; }
+
+    .plan-card{
+      background:var(--white); border-radius:20px; box-shadow:var(--shadow);
+      border:2px solid var(--border); padding:2.25rem;
+      display:flex; flex-direction:column;
+    }
+    .plan-card.featured{
+      border-color:var(--teal);
+      position:relative;
+    }
+    .featured-tag{
+      position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+      background:var(--teal); color:#fff; font-size:.75rem; font-weight:800;
+      padding:.3rem .9rem; border-radius:999px; white-space:nowrap;
+      text-transform:uppercase; letter-spacing:.06em;
+    }
+
+    .plan-name{ font-size:1.1rem; font-weight:800; color:var(--navy); margin-bottom:.35rem; }
+    .plan-desc{ font-size:.9rem; color:var(--text-muted); margin-bottom:1.25rem; line-height:1.5; }
+
+    .price-block{ margin-bottom:1.5rem; }
+    .price-main{ font-size:2.75rem; font-weight:900; color:var(--navy); letter-spacing:-.03em; line-height:1; }
+    .price-period{ font-size:1rem; font-weight:600; color:var(--text-muted); }
+    .price-alt{ font-size:.85rem; color:var(--text-muted); margin-top:.35rem; }
+    .price-alt a{ color:var(--teal); font-weight:600; text-decoration:none; }
+    .price-alt a:hover{ text-decoration:underline; }
+
+    .feature-list{ list-style:none; margin-bottom:1.75rem; flex:1; }
+    .feature-list li{
+      padding:.45rem 0; border-bottom:1px solid #f1f5f9;
+      font-size:.92rem; color:var(--text-main);
+      display:flex; align-items:flex-start; gap:10px;
+    }
+    .feature-list li:last-child{ border-bottom:none; }
+    .check{ color:var(--teal); font-weight:900; flex-shrink:0; margin-top:1px; }
+
+    .btn-plan{
+      display:block; text-align:center; padding:14px 24px;
+      border-radius:10px; text-decoration:none; font-weight:800;
+      font-size:1rem; transition:all .2s;
+    }
+    .btn-primary-plan{
+      background:var(--orange); color:#fff;
+      box-shadow:0 4px 14px rgba(230,126,34,.35);
+    }
+    .btn-primary-plan:hover{ transform:translateY(-2px); box-shadow:0 6px 20px rgba(230,126,34,.25); }
+    .btn-ghost-plan{
+      background:transparent; color:var(--navy);
+      border:2px solid var(--border);
+    }
+    .btn-ghost-plan:hover{ border-color:var(--navy); background:#f8fafc; }
+
+    .trial-note{ font-size:.8rem; color:var(--text-muted); text-align:center; margin-top:.75rem; }
+
+    /* Consultant band */
+    .consultant-band{
+      background:#1e293b; border-radius:20px; padding:2.5rem;
+      max-width:860px; margin:0 auto 16px;
+      display:grid; grid-template-columns:1.4fr .6fr; gap:24px; align-items:center;
+    }
+    .consultant-band h3{ color:#fff; font-size:1.35rem; margin-bottom:.5rem; }
+    .consultant-band p{ color:#94a3b8; font-size:.95rem; line-height:1.6; }
+    .btn-consultant{
+      display:block; text-align:center; padding:14px 24px;
+      border-radius:10px; text-decoration:none; font-weight:800;
+      background:var(--orange); color:#fff;
+      box-shadow:0 4px 14px rgba(230,126,34,.35);
+    }
+    .btn-consultant:hover{ transform:translateY(-2px); }
+
+    /* Reassurance */
+    .reassurance{
+      display:flex; justify-content:center; gap:2rem; flex-wrap:wrap;
+      max-width:860px; margin:2rem auto 0; padding-top:1.5rem;
+      border-top:1px solid var(--border);
+    }
+    .reassurance-item{ display:flex; align-items:center; gap:8px; font-size:.88rem; color:var(--text-muted); }
+    .reassurance-item .icon{ font-size:1rem; }
+
+    /* Footer */
+    .footer{ border-top:1px solid var(--border); padding:40px 0; display:flex; justify-content:space-between; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:12px; }
+    .footer a{ color:var(--text-muted); text-decoration:none; margin-right:15px; }
+    .footer a:hover{ color:var(--navy); }
+
+    @media(max-width:760px){
+      .plans{ grid-template-columns:1fr; }
+      .consultant-band{ grid-template-columns:1fr; }
+      .h1{ font-size:2.1rem; }
+      nav a{ margin-left:1rem; }
+      .reassurance{ gap:1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container header">
+      <a class="brand" href="index.html">
+        <img src="assets/hrcc-compass-icon.png" alt="HR Compliance Compass logo"/>
+        <div class="lines">
+          <div class="name">CompassLine</div>
+          <div class="tag">Built by HR, for HR</div>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="product.html">Product</a>
+        <a class="active" href="pricing.html">Pricing</a>
+        <a href="pilot.html">Pilot</a>
+        <a href="waitlist.html">Waitlist</a>
+        <a href="faq.html">FAQ</a>
+        <a class="cta" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">Pricing</div>
+      <h1 class="h1">Simple pricing — no surprises</h1>
+      <p class="sub">Everything you need to make confident, people-first HR decisions. Less than one hour of attorney fees per month.</p>
+
+      <div class="trial-banner">
+        <span class="dot"></span>
+        14-day free trial on all plans &mdash; cancel before day 14 and you won't be charged
+      </div>
+      <p class="attorney-line">Credit card required to start trial &bull; No surprise charges &bull; Cancel anytime</p>
+      <p class="attorney-line" style="margin-top:.4rem;">Early customers get our founding rate locked for 2 years. As the platform grows, pricing will increase — but not for you.</p>
+
+      <!-- Annual / Monthly toggle -->
+      <div class="toggle-wrap">
+        <span class="toggle-label active" id="label-monthly">Monthly</span>
+        <div class="toggle-track" id="billing-toggle" onclick="toggleBilling()">
+          <div class="toggle-thumb"></div>
+        </div>
+        <span class="toggle-label" id="label-annual">Annual <span class="save-badge">Save ~$100</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="plans">
+
+        <!-- Solo HR Pro -->
+        <div class="plan-card">
+          <div class="plan-name">Solo HR Pro</div>
+          <div class="plan-desc">For solo HR practitioners, fractional HR consultants, and HR professionals who need fast, reliable guidance on their own.</div>
+
+          <div class="price-block">
+            <div>
+              <span class="price-main" id="solo-price">$29</span>
+              <span class="price-period" id="solo-period">/month</span>
+            </div>
+            <div class="price-alt" id="solo-alt">Or <a href="https://buy.stripe.com/5kQ28ke98btObfrae4bZe0j" id="solo-alt-link">save with annual — $249/year</a></div>
+          </div>
+
+          <ul class="feature-list">
+            <li><span class="check">✓</span> 50-state employment law guidance</li>
+            <li><span class="check">✓</span> Plain-English compliance answers</li>
+            <li><span class="check">✓</span> People-first talk tracks</li>
+            <li><span class="check">✓</span> Investigation &amp; performance support</li>
+            <li><span class="check">✓</span> Templates + checklists</li>
+            <li><span class="check">✓</span> Compliance Wizard</li>
+            <li><span class="check">✓</span> Direct email support — answered personally by Jeannette, 15+ year HR practitioner</li>
+            <li><span class="check">✓</span> Founding rate locked for 2 years</li>
+          </ul>
+          <p style="font-size:.78rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.5;">Support covers product use. HR consulting engagements available separately.</p>
+
+          <a class="btn-plan btn-ghost-plan" href="https://buy.stripe.com/3cIbIU3uu55q0ANae4bZe0i" id="solo-btn">Start free trial</a>
+          <p class="trial-note">14 days free &bull; then $29/month</p>
+        </div>
+
+        <!-- Small Team -->
+        <div class="plan-card featured">
+          <div class="featured-tag">Most popular for companies</div>
+          <div class="plan-name">Small Team</div>
+          <div class="plan-desc">For small businesses, operations managers, and companies without a dedicated HR department who need ongoing compliance support.</div>
+
+          <div class="price-block">
+            <div>
+              <span class="price-main" id="team-price">$99</span>
+              <span class="price-period" id="team-period">/month</span>
+            </div>
+            <div class="price-alt" id="team-alt">Or <a href="https://buy.stripe.com/3cI3co7KK1TefvH85WbZe0l" id="team-alt-link">save with annual — $999/year</a></div>
+          </div>
+
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Everything in Solo HR Pro</li>
+            <li><span class="check">✓</span> Up to 3 team members</li>
+            <li><span class="check">✓</span> Priority support — direct access to Jeannette</li>
+            <li><span class="check">✓</span> Early access to new features</li>
+            <li><span class="check">✓</span> Shape the product roadmap</li>
+            <li><span class="check">✓</span> Founding rate locked for 2 years</li>
+          </ul>
+          <p style="font-size:.78rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.5;">Support covers product use. HR consulting engagements available separately.</p>
+
+          <a class="btn-plan btn-primary-plan" href="https://buy.stripe.com/fZu00cfdceG097j4TKbZe0k" id="team-btn">Start free trial</a>
+          <p class="trial-note">14 days free &bull; then $99/month</p>
+        </div>
+
+      </div>
+
+      <!-- Reassurance row -->
+      <div class="reassurance">
+        <div class="reassurance-item"><span class="icon">🔒</span> Secure checkout via Stripe</div>
+        <div class="reassurance-item"><span class="icon">📅</span> Cancel anytime — no contracts</div>
+        <div class="reassurance-item"><span class="icon">⚖️</span> Not a substitute for legal advice</div>
+        <div class="reassurance-item"><span class="icon">✉️</span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fe8d8b8e8e918c8abe968c9d91938e92979f909d9b9d91938e9f8d8dd09d9193">[email&#160;protected]</a></div>
+      </div>
+
+      <div style="height:50px;"></div>
+
+      <!-- Consultant / Partner band -->
+      <div class="consultant-band">
+        <div>
+          <h3>HR consultant or partner?</h3>
+          <p>Discounts available for HR consultants, fractional HR providers, recruiting firms, and community partners. Verification required. Contact us to discuss partner pricing.</p>
+        </div>
+        <div>
+          <a class="btn-consultant" href="contact.html">Request discount &rarr;</a>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div>
+          <a href="terms.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="contact.html">Support</a>
+        </div>
+        <div>&copy; <span id="year"></span> CompassLine LLC. All rights reserved.</div>
+      </footer>
+    </div>
+  </section>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    let isAnnual = false;
+
+    const soloLinks = {
+      monthly: 'https://buy.stripe.com/3cIbIU3uu55q0ANae4bZe0i',
+      annual:  'https://buy.stripe.com/5kQ28ke98btObfrae4bZe0j'
+    };
+    const teamLinks = {
+      monthly: 'https://buy.stripe.com/fZu00cfdceG097j4TKbZe0k',
+      annual:  'https://buy.stripe.com/3cI3co7KK1TefvH85WbZe0l'
+    };
+
+    function toggleBilling() {
+      isAnnual = !isAnnual;
+      const track = document.getElementById('billing-toggle');
+      track.classList.toggle('on', isAnnual);
+
+      document.getElementById('label-monthly').classList.toggle('active', !isAnnual);
+      document.getElementById('label-annual').classList.toggle('active', isAnnual);
+
+      if (isAnnual) {
+        document.getElementById('solo-price').textContent = '$249';
+        document.getElementById('solo-period').textContent = '/year';
+        document.getElementById('solo-alt').innerHTML = 'Or <a href="' + soloLinks.monthly + '">go monthly — $29/month</a>';
+        document.getElementById('solo-btn').href = soloLinks.annual;
+        document.querySelector('#solo-btn + .trial-note').textContent = '14 days free • then $249/year';
+
+        document.getElementById('team-price').textContent = '$999';
+        document.getElementById('team-period').textContent = '/year';
+        document.getElementById('team-alt').innerHTML = 'Or <a href="' + teamLinks.monthly + '">go monthly — $99/month</a>';
+        document.getElementById('team-btn').href = teamLinks.annual;
+        document.querySelector('#team-btn + .trial-note').textContent = '14 days free • then $999/year';
+      } else {
+        document.getElementById('solo-price').textContent = '$29';
+        document.getElementById('solo-period').textContent = '/month';
+        document.getElementById('solo-alt').innerHTML = 'Or <a href="' + soloLinks.annual + '">save with annual — $249/year</a>';
+        document.getElementById('solo-btn').href = soloLinks.monthly;
+        document.querySelector('#solo-btn + .trial-note').textContent = '14 days free • then $29/month';
+
+        document.getElementById('team-price').textContent = '$99';
+        document.getElementById('team-period').textContent = '/month';
+        document.getElementById('team-alt').innerHTML = 'Or <a href="' + teamLinks.annual + '">save with annual — $999/year</a>';
+        document.getElementById('team-btn').href = teamLinks.monthly;
+        document.querySelector('#team-btn + .trial-note').textContent = '14 days free • then $99/month';
+      }
+    }
+  </script>
+</body>
+</html>

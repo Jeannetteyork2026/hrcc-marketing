@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Stay Informed | HR Compliance Compass</title>
+  <meta name="description" content="Not ready to start your free trial yet? Stay informed on HR law changes, new features, and practical HR guidance from HR Compliance Compass."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.png"/>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9CXFF6HMVN"></script>
   <script>
@@ -9,15 +17,6 @@
     gtag('js', new Date());
     gtag('config', 'G-9CXFF6HMVN');
   </script>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Waitlist | HR Compliance Compass</title>
-  <meta name="description" content="Join the HR Compliance Compass waitlist for launch updates, early access announcements, and plain-English HR law changes."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/favicon.png"/>
-
   <style>
     :root{ --navy:#1a4a7c; --sage:#6b8e6b; --orange:#e67e22; --teal:#2c9faf; --bg-light:#f8fafc; --text-main:#1e293b; --text-muted:#64748b; --white:#fff; --border:#e2e8f0; --shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05); }
     *{ box-sizing:border-box; margin:0; padding:0; }
@@ -36,56 +35,41 @@
     nav a.active{ color:var(--navy); font-weight:700; }
     nav a.cta{ color:var(--orange); font-weight:700; }
 
-    .hero{ padding:64px 0 30px; background: radial-gradient(circle at top right, #f1f5f9, #ffffff); border-bottom:1px solid var(--border); }
+    .hero{ padding:64px 0 30px; background:radial-gradient(circle at top right, #f1f5f9, #ffffff); border-bottom:1px solid var(--border); }
     .kicker{ color:var(--teal); font-weight:800; font-size:.85rem; text-transform:uppercase; letter-spacing:.1em; margin-bottom:1rem; }
     .h1{ font-size:3rem; letter-spacing:-.03em; margin-bottom:1rem; }
-    .sub{ font-size:1.1rem; color:var(--text-muted); max-width:920px; }
+    .sub{ font-size:1.1rem; color:var(--text-muted); max-width:860px; line-height:1.7; }
+
+    .trial-nudge{ margin-top:18px; padding:14px 18px; background:#ecfdf5; border:1px solid #6ee7b7; border-radius:12px; font-size:.92rem; color:#065f46; }
+    .trial-nudge a{ color:#059669; font-weight:700; text-decoration:underline; text-underline-offset:2px; }
 
     .section{ padding:60px 0; }
-    .split{ display:grid; grid-template-columns: 0.95fr 1.05fr; gap: 28px; align-items:start; }
+    .split{ display:grid; grid-template-columns:0.95fr 1.05fr; gap:28px; align-items:start; }
     .panel{ background:var(--white); border-radius:20px; box-shadow:var(--shadow); border:1px solid #f1f5f9; padding:2rem; }
 
-    .list{ list-style:none; margin-top: 10px; }
-    .list li{ margin:10px 0; padding-left:22px; position:relative; color:var(--text-muted); }
-    .list li::before{ content:"?"; position:absolute; left:0; color:var(--teal); font-weight:900; }
+    .benefit-list{ list-style:none; margin-top:10px; }
+    .benefit-list li{ margin:12px 0; padding-left:24px; position:relative; color:var(--text-muted); font-size:.95rem; line-height:1.5; }
+    .benefit-list li::before{ content:"✓"; position:absolute; left:0; color:var(--teal); font-weight:900; }
 
     label{ display:block; font-weight:800; margin:14px 0 6px; color:var(--navy); }
     .req{ color:var(--orange); }
-    input, select, textarea{
-      width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border);
-      background:#fff; font-size:1rem; outline:none;
-    }
-    textarea{ min-height:130px; resize:vertical; }
-    input:focus, select:focus, textarea:focus{
-      border-color: rgba(44,159,175,.6);
-      box-shadow: 0 0 0 4px rgba(44,159,175,.12);
-    }
+    input, select, textarea{ width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:#fff; font-size:1rem; outline:none; font-family:inherit; }
+    textarea{ min-height:110px; resize:vertical; }
+    input:focus, select:focus, textarea:focus{ border-color:rgba(44,159,175,.6); box-shadow:0 0 0 4px rgba(44,159,175,.12); }
 
-    .btnRow{ display:flex; gap: 12px; flex-wrap:wrap; margin-top: 18px; }
-    .btn{
-      padding: 12px 22px; border-radius: 10px; text-decoration:none; font-weight:800;
-      transition:all .2s; display:inline-block; border:2px solid var(--border); color:var(--navy);
-      background: transparent;
-      cursor:pointer;
-    }
-    .btnPrimary{
-      background: var(--orange); color:#fff; border-color: transparent;
-      box-shadow: 0 4px 14px 0 rgba(230,126,34,.35);
-    }
-    .btnPrimary:hover{ transform: translateY(-2px); box-shadow: 0 6px 20px rgba(230,126,34,.23); }
-    .fine{ margin-top: 12px; color: var(--text-muted); font-size:.85rem; font-style: italic; }
+    .btnRow{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
+    .btn{ padding:12px 22px; border-radius:10px; text-decoration:none; font-weight:800; transition:all .2s; display:inline-block; border:2px solid var(--border); color:var(--navy); background:transparent; cursor:pointer; font-family:inherit; }
+    .btnPrimary{ background:var(--orange); color:#fff; border-color:transparent; box-shadow:0 4px 14px 0 rgba(230,126,34,.35); }
+    .btnPrimary:hover{ transform:translateY(-2px); box-shadow:0 6px 20px rgba(230,126,34,.23); }
+    .fine{ margin-top:12px; color:var(--text-muted); font-size:.85rem; font-style:italic; }
 
     .footer{ border-top:1px solid var(--border); padding:40px 0; display:flex; justify-content:space-between; color:var(--text-muted); font-size:.85rem; flex-wrap:wrap; gap:12px; }
     .footer a{ color:var(--text-muted); text-decoration:none; margin-right:15px; }
     .footer a:hover{ color:var(--navy); }
 
-    @media (max-width: 968px){
-      .split{ grid-template-columns: 1fr; }
-      .h1{ font-size:2.35rem; }
-    }
+    @media (max-width:968px){ .split{ grid-template-columns:1fr; } .h1{ font-size:2.35rem; } }
   </style>
 </head>
-
 <body>
   <div class="topbar">
     <div class="container header">
@@ -100,7 +84,6 @@
         <a href="product.html">Product</a>
         <a href="pricing.html">Pricing</a>
         <a href="pilot.html">Pilot</a>
-        <a class="active" href="waitlist.html" aria-current="page">Waitlist</a>
         <a href="faq.html">FAQ</a>
         <a class="cta" href="contact.html">Contact</a>
       </nav>
@@ -109,11 +92,14 @@
 
   <section class="hero">
     <div class="container">
-      <div class="kicker">Launch updates</div>
-      <h1 class="h1">Join the waitlist</h1>
+      <div class="kicker">Stay informed</div>
+      <h1 class="h1">Not ready yet? Stay in the loop.</h1>
       <p class="sub">
-        Get launch updates, early access announcements, and occasional plain-English HR law changes.
+        Sign up to get plain-English HR law updates, new feature announcements, and practical guidance — no spam, no pressure, just useful stuff when it matters.
       </p>
+      <div class="trial-nudge">
+        Ready to try it now? <a href="https://buy.stripe.com/3cIbIU3uu55q0ANae4bZe0i">Start your 14-day free trial — no commitment &rarr;</a>
+      </div>
     </div>
   </section>
 
@@ -121,36 +107,38 @@
     <div class="container">
       <div class="split">
         <div class="panel">
-          <h2 style="font-size:1.5rem; margin-bottom:10px;">What you'll get</h2>
-          <ul class="list">
-            <li>Launch updates so you know when new releases ship.</li>
-            <li>Early access announcements for pilot and feature drops.</li>
-            <li>Occasional plain-English HR law changes, no spam.</li>
+          <h2 style="font-size:1.5rem; margin-bottom:12px;">What you'll get</h2>
+          <ul class="benefit-list">
+            <li>Plain-English summaries of employment law changes that actually affect you — no legal jargon.</li>
+            <li>New feature announcements as the platform grows.</li>
+            <li>Practical HR guidance for real situations — terminations, leave, investigations, performance.</li>
+            <li>No spam. Unsubscribe anytime. We respect your inbox.</li>
           </ul>
-          <p style="margin-top:16px; color:var(--text-muted);">
-            Want to apply now?
-            <a href="pilot.html" style="color:var(--navy); font-weight:700; text-decoration:none;">Go to the pilot application ?</a>
-          </p>
+
+          <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--border);">
+            <p style="font-size:.92rem; color:var(--text-muted); margin-bottom:12px;">Want more than updates?</p>
+            <a href="pricing.html" style="display:block; text-align:center; padding:12px 20px; background:var(--orange); color:#fff; border-radius:10px; font-weight:800; text-decoration:none; font-size:.95rem; box-shadow:0 4px 14px rgba(230,126,34,.35);">Start free trial — $29/month after &rarr;</a>
+            <p style="text-align:center; margin-top:8px; font-size:.8rem; color:var(--text-muted);">14 days free &bull; Cancel anytime</p>
+            <a href="pilot.html" style="display:block; text-align:center; margin-top:10px; font-size:.88rem; color:var(--navy); font-weight:700; text-decoration:underline; text-underline-offset:2px;">Apply for discounted pilot access instead</a>
+          </div>
         </div>
 
         <div class="panel">
           <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-email-support="true" action="thanks.html">
             <input type="hidden" name="form-name" value="waitlist">
-            <p style="display:none;">
-              <label>Don't fill this out: <input name="bot-field"></label>
-            </p>
+            <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
 
             <label for="name">Name</label>
-            <input id="name" name="name" autocomplete="name">
+            <input id="name" name="name" autocomplete="name" placeholder="Your name">
 
             <label for="email">Email <span class="req">*</span></label>
-            <input id="email" name="email" type="email" required autocomplete="email">
+            <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@company.com">
 
             <label for="role">Role</label>
             <select id="role" name="role">
-              <option value="" selected>Optional</option>
+              <option value="" selected>Optional — select your role</option>
               <option>HR professional</option>
-              <option>HR consultant</option>
+              <option>HR consultant / fractional HR</option>
               <option>Small business owner</option>
               <option>People manager</option>
               <option>People Ops / operations</option>
@@ -160,14 +148,13 @@
             <label for="state">State</label>
             <input id="state" name="state" placeholder="Example: OH">
 
-            <label for="notes">Notes</label>
-            <textarea id="notes" name="notes" placeholder="Anything you want us to know before launch."></textarea>
+            <label for="notes">Anything you want us to know?</label>
+            <textarea id="notes" name="notes" placeholder="What you're dealing with, what would be useful, what you're hoping for..."></textarea>
 
             <div class="btnRow">
-              <button class="btn btnPrimary" type="submit">Join waitlist</button>
-              <a class="btn" href="pilot.html">Apply for Pilot</a>
+              <button class="btn btnPrimary" type="submit">Keep me informed</button>
             </div>
-            <div class="fine">We only send useful updates about launch, early access, and practical HR guidance.</div>
+            <div class="fine">We only send useful updates about HR law changes, new features, and practical guidance.</div>
           </form>
         </div>
       </div>
@@ -178,12 +165,12 @@
           <a href="privacy.html">Privacy</a>
           <a href="contact.html">Support</a>
         </div>
-        <div>� <span id="year"></span> CompassLine LLC. All rights reserved.</div>
+        <div>&copy; <span id="year"></span> CompassLine LLC. All rights reserved.</div>
       </footer>
     </div>
   </section>
 
-    <script src="form-email.js"></script>
+  <script src="form-email.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
