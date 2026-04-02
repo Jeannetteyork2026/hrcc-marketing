@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9CXFF6HMVN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9CXFF6HMVN');
-  </script>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Pilot | HR Compliance Compass</title>
@@ -180,7 +172,7 @@
       <h1 class="h1">Apply for invite-only pilot access</h1>
       <p class="sub">
         I'm running a pilot with people who will use this regularly and give honest feedback.
-        If accepted, pilot pricing is discounted (25%&ndash;50% off) based on participation tier &mdash; and it requires consistent use + feedback.
+        If accepted, pilot access is <strong>$20/month</strong> &mdash; and it requires consistent use + feedback.
         Being detailed helps me pick the right pilot group.
       </p>
       <p class="sub" style="margin-top:10px; font-style: italic;">
@@ -197,34 +189,15 @@
           <a href="waitlist.html" style="color: var(--navy); font-weight: 700; text-decoration: none;">Join the waitlist &rarr;</a>
         </p>
 
-        <h2 style="font-size:1.5rem;">Pilot participation tiers</h2>
-        <div class="tierGrid">
-          <div class="tierBlock">
-            <h3>Explorer &mdash; 25% off</h3>
-            <ul>
-              <li>self-attested weekly use</li>
-              <li>1 monthly check-in form (3 minutes)</li>
-            </ul>
-          </div>
-          <div class="tierBlock">
-            <h3>Builder &mdash; 35% off</h3>
-            <ul>
-              <li>self-attested 2x/week use</li>
-              <li>1 monthly 20-minute feedback call</li>
-              <li>2 feedback submissions/month (form or email)</li>
-            </ul>
-          </div>
-          <div class="tierBlock">
-            <h3>Founding Partner &mdash; 50% off</h3>
-            <ul>
-              <li>self-attested 3x/week use</li>
-              <li>2 monthly 20-minute calls</li>
-              <li>4 feedback submissions/month (form or email)</li>
-              <li>testimonial/quote optional</li>
-            </ul>
-          </div>
+        <h2 style="font-size:1.5rem;">Pilot pricing</h2>
+        <div class="tierBlock" style="max-width:400px; margin: 16px 0;">
+          <h3 style="font-size:1.25rem;">$20 / month</h3>
+          <ul>
+            <li>Full access during the pilot period</li>
+            <li>Regular use + honest feedback required</li>
+            <li>Acceptance is invite-only &mdash; details confirmed by email</li>
+          </ul>
         </div>
-        <p class="tierNotes">Discount level is confirmed in your acceptance email and may be adjusted only at renewal or by mutual agreement.</p>
         <p class="tierNotes">Feedback submissions are tracked via the Contact form (Topic: Pilot feedback) or by emailing support@hrcompliancecompass.com with subject starting [HRCC Feedback].</p>
 
         <form name="pilot-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-email-support="true" action="thanks.html">
@@ -282,32 +255,6 @@
             </div>
           </div>
 
-          <div class="radioGroup">
-            <label style="margin-top:0;">Choose your participation tier <span class="req">*</span></label>
-            <div class="hint">This tier selection is required with your application.</div>
-
-            <label class="radioRow">
-              <input type="radio" name="participation_tier" value="Explorer (25%)" required/>
-              <div>
-                <strong>Explorer (25%)</strong>
-              </div>
-            </label>
-
-            <label class="radioRow">
-              <input type="radio" name="participation_tier" value="Builder (35%)" required/>
-              <div>
-                <strong>Builder (35%)</strong>
-              </div>
-            </label>
-
-            <label class="radioRow">
-              <input type="radio" name="participation_tier" value="Founding Partner (50%)" required/>
-              <div>
-                <strong>Founding Partner (50%)</strong>
-              </div>
-            </label>
-          </div>
-
           <div class="checkZone">
             <label style="margin-top:0;">How will you use this product? <span class="req">*</span></label>
             <div class="hint">Choose at least one. Real use = real feedback.</div>
@@ -347,18 +294,6 @@
               </div>
             </label>
           </div>
-          <label for="about">How did you hear about us?  <span class="req">*</span></label>
-          <textarea id="about" name="about" required placeholder="Role, experience level, your current HR responsibilities, what's hard right now..."></textarea>
-
-          <label for="about">Tell me about yourself <span class="req">*</span></label>
-          <textarea id="about" name="about" required placeholder="Role, experience level, your current HR responsibilities, what's hard right now..."></textarea>
-
-          <label for="interest">What interests you in this product? <span class="req">*</span></label>
-          <textarea id="interest" name="interest" required placeholder="What problem are you hoping this solves?"></textarea>
-
-          <label for="howUse">How will you use this product? <span class="req">*</span></label>
-          <textarea id="howUse" name="how_will_use" required placeholder="Be specific: how often, what scenarios, which modules, what &quot;regular use&quot; means for you..."></textarea>
-
           <div class="formGrid">
             <div>
               <label for="freq">Expected usage frequency <span class="req">*</span></label>
@@ -372,13 +307,10 @@
               </select>
             </div>
             <div>
-              <label for="tools">What do you use today? <span class="req">*</span></label>
-              <input id="tools" name="current_tools" required placeholder="Examples: SHRM, DOL sites, attorney, HRIS, handbook tools..."/>
+              <label for="hearAbout">How did you hear about us? <span class="req">*</span></label>
+              <input id="hearAbout" name="hear_about" required placeholder="LinkedIn, colleague, HR community, other..."/>
             </div>
           </div>
-
-          <label for="feedback">If accepted, what feedback can you commit to? <span class="req">*</span></label>
-          <textarea id="feedback" name="feedback_commitment" required placeholder="Examples: 10 minutes weekly, monthly call, screenshots, bugs, feature requests..."></textarea>
 
           <div class="checkZone">
             <label style="margin-top:0;">Pilot commitment <span class="req">*</span></label>
@@ -394,8 +326,8 @@
             <label class="checkRow">
               <input type="checkbox" name="commit_discount" required/>
               <div>
-                <strong>I understand pilot pricing is engagement-based (25%&ndash;50% off) and depends on my participation tier.</strong>
-                <span>Discount level is confirmed at acceptance.</span>
+                <strong>I understand pilot access is $20/month and depends on my participation.</strong>
+                <span>Pricing and access details are confirmed at acceptance.</span>
               </div>
             </label>
 
@@ -446,4 +378,3 @@
   </script>
 </body>
 </html>
-
