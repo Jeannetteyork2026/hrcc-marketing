@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Contact | HR Compliance Compass</title>
+  <link rel="icon" href="/assets/favicon.png"/>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+  <div class="topbar">
+    <div class="header">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="HR Compliance Compass logo"/>
+        <div class="lines">
+          <div class="name">CompassLine</div>
+          <div class="tag">Contact</div>
+        </div>
+      </a>
+      <button class="mobileBtn" data-nav-toggle aria-label="Open menu">Menu</button>
+      <nav class="nav" data-nav>
+        <a href="/product.html">Product</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/pilot.html">Pilot</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">    <h1 class="pageTitle">Contact</h1>
+    <p class="pageLead">Want early access, partnership info, or a quick demo?</p>
+
+    <div class="panel">
+      <p class="lead" style="margin:0;">
+        Email: <a href="mailto:support@hrcompliancecompass.com"><strong>support@hrcompliancecompass.com</strong></a>
+      </p>
+ 
+     <p class="fine">If you’re requesting pilot access, use the Pilot page so I can evaluate fit.</p>
+
+      <div class="btnRow" style="margin-top:16px;">
+        <a class="btn btnPrimary" href="/pilot.html">Request pilot access</a>
+        <a class="btn" href="/product.html">Product</a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div><a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a></div>
+      <div>© <span id="year"></span> CompassLine LLC. All rights reserved.</div>
+    </footer>
+  </div>
+
+  <script src="/site.js"></script>
+</body>
+</html>

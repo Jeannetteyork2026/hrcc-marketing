@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Pilot Access | HR Compliance Compass</title>
+  <meta name="description" content="Request invite-only pilot access. Regular use + regular feedback required."/>
+  <link rel="icon" href="/assets/favicon.png"/>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="header">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="HR Compliance Compass logo"/>
+        <div class="lines">
+          <div class="name">CompassLine</div>
+          <div class="tag">Pilot request • built by HR, for HR</div>
+        </div>
+      </a>
+
+      <button class="mobileBtn" data-nav-toggle aria-label="Open menu">Menu</button>
+      <nav class="nav" data-nav>
+        <a href="/product.html">Product</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/pilot.html">Pilot</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1 class="pageTitle">Request pilot access</h1>
+    <p class="pageLead">
+      I’m running a pilot with people who will use HR Compliance Compass regularly and give real feedback.
+      If accepted, pilot pricing is <strong>50% off</strong> — and in return I’m asking for <strong>consistent use + consistent feedback</strong>.
+      The more detail you provide, the easier it is to select the right pilot group.
+    </p>
+
+    <div class="panel">
+      <form name="pilot-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+        <input type="hidden" name="form-name" value="pilot-request"/>
+        <p style="display:none;">
+          <label>Don’t fill this out: <input name="bot-field"/></label>
+        </p>
+
+        <div class="formGrid">
+          <div>
+            <label for="name">Full name <span class="req">*</span></label>
+            <input id="name" name="name" required autocomplete="name"/>
+          </div>
+
+          <div>
+            <label for="email">Work email <span class="req">*</span></label>
+            <input id="email" type="email" name="email" required autocomplete="email"/>
+          </div>
+
+          <div>
+            <label for="company">Company <span class="req">*</span>
+              <span class="hint">Not optional — usage context matters for pilot selection.</span>
+            </label>
+            <input id="company" name="company" required/>
+          </div>
+
+          <div>
+            <label for="role">Which best describes you? <span class="req">*</span></label>
+            <select id="role" name="role" required>
+              <option value="" selected disabled>Select one</option>
+              <option>New HR / early-career HR</option>
+              <option>Seasoned HR / HR leader</option>
+              <option>HR Consultant</option>
+              <option>Small business owner (doing HR)</option>
+              <option>Manager / People leader (HR-adjacent)</option>
+              <option>Operations / Admin supporting HR</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="orgsize">Company size <span class="req">*</span></label>
+            <select id="orgsize" name="company_size" required>
+              <option value="" selected disabled>Select one</option>
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>201–1,000</option>
+              <option>1,000+</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="states">Primary state(s) you work in <span class="req">*</span></label>
+            <input id="states" name="states" required placeholder="Example: OH, PA, CA"/>
+          </div>
+        </div>
+
+        <div class="checkRow">
+          <label style="margin-top:0;">How will you use this? <span class="req">*</span>
+            <span class="hint">Real use is the goal — choose what matches your reality.</span>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="use_cases" value="Client work (consulting / multiple companies)" required/>
+            <div>
+              <strong>Client work</strong><br/>
+              <span class="hint">Consulting or supporting multiple companies/clients.</span>
+            </div>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="use_cases" value="Internal HR role (my employer / my team)"/>
+            <div>
+              <strong>Internal HR</strong><br/>
+              <span class="hint">Day-to-day HR work for my organization.</span>
+            </div>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="use_cases" value="Small business owner doing HR"/>
+            <div>
+              <strong>Small business HR</strong><br/>
+              <span class="hint">Owner/operator wearing the HR hat.</span>
+            </div>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="use_cases" value="Personal reference for faster research on chaotic days"/>
+            <div>
+              <strong>Faster research</strong><br/>
+              <span class="hint">A reliable shortcut on chaotic HR days.</span>
+            </div>
+          </label>
+
+          <div class="fine">At least one option is required.</div>
+        </div>
+
+        <label for="about">Tell me about yourself <span class="req">*</span>
+          <span class="hint">Role, experience, and what your HR world looks like today.</span>
+        </label>
+        <textarea id="about" name="about" required></textarea>
+
+        <label for="interest">What interests you in this product? <span class="req">*</span>
+          <span class="hint">What problem are you hoping this solves?</span>
+        </label>
+        <textarea id="interest" name="interest" required></textarea>
+
+        <label for="howuse">How will you use this product? <span class="req">*</span>
+          <span class="hint">Be specific: frequency, scenarios, modules you expect to use.</span>
+        </label>
+        <textarea id="howuse" name="how_will_you_use" required></textarea>
+
+        <div class="formGrid">
+          <div>
+            <label for="freq">Expected usage frequency <span class="req">*</span></label>
+            <select id="freq" name="frequency" required>
+              <option value="" selected disabled>Select one</option>
+              <option>Daily</option>
+              <option>3–5x per week</option>
+              <option>1–2x per week</option>
+              <option>2–3x per month</option>
+              <option>As needed (rare)</option>
+            </select>
+          </div>
+          <div>
+            <label for="tools">What do you use today? <span class="req">*</span>
+              <span class="hint">Examples: SHRM, state sites, legal counsel, handbook tools.</span>
+            </label>
+            <input id="tools" name="current_tools" required/>
+          </div>
+        </div>
+
+        <label for="feedback">If accepted, what feedback can you commit to? <span class="req">*</span>
+          <span class="hint">Weekly notes, monthly call, screenshots, bug notes, feature requests — be realistic.</span>
+        </label>
+        <textarea id="feedback" name="feedback_commitment" required></textarea>
+
+        <div class="checkRow">
+          <label style="margin-top:0;">Pilot commitment <span class="req">*</span></label>
+
+          <label class="check">
+            <input type="checkbox" name="commitment_feedback" value="I will provide regular feedback" required/>
+            <div>
+              <strong>I will provide regular feedback</strong><br/>
+              <span class="hint">Required — the pilot is built on usage + feedback.</span>
+            </div>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="commitment_discount" value="I understand pilot pricing is 50% off and requires feedback" required/>
+            <div>
+              <strong>I understand pilot pricing is 50% off</strong><br/>
+              <span class="hint">and participation requires regular feedback.</span>
+            </div>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="commitment_contact" value="I agree to be contacted about pilot onboarding" required/>
+            <div>
+              <strong>I agree to be contacted</strong><br/>
+              <span class="hint">about onboarding and pilot communications.</span>
+            </div>
+          </label>
+        </div>
+
+        <div class="btnRow" style="margin-top:16px;">
+          <button class="btn btnPrimary" type="submit">Submit pilot request</button>
+          <a class="btn" href="/">Back to home</a>
+        </div>
+
+        <div class="fine">
+          HR Compliance Compass provides general guidance and tools — not legal advice. For legal advice, consult qualified counsel.
+        </div>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <div>
+        <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a>
+      </div>
+      <div>© <span id="year"></span> CompassLine LLC. All rights reserved.</div>
+    </footer>
+  </div>
+
+  <script src="/site.js"></script>
+</body>
+</html>
