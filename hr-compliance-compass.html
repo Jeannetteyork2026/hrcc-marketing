@@ -903,7 +903,7 @@
   </div>
 </div>
 
-<!-- HERO -->
+<!-- NAV -->
 <nav id="main-nav">
   <a href="#" class="nav-logo">HR Compliance <span>Compass</span></a>
   <ul class="nav-links">
@@ -1084,6 +1084,135 @@
             <div id="pk-bullets" style="display:flex; flex-direction:column; gap:0.65rem;"></div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM — compact strip -->
+<section style="padding: 3.5rem 3rem; background: var(--cream); position:relative; overflow:hidden;">
+  <!-- Translucent compass rose right side -->
+  <div style="position:absolute;right:-8%;top:50%;transform:translateY(-50%);pointer-events:none;opacity:0.04;">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:420px;color:var(--ink);">
+      <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
+      <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
+      <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="200" cy="200" r="75" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+      <circle cx="200" cy="200" r="22" fill="currentColor"/>
+      <circle cx="200" cy="200" r="13" fill="white"/>
+      <circle cx="200" cy="200" r="5" fill="currentColor"/>
+    </svg>
+  </div>
+  <div style="max-width:1300px; margin:0 auto; position:relative; z-index:1;">
+
+    <!-- Top row: label + headline + one-liner -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-bottom:2.5rem;">
+      <div>
+        <div class="section-label reveal">The Problem</div>
+        <h2 class="section-title reveal" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Managing state employment law<br>is a <em>full-time job</em> inside your job.</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:flex-end; padding-top:1rem;">
+        <p style="font-size:0.95rem; line-height:1.75; color:var(--muted); font-weight:300;" class="reveal">50 states. 50 sets of rules. Constantly changing. One missed update is all it takes — fines, back pay, litigation. Most HR teams find out after the fact. <strong style="color:var(--ink); font-weight:400;">You don't have to.</strong></p>
+      </div>
+    </div>
+
+    <!-- Pain stats + map -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+
+      <!-- 3 tight pain items -->
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <div class="pain-item" style="padding:1rem 1.25rem;">
+          <span class="pain-icon">⚖️</span>
+          <span class="pain-text">
+            <strong>Laws differ in every state — and change without warning</strong>
+            Wages, leave, non-competes, final pay. 50 states, 50 rulesets.
+          </span>
+        </div>
+        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.1s;">
+          <span class="pain-icon">⏱️</span>
+          <span class="pain-text">
+            <strong>You don't have time to research every update</strong>
+            Hours lost to government sites, legal PDFs, and outdated blogs.
+          </span>
+        </div>
+        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.2s;">
+          <span class="pain-icon">💸</span>
+          <span class="pain-text">
+            <strong>Compliance mistakes are expensive</strong>
+            Fines, litigation, and back pay — all preventable.
+          </span>
+        </div>
+      </div>
+
+      <!-- Smaller interactive map -->
+      <div class="state-map-visual reveal" style="min-height:unset; padding:1.5rem;">
+        <div class="map-label">All 50 States + Federal Law — Interactive</div>
+        <div style="position:relative;">
+          <svg id="us-map" viewBox="0 0 960 600" style="max-height:220px;"></svg>
+          <div class="map-tooltip" id="map-tooltip"></div>
+        </div>
+        <div class="map-legend" style="margin-top:0.75rem;">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--ink)"></div>
+            All States Covered
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--gold-light)"></div>
+            High Legislative Activity
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust-section" style="position:relative; overflow:hidden;">
+  <!-- Translucent compass rose centered behind content -->
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0.07;">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:600px;color:var(--ink);">
+      <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
+      <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
+      <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+      <circle cx="200" cy="200" r="75" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
+      <circle cx="200" cy="200" r="22" fill="currentColor"/>
+      <circle cx="200" cy="200" r="13" fill="white"/>
+      <circle cx="200" cy="200" r="5" fill="currentColor"/>
+      <text x="200" y="36" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">N</text>
+      <text x="200" y="384" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">S</text>
+      <text x="382" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">E</text>
+      <text x="18" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">W</text>
+    </svg>
+  </div>
+  <!-- Translucent wordmark along bottom -->
+  <div style="position:absolute;bottom:-0.5rem;left:50%;transform:translateX(-50%);pointer-events:none;white-space:nowrap;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(4rem,9vw,8rem);font-weight:300;color:var(--ink);opacity:0.05;letter-spacing:0.2em;user-select:none;">HR COMPLIANCE COMPASS</div>
+  <div class="trust-inner" style="position:relative;z-index:1;">
+    <div class="section-label reveal" style="justify-content: center;">Built for People Like You</div>
+    <p class="trust-quote reveal">
+      "I'm the only HR person here. I don't have a legal team to call.
+      I need to <strong>know the answer now</strong> — not in 3 business days."
+    </p>
+    <div class="trust-badges reveal">
+      <div class="trust-badge">
+        <div class="trust-number">50</div>
+        <div class="trust-label">States Covered</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-number">200+</div>
+        <div class="trust-label">Law Topics</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-number">14+</div>
+        <div class="trust-label">Years HR Expertise</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-number">$0</div>
+        <div class="trust-label">Attorney Fees to Start</div>
       </div>
     </div>
   </div>
@@ -1394,135 +1523,6 @@ const toolData = [
   }
 ];
 </script>
-
-<!-- PROBLEM — compact strip -->
-<section style="padding: 3.5rem 3rem; background: var(--cream); position:relative; overflow:hidden;">
-  <!-- Translucent compass rose right side -->
-  <div style="position:absolute;right:-8%;top:50%;transform:translateY(-50%);pointer-events:none;opacity:0.04;">
-    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:420px;color:var(--ink);">
-      <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
-      <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
-      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
-      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
-      <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-      <circle cx="200" cy="200" r="75" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
-      <circle cx="200" cy="200" r="22" fill="currentColor"/>
-      <circle cx="200" cy="200" r="13" fill="white"/>
-      <circle cx="200" cy="200" r="5" fill="currentColor"/>
-    </svg>
-  </div>
-  <div style="max-width:1300px; margin:0 auto; position:relative; z-index:1;">
-
-    <!-- Top row: label + headline + one-liner -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-bottom:2.5rem;">
-      <div>
-        <div class="section-label reveal">The Problem</div>
-        <h2 class="section-title reveal" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Managing state employment law<br>is a <em>full-time job</em> inside your job.</h2>
-      </div>
-      <div style="display:flex; flex-direction:column; justify-content:flex-end; padding-top:1rem;">
-        <p style="font-size:0.95rem; line-height:1.75; color:var(--muted); font-weight:300;" class="reveal">50 states. 50 sets of rules. Constantly changing. One missed update is all it takes — fines, back pay, litigation. Most HR teams find out after the fact. <strong style="color:var(--ink); font-weight:400;">You don't have to.</strong></p>
-      </div>
-    </div>
-
-    <!-- Pain stats + map -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
-
-      <!-- 3 tight pain items -->
-      <div style="display:flex; flex-direction:column; gap:0.75rem;">
-        <div class="pain-item" style="padding:1rem 1.25rem;">
-          <span class="pain-icon">⚖️</span>
-          <span class="pain-text">
-            <strong>Laws differ in every state — and change without warning</strong>
-            Wages, leave, non-competes, final pay. 50 states, 50 rulesets.
-          </span>
-        </div>
-        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.1s;">
-          <span class="pain-icon">⏱️</span>
-          <span class="pain-text">
-            <strong>You don't have time to research every update</strong>
-            Hours lost to government sites, legal PDFs, and outdated blogs.
-          </span>
-        </div>
-        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.2s;">
-          <span class="pain-icon">💸</span>
-          <span class="pain-text">
-            <strong>Compliance mistakes are expensive</strong>
-            Fines, litigation, and back pay — all preventable.
-          </span>
-        </div>
-      </div>
-
-      <!-- Smaller interactive map -->
-      <div class="state-map-visual reveal" style="min-height:unset; padding:1.5rem;">
-        <div class="map-label">All 50 States + Federal Law — Interactive</div>
-        <div style="position:relative;">
-          <svg id="us-map" viewBox="0 0 960 600" style="max-height:220px;"></svg>
-          <div class="map-tooltip" id="map-tooltip"></div>
-        </div>
-        <div class="map-legend" style="margin-top:0.75rem;">
-          <div class="legend-item">
-            <div class="legend-dot" style="background:var(--ink)"></div>
-            All States Covered
-          </div>
-          <div class="legend-item">
-            <div class="legend-dot" style="background:var(--gold-light)"></div>
-            High Legislative Activity
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- TRUST BAR -->
-<section class="trust-section" style="position:relative; overflow:hidden;">
-  <!-- Translucent compass rose centered behind content -->
-  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0.07;">
-    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:600px;color:var(--ink);">
-      <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
-      <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
-      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
-      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
-      <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-      <circle cx="200" cy="200" r="75" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
-      <circle cx="200" cy="200" r="22" fill="currentColor"/>
-      <circle cx="200" cy="200" r="13" fill="white"/>
-      <circle cx="200" cy="200" r="5" fill="currentColor"/>
-      <text x="200" y="36" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">N</text>
-      <text x="200" y="384" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">S</text>
-      <text x="382" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">E</text>
-      <text x="18" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">W</text>
-    </svg>
-  </div>
-  <!-- Translucent wordmark along bottom -->
-  <div style="position:absolute;bottom:-0.5rem;left:50%;transform:translateX(-50%);pointer-events:none;white-space:nowrap;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(4rem,9vw,8rem);font-weight:300;color:var(--ink);opacity:0.05;letter-spacing:0.2em;user-select:none;">HR COMPLIANCE COMPASS</div>
-  <div class="trust-inner" style="position:relative;z-index:1;">
-    <div class="section-label reveal" style="justify-content: center;">Built for People Like You</div>
-    <p class="trust-quote reveal">
-      "I'm the only HR person here. I don't have a legal team to call.
-      I need to <strong>know the answer now</strong> — not in 3 business days."
-    </p>
-    <div class="trust-badges reveal">
-      <div class="trust-badge">
-        <div class="trust-number">50</div>
-        <div class="trust-label">States Covered</div>
-      </div>
-      <div class="trust-badge">
-        <div class="trust-number">200+</div>
-        <div class="trust-label">Law Topics</div>
-      </div>
-      <div class="trust-badge">
-        <div class="trust-number">14+</div>
-        <div class="trust-label">Years HR Expertise</div>
-      </div>
-      <div class="trust-badge">
-        <div class="trust-number">$0</div>
-        <div class="trust-label">Attorney Fees to Start</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ═══════════════════════════════════════════ PRICING ══ -->
 <section id="pricing" style="padding:7rem 3rem; background:var(--ink); position:relative; overflow:hidden;">
@@ -1836,7 +1836,7 @@ const toolData = [
         <span class="arrow">→</span>
       </button>
 
-      <p style="font-size:0.72rem;color:rgba(250,250,245,0.25);text-align:center;margin-top:1.25rem;line-height:1.7;">Not legal advice. For legal guidance, consult qualified counsel.<br>Feedback: Contact form (Topic: Collaborator feedback) or <span style="color:rgba(250,250,245,0.4);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="02717772726d7076426a70616d6f726e6b636c6167616d6f726371712c616d6f">[email&#160;protected]</a></span> — subject: [HRCC Feedback]</p>
+      <p style="font-size:0.72rem;color:rgba(250,250,245,0.25);text-align:center;margin-top:1.25rem;line-height:1.7;">Not legal advice. For legal guidance, consult qualified counsel.<br>Feedback: Contact form (Topic: Collaborator feedback) or <a href="mailto:support@hrcompliancecompass.com" style="color:inherit;">support@hrcompliancecompass.com</a> — subject: [HRCC Feedback]</p>
 
       <div id="trial-success" style="display:none;text-align:center;padding:2rem;background:rgba(184,134,31,0.1);border:1px solid rgba(184,134,31,0.3);margin-top:1.5rem;">
         <div style="font-size:2rem;margin-bottom:0.75rem;">✓</div>
@@ -2061,7 +2061,7 @@ const toolData = [
   }
 </style>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -2112,7 +2112,7 @@ const toolData = [
         <button class="priv-q">Forms and collaborator applications<span class="faq-icon">+</span></button>
         <div class="priv-a"><div class="priv-body">
           <p>If you submit a form (Collaborator, Waitlist, or Contact), we may collect your name, email, company, role, LinkedIn profile, and any information you include. We use this to evaluate applications, verify professional identity, and respond to you.</p>
-          <p>Our site uses Netlify for hosting and may route form submissions through third-party form and email delivery providers so submissions are delivered to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="53202623233c2127133b21303c3e233f3a323d3036303c3e233220207d303c3e">[email&#160;protected]</a>. Applicant verification may use AI-assisted search to confirm that submitted information is consistent with a real professional identity — this is done to protect the integrity of the collaborator program and is not used for any other purpose.</p>
+          <p>Our site uses Netlify for hosting and may route form submissions through third-party form and email delivery providers so submissions are delivered to <a href="mailto:support@hrcompliancecompass.com" style="color:inherit;">support@hrcompliancecompass.com</a>. Applicant verification may use AI-assisted search to confirm that submitted information is consistent with a real professional identity — this is done to protect the integrity of the collaborator program and is not used for any other purpose.</p>
         </div></div>
       </div>
 
@@ -2151,7 +2151,7 @@ const toolData = [
         <button class="priv-q">Retention and your rights<span class="faq-icon">+</span></button>
         <div class="priv-a"><div class="priv-body">
           <p>We keep information only as long as needed for the purposes above, unless we must retain it for legal or operational reasons. You have the right to request access to what you submitted, request corrections, and request deletion (subject to legal and operational needs).</p>
-          <p>California residents have additional rights under the CCPA. Residents of other states with applicable privacy laws may contact us to exercise their rights. To make any request, email <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e89b9d9898879a9ca8809a8b878598848189868b8d8b878598899b9bc68b8785">[email&#160;protected]</a></strong>.</p>
+          <p>California residents have additional rights under the CCPA. Residents of other states with applicable privacy laws may contact us to exercise their rights. To make any request, email <strong><a href="mailto:support@hrcompliancecompass.com" style="color:inherit;">support@hrcompliancecompass.com</a></strong>.</p>
         </div></div>
       </div>
 
@@ -2168,7 +2168,7 @@ const toolData = [
         <div class="priv-a"><div class="priv-body">
           <p>We may update this Privacy Policy from time to time. When we do, we will update the effective date and for material changes notify active subscribers by email. Continued u
           <p>We may update this Privacy Policy from time to time. When we do, we will update the effective date and for material changes notify active subscribers by email. Continued use of the platform after any update constitutes acceptance of the revised policy.</p>
-          <p>Effective: February 9, 2026 · Last updated: April 2026 · Questions: <strong>support@hrcompliancecompass.com</strong></p>
+          <p>Effective: February 9, 2026 · Last updated: April 2026 · Questions: <strong><a href="mailto:support@hrcompliancecompass.com" style="color:inherit;">support@hrcompliancecompass.com</a></strong></p>
         </div></div>
       </div>
 
@@ -2192,11 +2192,11 @@ const toolData = [
       <div style="display:flex;flex-direction:column;gap:1.5rem;">
         <div class="contact-info-item">
           <div class="contact-info-label">General Inquiries</div>
-          <div class="contact-info-val">support@hrcompliancecompass.com</div>
+          <div class="contact-info-val"><a href="mailto:support@hrcompliancecompass.com" style="color:inherit;">support@hrcompliancecompass.com</a></div>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-label">Privacy & Data Requests</div>
-          <div class="contact-info-val">support@hrcompliancecompass.com</div>
+          <div class="contact-info-val"><a href="mailto:support@hrcompliancecompass.com" style="color:inherit;">support@hrcompliancecompass.com</a></div>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-label">Response Time</div>
@@ -2436,6 +2436,13 @@ const toolData = [
   document.querySelectorAll('.pain-item').forEach((el, i) => {
     el.style.transitionDelay = (i * 0.12) + 's';
   });
+
+  // Fallback: ensure all reveal elements show after 1.5s
+  setTimeout(() => {
+    document.querySelectorAll('.reveal, .pain-item').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 1500);
 </script>
 </body>
 </html>
