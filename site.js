@@ -25,8 +25,8 @@
 
     // home match
     if (
-      (path === "/" || path.endsWith("/index.html")) &&
-      (cleanHref === "/" || cleanHref.endsWith("index.html"))
+      (path === "/" || path.endsWith("/hr-compliance-compass.html")) &&
+      (cleanHref === "/" || cleanHref.endsWith("hr-compliance-compass.html"))
     ) {
       a.classList.add("active");
       return;

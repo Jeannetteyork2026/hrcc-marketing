@@ -11,6 +11,13 @@
   async function sendToSheet(form) {
     const formData = new FormData(form);
     const data = { formName: form.getAttribute("name") || "contact" };
+    const supportEmail = form.dataset.supportEmail;
+
+    if (supportEmail) {
+      data.supportEmail = supportEmail;
+    }
+
+    data.sourcePage = window.location.pathname;
 
     formData.forEach((value, key) => {
       if (key === "bot-field") return;
