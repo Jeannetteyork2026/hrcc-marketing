@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/HRCC-compass-icon.png">
 <title>HR Compliance Compass — State Employment Law, Simplified</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,9 +16,9 @@
     --cream-2: #F3F0E8;
     --ink: #0C1A27;
     --ink-mid: #1E3448;
-    --gold: #B8861F;
-    --gold-light: #D4A843;
-    --gold-pale: #F5EDD8;
+    --gold: #E6841E;
+    --gold-light: #F29A3A;
+    --gold-pale: #FFF1DE;
     --slate: #2C4A6E;
     --slate-light: #EBF0F6;
     --muted: #6B7A8B;
@@ -79,12 +80,21 @@
     box-shadow: 0 1px 0 rgba(12,26,39,0.08);
   }
   .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
     font-family: var(--serif);
     font-size: 1.25rem;
     font-weight: 500;
     color: var(--ink);
     text-decoration: none;
     letter-spacing: 0.02em;
+  }
+  .nav-logo-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
   .nav-logo span { color: var(--gold); }
   .nav-links {
@@ -186,7 +196,7 @@
     transform: translateX(-50%);
     width: 1px;
     height: 140%;
-    background: linear-gradient(180deg, transparent 0%, rgba(184,134,31,0.12) 30%, rgba(184,134,31,0.06) 70%, transparent 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(230,132,30,0.12) 30%, rgba(230,132,30,0.06) 70%, transparent 100%);
     animation: beam-pulse 6s ease-in-out infinite;
   }
   @keyframes beam-pulse {
@@ -198,7 +208,7 @@
   .corner-ornament {
     position: absolute;
     width: 80px; height: 80px;
-    border-color: rgba(184,134,31,0.15);
+    border-color: rgba(230,132,30,0.15);
     border-style: solid;
   }
   .corner-ornament.tl { top: 2rem; left: 2rem; border-width: 1px 0 0 1px; }
@@ -281,7 +291,7 @@
     align-items: center;
     gap: 0.75rem;
     background: var(--ink);
-    color: #F5EDD8;
+    color: #FFF1DE;
     font-family: var(--sans);
     font-size: 0.8rem;
     letter-spacing: 0.12em;
@@ -571,7 +581,7 @@
     font-family: var(--serif);
     font-size: 5rem;
     font-weight: 300;
-    color: rgba(184,134,31,0.15);
+    color: rgba(230,132,30,0.15);
     position: absolute;
     top: 1rem; right: 1.5rem;
     line-height: 1;
@@ -743,7 +753,7 @@
     top: -60%; right: -20%;
     width: 500px; height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(184,134,31,0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(230,132,30,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
   .pilot-inner .section-label { color: var(--gold); }
@@ -778,7 +788,7 @@
   }
   .tier-card.featured {
     border-color: var(--gold);
-    background: rgba(184,134,31,0.08);
+    background: rgba(230,132,30,0.08);
   }
   .tier-badge {
     font-size: 0.62rem;
@@ -916,7 +926,7 @@
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="#" class="nav-logo">HR Compliance <span>Compass</span></a>
+  <a href="#" class="nav-logo"><img src="/HRCC-compass-icon.png" alt="HR Compliance Compass icon" class="nav-logo-icon">HR Compliance <span>Compass</span></a>
   <ul class="nav-links">
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faqs">FAQs</a></li>
@@ -969,7 +979,6 @@
         <span>Start Your Free Trial</span>
         <span class="arrow">→</span>
       </a>
-      <a href="#collaborator" class="btn btnGhost">Help Shape the Platform</a>
       <a href="#how" class="btn-ghost">See how it works ↓</a>
     </div>
   </div>
@@ -1080,7 +1089,7 @@
     <!-- DETAIL PANEL -->
     <div id="tk-panel" style="max-height:0; overflow:hidden; transition:max-height 0.55s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease; opacity:0;">
       <div id="tk-panel-inner" style="padding:3rem; background:var(--ink); margin-top:1.5rem; position:relative; overflow:hidden;">
-        <div style="position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(184,134,31,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+        <div style="position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(230,132,30,0.1) 0%,transparent 70%);pointer-events:none;"></div>
         <button id="tk-close" style="position:absolute;top:1.5rem;right:1.5rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(250,250,245,0.6);width:32px;height:32px;cursor:none;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">✕</button>
 
         <div style="display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:start;">
@@ -1245,7 +1254,7 @@
     min-height: 180px;
   }
   .tk-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(12,26,39,0.1); border-bottom-color: var(--gold); }
-  .tk-card.active { border-color: var(--gold); border-bottom-width: 3px; background: var(--gold-pale); transform: translateY(-5px); box-shadow: 0 12px 40px rgba(184,134,31,0.15); }
+  .tk-card.active { border-color: var(--gold); border-bottom-width: 3px; background: var(--gold-pale); transform: translateY(-5px); box-shadow: 0 12px 40px rgba(230,132,30,0.15); }
   .tk-icon { font-size: 2rem; margin-bottom: 1.1rem; }
   .tk-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.25; }
   .tk-tag { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; }
@@ -1555,8 +1564,12 @@ const toolData = [
     <p class="reveal" style="text-align:center;color:rgba(250,250,245,0.5);font-size:0.92rem;font-weight:300;max-width:520px;margin:0 auto 0.75rem;line-height:1.8;">Less than one hour of attorney fees per month.</p>
     <p class="reveal" style="text-align:center;color:rgba(250,250,245,0.35);font-size:0.78rem;letter-spacing:0.05em;margin-bottom:2.5rem;">14-day free trial on all plans — cancel before day 14 and you won't be charged</p>
 
-    <div class="reveal" style="background:rgba(184,134,31,0.12);border:1px solid rgba(184,134,31,0.35);padding:0.9rem 1.5rem;text-align:center;margin-bottom:2.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
+    <div class="reveal" style="background:rgba(230,132,30,0.12);border:1px solid rgba(230,132,30,0.35);padding:0.9rem 1.5rem;text-align:center;margin-bottom:2.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
       <span style="font-size:0.82rem;color:var(--gold-light);letter-spacing:0.04em;">&#11088; Sign up by June 30th and lock your rate for two years. We are constantly adding, updating, and perfecting this site to bring the most up-to-date information and tools. As the platform grows, so will the price. Lock your rate in now.</span>
+    </div>
+    <div class="reveal" style="background:rgba(230,132,30,0.12);border:1px solid rgba(230,132,30,0.35);padding:0.9rem 1.5rem;text-align:center;margin-bottom:2.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
+      <span style="display:block;font-size:0.82rem;color:var(--gold-light);letter-spacing:0.04em;margin-bottom:0.8rem;">&#11088; Check out our collaborator price</span>
+      <a href="#collaborator" class="btn btnGhost" style="color:var(--gold);border-color:var(--gold);">Help Shape the Platform</a>
     </div>
 
     <div class="reveal" style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:3.5rem;">
@@ -1564,12 +1577,12 @@ const toolData = [
       <button id="billing-toggle" onclick="toggleBilling()" style="width:52px;height:28px;background:var(--gold);border:none;border-radius:14px;position:relative;cursor:none;transition:background 0.3s;flex-shrink:0;">
         <span id="toggle-knob" style="position:absolute;top:4px;left:4px;width:20px;height:20px;background:white;border-radius:50%;transition:transform 0.3s;display:block;"></span>
       </button>
-      <span id="toggle-annual-label" style="font-size:0.85rem;color:rgba(250,250,245,0.5);letter-spacing:0.06em;">Annual <span style="background:rgba(184,134,31,0.25);color:var(--gold-light);font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.3rem;">Save ~$100</span></span>
+      <span id="toggle-annual-label" style="font-size:0.85rem;color:rgba(250,250,245,0.5);letter-spacing:0.06em;">Annual <span style="background:rgba(230,132,30,0.25);color:var(--gold-light);font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.3rem;">Save ~$100</span></span>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch;">
 
-      <div class="price-card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);padding:3rem 2.5rem;">
+      <div class="price-card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);padding:3rem 2.5rem;display:flex;flex-direction:column;height:100%;">
         <div style="font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;">Solo HR Pro</div>
         <div style="font-size:0.82rem;color:rgba(250,250,245,0.45);line-height:1.6;margin-bottom:2rem;font-weight:300;">For solo HR practitioners, fractional HR consultants, and HR professionals who need fast, reliable guidance on their own.</div>
         <div style="margin-bottom:0.4rem;">
@@ -1588,11 +1601,11 @@ const toolData = [
           <li class="pf">Founding rate locked for 2 years</li>
         </ul>
         <div style="font-size:0.72rem;color:rgba(250,250,245,0.25);margin-bottom:1.5rem;font-style:italic;">Support covers product use. HR consulting engagements available separately.</div>
-        <a href="#collaborator" class="price-cta" style="display:block;text-align:center;">Start Free Trial &#8594;</a>
+        <a href="#collaborator" class="price-cta" style="display:block;text-align:center;margin-top:auto;">Start Free Trial &#8594;</a>
         <div id="solo-trial-note" style="text-align:center;font-size:0.72rem;color:rgba(250,250,245,0.3);margin-top:0.6rem;">14 days free &#8226; then $29/month</div>
       </div>
 
-      <div class="price-card price-card-gold" style="padding:3rem 2.5rem;position:relative;">
+      <div class="price-card price-card-gold" style="padding:3rem 2.5rem;position:relative;display:flex;flex-direction:column;height:100%;">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent);"></div>
         <div style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;background:var(--gold);color:var(--ink);display:inline-block;padding:0.25rem 0.7rem;margin-bottom:1rem;font-weight:500;">Most Popular for Companies</div>
         <div style="font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;">Small Team</div>
@@ -1611,7 +1624,7 @@ const toolData = [
           <li class="pf">Founding rate locked for 2 years</li>
         </ul>
         <div style="font-size:0.72rem;color:rgba(250,250,245,0.25);margin-bottom:1.5rem;font-style:italic;">Support covers product use. HR consulting engagements available separately.</div>
-        <a href="#collaborator" class="price-cta price-cta-gold" style="display:block;text-align:center;">Start Free Trial &#8594;</a>
+        <a href="#collaborator" class="price-cta price-cta-gold" style="display:block;text-align:center;margin-top:auto;">Start Free Trial &#8594;</a>
         <div id="team-trial-note" style="text-align:center;font-size:0.72rem;color:rgba(250,250,245,0.3);margin-top:0.6rem;">14 days free &#8226; then $99/month</div>
       </div>
 
@@ -1697,7 +1710,7 @@ const toolData = [
 
       <div class="faq-item reveal">
         <button class="faq-q">What's included in every plan?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><p>Every plan — Explorer, Builder, and Founding Partner — includes access to all 11 tools: Tough Conversations, Decision Helper, Complaint Investigation Guide, Handbook Builder, Interview Guides, Performance Guidance, FLSA Exempt Status & Duties Test, Compliance Checklists, Future of Work & AI, Compliance Wizard, and FAQs / Knowledge Base. The plan tiers reflect your founding rate discount level, not feature restrictions.</p></div>
+        <div class="faq-a"><p>Every paid plan includes access to all 11 tools: Tough Conversations, Decision Helper, Complaint Investigation Guide, Handbook Builder, Interview Guides, Performance Guidance, FLSA Exempt Status &amp; Duties Test, Compliance Checklists, Future of Work &amp; AI, Compliance Wizard, and FAQs / Knowledge Base. Plan differences are based on support level and team usage.</p></div>
       </div>
 
       <div class="faq-item reveal">
@@ -1707,17 +1720,7 @@ const toolData = [
 
       <div class="faq-item reveal">
         <button class="faq-q">Can I cancel anytime?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><p>Yes. There are no long-term contracts and no cancellation fees. If you cancel, your access continues through the end of your billing period. Founding Partner rates are locked for as long as you remain a subscriber — if you cancel and resubscribe later, the founding rate will no longer be available.</p></div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q">What is King Advisor and when does it launch?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><p>King Advisor is the next major tool planned for the Compass platform — an AI-powered legal support agent that handles complex, conversational HR compliance questions across all U.S. jurisdictions. Think of it as having a knowledgeable HR attorney available 24/7. Founding Partners receive early access when it launches and will have direct input into how it's built. No firm launch date is announced yet.</p></div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q">What does "Founding Partner" actually mean?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><p>Founding Partners are the early members who join during the pilot phase. In exchange for joining before the platform reaches full launch, you receive the deepest available discount (50% off the standard rate), locked in permanently. You also receive a Founding Partner designation in the platform, early access to new tools as they're developed, and a direct channel to provide product feedback that actually shapes what gets built next.</p></div>
+        <div class="faq-a"><p>Yes. There are no long-term contracts and no cancellation fees. If you cancel, your access continues through the end of your billing period.</p></div>
       </div>
 
     </div>
@@ -1727,10 +1730,10 @@ const toolData = [
 <!-- ═══════════════════════════════════ COLLABORATOR APPLICATION ══ -->
 <section id="collaborator" style="padding:7rem 3rem; background:var(--ink); position:relative; overflow:hidden;">
   <div class="light-beam" style="opacity:0.6;"></div>
-  <div class="corner-ornament tl" style="border-color:rgba(184,134,31,0.2);"></div>
-  <div class="corner-ornament tr" style="border-color:rgba(184,134,31,0.2);"></div>
-  <div class="corner-ornament bl" style="border-color:rgba(184,134,31,0.2);"></div>
-  <div class="corner-ornament br" style="border-color:rgba(184,134,31,0.2);"></div>
+  <div class="corner-ornament tl" style="border-color:rgba(230,132,30,0.2);"></div>
+  <div class="corner-ornament tr" style="border-color:rgba(230,132,30,0.2);"></div>
+  <div class="corner-ornament bl" style="border-color:rgba(230,132,30,0.2);"></div>
+  <div class="corner-ornament br" style="border-color:rgba(230,132,30,0.2);"></div>
 
   <div style="max-width:760px;margin:0 auto;position:relative;z-index:1;text-align:center;">
     <div class="section-label reveal" style="justify-content:center;color:var(--gold);">Collaborator Program — $20/month</div>
@@ -1851,7 +1854,7 @@ const toolData = [
 
       <p style="font-size:0.72rem;color:rgba(250,250,245,0.25);text-align:center;margin-top:1.25rem;line-height:1.7;">Not legal advice. For legal guidance, consult qualified counsel.<br>Feedback: Contact form (Topic: Collaborator feedback) or <a href="mailto:support@hrcompliancecompass.com" style="color:inherit;">support@hrcompliancecompass.com</a> — subject: [HRCC Feedback]</p>
 
-      <div id="trial-success" style="display:none;text-align:center;padding:2rem;background:rgba(184,134,31,0.1);border:1px solid rgba(184,134,31,0.3);margin-top:1.5rem;">
+      <div id="trial-success" style="display:none;text-align:center;padding:2rem;background:rgba(230,132,30,0.1);border:1px solid rgba(230,132,30,0.3);margin-top:1.5rem;">
         <div style="font-size:2rem;margin-bottom:0.75rem;">✓</div>
         <div style="font-family:var(--serif);font-size:1.4rem;color:var(--gold-light);margin-bottom:0.5rem;">Application received.</div>
         <div style="font-size:0.88rem;color:rgba(250,250,245,0.5);line-height:1.7;">We'll review your application and be in touch with next steps. Thank you for your interest in HR Compliance Compass.</div>
@@ -1873,7 +1876,7 @@ const toolData = [
   }
   .collab-check input:checked + .collab-check-box {
     border-color:var(--gold);
-    background:rgba(184,134,31,0.08);
+    background:rgba(230,132,30,0.08);
   }
   .collab-check:hover .collab-check-box { border-color:rgba(255,255,255,0.25); }
   .collab-check-title { font-size:0.85rem; font-weight:500; color:var(--cream); margin-bottom:0.2rem; }
@@ -1908,8 +1911,8 @@ const toolData = [
   }
   .price-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
   .price-card-featured { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.07); }
-  .price-card-gold { border-color: var(--gold); background: rgba(184,134,31,0.07); }
-  .price-card-gold:hover { background: rgba(184,134,31,0.12); }
+  .price-card-gold { border-color: var(--gold); background: rgba(230,132,30,0.07); }
+  .price-card-gold:hover { background: rgba(230,132,30,0.12); }
   .price-badge {
     display: inline-block;
     font-size: 0.62rem;
@@ -2057,11 +2060,11 @@ const toolData = [
   }
   .plan-option input:checked + .plan-box {
     border-color: var(--gold);
-    background: rgba(184,134,31,0.1);
+    background: rgba(230,132,30,0.1);
   }
   .plan-option:hover .plan-box { border-color: rgba(255,255,255,0.3); }
-  .plan-box-gold { border-color: rgba(184,134,31,0.4); }
-  .plan-option input:checked + .plan-box-gold { background: rgba(184,134,31,0.15); }
+  .plan-box-gold { border-color: rgba(230,132,30,0.4); }
+  .plan-option input:checked + .plan-box-gold { background: rgba(230,132,30,0.15); }
   .plan-badge { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
   .plan-name { font-family: var(--serif); font-size: 0.95rem; color: var(--cream); margin-bottom: 0.35rem; }
   .plan-price { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; color: var(--gold-light); line-height: 1; margin-bottom: 0.25rem; }
@@ -2192,10 +2195,10 @@ const toolData = [
 <!-- ═══════════════════════════════════════════ CONTACT ══ -->
 <section id="contact" style="padding:7rem 3rem; background:var(--ink); position:relative; overflow:hidden;">
   <div class="light-beam" style="opacity:0.5;"></div>
-  <div class="corner-ornament tl" style="border-color:rgba(184,134,31,0.2);"></div>
-  <div class="corner-ornament tr" style="border-color:rgba(184,134,31,0.2);"></div>
-  <div class="corner-ornament bl" style="border-color:rgba(184,134,31,0.2);"></div>
-  <div class="corner-ornament br" style="border-color:rgba(184,134,31,0.2);"></div>
+  <div class="corner-ornament tl" style="border-color:rgba(230,132,30,0.2);"></div>
+  <div class="corner-ornament tr" style="border-color:rgba(230,132,30,0.2);"></div>
+  <div class="corner-ornament bl" style="border-color:rgba(230,132,30,0.2);"></div>
+  <div class="corner-ornament br" style="border-color:rgba(230,132,30,0.2);"></div>
 
   <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.6fr;gap:6rem;align-items:start;">
     <div>
@@ -2264,7 +2267,7 @@ const toolData = [
         <span>Send Message</span>
         <span class="arrow">→</span>
       </button>
-      <div id="contact-success" style="display:none;text-align:center;padding:2rem;background:rgba(184,134,31,0.1);border:1px solid rgba(184,134,31,0.3);margin-top:1.5rem;">
+      <div id="contact-success" style="display:none;text-align:center;padding:2rem;background:rgba(230,132,30,0.1);border:1px solid rgba(230,132,30,0.3);margin-top:1.5rem;">
         <div style="font-size:2rem;margin-bottom:0.75rem;">✓</div>
         <div style="font-family:var(--serif);font-size:1.3rem;color:var(--gold-light);margin-bottom:0.5rem;">Message received.</div>
         <div style="font-size:0.85rem;color:rgba(250,250,245,0.5);line-height:1.7;">We'll get back to you within 24 hours. Thank you for reaching out.</div>
@@ -2317,7 +2320,7 @@ const toolData = [
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">HR Compliance <span>Compass</span><br>
+  <div class="footer-logo"><span style="display:inline-flex;align-items:center;gap:0.45rem;"><img src="/HRCC-compass-icon.png" alt="HR Compliance Compass icon" style="width:24px;height:24px;object-fit:contain;flex-shrink:0;">HR Compliance <span>Compass</span></span><br>
     <span style="font-size: 0.72rem; color: var(--muted); font-family: var(--sans); font-weight: 300;">by CompassLine LLC</span>
   </div>
   <div style="display:flex;flex-direction:column;gap:0.6rem;align-items:center;">
@@ -2412,7 +2415,7 @@ const toolData = [
             .attr('d', path)
             .attr('fill', d => {
               const name = stateNames[d.id.toString().padStart(2,'0')];
-              return highActivityStates.has(name) ? '#D4A843' : '#0C1A27';
+              return highActivityStates.has(name) ? '#F29A3A' : '#0C1A27';
             })
             .on('mousemove', function(event, d) {
               const name = stateNames[d.id.toString().padStart(2,'0')] || 'Unknown';
@@ -2460,3 +2463,6 @@ const toolData = [
 <script src="compass-widget.js"></script>
 </body>
 </html>
+
+
+
