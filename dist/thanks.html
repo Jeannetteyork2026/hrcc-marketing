@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application Received | HR Compliance Compass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CXFF6HMVN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9CXFF6HMVN');
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #FAFAF5;
+    --ink: #0C1A27;
+    --ink-mid: #1E3448;
+    --gold: #B8861F;
+    --gold-light: #D4A843;
+    --gold-pale: #F5EDD8;
+    --muted: #6B7A8B;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--ink);
+    color: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  /* Animated light beam */
+  .light-beam {
+    position: fixed;
+    top: -20%; left: 50%;
+    transform: translateX(-50%);
+    width: 1px; height: 140%;
+    background: linear-gradient(180deg, transparent 0%, rgba(184,134,31,0.1) 30%, rgba(184,134,31,0.05) 70%, transparent 100%);
+    pointer-events: none;
+    animation: beam-pulse 6s ease-in-out infinite;
+    z-index: 0;
+  }
+  @keyframes beam-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* Corner ornaments */
+  .corner-ornament {
+    position: fixed;
+    width: 60px; height: 60px;
+    border-color: rgba(184,134,31,0.15);
+    border-style: solid;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .tl { top: 1.5rem; left: 1.5rem; border-width: 1px 0 0 1px; }
+  .tr { top: 1.5rem; right: 1.5rem; border-width: 1px 1px 0 0; }
+  .bl { bottom: 1.5rem; left: 1.5rem; border-width: 0 0 1px 1px; }
+  .br { bottom: 1.5rem; right: 1.5rem; border-width: 0 1px 1px 0; }
+
+  /* Compass watermark */
+  .compass-bg {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0.04;
+    z-index: 0;
+  }
+
+  /* Nav */
+  nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--cream);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-back {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(250,250,245,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--gold); }
+
+  /* Main content */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    position: relative;
+    z-index: 5;
+  }
+
+  .card {
+    max-width: 680px;
+    width: 100%;
+    text-align: center;
+    animation: fade-up 0.9s ease 0.2s both;
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Check mark */
+  .check-wrap {
+    width: 72px; height: 72px;
+    background: rgba(184,134,31,0.12);
+    border: 1px solid rgba(184,134,31,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    animation: check-pop 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.6s both;
+  }
+  @keyframes check-pop {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .check-icon {
+    font-size: 1.8rem;
+    color: var(--gold-light);
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    display: block;
+    width: 30px; height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  h1 em { font-style: italic; color: var(--gold-light); }
+
+  .message {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,250,245,0.6);
+    font-weight: 300;
+    max-width: 560px;
+    margin: 0 auto 2rem;
+  }
+  .message strong { color: rgba(250,250,245,0.9); font-weight: 400; }
+
+  /* Divider */
+  .divider {
+    width: 60px; height: 1px;
+    background: rgba(184,134,31,0.3);
+    margin: 2rem auto;
+  }
+
+  .support-note {
+    font-size: 0.82rem;
+    color: rgba(250,250,245,0.3);
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+  }
+  .support-note a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .support-note a:hover { text-decoration: underline; }
+
+  /* Buttons */
+  .btn-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    transition: background 0.25s;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(250,250,245,0.5);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(250,250,245,0.15);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* Footer */
+  footer {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding: 1.5rem 3rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.75rem;
+    color: rgba(250,250,245,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer a {
+    color: rgba(250,250,245,0.3);
+    text-decoration: none;
+    margin-right: 1.25rem;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    nav { padding: 1.2rem 1.5rem; }
+    main { padding: 3rem 1.5rem; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Background elements -->
+<div class="light-beam"></div>
+<div class="corner-ornament tl"></div>
+<div class="corner-ornament tr"></div>
+<div class="corner-ornament bl"></div>
+<div class="corner-ornament br"></div>
+
+<div class="compass-bg">
+  <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:700px;color:white;">
+    <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
+    <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
+    <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
+    <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
+    <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+    <circle cx="200" cy="200" r="75" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.35"/>
+    <circle cx="200" cy="200" r="22" fill="currentColor"/>
+    <text x="200" y="36" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">N</text>
+    <text x="200" y="384" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">S</text>
+    <text x="382" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">E</text>
+    <text x="18" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">W</text>
+  </svg>
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="/" class="nav-logo">HR Compliance <span>Compass</span></a>
+  <a href="/" class="nav-back">← Back to home</a>
+</nav>
+
+<!-- Main -->
+<main>
+  <div class="card">
+
+    <div class="check-wrap">
+      <span class="check-icon">✓</span>
+    </div>
+
+    <div class="eyebrow">Application Received</div>
+
+    <h1>Thank you for<br>your interest in<br><em>building this with me.</em></h1>
+
+    <p class="message">
+      I'm genuinely thrilled that you took the time to apply. HR Compliance Compass is my commitment to building the most comprehensive, plain-English employment law platform available at this price point — and the people who join early are the reason it becomes what it's meant to be.
+      <br><br>
+      <strong>I review every application personally.</strong> You'll hear from me within 24 hours with next steps. I'm looking forward to having you along for this.
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="support-note">
+      Didn't receive a confirmation email within 24 hours?<br>
+      Reach out directly at <a href="/cdn-cgi/l/email-protection#01727471716e7375416973626e6c716d68606f6264626e6c716072722f626e6c"><span class="__cf_email__" data-cfemail="02717772726d7076426a70616d6f726e6b636c6167616d6f726371712c616d6f">[email&#160;protected]</span></a> and I'll get back to you right away.
+    </p>
+
+    <div class="btn-row">
+      <a href="/#toolkit" class="btn-primary">See what's inside →</a>
+      <a href="/" class="btn-ghost">Back to home</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div>
+    <a href="/#privacy">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="/#contact">Contact</a>
+  </div>
+  <div>© <span id="yr"></span> Co
