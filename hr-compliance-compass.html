@@ -91,9 +91,11 @@
     letter-spacing: 0.02em;
   }
   .nav-logo-icon {
-    width: 28px;
     height: 28px;
+    width: auto;
+    max-width: none;
     object-fit: contain;
+    aspect-ratio: auto;
     flex-shrink: 0;
   }
   .nav-logo span { color: var(--gold); }
@@ -844,6 +846,15 @@
     color: var(--ink);
   }
   .footer-logo span { color: var(--gold); }
+  .footer-logo-icon {
+    height: 24px;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    aspect-ratio: auto;
+    flex-shrink: 0;
+    display: block;
+  }
   .footer-copy {
     font-size: 0.78rem;
     color: var(--muted);
@@ -2393,7 +2404,7 @@ const toolData = [
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><span style="display:inline-flex;align-items:center;gap:0.45rem;"><img src="/HRCC-compass-icon.png" alt="HR Compliance Compass icon" style="width:24px;height:24px;object-fit:contain;flex-shrink:0;">HR Compliance <span>Compass</span></span><br>
+  <div class="footer-logo"><span style="display:inline-flex;align-items:center;gap:0.45rem;"><img src="/HRCC-compass-icon.png" alt="HR Compliance Compass icon" class="footer-logo-icon">HR Compliance <span>Compass</span></span><br>
     <span style="font-size: 0.72rem; color: var(--muted); font-family: var(--sans); font-weight: 300;">by CompassLine LLC</span>
   </div>
   <div style="display:flex;flex-direction:column;gap:0.6rem;align-items:center;">
