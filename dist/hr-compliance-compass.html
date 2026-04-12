@@ -1546,7 +1546,7 @@ const toolData = [
 </script>
 
 <!-- ═══════════════════════════════════════════ PRICING ══ -->
-<section id="pricing" style="padding:7rem 3rem; background:var(--ink); position:relative; overflow:hidden;">
+<section id="pricing" class="pricing-section" style="padding:7rem 3rem; background:var(--ink); position:relative; overflow:hidden;">
   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0.04;">
     <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:800px;color:white;">
       <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
@@ -1564,23 +1564,23 @@ const toolData = [
     <p class="reveal" style="text-align:center;color:rgba(250,250,245,0.5);font-size:0.92rem;font-weight:300;max-width:520px;margin:0 auto 0.75rem;line-height:1.8;">Less than one hour of attorney fees per month.</p>
     <p class="reveal" style="text-align:center;color:rgba(250,250,245,0.35);font-size:0.78rem;letter-spacing:0.05em;margin-bottom:2.5rem;">14-day free trial on all plans — cancel before day 14 and you won't be charged</p>
 
-    <div class="reveal" style="background:rgba(230,132,30,0.12);border:1px solid rgba(230,132,30,0.35);padding:0.9rem 1.5rem;text-align:center;margin-bottom:2.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
+    <div class="reveal pricing-note" style="background:rgba(230,132,30,0.12);border:1px solid rgba(230,132,30,0.35);padding:0.9rem 1.5rem;text-align:center;margin-bottom:2.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
       <span style="font-size:0.82rem;color:var(--gold-light);letter-spacing:0.04em;">&#11088; Sign up by June 30th and lock your rate for two years. We are constantly adding, updating, and perfecting this site to bring the most up-to-date information and tools. As the platform grows, so will the price. Lock your rate in now.</span>
     </div>
-    <div class="reveal" style="background:rgba(230,132,30,0.12);border:1px solid rgba(230,132,30,0.35);padding:0.9rem 1.5rem;text-align:center;margin-bottom:2.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
+    <div class="reveal pricing-note pricing-note-collab" style="background:rgba(230,132,30,0.12);border:1px solid rgba(230,132,30,0.35);padding:0.9rem 1.5rem;text-align:center;margin-bottom:2.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
       <span style="display:block;font-size:0.82rem;color:var(--gold-light);letter-spacing:0.04em;margin-bottom:0.8rem;">&#11088; Check out our collaborator price</span>
       <a href="#collaborator" class="btn btnGhost" style="color:var(--gold);border-color:var(--gold);">Help Shape the Platform</a>
     </div>
 
-    <div class="reveal" style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:3.5rem;">
+    <div class="reveal billing-toggle-row" style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:3.5rem;">
       <span id="toggle-monthly-label" style="font-size:0.85rem;color:var(--cream);letter-spacing:0.06em;">Monthly</span>
-      <button id="billing-toggle" onclick="toggleBilling()" style="width:52px;height:28px;background:var(--gold);border:none;border-radius:14px;position:relative;cursor:none;transition:background 0.3s;flex-shrink:0;">
+      <button id="billing-toggle" type="button" aria-label="Toggle monthly or annual billing" aria-pressed="false" onclick="toggleBilling()" style="width:52px;height:28px;background:var(--gold);border:none;border-radius:14px;position:relative;cursor:none;transition:background 0.3s;flex-shrink:0;">
         <span id="toggle-knob" style="position:absolute;top:4px;left:4px;width:20px;height:20px;background:white;border-radius:50%;transition:transform 0.3s;display:block;"></span>
       </button>
       <span id="toggle-annual-label" style="font-size:0.85rem;color:rgba(250,250,245,0.5);letter-spacing:0.06em;">Annual <span style="background:rgba(230,132,30,0.25);color:var(--gold-light);font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.3rem;">Save ~$100</span></span>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch;">
+    <div class="pricing-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch;">
 
       <div class="price-card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);padding:3rem 2.5rem;display:flex;flex-direction:column;height:100%;">
         <div style="font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;">Solo HR Pro</div>
@@ -1649,7 +1649,11 @@ const toolData = [
   var isAnnual = false;
   function toggleBilling() {
     isAnnual = !isAnnual;
-    document.getElementById('toggle-knob').style.transform = isAnnual ? 'translateX(24px)' : 'translateX(0)';
+    var toggle = document.getElementById('billing-toggle');
+    var knob = document.getElementById('toggle-knob');
+    var knobTravel = toggle.offsetWidth - knob.offsetWidth - 8;
+    knob.style.transform = isAnnual ? 'translateX(' + knobTravel + 'px)' : 'translateX(0)';
+    toggle.setAttribute('aria-pressed', isAnnual ? 'true' : 'false');
     document.getElementById('toggle-monthly-label').style.color = isAnnual ? 'rgba(250,250,245,0.5)' : 'var(--cream)';
     document.getElementById('toggle-annual-label').style.color = isAnnual ? 'var(--cream)' : 'rgba(250,250,245,0.5)';
     document.getElementById('solo-amount').textContent = isAnnual ? '$249' : '$29';
@@ -1980,6 +1984,15 @@ const toolData = [
   .price-cta-featured { border-color: rgba(255,255,255,0.4); color: var(--cream); }
   .price-cta-gold { background: var(--gold); border-color: var(--gold); color: var(--ink); font-weight: 500; }
   .price-cta-gold:hover { background: var(--gold-light); border-color: var(--gold-light); color: var(--ink); }
+  #billing-toggle {
+    touch-action: manipulation;
+  }
+  #billing-toggle:focus-visible,
+  .price-cta:focus-visible,
+  .pricing-note .btn:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+  }
 
   /* FAQ */
   .faq-item {
@@ -2071,9 +2084,69 @@ const toolData = [
   .plan-save { font-size: 0.65rem; color: rgba(250,250,245,0.35); letter-spacing: 0.08em; }
 
   @media(max-width:900px) {
-    .pricing-grid { grid-template-columns: 1fr; }
+    #pricing { padding: 5.5rem 1.4rem !important; }
+    .pricing-grid { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
+    #pricing .price-card { padding: 2.2rem 1.4rem !important; }
+    #pricing .price-cta {
+      min-height: 44px;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1rem;
+      font-size: 0.84rem;
+    }
+    #pricing .pf { font-size: 0.95rem; line-height: 1.6; }
+    #solo-alt,
+    #team-alt,
+    #solo-trial-note,
+    #team-trial-note {
+      font-size: 0.84rem !important;
+      line-height: 1.45;
+    }
     #trial-form > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
     .plan-option div[style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+  }
+
+  @media(max-width:640px) {
+    #pricing { padding: 4.75rem 1rem !important; }
+    #pricing h2 br { display: none; }
+    .pricing-note {
+      padding: 1rem 0.9rem !important;
+      text-align: left !important;
+    }
+    .pricing-note span {
+      font-size: 0.9rem !important;
+      letter-spacing: 0.02em !important;
+      line-height: 1.55;
+    }
+    .billing-toggle-row {
+      gap: 0.75rem !important;
+      margin-bottom: 2.5rem !important;
+      flex-wrap: wrap;
+    }
+    #billing-toggle {
+      width: 60px !important;
+      height: 34px !important;
+      border-radius: 17px !important;
+      cursor: pointer !important;
+    }
+    #toggle-knob {
+      width: 26px !important;
+      height: 26px !important;
+      top: 4px !important;
+      left: 4px !important;
+    }
+    #toggle-monthly-label,
+    #toggle-annual-label {
+      font-size: 0.92rem !important;
+      letter-spacing: 0.04em !important;
+    }
+    #toggle-annual-label span {
+      display: inline-block;
+      margin-top: 0.35rem;
+      margin-left: 0 !important;
+      font-size: 0.74rem !important;
+    }
   }
 </style>
 
