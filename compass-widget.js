@@ -274,6 +274,51 @@
           cursor: not-allowed;
         }
         
+        /* Textarea */
+        #hrcc-bubble .bubble-textarea {
+          resize: none;
+          font-family: inherit;
+          min-height: 60px;
+        }
+        
+        /* Challenge section */
+        #hrcc-bubble .bubble-challenge {
+          margin-top: 4px;
+        }
+        #hrcc-bubble .bubble-challenge-label {
+          font-size: 12px;
+          color: #64748b;
+          display: block;
+          margin-bottom: 8px;
+        }
+        #hrcc-bubble .bubble-options {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+        #hrcc-bubble .bubble-option {
+          background: #f1f5f9;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          padding: 6px 12px;
+          font-size: 12px;
+          color: #475569;
+          cursor: pointer;
+          transition: all 0.15s;
+        }
+        #hrcc-bubble .bubble-option:hover {
+          background: #e2e8f0;
+          border-color: #cbd5e1;
+        }
+        #hrcc-bubble .bubble-option.selected {
+          background: #2c9faf;
+          border-color: #2c9faf;
+          color: white;
+        }
+        #hrcc-bubble .bubble-other-input {
+          margin-top: 8px;
+        }
+        
         /* Privacy note */
         #hrcc-bubble .bubble-privacy {
           font-size: 11px;
@@ -346,6 +391,20 @@
           <form class="bubble-form" id="hrcc-bubble-form">
             <input type="text" name="firstname" class="bubble-input" placeholder="First name" required>
             <input type="email" name="email" class="bubble-input" placeholder="Work email" required>
+            
+            <div class="bubble-challenge">
+              <label class="bubble-challenge-label">What's your biggest HR challenge? (optional)</label>
+              <div class="bubble-options" id="hrcc-challenge-options">
+                <button type="button" class="bubble-option" data-value="Multi-state compliance">Multi-state compliance</button>
+                <button type="button" class="bubble-option" data-value="Investigations">Investigations</button>
+                <button type="button" class="bubble-option" data-value="Performance conversations">Performance conversations</button>
+                <button type="button" class="bubble-option" data-value="Leave & accommodations">Leave & accommodations</button>
+                <button type="button" class="bubble-option" data-value="other">Something else</button>
+              </div>
+              <input type="text" name="challenge_other" class="bubble-input bubble-other-input" placeholder="Tell us more..." style="display:none;">
+              <input type="hidden" name="challenge" value="">
+            </div>
+            
             <button type="submit" class="bubble-submit">Send Me the Guide</button>
           </form>
           
@@ -358,6 +417,36 @@
       // Event listeners
       bubble.querySelector('.bubble-close').addEventListener('click', () => this.dismiss());
       bubble.querySelector('#hrcc-bubble-form').addEventListener('submit', (e) => this.handleSubmit(e));
+      
+      // Challenge option click handlers
+      const options = bubble.querySelectorAll('.bubble-option');
+      const hiddenInput = bubble.querySelector('[name="challenge"]');
+      const otherInput = bubble.querySelector('[name="challenge_other"]');
+      
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+          // Remove selected from all
+          options.forEach(opt => opt.classList.remove('selected'));
+          // Add selected to clicked
+          option.classList.add('selected');
+          
+          const value = option.dataset.value;
+          if (value === 'other') {
+            otherInput.style.display = 'block';
+            otherInput.focus();
+            hiddenInput.value = '';
+          } else {
+            otherInput.style.display = 'none';
+            otherInput.value = '';
+            hiddenInput.value = value;
+          }
+        });
+      });
+      
+      // Update hidden input when typing in "other" field
+      otherInput.addEventListener('input', () => {
+        hiddenInput.value = otherInput.value;
+      });
       
       // Track that bubble was shown
       Tracking.sendEvent('lead_bubble_shown', { page: window.location.pathname });
@@ -380,6 +469,7 @@
       const submitBtn = form.querySelector('.bubble-submit');
       const firstname = form.querySelector('[name="firstname"]').value.trim();
       const email = form.querySelector('[name="email"]').value.trim();
+      const challenge = form.querySelector('[name="challenge"]').value.trim();
       
       // Disable button while submitting
       submitBtn.disabled = true;
@@ -387,7 +477,7 @@
       
       try {
         // Submit to HubSpot
-        await this.submitToHubSpot(firstname, email);
+        await this.submitToHubSpot(firstname, email, challenge);
         
         // Show success state
         this.showSuccess();
@@ -409,17 +499,25 @@
       }
     },
     
-    submitToHubSpot: async function(firstname, email) {
+    submitToHubSpot: async function(firstname, email, challenge) {
+      // Build fields array
+      const fields = [
+        { name: 'firstname', value: firstname },
+        { name: 'email', value: email }
+      ];
+      
+      // Add challenge if provided (uses HubSpot property internal name)
+      if (challenge) {
+        fields.push({ name: 'biggest_hr_challenge', value: challenge });
+      }
+      
       const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${CONFIG.hubspotPortalId}/${CONFIG.hubspotFormId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          fields: [
-            { name: 'firstname', value: firstname },
-            { name: 'email', value: email }
-          ],
+          fields: fields,
           context: {
             pageUri: window.location.href,
             pageName: document.title
