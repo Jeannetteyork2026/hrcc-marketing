@@ -901,6 +901,73 @@
   </ul>
 </nav>
 
+<!-- PROBLEM — compact strip -->
+<section style="padding: 7rem 3rem 3.5rem; background: var(--cream); position:relative; overflow:hidden;">
+  <div style="max-width:1300px; margin:0 auto; position:relative; z-index:1;">
+
+    <!-- Top row: label + headline + one-liner -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-bottom:2.5rem;">
+      <div>
+        <div class="section-label reveal">The Problem</div>
+        <h2 class="section-title reveal" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Managing state employment law<br>is a <em>full-time job</em> inside your job.</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:flex-end; padding-top:1rem;">
+        <p style="font-size:0.95rem; line-height:1.75; color:var(--muted); font-weight:300;" class="reveal">50 states. 50 sets of rules. Constantly changing. One missed update is all it takes — fines, back pay, litigation. Most HR teams find out after the fact. <strong style="color:var(--ink); font-weight:400;">You don't have to.</strong></p>
+      </div>
+    </div>
+
+    <!-- Pain stats + map -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+
+      <!-- 3 tight pain items -->
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <div class="pain-item" style="padding:1rem 1.25rem;">
+          <span class="pain-icon">⚖️</span>
+          <span class="pain-text">
+            <strong>Laws differ in every state — and change without warning</strong>
+            Wages, leave, non-competes, final pay. 50 states, 50 rulesets.
+          </span>
+        </div>
+        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.1s;">
+          <span class="pain-icon">⏱️</span>
+          <span class="pain-text">
+            <strong>You don't have time to research every update</strong>
+            Hours lost to government sites, legal PDFs, and outdated blogs.
+          </span>
+        </div>
+        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.2s;">
+          <span class="pain-icon">💸</span>
+          <span class="pain-text">
+            <strong>Compliance mistakes are expensive</strong>
+            Fines, litigation, and back pay — all preventable.
+          </span>
+        </div>
+      </div>
+
+      <!-- Smaller interactive map -->
+      <div class="state-map-visual reveal" style="min-height:unset; padding:1.5rem;">
+        <div class="map-label">All 50 States + Federal Law — Interactive</div>
+        <div style="position:relative;">
+          <svg id="us-map" viewBox="0 0 960 600" style="max-height:220px;"></svg>
+          <div class="map-tooltip" id="map-tooltip"></div>
+        </div>
+        <div class="map-legend" style="margin-top:0.75rem;">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--ink)"></div>
+            All States Covered
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--gold-light)"></div>
+            High Legislative Activity
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
@@ -1365,72 +1432,6 @@ const toolData = [
   }
 ];
 </script>
-
-<!-- PROBLEM — compact strip -->
-<section style="padding: 3.5rem 3rem; background: var(--cream); position:relative; overflow:hidden;">
-  <div style="max-width:1300px; margin:0 auto; position:relative; z-index:1;">
-
-    <!-- Top row: label + headline + one-liner -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-bottom:2.5rem;">
-      <div>
-        <div class="section-label reveal">The Problem</div>
-        <h2 class="section-title reveal" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Managing state employment law<br>is a <em>full-time job</em> inside your job.</h2>
-      </div>
-      <div style="display:flex; flex-direction:column; justify-content:flex-end; padding-top:1rem;">
-        <p style="font-size:0.95rem; line-height:1.75; color:var(--muted); font-weight:300;" class="reveal">50 states. 50 sets of rules. Constantly changing. One missed update is all it takes — fines, back pay, litigation. Most HR teams find out after the fact. <strong style="color:var(--ink); font-weight:400;">You don't have to.</strong></p>
-      </div>
-    </div>
-
-    <!-- Pain stats + map -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
-
-      <!-- 3 tight pain items -->
-      <div style="display:flex; flex-direction:column; gap:0.75rem;">
-        <div class="pain-item" style="padding:1rem 1.25rem;">
-          <span class="pain-icon">⚖️</span>
-          <span class="pain-text">
-            <strong>Laws differ in every state — and change without warning</strong>
-            Wages, leave, non-competes, final pay. 50 states, 50 rulesets.
-          </span>
-        </div>
-        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.1s;">
-          <span class="pain-icon">⏱️</span>
-          <span class="pain-text">
-            <strong>You don't have time to research every update</strong>
-            Hours lost to government sites, legal PDFs, and outdated blogs.
-          </span>
-        </div>
-        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.2s;">
-          <span class="pain-icon">💸</span>
-          <span class="pain-text">
-            <strong>Compliance mistakes are expensive</strong>
-            Fines, litigation, and back pay — all preventable.
-          </span>
-        </div>
-      </div>
-
-      <!-- Smaller interactive map -->
-      <div class="state-map-visual reveal" style="min-height:unset; padding:1.5rem;">
-        <div class="map-label">All 50 States + Federal Law — Interactive</div>
-        <div style="position:relative;">
-          <svg id="us-map" viewBox="0 0 960 600" style="max-height:220px;"></svg>
-          <div class="map-tooltip" id="map-tooltip"></div>
-        </div>
-        <div class="map-legend" style="margin-top:0.75rem;">
-          <div class="legend-item">
-            <div class="legend-dot" style="background:var(--ink)"></div>
-            All States Covered
-          </div>
-          <div class="legend-item">
-            <div class="legend-dot" style="background:var(--gold-light)"></div>
-            High Legislative Activity
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- TRUST BAR -->
 <section class="trust-section" style="position:relative; overflow:hidden;">
