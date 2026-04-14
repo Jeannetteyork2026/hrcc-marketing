@@ -21,18 +21,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --cream: #FAFAF5;
-    --cream-2: #F3F0E8;
-    --ink: #0C1A27;
-    --ink-mid: #1E3448;
-    --gold: #B8861F;
-    --gold-light: #D4A843;
-    --gold-pale: #F5EDD8;
-    --slate: #2C4A6E;
-    --slate-light: #EBF0F6;
-    --muted: #6B7A8B;
+    --navy: #1a4a7c;
+    --sage: #6b8e6b;
+    --orange: #e67e22;
+    --teal: #2c9faf;
+    --bg-light: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    /* semantic aliases used throughout the page */
+    --cream: var(--bg-light);
+    --cream-2: var(--white);
+    --ink: var(--navy);
+    --ink-mid: var(--text-main);
+    --gold: var(--orange);
+    --gold-light: var(--teal);
+    --gold-pale: var(--white);
+    --slate: var(--teal);
+    --slate-light: var(--border);
+    --muted: var(--text-muted);
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'DM Sans', system-ui, sans-serif;
   }
@@ -88,7 +98,7 @@
   nav.scrolled {
     background: rgba(250, 250, 245, 0.92);
     backdrop-filter: blur(12px);
-    box-shadow: 0 1px 0 rgba(12,26,39,0.08);
+    box-shadow: 0 1px 0 rgba(30,41,59,0.08);
   }
   .nav-logo {
     font-family: var(--serif);
@@ -198,7 +208,7 @@
     transform: translateX(-50%);
     width: 1px;
     height: 140%;
-    background: linear-gradient(180deg, transparent 0%, rgba(184,134,31,0.12) 30%, rgba(184,134,31,0.06) 70%, transparent 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(230,126,34,0.12) 30%, rgba(230,126,34,0.06) 70%, transparent 100%);
     animation: beam-pulse 6s ease-in-out infinite;
   }
   @keyframes beam-pulse {
@@ -210,7 +220,7 @@
   .corner-ornament {
     position: absolute;
     width: 80px; height: 80px;
-    border-color: rgba(184,134,31,0.15);
+    border-color: rgba(230,126,34,0.15);
     border-style: solid;
   }
   .corner-ornament.tl { top: 2rem; left: 2rem; border-width: 1px 0 0 1px; }
@@ -293,7 +303,7 @@
     align-items: center;
     gap: 0.75rem;
     background: var(--ink);
-    color: #F5EDD8;
+    color: #ffffff;
     font-family: var(--sans);
     font-size: 0.8rem;
     letter-spacing: 0.12em;
@@ -329,7 +339,7 @@
     letter-spacing: 0.08em;
     text-decoration: none;
     padding: 0.9rem 0;
-    border-bottom: 1px solid rgba(12,26,39,0.2);
+    border-bottom: 1px solid rgba(30,41,59,0.2);
     transition: border-color 0.2s, color 0.2s;
   }
   .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
@@ -465,7 +475,7 @@
     gap: 1rem;
     padding: 1.2rem 1.5rem;
     background: white;
-    border: 1px solid rgba(12,26,39,0.06);
+    border: 1px solid rgba(30,41,59,0.06);
     border-left: 3px solid var(--gold);
     opacity: 0;
     transform: translateX(-20px);
@@ -484,7 +494,7 @@
   .state-map-visual {
     position: relative;
     background: white;
-    border: 1px solid rgba(12,26,39,0.06);
+    border: 1px solid rgba(30,41,59,0.06);
     padding: 2rem 2rem 1.5rem;
     display: flex;
     flex-direction: column;
@@ -583,7 +593,7 @@
     font-family: var(--serif);
     font-size: 5rem;
     font-weight: 300;
-    color: rgba(184,134,31,0.15);
+    color: rgba(230,126,34,0.15);
     position: absolute;
     top: 1rem; right: 1.5rem;
     line-height: 1;
@@ -608,7 +618,7 @@
   .step-body {
     font-size: 0.9rem;
     line-height: 1.7;
-    color: rgba(250,250,245,0.55);
+    color: rgba(255,255,255,0.55);
     font-weight: 300;
   }
 
@@ -636,7 +646,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5px;
-    background: rgba(12,26,39,0.06);
+    background: rgba(30,41,59,0.06);
   }
   .feature-card {
     background: white;
@@ -659,7 +669,7 @@
   .feature-card:hover::after { width: 100%; }
   .feature-icon-wrap {
     width: 48px; height: 48px;
-    border: 1px solid rgba(12,26,39,0.1);
+    border: 1px solid rgba(30,41,59,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -755,7 +765,7 @@
     top: -60%; right: -20%;
     width: 500px; height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(184,134,31,0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(230,126,34,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
   .pilot-inner .section-label { color: var(--gold); }
@@ -765,7 +775,7 @@
   .pilot-desc {
     font-size: 0.95rem;
     line-height: 1.8;
-    color: rgba(250,250,245,0.55);
+    color: rgba(255,255,255,0.55);
     font-weight: 300;
     margin-top: 1.2rem;
   }
@@ -790,7 +800,7 @@
   }
   .tier-card.featured {
     border-color: var(--gold);
-    background: rgba(184,134,31,0.08);
+    background: rgba(230,126,34,0.08);
   }
   .tier-badge {
     font-size: 0.62rem;
@@ -821,7 +831,7 @@
   }
   .tier-period {
     font-size: 0.72rem;
-    color: rgba(250,250,245,0.4);
+    color: rgba(255,255,255,0.4);
     letter-spacing: 0.08em;
   }
   .pilot-cta-wrap {
@@ -831,7 +841,7 @@
   /* FOOTER */
   footer {
     background: var(--cream-2);
-    border-top: 1px solid rgba(12,26,39,0.08);
+    border-top: 1px solid rgba(30,41,59,0.08);
     padding: 3rem;
     display: flex;
     justify-content: space-between;
@@ -1106,8 +1116,8 @@
     <!-- DETAIL PANEL -->
     <div id="tk-panel" style="max-height:0; overflow:hidden; transition:max-height 0.55s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease; opacity:0;">
       <div id="tk-panel-inner" style="padding:3rem; background:var(--ink); margin-top:1.5rem; position:relative; overflow:hidden;">
-        <div style="position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(184,134,31,0.1) 0%,transparent 70%);pointer-events:none;"></div>
-        <button id="tk-close" style="position:absolute;top:1.5rem;right:1.5rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(250,250,245,0.6);width:32px;height:32px;cursor:none;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">✕</button>
+        <div style="position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(230,126,34,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+        <button id="tk-close" style="position:absolute;top:1.5rem;right:1.5rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);width:32px;height:32px;cursor:none;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">✕</button>
 
         <div style="display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:start;">
           <div>
@@ -1117,8 +1127,8 @@
             <div id="pk-status"></div>
           </div>
           <div>
-            <div id="pk-headline" style="font-family:var(--serif); font-size:1.4rem; font-weight:300; font-style:italic; color:rgba(250,250,245,0.85); line-height:1.5; margin-bottom:1.5rem; border-left:3px solid var(--gold); padding-left:1.25rem;"></div>
-            <div id="pk-body" style="font-size:0.92rem; line-height:1.8; color:rgba(250,250,245,0.55); font-weight:300; margin-bottom:1.75rem;"></div>
+            <div id="pk-headline" style="font-family:var(--serif); font-size:1.4rem; font-weight:300; font-style:italic; color:rgba(255,255,255,0.85); line-height:1.5; margin-bottom:1.5rem; border-left:3px solid var(--gold); padding-left:1.25rem;"></div>
+            <div id="pk-body" style="font-size:0.92rem; line-height:1.8; color:rgba(255,255,255,0.55); font-weight:300; margin-bottom:1.75rem;"></div>
             <div id="pk-bullets" style="display:flex; flex-direction:column; gap:0.65rem;"></div>
           </div>
         </div>
@@ -1131,7 +1141,7 @@
 <style>
   .tk-card {
     background: white;
-    border: 1px solid rgba(12,26,39,0.08);
+    border: 1px solid rgba(30,41,59,0.08);
     border-bottom: 3px solid transparent;
     padding: 2rem 2rem;
     cursor: none;
@@ -1141,8 +1151,8 @@
     flex: 0 0 260px;
     min-height: 180px;
   }
-  .tk-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(12,26,39,0.1); border-bottom-color: var(--gold); }
-  .tk-card.active { border-color: var(--gold); border-bottom-width: 3px; background: var(--gold-pale); transform: translateY(-5px); box-shadow: 0 12px 40px rgba(184,134,31,0.15); }
+  .tk-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(30,41,59,0.1); border-bottom-color: var(--gold); }
+  .tk-card.active { border-color: var(--gold); border-bottom-width: 3px; background: var(--gold-pale); transform: translateY(-5px); box-shadow: 0 12px 40px rgba(230,126,34,0.15); }
   .tk-icon { font-size: 2rem; margin-bottom: 1.1rem; }
   .tk-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.25; }
   .tk-tag { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; }
@@ -1155,7 +1165,7 @@
   #carousel-viewport { cursor: none; }
   .pk-bullet { display:flex; align-items:flex-start; gap:0.75rem; }
   .pk-bullet-dot { width:6px; height:6px; background:var(--gold); border-radius:50%; flex-shrink:0; margin-top:0.45rem; }
-  .pk-bullet-text { font-size:0.88rem; color:rgba(250,250,245,0.65); line-height:1.6; }
+  .pk-bullet-text { font-size:0.88rem; color:rgba(255,255,255,0.65); line-height:1.6; }
   @media(max-width:900px){
     #tk-panel-inner > div { grid-template-columns:1fr !important; gap:1.5rem !important; }
     #toolkit { padding: 4rem 1.5rem 0 !important; }
@@ -1260,7 +1270,7 @@ document.addEventListener('click', e => {
 
   document.getElementById('pk-status').innerHTML = t.soon
     ? `<div style="display:inline-block;background:var(--gold);color:var(--ink);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.8rem;font-weight:500;">Coming Soon — Founding Partners Get Early Access</div>`
-    : `<div style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:rgba(250,250,245,0.5);"><span style="width:7px;height:7px;background:#4ade80;border-radius:50%;display:inline-block;"></span>Available Now</div>`;
+    : `<div style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:rgba(255,255,255,0.5);"><span style="width:7px;height:7px;background:#4ade80;border-radius:50%;display:inline-block;"></span>Available Now</div>`;
 
   panel.style.maxHeight = '900px';
   panel.style.opacity   = '1';
@@ -1480,10 +1490,10 @@ const toolData = [
   <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;">
     <div class="section-label reveal" style="justify-content:center;color:var(--gold);">Simple Pricing — No Surprises</div>
     <h2 class="reveal" style="font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.6rem);font-weight:300;color:var(--cream);text-align:center;line-height:1.1;margin-bottom:1rem;">Everything you need for confident,<br><em style="color:var(--gold-light);">people-first HR decisions.</em></h2>
-    <p class="reveal" style="text-align:center;color:rgba(250,250,245,0.5);font-size:0.92rem;font-weight:300;max-width:520px;margin:0 auto 0.75rem;line-height:1.8;">Less than one hour of attorney fees per month.</p>
-    <p class="reveal" style="text-align:center;color:rgba(250,250,245,0.35);font-size:0.78rem;letter-spacing:0.05em;margin-bottom:2.5rem;">14-day free trial on all plans — cancel before day 14 and you won't be charged</p>
+    <p class="reveal" style="text-align:center;color:rgba(255,255,255,0.5);font-size:0.92rem;font-weight:300;max-width:520px;margin:0 auto 0.75rem;line-height:1.8;">Less than one hour of attorney fees per month.</p>
+    <p class="reveal" style="text-align:center;color:rgba(255,255,255,0.35);font-size:0.78rem;letter-spacing:0.05em;margin-bottom:2.5rem;">14-day free trial on all plans — cancel before day 14 and you won't be charged</p>
 
-    <div class="reveal" style="background:rgba(184,134,31,0.12);border:1px solid rgba(184,134,31,0.35);padding:0.9rem 1.5rem;text-align:center;margin-bottom:2.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
+    <div class="reveal" style="background:rgba(230,126,34,0.12);border:1px solid rgba(230,126,34,0.35);padding:0.9rem 1.5rem;text-align:center;margin-bottom:2.5rem;max-width:700px;margin-left:auto;margin-right:auto;">
       <span style="font-size:0.82rem;color:var(--gold-light);letter-spacing:0.04em;">&#11088; Early customers get our <strong>Collaborator rate is locked for 2 years.</strong> As the platform grows, pricing will increase — but not for you.</span>
     </div>
 
@@ -1492,19 +1502,19 @@ const toolData = [
       <button id="billing-toggle" onclick="toggleBilling()" style="width:52px;height:28px;background:var(--gold);border:none;border-radius:14px;position:relative;cursor:none;transition:background 0.3s;flex-shrink:0;">
         <span id="toggle-knob" style="position:absolute;top:4px;left:4px;width:20px;height:20px;background:white;border-radius:50%;transition:transform 0.3s;display:block;"></span>
       </button>
-      <span id="toggle-annual-label" style="font-size:0.85rem;color:rgba(250,250,245,0.5);letter-spacing:0.06em;">Annual <span style="background:rgba(184,134,31,0.25);color:var(--gold-light);font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.3rem;">Save ~$100</span></span>
+      <span id="toggle-annual-label" style="font-size:0.85rem;color:rgba(255,255,255,0.5);letter-spacing:0.06em;">Annual <span style="background:rgba(230,126,34,0.25);color:var(--gold-light);font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.3rem;">Save ~$100</span></span>
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
 
       <div class="price-card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);padding:3rem 2.5rem;">
         <div style="font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;">Solo HR Pro</div>
-        <div style="font-size:0.82rem;color:rgba(250,250,245,0.45);line-height:1.6;margin-bottom:2rem;font-weight:300;">For solo HR practitioners, fractional HR consultants, and HR professionals who need fast, reliable guidance on their own.</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:2rem;font-weight:300;">For solo HR practitioners, fractional HR consultants, and HR professionals who need fast, reliable guidance on their own.</div>
         <div style="margin-bottom:0.4rem;">
           <span style="font-family:var(--serif);font-size:3.5rem;font-weight:300;color:var(--gold-light);line-height:1;" id="solo-amount">$29</span>
-          <span style="font-size:1rem;color:rgba(250,250,245,0.35);" id="solo-period">/month</span>
+          <span style="font-size:1rem;color:rgba(255,255,255,0.35);" id="solo-period">/month</span>
         </div>
-        <div id="solo-alt" style="font-size:0.78rem;color:rgba(250,250,245,0.35);margin-bottom:2rem;">Or save with annual — $249/year</div>
+        <div id="solo-alt" style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:2rem;">Or save with annual — $249/year</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
           <li class="pf">50-state employment law guidance</li>
           <li class="pf">Plain-English compliance answers</li>
@@ -1515,21 +1525,21 @@ const toolData = [
           <li class="pf">Direct email support — answered personally by Jeannette, 15+ year HR practitioner</li>
           <li class="pf">Collaborator rate locked for 2 years</li>
         </ul>
-        <div style="font-size:0.72rem;color:rgba(250,250,245,0.25);margin-bottom:1.5rem;font-style:italic;">Support covers product use. HR consulting engagements available separately.</div>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.25);margin-bottom:1.5rem;font-style:italic;">Support covers product use. HR consulting engagements available separately.</div>
         <a href="#trial" class="price-cta" style="display:block;text-align:center;">Start Free Trial &#8594;</a>
-        <div id="solo-trial-note" style="text-align:center;font-size:0.72rem;color:rgba(250,250,245,0.3);margin-top:0.6rem;">14 days free &#8226; then $29/month</div>
+        <div id="solo-trial-note" style="text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.6rem;">14 days free &#8226; then $29/month</div>
       </div>
 
       <div class="price-card price-card-gold" style="padding:3rem 2.5rem;position:relative;">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent);"></div>
         <div style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;background:var(--gold);color:var(--ink);display:inline-block;padding:0.25rem 0.7rem;margin-bottom:1rem;font-weight:500;">Most Popular for Companies</div>
         <div style="font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;">Small Team</div>
-        <div style="font-size:0.82rem;color:rgba(250,250,245,0.45);line-height:1.6;margin-bottom:2rem;font-weight:300;">For small businesses, operations managers, and companies without a dedicated HR department who need ongoing compliance support.</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:2rem;font-weight:300;">For small businesses, operations managers, and companies without a dedicated HR department who need ongoing compliance support.</div>
         <div style="margin-bottom:0.4rem;">
           <span style="font-family:var(--serif);font-size:3.5rem;font-weight:300;color:var(--gold-light);line-height:1;" id="team-amount">$99</span>
-          <span style="font-size:1rem;color:rgba(250,250,245,0.35);" id="team-period">/month</span>
+          <span style="font-size:1rem;color:rgba(255,255,255,0.35);" id="team-period">/month</span>
         </div>
-        <div id="team-alt" style="font-size:0.78rem;color:rgba(250,250,245,0.35);margin-bottom:2rem;">Or save with annual — $999/year</div>
+        <div id="team-alt" style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:2rem;">Or save with annual — $999/year</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
           <li class="pf">Everything in Solo HR Pro</li>
           <li class="pf">Up to 3 team members</li>
@@ -1538,25 +1548,25 @@ const toolData = [
           <li class="pf">Shape the product roadmap</li>
           <li class="pf">Founding rate locked for 2 years</li>
         </ul>
-        <div style="font-size:0.72rem;color:rgba(250,250,245,0.25);margin-bottom:1.5rem;font-style:italic;">Support covers product use. HR consulting engagements available separately.</div>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.25);margin-bottom:1.5rem;font-style:italic;">Support covers product use. HR consulting engagements available separately.</div>
         <a href="#trial" class="price-cta price-cta-gold" style="display:block;text-align:center;">Start Free Trial &#8594;</a>
-        <div id="team-trial-note" style="text-align:center;font-size:0.72rem;color:rgba(250,250,245,0.3);margin-top:0.6rem;">14 days free &#8226; then $99/month</div>
+        <div id="team-trial-note" style="text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.6rem;">14 days free &#8226; then $99/month</div>
       </div>
 
     </div>
 
     <div class="reveal" style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.07);">
-      <div style="font-size:0.82rem;color:rgba(250,250,245,0.35);">&#128274; Secure checkout via Stripe</div>
-      <div style="font-size:0.82rem;color:rgba(250,250,245,0.35);">&#128197; Cancel anytime — no contracts</div>
-      <div style="font-size:0.82rem;color:rgba(250,250,245,0.35);">&#9878;&#65039; Not a substitute for legal advice</div>
-      <div style="font-size:0.82rem;color:rgba(250,250,245,0.35);">&#128179; Credit card required to start trial</div>
+      <div style="font-size:0.82rem;color:rgba(255,255,255,0.35);">&#128274; Secure checkout via Stripe</div>
+      <div style="font-size:0.82rem;color:rgba(255,255,255,0.35);">&#128197; Cancel anytime — no contracts</div>
+      <div style="font-size:0.82rem;color:rgba(255,255,255,0.35);">&#9878;&#65039; Not a substitute for legal advice</div>
+      <div style="font-size:0.82rem;color:rgba(255,255,255,0.35);">&#128179; Credit card required to start trial</div>
     </div>
 
   </div>
 </section>
 
 <style>
-  .pf { display:flex;align-items:flex-start;gap:0.65rem;font-size:0.88rem;color:rgba(250,250,245,0.62);font-weight:300;line-height:1.5; }
+  .pf { display:flex;align-items:flex-start;gap:0.65rem;font-size:0.88rem;color:rgba(255,255,255,0.62);font-weight:300;line-height:1.5; }
   .pf::before { content:"\2713";color:var(--gold);flex-shrink:0;font-weight:500;margin-top:0.05rem; }
 </style>
 
@@ -1565,8 +1575,8 @@ const toolData = [
   function toggleBilling() {
     isAnnual = !isAnnual;
     document.getElementById('toggle-knob').style.transform = isAnnual ? 'translateX(24px)' : 'translateX(0)';
-    document.getElementById('toggle-monthly-label').style.color = isAnnual ? 'rgba(250,250,245,0.5)' : 'var(--cream)';
-    document.getElementById('toggle-annual-label').style.color = isAnnual ? 'var(--cream)' : 'rgba(250,250,245,0.5)';
+    document.getElementById('toggle-monthly-label').style.color = isAnnual ? 'rgba(255,255,255,0.5)' : 'var(--cream)';
+    document.getElementById('toggle-annual-label').style.color = isAnnual ? 'var(--cream)' : 'rgba(255,255,255,0.5)';
     document.getElementById('solo-amount').textContent = isAnnual ? '$249' : '$29';
     document.getElementById('solo-period').textContent = isAnnual ? '/year' : '/month';
     document.getElementById('solo-alt').textContent = isAnnual ? 'Or go monthly — $29/month' : 'Or save with annual — $249/year';
@@ -1645,15 +1655,15 @@ const toolData = [
 <!-- ═══════════════════════════════════ COLLABORATOR APPLICATION ══ -->
 <section id="trial" style="padding:7rem 3rem; background:var(--ink); position:relative; overflow:hidden;">
   <div class="light-beam" style="opacity:0.6;"></div>
-  <div class="corner-ornament tl" style="border-color:rgba(184,134,31,0.2);"></div>
-  <div class="corner-ornament tr" style="border-color:rgba(184,134,31,0.2);"></div>
-  <div class="corner-ornament bl" style="border-color:rgba(184,134,31,0.2);"></div>
-  <div class="corner-ornament br" style="border-color:rgba(184,134,31,0.2);"></div>
+  <div class="corner-ornament tl" style="border-color:rgba(230,126,34,0.2);"></div>
+  <div class="corner-ornament tr" style="border-color:rgba(230,126,34,0.2);"></div>
+  <div class="corner-ornament bl" style="border-color:rgba(230,126,34,0.2);"></div>
+  <div class="corner-ornament br" style="border-color:rgba(230,126,34,0.2);"></div>
 
   <div style="max-width:760px;margin:0 auto;position:relative;z-index:1;text-align:center;">
     <div class="section-label reveal" style="justify-content:center;color:var(--gold);">Collaborator Program — $20/month</div>
     <h2 class="reveal" style="font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:1rem;">Apply to the<br><em style="color:var(--gold-light);">Collaborator Program.</em></h2>
-    <p class="reveal" style="color:rgba(250,250,245,0.5);font-size:0.92rem;font-weight:300;max-width:520px;margin:0 auto 3rem;line-height:1.8;">Acceptance is invite-only and based on real usage context. Not optional — we're selecting collaborators who will actually use the platform and provide honest feedback.</p>
+    <p class="reveal" style="color:rgba(255,255,255,0.5);font-size:0.92rem;font-weight:300;max-width:520px;margin:0 auto 3rem;line-height:1.8;">Acceptance is invite-only and based on real usage context. Not optional — we're selecting collaborators who will actually use the platform and provide honest feedback.</p>
 
     <form id="trial-form" class="reveal" onsubmit="handleTrialSubmit(event)" style="text-align:left;">
 
@@ -1680,7 +1690,7 @@ const toolData = [
         <label class="trial-label">Company <span style="color:var(--gold);">*</span></label>
         <input type="text" class="trial-input" placeholder="Your company or organization" required>
       </div>
-      <p style="font-size:0.7rem;color:rgba(250,250,245,0.3);margin-bottom:1rem;letter-spacing:0.04em;">Not optional. Collaborators are selected based on real usage context.</p>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-bottom:1rem;letter-spacing:0.04em;">Not optional. Collaborators are selected based on real usage context.</p>
 
       <!-- Role + Company size -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
@@ -1718,7 +1728,7 @@ const toolData = [
 
       <!-- How will you use it -->
       <div class="trial-field" style="margin-bottom:1.5rem;">
-        <label class="trial-label" style="margin-bottom:0.6rem;">How will you use this product? <span style="color:var(--gold);">*</span> <span style="color:rgba(250,250,245,0.3);font-size:0.65rem;letter-spacing:0;">Choose at least one</span></label>
+        <label class="trial-label" style="margin-bottom:0.6rem;">How will you use this product? <span style="color:var(--gold);">*</span> <span style="color:rgba(255,255,255,0.3);font-size:0.65rem;letter-spacing:0;">Choose at least one</span></label>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
           <label class="collab-check"><input type="checkbox" name="usage" value="client"><div class="collab-check-box"><div class="collab-check-title">Client Work</div><div class="collab-check-sub">Using it with/for clients (consulting)</div></div></label>
           <label class="collab-check"><input type="checkbox" name="usage" value="internal"><div class="collab-check-box"><div class="collab-check-title">Internal HR</div><div class="collab-check-sub">Day-to-day HR for your organization</div></div></label>
@@ -1747,7 +1757,7 @@ const toolData = [
       </div>
 
       <div class="trial-field" style="margin-bottom:1rem;">
-        <label class="trial-label">LinkedIn Profile URL <span style="color:rgba(250,250,245,0.3);font-size:0.65rem;letter-spacing:0;">(optional — helps us verify your application)</span></label>
+        <label class="trial-label">LinkedIn Profile URL <span style="color:rgba(255,255,255,0.3);font-size:0.65rem;letter-spacing:0;">(optional — helps us verify your application)</span></label>
         <input type="url" class="trial-input" placeholder="https://linkedin.com/in/yourname">
       </div>
 
@@ -1766,12 +1776,12 @@ const toolData = [
         <span class="arrow">→</span>
       </button>
 
-      <p style="font-size:0.72rem;color:rgba(250,250,245,0.25);text-align:center;margin-top:1.25rem;line-height:1.7;">Not legal advice. For legal guidance, consult qualified counsel.<br>Feedback: Contact form (Topic: Collaborator feedback) or <span style="color:rgba(250,250,245,0.4);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="02717772726d7076426a70616d6f726e6b636c6167616d6f726371712c616d6f">[email&#160;protected]</a></span> — subject: [HRCC Feedback]</p>
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.25);text-align:center;margin-top:1.25rem;line-height:1.7;">Not legal advice. For legal guidance, consult qualified counsel.<br>Feedback: Contact form (Topic: Collaborator feedback) or <span style="color:rgba(255,255,255,0.4);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="02717772726d7076426a70616d6f726e6b636c6167616d6f726371712c616d6f">[email&#160;protected]</a></span> — subject: [HRCC Feedback]</p>
 
-      <div id="trial-success" style="display:none;text-align:center;padding:2rem;background:rgba(184,134,31,0.1);border:1px solid rgba(184,134,31,0.3);margin-top:1.5rem;">
+      <div id="trial-success" style="display:none;text-align:center;padding:2rem;background:rgba(230,126,34,0.1);border:1px solid rgba(230,126,34,0.3);margin-top:1.5rem;">
         <div style="font-size:2rem;margin-bottom:0.75rem;">✓</div>
         <div style="font-family:var(--serif);font-size:1.4rem;color:var(--gold-light);margin-bottom:0.5rem;">Application received.</div>
-        <div style="font-size:0.88rem;color:rgba(250,250,245,0.5);line-height:1.7;">We'll review your application and be in touch with next steps. Thank you for your interest in HR Compliance Compass.</div>
+        <div style="font-size:0.88rem;color:rgba(255,255,255,0.5);line-height:1.7;">We'll review your application and be in touch with next steps. Thank you for your interest in HR Compliance Compass.</div>
       </div>
 
     </form>
@@ -1790,11 +1800,11 @@ const toolData = [
   }
   .collab-check input:checked + .collab-check-box {
     border-color:var(--gold);
-    background:rgba(184,134,31,0.08);
+    background:rgba(230,126,34,0.08);
   }
   .collab-check:hover .collab-check-box { border-color:rgba(255,255,255,0.25); }
   .collab-check-title { font-size:0.85rem; font-weight:500; color:var(--cream); margin-bottom:0.2rem; }
-  .collab-check-sub { font-size:0.75rem; color:rgba(250,250,245,0.35); line-height:1.4; font-weight:300; }
+  .collab-check-sub { font-size:0.75rem; color:rgba(255,255,255,0.35); line-height:1.4; font-weight:300; }
 
   .commit-check { display:flex; align-items:flex-start; gap:0.85rem; cursor:none; }
   .commit-check input[type=checkbox] {
@@ -1803,8 +1813,8 @@ const toolData = [
     accent-color:var(--gold);
     cursor:none;
   }
-  .commit-text { font-size:0.82rem; color:rgba(250,250,245,0.5); line-height:1.6; font-weight:300; }
-  .commit-text strong { color:rgba(250,250,245,0.8); font-weight:500; display:block; margin-bottom:0.15rem; }
+  .commit-text { font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.6; font-weight:300; }
+  .commit-text strong { color:rgba(255,255,255,0.8); font-weight:500; display:block; margin-bottom:0.15rem; }
 </style>
 
 <!-- PRICING + FAQ + TRIAL STYLES -->
@@ -1825,15 +1835,15 @@ const toolData = [
   }
   .price-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
   .price-card-featured { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.07); }
-  .price-card-gold { border-color: var(--gold); background: rgba(184,134,31,0.07); }
-  .price-card-gold:hover { background: rgba(184,134,31,0.12); }
+  .price-card-gold { border-color: var(--gold); background: rgba(230,126,34,0.07); }
+  .price-card-gold:hover { background: rgba(230,126,34,0.12); }
   .price-badge {
     display: inline-block;
     font-size: 0.62rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     background: rgba(255,255,255,0.15);
-    color: rgba(250,250,245,0.7);
+    color: rgba(255,255,255,0.7);
     padding: 0.25rem 0.7rem;
     margin-bottom: 1.25rem;
   }
@@ -1853,8 +1863,8 @@ const toolData = [
     line-height: 1;
     margin-bottom: 0.4rem;
   }
-  .price-period { font-size: 1rem; color: rgba(250,250,245,0.35); }
-  .price-discount { font-size: 0.72rem; color: rgba(250,250,245,0.4); letter-spacing: 0.05em; margin-bottom: 2rem; }
+  .price-period { font-size: 1rem; color: rgba(255,255,255,0.35); }
+  .price-discount { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; margin-bottom: 2rem; }
   .price-features {
     list-style: none;
     margin-bottom: 2rem;
@@ -1864,7 +1874,7 @@ const toolData = [
   }
   .price-features li {
     font-size: 0.88rem;
-    color: rgba(250,250,245,0.6);
+    color: rgba(255,255,255,0.6);
     font-weight: 300;
     display: flex;
     align-items: center;
@@ -1887,7 +1897,7 @@ const toolData = [
     text-transform: uppercase;
     text-decoration: none;
     border: 1px solid rgba(255,255,255,0.2);
-    color: rgba(250,250,245,0.7);
+    color: rgba(255,255,255,0.7);
     transition: background 0.3s, color 0.3s, border-color 0.3s;
   }
   .price-cta:hover { background: rgba(255,255,255,0.1); color: var(--cream); }
@@ -1897,9 +1907,9 @@ const toolData = [
 
   /* FAQ */
   .faq-item {
-    border-bottom: 1px solid rgba(12,26,39,0.1);
+    border-bottom: 1px solid rgba(30,41,59,0.1);
   }
-  .faq-item:first-child { border-top: 1px solid rgba(12,26,39,0.1); }
+  .faq-item:first-child { border-top: 1px solid rgba(30,41,59,0.1); }
   .faq-q {
     width: 100%;
     background: none;
@@ -1945,7 +1955,7 @@ const toolData = [
 
   /* TRIAL FORM */
   .trial-field { display: flex; flex-direction: column; gap: 0.4rem; }
-  .trial-label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,250,245,0.45); }
+  .trial-label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
   .trial-input {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
@@ -1957,7 +1967,7 @@ const toolData = [
     transition: border-color 0.25s, background 0.25s;
     width: 100%;
   }
-  .trial-input::placeholder { color: rgba(250,250,245,0.22); }
+  .trial-input::placeholder { color: rgba(255,255,255,0.22); }
   .trial-input:focus { border-color: var(--gold); background: rgba(255,255,255,0.09); }
   .trial-select { appearance: none; cursor: none; }
   .trial-select option { background: var(--ink-mid); color: var(--cream); }
@@ -1974,15 +1984,15 @@ const toolData = [
   }
   .plan-option input:checked + .plan-box {
     border-color: var(--gold);
-    background: rgba(184,134,31,0.1);
+    background: rgba(230,126,34,0.1);
   }
   .plan-option:hover .plan-box { border-color: rgba(255,255,255,0.3); }
-  .plan-box-gold { border-color: rgba(184,134,31,0.4); }
-  .plan-option input:checked + .plan-box-gold { background: rgba(184,134,31,0.15); }
+  .plan-box-gold { border-color: rgba(230,126,34,0.4); }
+  .plan-option input:checked + .plan-box-gold { background: rgba(230,126,34,0.15); }
   .plan-badge { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
   .plan-name { font-family: var(--serif); font-size: 0.95rem; color: var(--cream); margin-bottom: 0.35rem; }
   .plan-price { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; color: var(--gold-light); line-height: 1; margin-bottom: 0.25rem; }
-  .plan-save { font-size: 0.65rem; color: rgba(250,250,245,0.35); letter-spacing: 0.08em; }
+  .plan-save { font-size: 0.65rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; }
 
   @media(max-width:900px) {
     .pricing-grid { grid-template-columns: 1fr; }
@@ -2109,16 +2119,16 @@ const toolData = [
 <!-- ═══════════════════════════════════════════ CONTACT ══ -->
 <section id="contact" style="padding:7rem 3rem; background:var(--ink); position:relative; overflow:hidden;">
   <div class="light-beam" style="opacity:0.5;"></div>
-  <div class="corner-ornament tl" style="border-color:rgba(184,134,31,0.2);"></div>
-  <div class="corner-ornament tr" style="border-color:rgba(184,134,31,0.2);"></div>
-  <div class="corner-ornament bl" style="border-color:rgba(184,134,31,0.2);"></div>
-  <div class="corner-ornament br" style="border-color:rgba(184,134,31,0.2);"></div>
+  <div class="corner-ornament tl" style="border-color:rgba(230,126,34,0.2);"></div>
+  <div class="corner-ornament tr" style="border-color:rgba(230,126,34,0.2);"></div>
+  <div class="corner-ornament bl" style="border-color:rgba(230,126,34,0.2);"></div>
+  <div class="corner-ornament br" style="border-color:rgba(230,126,34,0.2);"></div>
 
   <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.6fr;gap:6rem;align-items:start;">
     <div>
       <div class="section-label" style="color:var(--gold);">Get in Touch</div>
       <h2 style="font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:1.5rem;">We read<br>every message.<br><em style="color:var(--gold-light);">Every one.</em></h2>
-      <p style="font-size:0.92rem;line-height:1.85;color:rgba(250,250,245,0.5);font-weight:300;margin-bottom:2.5rem;">Whether you have a question about the platform, a compliance topic you think we should cover, or feedback on your experience — we want to hear it.</p>
+      <p style="font-size:0.92rem;line-height:1.85;color:rgba(255,255,255,0.5);font-weight:300;margin-bottom:2.5rem;">Whether you have a question about the platform, a compliance topic you think we should cover, or feedback on your experience — we want to hear it.</p>
       <div style="display:flex;flex-direction:column;gap:1.5rem;">
         <div class="contact-info-item">
           <div class="contact-info-label">General Inquiries</div>
@@ -2181,10 +2191,10 @@ const toolData = [
         <span>Send Message</span>
         <span class="arrow">→</span>
       </button>
-      <div id="contact-success" style="display:none;text-align:center;padding:2rem;background:rgba(184,134,31,0.1);border:1px solid rgba(184,134,31,0.3);margin-top:1.5rem;">
+      <div id="contact-success" style="display:none;text-align:center;padding:2rem;background:rgba(230,126,34,0.1);border:1px solid rgba(230,126,34,0.3);margin-top:1.5rem;">
         <div style="font-size:2rem;margin-bottom:0.75rem;">✓</div>
         <div style="font-family:var(--serif);font-size:1.3rem;color:var(--gold-light);margin-bottom:0.5rem;">Message received.</div>
-        <div style="font-size:0.85rem;color:rgba(250,250,245,0.5);line-height:1.7;">We'll get back to you within 24 hours. Thank you for reaching out.</div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.7;">We'll get back to you within 24 hours. Thank you for reaching out.</div>
       </div>
     </form>
   </div>
@@ -2192,8 +2202,8 @@ const toolData = [
 
 <!-- PRIVACY + CONTACT STYLES -->
 <style>
-  .priv-item { border-bottom: 1px solid rgba(12,26,39,0.1); }
-  .priv-item:first-child { border-top: 1px solid rgba(12,26,39,0.1); }
+  .priv-item { border-bottom: 1px solid rgba(30,41,59,0.1); }
+  .priv-item:first-child { border-top: 1px solid rgba(30,41,59,0.1); }
   .priv-q { width:100%; background:none; border:none; padding:1.4rem 0; display:flex; justify-content:space-between; align-items:center; font-family:var(--serif); font-size:1.1rem; font-weight:400; color:var(--ink); cursor:none; text-align:left; gap:1rem; transition:color 0.2s; }
   .priv-q:hover { color:var(--gold); }
   .priv-item.open .priv-q { color:var(--gold); }
@@ -2207,7 +2217,7 @@ const toolData = [
   .contact-info-item { padding:1.25rem 0; border-bottom:1px solid rgba(255,255,255,0.07); }
   .contact-info-item:first-child { border-top:1px solid rgba(255,255,255,0.07); }
   .contact-info-label { font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:0.35rem; }
-  .contact-info-val { font-family:var(--serif); font-size:1rem; color:rgba(250,250,245,0.7); font-weight:300; line-height:1.5; }
+  .contact-info-val { font-family:var(--serif); font-size:1rem; color:rgba(255,255,255,0.7); font-weight:300; line-height:1.5; }
   @media(max-width:900px){
     #contact > div > div { grid-template-columns:1fr !important; gap:3rem !important; }
     #contact-form > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
@@ -2355,7 +2365,7 @@ const toolData = [
             .attr('d', path)
             .attr('fill', d => {
               const name = stateNames[d.id.toString().padStart(2,'0')];
-              return highActivityStates.has(name) ? '#D4A843' : '#0C1A27';
+              return highActivityStates.has(name) ? '#2c9faf' : '#1a4a7c';
             })
             .on('mousemove', function(event, d) {
               const name = stateNames[d.id.toString().padStart(2,'0')] || 'Unknown';
@@ -2375,7 +2385,7 @@ const toolData = [
       document.head.appendChild(d3Script);
     })
     .catch(() => {
-      if (mapSvg) mapSvg.innerHTML = '<text x="480" y="300" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#0C1A27">All 50 States Covered</text>';
+      if (mapSvg) mapSvg.innerHTML = '<text x="480" y="300" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#1a4a7c">All 50 States Covered</text>';
     });
 
   // Intersection Observer for reveals
