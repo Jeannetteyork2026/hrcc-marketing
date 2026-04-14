@@ -1,20 +1,2351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HR Compliance Compass</title>
-  <meta http-equiv="refresh" content="0; url=/hr-compliance-compass.html" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Compliance Compass — State Employment Law, Simplified</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAFAF5;
+    --cream-2: #F3F0E8;
+    --ink: #0C1A27;
+    --ink-mid: #1E3448;
+    --gold: #B8861F;
+    --gold-light: #D4A843;
+    --gold-pale: #F5EDD8;
+    --slate: #2C4A6E;
+    --slate-light: #EBF0F6;
+    --muted: #6B7A8B;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed;
+    width: 10px; height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    opacity: 0.5;
+  }
+  body:has(a:hover) .cursor, body:has(button:hover) .cursor {
+    width: 18px; height: 18px;
+    background: var(--gold-light);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 3rem;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(250, 250, 245, 0.92);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(12,26,39,0.08);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--ink);
+    color: var(--cream) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.1em !important;
+    transition: background 0.2s ease !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: white !important; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--cream);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  /* Animated grain texture */
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    width: 200%; height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    animation: grain 8s steps(10) infinite;
+    pointer-events: none;
+  }
+  @keyframes grain {
+    0%, 100% { transform: translate(0,0); }
+    10% { transform: translate(-2%,-3%); }
+    20% { transform: translate(3%,1%); }
+    30% { transform: translate(-1%,4%); }
+    40% { transform: translate(2%,-2%); }
+    50% { transform: translate(-3%,2%); }
+    60% { transform: translate(1%,-4%); }
+    70% { transform: translate(4%,3%); }
+    80% { transform: translate(-2%,1%); }
+    90% { transform: translate(3%,-1%); }
+  }
+
+  /* Floating state abbreviations */
+  .states-field {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .state-tag {
+    position: absolute;
+    font-family: var(--serif);
+    font-size: clamp(0.65rem, 1vw, 0.85rem);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    opacity: 0;
+    animation: float-up 18s ease-in-out infinite;
+  }
+  @keyframes float-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    10% { opacity: 0.12; }
+    50% { opacity: 0.18; transform: translateY(-10px); }
+    90% { opacity: 0.12; }
+    100% { opacity: 0; transform: translateY(-30px); }
+  }
+
+  /* Cinematic light beam */
+  .light-beam {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 140%;
+    background: linear-gradient(180deg, transparent 0%, rgba(184,134,31,0.12) 30%, rgba(184,134,31,0.06) 70%, transparent 100%);
+    animation: beam-pulse 6s ease-in-out infinite;
+  }
+  @keyframes beam-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* Corner ornaments */
+  .corner-ornament {
+    position: absolute;
+    width: 80px; height: 80px;
+    border-color: rgba(184,134,31,0.15);
+    border-style: solid;
+  }
+  .corner-ornament.tl { top: 2rem; left: 2rem; border-width: 1px 0 0 1px; }
+  .corner-ornament.tr { top: 2rem; right: 2rem; border-width: 1px 1px 0 0; }
+  .corner-ornament.bl { bottom: 2rem; left: 2rem; border-width: 0 0 1px 1px; }
+  .corner-ornament.br { bottom: 2rem; right: 2rem; border-width: 0 1px 1px 0; }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 2rem;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fade-up 0.8s ease 0.3s forwards;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 8vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fade-up 0.9s ease 0.5s forwards;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-title .line-2 {
+    display: block;
+    font-weight: 300;
+  }
+
+  .hero-subtitle {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 3rem;
+    line-height: 1.5;
+    opacity: 0;
+    animation: fade-up 0.9s ease 0.7s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fade-up 0.9s ease 0.9s forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--ink);
+    color: #F5EDD8;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border: none;
+    cursor: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-101%);
+    transition: transform 0.35s ease;
+  }
+  .btn-primary:hover::after { transform: translateX(0); }
+  .btn-primary span { position: relative; z-index: 1; }
+  .btn-primary .arrow { position: relative; z-index: 1; font-size: 1rem; transition: transform 0.3s ease; }
+  .btn-primary:hover .arrow { transform: translateX(4px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(12,26,39,0.2);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fade-up 1s ease 1.4s forwards;
+  }
+  .hero-scroll span {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+    animation: scroll-drop 2s ease infinite;
+  }
+  @keyframes scroll-drop {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* TICKER */
+  .ticker {
+    background: var(--ink);
+    color: var(--gold-pale);
+    padding: 0.75rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-flex;
+    gap: 3rem;
+    animation: ticker-scroll 30s linear infinite;
+  }
+  .ticker-item {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .ticker-dot {
+    width: 4px; height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* SECTIONS GENERAL */
+  section { padding: 7rem 3rem; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 30px; height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* PROBLEM SECTION */
+  .problem {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+    .problem-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-top: 1.5rem;
+    font-weight: 300;
+  }
+  .problem-body strong { color: var(--ink); font-weight: 400; }
+
+  .pain-list {
+    list-style: none;
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .pain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: white;
+    border: 1px solid rgba(12,26,39,0.06);
+    border-left: 3px solid var(--gold);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .pain-item.visible { opacity: 1; transform: translateX(0); }
+  .pain-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .pain-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--ink-mid);
+  }
+  .pain-text strong { font-weight: 500; display: block; margin-bottom: 0.2rem; font-size: 0.95rem; }
+
+  /* STATE MAP VISUAL */
+  .state-map-visual {
+    position: relative;
+    background: white;
+    border: 1px solid rgba(12,26,39,0.06);
+    padding: 2rem 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .state-map-visual::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .map-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  #us-map { width: 100%; height: auto; display: block; }
+  #us-map path {
+    stroke: white;
+    stroke-width: 0.8;
+    transition: opacity 0.2s;
+    cursor: none;
+  }
+  #us-map path:hover { opacity: 0.75; }
+  .map-tooltip {
+    position: absolute;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    padding: 0.4rem 0.8rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+    z-index: 10;
+  }
+  .map-legend {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* HOW IT WORKS */
+  .how-section {
+    background: var(--ink);
+    padding: 7rem 3rem;
+  }
+  .how-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .how-section .section-label { color: var(--gold); }
+  .how-section .section-label::before { background: var(--gold); }
+  .how-section .section-title { color: var(--cream); }
+  .how-section .section-title em { color: var(--gold-light); }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+    position: relative;
+  }
+  .step-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s ease;
+  }
+  .step-card.visible { opacity: 1; transform: translateY(0); }
+  .step-card:hover { background: rgba(255,255,255,0.07); }
+  .step-number {
+    font-family: var(--serif);
+    font-size: 5rem;
+    font-weight: 300;
+    color: rgba(184,134,31,0.15);
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    line-height: 1;
+  }
+  .step-icon {
+    width: 44px; height: 44px;
+    background: var(--gold);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .step-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+  .step-body {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(250,250,245,0.55);
+    font-weight: 300;
+  }
+
+  /* FEATURES */
+  .features-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 7rem 3rem;
+  }
+  .features-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 5rem;
+  }
+  .features-subtitle {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--muted);
+    font-weight: 300;
+    align-self: end;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(12,26,39,0.06);
+  }
+  .feature-card {
+    background: white;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+  }
+  .feature-card.visible { opacity: 1; transform: translateY(0); }
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.4s ease;
+  }
+  .feature-card:hover::after { width: 100%; }
+  .feature-icon-wrap {
+    width: 48px; height: 48px;
+    border: 1px solid rgba(12,26,39,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .feature-card:hover .feature-icon-wrap {
+    border-color: var(--gold);
+    background: var(--gold-pale);
+  }
+  .feature-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+  .feature-body {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* TESTIMONIAL / TRUST */
+  .trust-section {
+    background: var(--gold-pale);
+    padding: 6rem 3rem;
+    text-align: center;
+  }
+  .trust-inner { max-width: 800px; margin: 0 auto; }
+  .trust-quote {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--ink);
+    margin-bottom: 2rem;
+  }
+  .trust-quote strong {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--gold);
+  }
+  .trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+  .trust-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .trust-number {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .trust-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* PILOT / CTA */
+  .pilot-section {
+    padding: 7rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .pilot-inner {
+    background: var(--ink);
+    padding: 5rem;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .pilot-inner::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,134,31,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .pilot-inner .section-label { color: var(--gold); }
+  .pilot-inner .section-label::before { background: var(--gold); }
+  .pilot-inner .section-title { color: var(--cream); font-size: clamp(2rem, 4vw, 3rem); }
+  .pilot-inner .section-title em { color: var(--gold-light); }
+  .pilot-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(250,250,245,0.55);
+    font-weight: 300;
+    margin-top: 1.2rem;
+  }
+  .pilot-tiers {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .tier-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s, border-color 0.3s;
+    cursor: none;
+  }
+  .tier-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: var(--gold);
+  }
+  .tier-card.featured {
+    border-color: var(--gold);
+    background: rgba(184,134,31,0.08);
+  }
+  .tier-badge {
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 0.2rem 0.6rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    display: inline-block;
+  }
+  .tier-name {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--cream);
+    font-weight: 400;
+  }
+  .tier-price {
+    text-align: right;
+  }
+  .tier-amount {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .tier-period {
+    font-size: 0.72rem;
+    color: rgba(250,250,245,0.4);
+    letter-spacing: 0.08em;
+  }
+  .pilot-cta-wrap {
+    margin-top: 2rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--cream-2);
+    border-top: 1px solid rgba(12,26,39,0.08);
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .footer-tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  /* REVEAL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    section, .features-section, .pilot-section { padding: 5rem 1.5rem; }
+    .problem { grid-template-columns: 1fr; gap: 3rem; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .features-header { grid-template-columns: 1fr; gap: 1.5rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .pilot-inner { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 3rem; }
+    footer { flex-direction: column; text-align: center; }
+    .hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
+    body { cursor: auto; }
+    .cursor, .cursor-ring { display: none; }
+  }
+</style>
 </head>
 <body>
-  <script>
-    window.location.replace("/hr-compliance-compass.html");
-  </script>
-  <noscript>
-    <p>
-      Redirecting to
-      <a href="/hr-compliance-compass.html">HR Compliance Compass</a>.
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- TICKER -->
+<div class="ticker" style="position:sticky; top:65px; z-index:900; margin-top:65px;">
+  <div class="ticker-inner" id="ticker">
+    <div class="ticker-item"><div class="ticker-dot"></div> Overtime Rules</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Paid Leave Mandates</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Non-Compete Laws</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Salary History Bans</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Ban the Box Policies</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Minimum Wage Updates</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Predictive Scheduling</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Anti-Harassment Training</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Final Paycheck Rules</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Drug Testing Laws</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Overtime Rules</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Paid Leave Mandates</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Non-Compete Laws</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Salary History Bans</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Ban the Box Policies</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Minimum Wage Updates</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Predictive Scheduling</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Anti-Harassment Training</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Final Paycheck Rules</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Drug Testing Laws</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">HR Compliance <span>Compass</span></a>
+  <ul class="nav-links">
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faqs">FAQs</a></li>
+    <li><a href="#privacy">Privacy</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#trial" class="nav-cta">Start Free Trial</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="light-beam"></div>
+    <div class="states-field" id="states-field"></div>
+    <div class="corner-ornament tl"></div>
+    <div class="corner-ornament tr"></div>
+    <div class="corner-ornament bl"></div>
+    <div class="corner-ornament br"></div>
+    <!-- Translucent compass watermark -->
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;overflow:hidden;">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:75vw;max-width:780px;opacity:0.045;color:var(--ink);">
+        <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
+        <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
+        <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
+        <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
+        <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+        <circle cx="200" cy="200" r="75" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+        <circle cx="200" cy="200" r="22" fill="currentColor"/>
+        <circle cx="200" cy="200" r="13" fill="white"/>
+        <circle cx="200" cy="200" r="5" fill="currentColor"/>
+        <text x="200" y="36" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">N</text>
+        <text x="200" y="384" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">S</text>
+        <text x="382" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">E</text>
+        <text x="18" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">W</text>
+      </svg>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">State Employment Law Intelligence</div>
+    <h1 class="hero-title">
+      50 States.<br>
+      <em>One Answer.</em>
+    </h1>
+    <p class="hero-subtitle">
+      Managing multi-state employment law is overwhelming.<br>
+      We've already done the work — so you don't have to.
     </p>
-  </noscript>
+    <div class="hero-actions">
+      <a href="#pilot" class="btn-primary">
+        <span>Start Your Free Trial</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#how" class="btn-ghost">See how it works ↓</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<section id="toolkit" style="padding: 5rem 3rem 0; background: var(--cream); position:relative; overflow:hidden;">
+  <!-- Translucent wordmark watermark -->
+  <div style="position:absolute;bottom:-1rem;left:50%;transform:translateX(-50%);pointer-events:none;white-space:nowrap;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(5rem,12vw,10rem);font-weight:300;color:var(--ink);opacity:0.035;letter-spacing:0.15em;user-select:none;">COMPASSLINE</div>
+  <div style="max-width: 1300px; margin: 0 auto; position:relative; z-index:1;">
+    <div class="section-label reveal" style="justify-content:center; margin-bottom:0.75rem;">Your Compliance Toolkit</div>
+    <h2 class="section-title reveal" style="text-align:center; margin-bottom:0.5rem;">Everything you need.<br><em>Click a tool to explore it.</em></h2>
+    <p style="text-align:center; color:var(--muted); font-size:0.95rem; font-weight:300; margin-bottom:3rem;" class="reveal">Eleven purpose-built tools. One platform. No guessing.</p>
+
+    <!-- INFINITE MOUSE CAROUSEL -->
+    <div id="carousel-viewport" style="position:relative; overflow:hidden; width:100%; padding:0.5rem 0 2rem;">
+      <div id="carousel-track" style="display:flex; gap:1.5rem; will-change:transform; width:max-content;">
+
+        <div class="tk-card" data-tool="0">
+          <div class="tk-icon">💬</div>
+          <div class="tk-name">Tough Conversations</div>
+          <div class="tk-tag">Manager Talk Tracks</div>
+          <div class="tk-hint">Click to explore →</div>
+        </div>
+
+        <div class="tk-card" data-tool="1">
+          <div class="tk-icon">⚡</div>
+          <div class="tk-name">Decision Helper</div>
+          <div class="tk-tag">HR Decision Workflows</div>
+          <div class="tk-hint">Click to explore →</div>
+        </div>
+
+        <div class="tk-card" data-tool="2">
+          <div class="tk-icon">🔍</div>
+          <div class="tk-name">Complaint Investigation Guide</div>
+          <div class="tk-tag">Investigation Templates</div>
+          <div class="tk-hint">Click to explore →</div>
+        </div>
+
+        <div class="tk-card" data-tool="3">
+          <div class="tk-icon">📋</div>
+          <div class="tk-name">Handbook Builder</div>
+          <div class="tk-tag">Policy Language</div>
+          <div class="tk-hint">Click to explore →</div>
+        </div>
+
+        <div class="tk-card" data-tool="4">
+          <div class="tk-icon">🎯</div>
+          <div class="tk-name">Interview Guides</div>
+          <div class="tk-tag">Stronger Hiring</div>
+          <div class="tk-hint">Click to explore →</div>
+        </div>
+
+        <div class="tk-card" data-tool="5">
+          <div class="tk-icon">📈</div>
+          <div class="tk-name">Performance Guidance</div>
+          <div class="tk-tag">Documentation Support</div>
+          <div class="tk-hint">Click to explore →</div>
+        </div>
+
+        <div class="tk-card" data-tool="6">
+          <div class="tk-icon">⚖️</div>
+          <div class="tk-name">FLSA Exempt Status & Duties Test</div>
+          <div class="tk-tag">Overtime Compliance</div>
+          <div class="tk-hint">Click to explore →</div>
+        </div>
+
+        <div class="tk-card" data-tool="7">
+          <div class="tk-icon">✅</div>
+          <div class="tk-name">Compliance Checklists</div>
+          <div class="tk-tag">State-Aware Checklists</div>
+          <div class="tk-hint">Click to explore →</div>
+        </div>
+
+        <div class="tk-card" data-tool="8">
+          <div class="tk-icon">🤖</div>
+          <div class="tk-name">Future of Work & AI</div>
+          <div class="tk-tag">AI Workforce Readiness</div>
+          <div class="tk-hint">Click to explore →</div>
+        </div>
+
+        <div class="tk-card" data-tool="9">
+          <div class="tk-icon">🧭</div>
+          <div class="tk-name">Compliance Wizard</div>
+          <div class="tk-tag">Law Guidance + Sources</div>
+          <div class="tk-hint">Click to explore →</div>
+        </div>
+
+        <div class="tk-card" data-tool="10">
+          <div class="tk-icon">📚</div>
+          <div class="tk-name">FAQs / Knowledge Base</div>
+          <div class="tk-tag">HR Term Intelligence</div>
+          <div class="tk-hint">Click to explore →</div>
+        </div>
+
+      </div>
+      <!-- Edge fades -->
+      <div style="position:absolute;left:0;top:0;bottom:2rem;width:100px;background:linear-gradient(90deg,var(--cream),transparent);pointer-events:none;z-index:2;"></div>
+      <div style="position:absolute;right:0;top:0;bottom:2rem;width:100px;background:linear-gradient(270deg,var(--cream),transparent);pointer-events:none;z-index:2;"></div>
+      <!-- Mouse hint -->
+      <div id="carousel-hint" style="text-align:center;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;opacity:0.7;">Move mouse left or right to control · Click any card to open</div>
+    </div>
+
+    <!-- DETAIL PANEL -->
+    <div id="tk-panel" style="max-height:0; overflow:hidden; transition:max-height 0.55s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease; opacity:0;">
+      <div id="tk-panel-inner" style="padding:3rem; background:var(--ink); margin-top:1.5rem; position:relative; overflow:hidden;">
+        <div style="position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(184,134,31,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+        <button id="tk-close" style="position:absolute;top:1.5rem;right:1.5rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(250,250,245,0.6);width:32px;height:32px;cursor:none;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">✕</button>
+
+        <div style="display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:start;">
+          <div>
+            <div id="pk-icon" style="font-size:3rem; margin-bottom:1rem;"></div>
+            <div id="pk-name" style="font-family:var(--serif); font-size:2rem; font-weight:300; color:var(--cream); line-height:1.15; margin-bottom:0.75rem;"></div>
+            <div id="pk-tag" style="font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem;"></div>
+            <div id="pk-status"></div>
+          </div>
+          <div>
+            <div id="pk-headline" style="font-family:var(--serif); font-size:1.4rem; font-weight:300; font-style:italic; color:rgba(250,250,245,0.85); line-height:1.5; margin-bottom:1.5rem; border-left:3px solid var(--gold); padding-left:1.25rem;"></div>
+            <div id="pk-body" style="font-size:0.92rem; line-height:1.8; color:rgba(250,250,245,0.55); font-weight:300; margin-bottom:1.75rem;"></div>
+            <div id="pk-bullets" style="display:flex; flex-direction:column; gap:0.65rem;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLKIT STYLES & DATA -->
+<style>
+  .tk-card {
+    background: white;
+    border: 1px solid rgba(12,26,39,0.08);
+    border-bottom: 3px solid transparent;
+    padding: 2rem 2rem;
+    cursor: none;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background 0.3s;
+    position: relative;
+    user-select: none;
+    flex: 0 0 260px;
+    min-height: 180px;
+  }
+  .tk-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(12,26,39,0.1); border-bottom-color: var(--gold); }
+  .tk-card.active { border-color: var(--gold); border-bottom-width: 3px; background: var(--gold-pale); transform: translateY(-5px); box-shadow: 0 12px 40px rgba(184,134,31,0.15); }
+  .tk-icon { font-size: 2rem; margin-bottom: 1.1rem; }
+  .tk-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.25; }
+  .tk-tag { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; }
+  .tk-hint { font-size: 0.72rem; color: var(--muted); opacity: 0; transition: opacity 0.25s; }
+  .tk-card:hover .tk-hint, .tk-card.active .tk-hint { opacity: 1; }
+  .tk-card.active .tk-hint { color: var(--gold); }
+  .tk-coming { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; background: var(--ink); color: var(--gold-pale); padding: 0.2rem 0.6rem; display: inline-block; margin-bottom: 0.75rem; }
+  .tk-card-soon { opacity: 0.75; }
+  .tk-card-soon:hover { opacity: 1; }
+  #carousel-viewport { cursor: none; }
+  .pk-bullet { display:flex; align-items:flex-start; gap:0.75rem; }
+  .pk-bullet-dot { width:6px; height:6px; background:var(--gold); border-radius:50%; flex-shrink:0; margin-top:0.45rem; }
+  .pk-bullet-text { font-size:0.88rem; color:rgba(250,250,245,0.65); line-height:1.6; }
+  @media(max-width:900px){
+    #tk-panel-inner > div { grid-template-columns:1fr !important; gap:1.5rem !important; }
+    #toolkit { padding: 4rem 1.5rem 0 !important; }
+    .tk-card { flex: 0 0 220px; }
+  }
+</style>
+
+<script>
+// ── INFINITE MOUSE CAROUSEL ──────────────────────────────
+(function() {
+  const viewport = document.getElementById('carousel-viewport');
+  const track    = document.getElementById('carousel-track');
+  if (!viewport || !track) return;
+
+  // Clone all cards so the loop is seamless
+  const origCards = Array.from(track.querySelectorAll('.tk-card'));
+  origCards.forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.dataset.clone = 'true';
+    track.appendChild(clone);
+  });
+
+  let offset      = 0;
+  let setWidth    = 0;
+  let velocity    = 0.55;   // default auto-scroll speed (px/frame)
+  let targetVel   = 0.55;
+  let isOver      = false;
+
+  function measureSet() {
+    const gap = 24; // 1.5rem in px
+    setWidth = origCards.reduce((sum, c) => sum + c.offsetWidth + gap, 0);
+  }
+  measureSet();
+  window.addEventListener('resize', measureSet);
+
+  // Mouse position maps to velocity
+  viewport.addEventListener('mouseenter', () => { isOver = true; });
+  viewport.addEventListener('mouseleave', () => {
+    isOver = false;
+    targetVel = 0.55; // drift back to default
+  });
+  viewport.addEventListener('mousemove', e => {
+    if (!isOver) return;
+    const rect   = viewport.getBoundingClientRect();
+    const relX   = e.clientX - rect.left;
+    const norm   = (relX / rect.width) * 2 - 1; // -1 (far left) → +1 (far right)
+    // Center = slow drift, edges = fast in that direction
+    targetVel = norm * 3.5; // -3.5 to +3.5 px/frame
+  });
+
+  function animate() {
+    // Smoothly lerp current velocity toward target
+    velocity += (targetVel - velocity) * 0.06;
+
+    offset += velocity;
+
+    // Seamless loop — when we've scrolled one full set, reset
+    if (offset >= setWidth) offset -= setWidth;
+    if (offset < 0)         offset += setWidth;
+
+    track.style.transform = `translateX(${-offset}px)`;
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// ── CARD CLICK (handles originals + clones) ──────────────
+document.addEventListener('click', e => {
+  const card = e.target.closest('.tk-card');
+  if (!card || !card.dataset.tool) return;
+
+  const idx   = parseInt(card.dataset.tool);
+  const panel = document.getElementById('tk-panel');
+
+  // Deactivate all
+  document.querySelectorAll('.tk-card').forEach(c => c.classList.remove('active'));
+
+  // If this card was already open, close it
+  if (panel._openIdx === idx && panel.style.maxHeight !== '0px') {
+    panel.style.maxHeight = '0';
+    panel.style.opacity   = '0';
+    panel._openIdx = -1;
+    return;
+  }
+
+  // Activate the clicked card AND its clone
+  document.querySelectorAll(`.tk-card[data-tool="${idx}"]`).forEach(c => c.classList.add('active'));
+
+  panel._openIdx = idx;
+  const t = toolData[idx];
+  if (!t) return;
+
+  document.getElementById('pk-icon').textContent     = t.icon;
+  document.getElementById('pk-name').textContent     = t.name;
+  document.getElementById('pk-tag').textContent      = t.tag;
+  document.getElementById('pk-headline').textContent = t.headline;
+  document.getElementById('pk-body').textContent     = t.body;
+
+  document.getElementById('pk-bullets').innerHTML = t.bullets.map(b =>
+    `<div class="pk-bullet"><div class="pk-bullet-dot"></div><div class="pk-bullet-text">${b}</div></div>`
+  ).join('');
+
+  document.getElementById('pk-status').innerHTML = t.soon
+    ? `<div style="display:inline-block;background:var(--gold);color:var(--ink);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.8rem;font-weight:500;">Coming Soon — Founding Partners Get Early Access</div>`
+    : `<div style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:rgba(250,250,245,0.5);"><span style="width:7px;height:7px;background:#4ade80;border-radius:50%;display:inline-block;"></span>Available Now</div>`;
+
+  panel.style.maxHeight = '900px';
+  panel.style.opacity   = '1';
+  setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 120);
+});
+
+document.getElementById('tk-close').addEventListener('click', () => {
+  document.querySelectorAll('.tk-card').forEach(c => c.classList.remove('active'));
+  const panel = document.getElementById('tk-panel');
+  panel.style.maxHeight = '0';
+  panel.style.opacity   = '0';
+  panel._openIdx = -1;
+});
+
+
+const toolData = [
+  {
+    name: 'Tough Conversations',
+    tag: 'Manager Talk Tracks',
+    headline: 'Your managers shouldn\'t have to improvise the hardest conversations they\'ll ever have. Now they don\'t have to.',
+    body: 'Terminations. PIPs. Attendance warnings. Discrimination complaints. Sensitive personal disclosures. These are the conversations managers dread — and the ones most likely to create legal exposure when handled poorly. Tough Conversations gives managers a structured, people-first framework for navigating each one with clarity, fairness, and documentation.\n\nEvery talk track is built to protect both the employee and the organization — because done right, hard conversations build trust, not resentment. Done wrong, they become the centerpiece of a lawsuit.',
+    bullets: [
+      'Scenario-specific talk tracks for terminations, warnings, PIPs, attendance, conduct, and more',
+      'Structured conversation flow: what to say, in what order, and what never to say',
+      'Built-in documentation language so managers leave every conversation with a defensible record',
+      'People-first framing that maintains dignity without sacrificing clarity or legal protection',
+      'Manager coaching notes included — ideal for HR to share with supervisors before a difficult meeting'
+    ]
+  },
+  {
+    icon: '⚡',
+    name: 'Decision Helper',
+    tag: 'Step-by-Step HR Decision Workflows',
+    headline: 'The right HR decision isn\'t always obvious. This tool walks you through it — step by step, law by law.',
+    body: 'HR decisions are rarely black and white. Can I terminate this employee? Do I have to offer COBRA? What counts as a reasonable accommodation? Is this situation FMLA-qualifying? The Decision Helper breaks down the most common and most consequential HR decisions into structured, guided workflows — asking you the right questions to surface the right answer for your specific situation.\n\nEach workflow accounts for federal law, state-specific variations, company size thresholds, and situational factors that change the outcome. You don\'t need to know the law to use it — the tool knows it for you.',
+    bullets: [
+      'Covers terminations, leave decisions, accommodations, hiring, compensation, discipline, and more',
+      'Guides you through the decision logic question by question — no prior legal knowledge required',
+      'Flags when state law changes the answer from the federal default',
+      'Identifies risk factors and documentation requirements before you act',
+      'Produces a decision summary you can save and file as part of your HR record'
+    ]
+  },
+  {
+    icon: '🔍',
+    name: 'Complaint Investigation Guide',
+    tag: 'Investigation Templates & Checklists',
+    headline: 'When a complaint comes in, you have minutes to decide how to handle it — and months of exposure if you get it wrong.',
+    body: 'Workplace complaints — harassment, discrimination, retaliation, hostile work environment — are among the highest-stakes situations an HR professional or business owner will face. The Complaint Investigation Guide walks you through every stage: intake, triage, legal risk assessment, witness interviews, documentation, resolution, and follow-up.\n\nThe tool helps you determine whether a situation can be resolved informally or requires a formal investigation, and gives you the templates, checklists, and process documentation you need to run a defensible, thorough, and fair investigation either way.',
+    bullets: [
+      'Intake checklist captures all critical details from the initial report — nothing falls through the cracks',
+      'Legal risk triage helps you assess severity, required response timelines, and mandatory reporting obligations',
+      'Witness interview templates and investigation question frameworks included',
+      'Formal investigation process roadmap from complaint to conclusion, with decision documentation',
+      'Resolution and corrective action templates with language designed to close the loop without creating new liability'
+    ]
+  },
+  {
+    icon: '📋',
+    name: 'Handbook Builder',
+    tag: 'Policy Language That Actually Holds Up',
+    headline: 'Your employee handbook is either your strongest compliance asset or your biggest liability. This tool makes it the former.',
+    body: 'Generic handbook templates downloaded from the internet are not compliant. They\'re written for no state in particular, no company size in particular, and no workforce in particular. The Handbook Builder generates policy language based on the states you operate in, your headcount, and your specific policies — producing language that meets current legal requirements in your jurisdictions.\n\nEvery policy section is written in clear, professional language your employees will actually understand — and that will hold up if it\'s ever challenged.',
+    bullets: [
+      'Select your states and applicable policies — get jurisdiction-specific language for each',
+      'Covers at-will employment, anti-harassment, leave, PTO, remote work, social media, conduct, and more',
+      'Flags where state law mandates specific handbook language vs. where you have discretion',
+      'Highlights policy sections that differ between your operating states — critical for multi-state employers',
+      'Built-in review prompts tell you which sections to revisit when laws change'
+    ]
+  },
+  {
+    icon: '🎯',
+    name: 'Interview Guides',
+    tag: 'Structured Hiring & Legal Compliance',
+    headline: 'Stronger hiring decisions start before the candidate walks in the door. These guides make sure your process is consistent, legal, and effective.',
+    body: 'Unstructured interviews produce inconsistent hires and legal exposure. The wrong question — even asked casually — can create discrimination claims. The right structure, consistently applied, builds a defensible process and a stronger team.\n\nInterview Guides provides question sets and interview structures organized by role type and competency. Every question is vetted for legal compliance. Every guide includes rating frameworks so interviewers evaluate candidates against the same criteria, not gut instinct.',
+    bullets: [
+      'Question banks organized by role function — HR, operations, sales, management, customer service, and more',
+      'Legally reviewed questions with clear guidance on what\'s off-limits and why',
+      'Structured scoring frameworks that create consistency across interviewers and reduce bias',
+      'Behavioral and situational question formats that predict job performance more accurately',
+      'Debrief templates and offer/decline documentation for a complete, defensible hiring record'
+    ]
+  },
+  {
+    icon: '📈',
+    name: 'Performance Guidance',
+    tag: 'Manager-Ready Documentation Support',
+    headline: 'Performance management done right protects the employee, supports the manager, and protects the organization — all at the same time.',
+    body: 'Most performance problems get worse because managers wait too long, say the wrong things, or skip documentation. Performance Guidance gives managers and HR the tools to address performance concerns early, clearly, and fairly — with conversation frameworks, documentation templates, and escalation guidance at every stage.\n\nFrom the first informal coaching conversation through a formal Performance Improvement Plan, every step is structured to give the employee a genuine opportunity to succeed while building the organizational record needed if separation ultimately becomes necessary.',
+    bullets: [
+      'Coaching conversation guides for early-stage performance concerns — before they become formal issues',
+      'Performance Improvement Plan templates with SMART goal frameworks and progress check-in schedules',
+      'Documentation language that is specific, objective, and legally defensible',
+      'Manager coaching notes for delivering feedback in a way that motivates rather than demoralizes',
+      'Escalation decision tree — when to move from coaching to formal PIP to separation, and how to do each step'
+    ]
+  },
+  {
+    icon: '⚖️',
+    name: 'FLSA Exempt Status & Duties Test',
+    tag: 'Overtime Classification Compliance',
+    headline: 'Misclassifying one employee as exempt can cost more than their annual salary in back wages and penalties. This tool gets it right.',
+    body: 'The Fair Labor Standards Act\'s overtime exemptions are some of the most commonly misunderstood — and most expensive to get wrong. An employee isn\'t exempt just because they have a title or receive a salary. They must meet both a salary threshold AND a specific duties test under the executive, administrative, professional, computer, or outside sales exemption categories.\n\nThe FLSA Exempt Status & Duties Test walks you through each test systematically, asks the right questions about the employee\'s actual job duties and compensation, and tells you clearly whether the exemption applies — with the reasoning documented.',
+    bullets: [
+      'Covers all five FLSA exemption categories: executive, administrative, professional, computer, and outside sales',
+      'Applies current federal salary thresholds plus any higher state-specific thresholds that apply',
+      'Guides you through the duties test question by question based on what the employee actually does — not their job title',
+      'Produces a classification summary documenting the basis for your determination',
+      'Flags borderline cases and recommends documentation steps to protect the classification if challenged'
+    ]
+  },
+  {
+    icon: '✅',
+    name: 'Compliance Checklists',
+    tag: 'State-Aware HR Process Checklists',
+    headline: 'Every hire, every leave, every separation — handled consistently and completely, every single time.',
+    body: 'The details that get skipped during an onboarding, a leave of absence, or an employee\'s final day are exactly the details that create legal exposure later. Compliance Checklists gives you state-aware, process-specific checklists for every major HR lifecycle event — built to account for the federal requirements and any additional requirements in the states you operate in.\n\nThese aren\'t generic to-do lists. Each checklist reflects what is legally required in your selected states, what is HR best practice, and what documentation needs to exist for your records.',
+    bullets: [
+      'Onboarding checklists: new hire paperwork, required notices, I-9 compliance, state-specific forms',
+      'Leave administration checklists: FMLA, state leave laws, notice requirements, return-to-work procedures',
+      'Offboarding checklists: final pay requirements, COBRA notices, reference policy, equipment return, benefits separation',
+      'State-aware filtering — each checklist automatically reflects requirements for the states you\'ve selected',
+      'Printable and savable formats for your HR files and manager guides'
+    ]
+  },
+  {
+    icon: '🤖',
+    name: 'Future of Work & AI',
+    tag: 'AI Workforce Readiness for HR',
+    headline: 'AI is already changing job descriptions, performance expectations, and what your workforce looks like. HR needs to be ahead of it — not reacting to it.',
+    body: 'Artificial intelligence is transforming work faster than most organizations are prepared for. The Future of Work & AI tool helps HR professionals and small business owners understand what AI adoption means for their specific roles, workforce, and compliance environment — before those changes become crises.\n\nAnalyze existing job descriptions for AI displacement risk. Explore responsible AI adoption frameworks. Navigate the emerging legal and policy landscape around AI in the workplace. Position your organization to lead through workforce transformation rather than scramble through it.',
+    bullets: [
+      'Job description AI impact analysis — identify which tasks in a role are automatable and what skills to prioritize instead',
+      'Workforce transformation planning frameworks for communicating change and managing employee concerns',
+      'Responsible AI adoption guidance including bias risk, transparency obligations, and employee disclosure considerations',
+      'Overview of emerging AI-in-the-workplace regulations and what employers need to know now',
+      'Practical HR applications for AI tools: what to use, how to govern it, and how to document your approach'
+    ]
+  },
+  {
+    icon: '🧭',
+    name: 'Compliance Wizard',
+    tag: 'Federal & State Law Guidance with Sources',
+    headline: 'Federal and state employment law, explained in plain English — with the source citations to back every answer.',
+    body: 'The Compliance Wizard is your on-demand employment law research tool. Ask about any employment law topic — wages, leave, hiring, termination, accommodation, non-competes, background checks, drug testing — and get a clear, source-backed answer that covers both the federal baseline and the state-specific rules that apply to your situation.\n\nEvery answer includes citations to the actual statute, regulation, or agency guidance it comes from. You\'re not just getting an answer — you\'re getting documentation you can stand behind if your decision is ever questioned.',
+    bullets: [
+      'Covers 200+ employment law topics across all 50 states and federal law',
+      'Plain-English explanations with no legal jargon — written for HR professionals and business owners, not attorneys',
+      'Every answer cites the source statute or regulation so you can verify and document your research',
+      'State-specific results — answers reflect the law in your state, not a generic national average',
+      'Frequently updated as laws change so you\'re always reading current guidance, not outdated summaries'
+    ]
+  },
+  {
+    icon: '📚',
+    name: 'FAQs / Knowledge Base',
+    tag: 'HR Term Intelligence & Reference Library',
+    headline: 'The HR terms, concepts, and definitions you\'ve been Googling — organized, accurate, and written for the way you actually work.',
+    body: 'HR has a language of its own — and the stakes for misunderstanding a term can be significant. The FAQs and Knowledge Base is a searchable, continuously growing reference library covering HR terminology, legal concepts, process definitions, and common questions that come up in day-to-day HR work.\n\nWhether you need a quick definition of "constructive discharge," want to understand the difference between an independent contractor and an employee under IRS rules, or need to explain what ERISA covers to a skeptical manager — the Knowledge Base gives you a clear, accurate answer with context.',
+    bullets: [
+      'Searchable glossary of HR and employment law terms — hundreds of entries with plain-English definitions',
+      'FAQ library covering the most common questions HR professionals and small business owners ask',
+      'Concept explainers that go deeper than a definition — understanding the why behind the rule',
+      'Cross-references between related terms and tools within the Compass platform',
+      'New entries added regularly based on user questions and emerging HR topics'
+    ]
+  }
+];
+</script>
+
+<!-- PROBLEM — compact strip -->
+<section style="padding: 3.5rem 3rem; background: var(--cream); position:relative; overflow:hidden;">
+  <!-- Translucent compass rose right side -->
+  <div style="position:absolute;right:-8%;top:50%;transform:translateY(-50%);pointer-events:none;opacity:0.04;">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:420px;color:var(--ink);">
+      <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
+      <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
+      <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="200" cy="200" r="75" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+      <circle cx="200" cy="200" r="22" fill="currentColor"/>
+      <circle cx="200" cy="200" r="13" fill="white"/>
+      <circle cx="200" cy="200" r="5" fill="currentColor"/>
+    </svg>
+  </div>
+  <div style="max-width:1300px; margin:0 auto; position:relative; z-index:1;">
+
+    <!-- Top row: label + headline + one-liner -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-bottom:2.5rem;">
+      <div>
+        <div class="section-label reveal">The Problem</div>
+        <h2 class="section-title reveal" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Managing state employment law<br>is a <em>full-time job</em> inside your job.</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:flex-end; padding-top:1rem;">
+        <p style="font-size:0.95rem; line-height:1.75; color:var(--muted); font-weight:300;" class="reveal">50 states. 50 sets of rules. Constantly changing. One missed update is all it takes — fines, back pay, litigation. Most HR teams find out after the fact. <strong style="color:var(--ink); font-weight:400;">You don't have to.</strong></p>
+      </div>
+    </div>
+
+    <!-- Pain stats + map -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+
+      <!-- 3 tight pain items -->
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <div class="pain-item" style="padding:1rem 1.25rem;">
+          <span class="pain-icon">⚖️</span>
+          <span class="pain-text">
+            <strong>Laws differ in every state — and change without warning</strong>
+            Wages, leave, non-competes, final pay. 50 states, 50 rulesets.
+          </span>
+        </div>
+        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.1s;">
+          <span class="pain-icon">⏱️</span>
+          <span class="pain-text">
+            <strong>You don't have time to research every update</strong>
+            Hours lost to government sites, legal PDFs, and outdated blogs.
+          </span>
+        </div>
+        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.2s;">
+          <span class="pain-icon">💸</span>
+          <span class="pain-text">
+            <strong>Compliance mistakes are expensive</strong>
+            Fines, litigation, and back pay — all preventable.
+          </span>
+        </div>
+      </div>
+
+      <!-- Smaller interactive map -->
+      <div class="state-map-visual reveal" style="min-height:unset; padding:1.5rem;">
+        <div class="map-label">All 50 States + Federal Law — Interactive</div>
+        <div style="position:relative;">
+          <svg id="us-map" viewBox="0 0 960 600" style="max-height:220px;"></svg>
+          <div class="map-tooltip" id="map-tooltip"></div>
+        </div>
+        <div class="map-legend" style="margin-top:0.75rem;">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--ink)"></div>
+            All States Covered
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--gold-light)"></div>
+            High Legislative Activity
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust-section" style="position:relative; overflow:hidden;">
+  <!-- Translucent compass rose centered behind content -->
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0.07;">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:600px;color:var(--ink);">
+      <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
+      <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
+      <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+      <circle cx="200" cy="200" r="75" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
+      <circle cx="200" cy="200" r="22" fill="currentColor"/>
+      <circle cx="200" cy="200" r="13" fill="white"/>
+      <circle cx="200" cy="200" r="5" fill="currentColor"/>
+      <text x="200" y="36" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">N</text>
+      <text x="200" y="384" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">S</text>
+      <text x="382" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">E</text>
+      <text x="18" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">W</text>
+    </svg>
+  </div>
+  <!-- Translucent wordmark along bottom -->
+  <div style="position:absolute;bottom:-0.5rem;left:50%;transform:translateX(-50%);pointer-events:none;white-space:nowrap;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(4rem,9vw,8rem);font-weight:300;color:var(--ink);opacity:0.05;letter-spacing:0.2em;user-select:none;">HR COMPLIANCE COMPASS</div>
+  <div class="trust-inner" style="position:relative;z-index:1;">
+    <div class="section-label reveal" style="justify-content: center;">Built for People Like You</div>
+    <p class="trust-quote reveal">
+      "I'm the only HR person here. I don't have a legal team to call.
+      I need to <strong>know the answer now</strong> — not in 3 business days."
+    </p>
+    <div class="trust-badges reveal">
+      <div class="trust-badge">
+        <div class="trust-number">50</div>
+        <div class="trust-label">States Covered</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-number">200+</div>
+        <div class="trust-label">Law Topics</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-number">14+</div>
+        <div class="trust-label">Years HR Expertise</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-number">$0</div>
+        <div class="trust-label">Attorney Fees to Start</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ PRICING ══ -->
+<section id="pricing" style="padding:7rem 3rem; background:var(--ink); position:relative; overflow:hidden;">
+  <!-- Compass watermark -->
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0.04;">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:800px;color:white;">
+      <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
+      <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
+      <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+      <circle cx="200" cy="200" r="22" fill="currentColor"/>
+      <circle cx="200" cy="200" r="13" fill="white" opacity="0.2"/>
+    </svg>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
+    <div class="section-label reveal" style="justify-content:center;color:var(--gold);">Founding Partner Pilot</div>
+    <h2 class="reveal" style="font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;color:var(--cream);text-align:center;line-height:1.1;margin-bottom:1rem;">Lock in your rate.<br><em style="color:var(--gold-light);">Before it's gone.</em></h2>
+    <p class="reveal" style="text-align:center;color:rgba(250,250,245,0.5);font-size:0.95rem;font-weight:300;max-width:580px;margin:0 auto 4rem;line-height:1.8;">We're accepting a limited number of founding members. Every plan includes all 11 tools. Founding rates are locked permanently — this pricing disappears when the pilot closes.</p>
+
+    <!-- Pricing cards -->
+    <div class="pricing-grid reveal">
+
+      <div class="price-card">
+        <div class="price-tier-label">Explorer</div>
+        <div class="price-amount">$30<span class="price-period">/mo</span></div>
+        <div class="price-discount">Founding rate — 25% off forever</div>
+        <ul class="price-features">
+          <li>All 11 compliance tools</li>
+          <li>All 50 states + federal law</li>
+          <li>Plain-English guidance</li>
+          <li>Law change notifications</li>
+          <li>Monthly usage</li>
+        </ul>
+        <a href="#trial" class="price-cta">Get Started →</a>
+      </div>
+
+      <div class="price-card price-card-featured">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-tier-label">Builder</div>
+        <div class="price-amount">$26<span class="price-period">/mo</span></div>
+        <div class="price-discount">Founding rate — 35% off forever</div>
+        <ul class="price-features">
+          <li>Everything in Explorer</li>
+          <li>Priority law update alerts</li>
+          <li>Downloadable checklists</li>
+          <li>Handbook policy exports</li>
+          <li>Email support</li>
+        </ul>
+        <a href="#trial" class="price-cta price-cta-featured">Get Started →</a>
+      </div>
+
+      <div class="price-card price-card-gold">
+        <div class="price-badge price-badge-gold">Best Value</div>
+        <div class="price-tier-label">Founding Partner</div>
+        <div class="price-amount">$20<span class="price-period">/mo</span></div>
+        <div class="price-discount">Founding rate — 50% off forever</div>
+        <ul class="price-features">
+          <li>Everything in Builder</li>
+          <li>Early access to new tools</li>
+          <li>Direct product input</li>
+            </ul>
+        <a href="#trial" class="price-cta price-cta-gold">Claim This Rate →</a>
+      </div>
+
+    </div>
+
+    <p class="reveal" style="text-align:center;font-size:0.75rem;color:rgba(250,250,245,0.25);margin-top:2.5rem;letter-spacing:0.06em;">No credit card required to start · Cancel anytime · Rate locked for life</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ FAQs ══ -->
+<section id="faqs" style="padding:7rem 3rem; background:var(--cream); position:relative; overflow:hidden;">
+  <!-- Compass watermark left -->
+  <div style="position:absolute;left:-10%;top:50%;transform:translateY(-50%);pointer-events:none;opacity:0.04;">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:500px;color:var(--ink);">
+      <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
+      <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
+      <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="200" cy="200" r="22" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <div style="max-width:860px;margin:0 auto;position:relative;z-index:1;">
+    <div class="section-label reveal" style="justify-content:center;">Common Questions</div>
+    <h2 class="reveal" style="font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.4rem);font-weight:300;color:var(--ink);text-align:center;line-height:1.1;margin-bottom:4rem;">Everything you want to know.<br><em>Answered honestly.</em></h2>
+
+    <div id="faq-list">
+
+      <div class="faq-item reveal">
+        <button class="faq-q">What exactly is HR Compliance Compass?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>HR Compliance Compass is a SaaS platform that translates complex, constantly changing state and federal employment law into plain-English answers — instantly, for every state you operate in. It includes 11 purpose-built tools covering everything from manager talk tracks and complaint investigations to FLSA exemption testing and handbook policy generation. Think of it as your always-available HR compliance expert, without the retainer fees.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">Who is this built for?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>HR Compliance Compass is built specifically for two people: the solo HR professional who is the entire HR department at their company, and the small business owner who handles HR themselves without a dedicated team. If you've ever spent an afternoon digging through government websites to answer a single compliance question, this platform was designed for you.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">How current is the information?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Employment law data is monitored and updated continuously. When a state passes new legislation, updates a regulation, or issues new agency guidance relevant to employers, the platform is updated to reflect it. High-activity states like California, New York, Illinois, and Colorado are reviewed with particular frequency. You will always see current law — not last year's version.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">Is this legal advice?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>No — and we will never tell you it is. HR Compliance Compass provides HR reference and compliance guidance based on publicly available law and regulation. It helps you understand what the law requires, identify your obligations, and document your decisions. For complex or high-stakes situations — litigation, EEOC charges, significant severance negotiations — we will tell you directly when you need an employment attorney.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">Which states are covered?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>All 50 states plus federal law. Every tool on the platform is built to account for state-specific requirements, not just federal baselines. If you operate in multiple states, you can filter results and checklists by the states that apply to your workforce. States with high legislative activity — California, New York, Illinois, Washington, Colorado, Massachusetts, and others — receive the most frequent updates.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">What's included in every plan?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Every plan — Explorer, Builder, and Founding Partner — includes access to all 11 tools: Tough Conversations, Decision Helper, Complaint Investigation Guide, Handbook Builder, Interview Guides, Performance Guidance, FLSA Exempt Status & Duties Test, Compliance Checklists, Future of Work & AI, Compliance Wizard, and FAQs / Knowledge Base. The plan tiers reflect your founding rate discount level, not feature restrictions.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">What makes this different from just Googling?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Google gives you 10 blue links to government PDFs, legal blogs from 2019, and forum posts that may or may not apply to your state. HR Compliance Compass gives you one clear answer, written specifically for your situation and jurisdiction, with the source citation so you can verify it. It also gives you the documentation trail — decision summaries, checklists, policy language — that Google never will.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">Can I cancel anytime?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Yes. There are no long-term contracts and no cancellation fees. If you cancel, your access continues through the end of your billing period. Founding Partner rates are locked for as long as you remain a subscriber — if you cancel and resubscribe later, the founding rate will no longer be available.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">What is King Advisor and when does it launch?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>King Advisor is the next major tool planned for the Compass platform — an AI-powered legal support agent that handles complex, conversational HR compliance questions across all U.S. jurisdictions. Think of it as having a knowledgeable HR attorney available 24/7. Founding Partners receive early access when it launches and will have direct input into how it's built. No firm launch date is announced yet.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">What does "Founding Partner" actually mean?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Founding Partners are the early members who join during the pilot phase. In exchange for joining before the platform reaches full launch, you receive the deepest available discount (50% off the standard rate), locked in permanently. You also receive a Founding Partner designation in the platform, early access to new tools as they're developed, and a direct channel to provide product feedback that actually shapes what gets built next.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ START FREE TRIAL ══ -->
+<section id="trial" style="padding:7rem 3rem; background:var(--ink); position:relative; overflow:hidden;">
+  <!-- Animated light beam -->
+  <div class="light-beam" style="opacity:0.6;"></div>
+  <!-- Corner ornaments -->
+  <div class="corner-ornament tl" style="border-color:rgba(184,134,31,0.2);"></div>
+  <div class="corner-ornament tr" style="border-color:rgba(184,134,31,0.2);"></div>
+  <div class="corner-ornament bl" style="border-color:rgba(184,134,31,0.2);"></div>
+  <div class="corner-ornament br" style="border-color:rgba(184,134,31,0.2);"></div>
+
+  <div style="max-width:680px;margin:0 auto;position:relative;z-index:1;text-align:center;">
+    <div class="section-label reveal" style="justify-content:center;color:var(--gold);">No Credit Card Required</div>
+    <h2 class="reveal" style="font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:1rem;">Start free.<br><em style="color:var(--gold-light);">Stay because it works.</em></h2>
+    <p class="reveal" style="color:rgba(250,250,245,0.5);font-size:0.95rem;font-weight:300;max-width:480px;margin:0 auto 3rem;line-height:1.8;">Join the founding pilot. All 11 tools. Every state. Locked-in rate. Cancel anytime.</p>
+
+    <form id="trial-form" class="reveal" onsubmit="handleTrialSubmit(event)" style="text-align:left;">
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+        <div class="trial-field">
+          <label class="trial-label">First Name</label>
+          <input type="text" class="trial-input" placeholder="Jeannette" required>
+        </div>
+        <div class="trial-field">
+          <label class="trial-label">Last Name</label>
+          <input type="text" class="trial-input" placeholder="Smith" required>
+        </div>
+      </div>
+
+      <div class="trial-field" style="margin-bottom:1rem;">
+        <label class="trial-label">Work Email</label>
+        <input type="email" class="trial-input" placeholder="you@yourcompany.com" required>
+      </div>
+
+      <div class="trial-field" style="margin-bottom:1rem;">
+        <label class="trial-label">Company Name</label>
+        <input type="text" class="trial-input" placeholder="Your Company LLC">
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+        <div class="trial-field">
+          <label class="trial-label">Company Size</label>
+          <select class="trial-input trial-select">
+            <option value="">Select...</option>
+            <option>1–10 employees</option>
+            <option>11–50 employees</option>
+            <option>51–200 employees</option>
+            <option>201–500 employees</option>
+            <option>500+ employees</option>
+          </select>
+        </div>
+        <div class="trial-field">
+          <label class="trial-label">Primary State</label>
+          <select class="trial-input trial-select">
+            <option value="">Select...</option>
+            <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Plan selection -->
+      <div class="trial-field" style="margin-bottom:2rem;">
+        <label class="trial-label">Choose Your Founding Rate</label>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:0.5rem;">
+          <label class="plan-option">
+            <input type="radio" name="plan" value="explorer">
+            <div class="plan-box">
+              <div class="plan-name">Explorer</div>
+              <div class="plan-price">$30/mo</div>
+              <div class="plan-save">Save 25%</div>
+            </div>
+          </label>
+          <label class="plan-option">
+            <input type="radio" name="plan" value="builder">
+            <div class="plan-box">
+              <div class="plan-name">Builder</div>
+              <div class="plan-price">$26/mo</div>
+              <div class="plan-save">Save 35%</div>
+            </div>
+          </label>
+          <label class="plan-option">
+            <input type="radio" name="plan" value="founding" checked>
+            <div class="plan-box plan-box-gold">
+              <div class="plan-badge">Best Value</div>
+              <div class="plan-name">Founding Partner</div>
+              <div class="plan-price">$20/mo</div>
+              <div class="plan-save">Save 50%</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:1.2rem;">
+        <span>Start My Free Trial</span>
+        <span class="arrow">→</span>
+      </button>
+
+      <div id="trial-success" style="display:none;text-align:center;padding:2rem;background:rgba(184,134,31,0.1);border:1px solid rgba(184,134,31,0.3);margin-top:1.5rem;">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">✓</div>
+        <div style="font-family:var(--serif);font-size:1.4rem;color:var(--gold-light);margin-bottom:0.5rem;">You're in.</div>
+        <div style="font-size:0.88rem;color:rgba(250,250,245,0.5);line-height:1.7;">Check your inbox for next steps. Welcome to HR Compliance Compass.</div>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<!-- PRICING + FAQ + TRIAL STYLES -->
+<style>
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .price-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+  }
+  .price-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
+  .price-card-featured { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.07); }
+  .price-card-gold { border-color: var(--gold); background: rgba(184,134,31,0.07); }
+  .price-card-gold:hover { background: rgba(184,134,31,0.12); }
+  .price-badge {
+    display: inline-block;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.15);
+    color: rgba(250,250,245,0.7);
+    padding: 0.25rem 0.7rem;
+    margin-bottom: 1.25rem;
+  }
+  .price-badge-gold { background: var(--gold); color: var(--ink); }
+  .price-tier-label {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+  .price-amount {
+    font-family: var(--serif);
+    font-size: 3.2rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .price-period { font-size: 1rem; color: rgba(250,250,245,0.35); }
+  .price-discount { font-size: 0.72rem; color: rgba(250,250,245,0.4); letter-spacing: 0.05em; margin-bottom: 2rem; }
+  .price-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .price-features li {
+    font-size: 0.88rem;
+    color: rgba(250,250,245,0.6);
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .price-features li::before {
+    content: '';
+    display: inline-block;
+    width: 5px; height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .price-cta {
+    display: block;
+    text-align: center;
+    padding: 0.85rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(250,250,245,0.7);
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .price-cta:hover { background: rgba(255,255,255,0.1); color: var(--cream); }
+  .price-cta-featured { border-color: rgba(255,255,255,0.4); color: var(--cream); }
+  .price-cta-gold { background: var(--gold); border-color: var(--gold); color: var(--ink); font-weight: 500; }
+  .price-cta-gold:hover { background: var(--gold-light); border-color: var(--gold-light); color: var(--ink); }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid rgba(12,26,39,0.1);
+  }
+  .faq-item:first-child { border-top: 1px solid rgba(12,26,39,0.1); }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--ink);
+    cursor: none;
+    text-align: left;
+    gap: 1rem;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--gold); }
+  .faq-item.open .faq-q { color: var(--gold); }
+  .faq-icon {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: transform 0.35s ease;
+    line-height: 1;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1);
+  }
+  .faq-item.open .faq-a { max-height: 400px; }
+  .faq-a p {
+    font-size: 0.92rem;
+    line-height: 1.85;
+    color: var(--muted);
+    font-weight: 300;
+    padding-bottom: 1.5rem;
+    margin: 0;
+  }
+
+  /* TRIAL FORM */
+  .trial-field { display: flex; flex-direction: column; gap: 0.4rem; }
+  .trial-label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,250,245,0.45); }
+  .trial-input {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 0.85rem 1rem;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    color: var(--cream);
+    outline: none;
+    transition: border-color 0.25s, background 0.25s;
+    width: 100%;
+  }
+  .trial-input::placeholder { color: rgba(250,250,245,0.22); }
+  .trial-input:focus { border-color: var(--gold); background: rgba(255,255,255,0.09); }
+  .trial-select { appearance: none; cursor: none; }
+  .trial-select option { background: var(--ink-mid); color: var(--cream); }
+
+  /* Plan radio buttons */
+  .plan-option { cursor: none; }
+  .plan-option input[type="radio"] { display: none; }
+  .plan-box {
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 1.2rem 1rem;
+    text-align: center;
+    transition: border-color 0.25s, background 0.25s;
+    cursor: none;
+  }
+  .plan-option input:checked + .plan-box {
+    border-color: var(--gold);
+    background: rgba(184,134,31,0.1);
+  }
+  .plan-option:hover .plan-box { border-color: rgba(255,255,255,0.3); }
+  .plan-box-gold { border-color: rgba(184,134,31,0.4); }
+  .plan-option input:checked + .plan-box-gold { background: rgba(184,134,31,0.15); }
+  .plan-badge { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
+  .plan-name { font-family: var(--serif); font-size: 0.95rem; color: var(--cream); margin-bottom: 0.35rem; }
+  .plan-price { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; color: var(--gold-light); line-height: 1; margin-bottom: 0.25rem; }
+  .plan-save { font-size: 0.65rem; color: rgba(250,250,245,0.35); letter-spacing: 0.08em; }
+
+  @media(max-width:900px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    #trial-form > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    .plan-option div[style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Trial form
+  function handleTrialSubmit(e) {
+    e.preventDefault();
+    document.getElementById('trial-form').querySelectorAll('input,select,button[type=submit]').forEach(el => el.style.opacity = '0.4');
+    document.getElementById('trial-success').style.display = 'block';
+    document.getElementById('trial-success').scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+</script>
+
+<!-- ══════════════════════════════════════════ PRIVACY ══ -->
+<section id="privacy" style="padding:7rem 3rem; background:var(--cream); position:relative; overflow:hidden;">
+  <div style="position:absolute;right:-8%;top:50%;transform:translateY(-50%);pointer-events:none;opacity:0.04;">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:480px;color:var(--ink);">
+      <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
+      <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
+      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
+      <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="200" cy="200" r="22" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <div style="max-width:860px;margin:0 auto;position:relative;z-index:1;">
+    <div class="section-label reveal">Legal</div>
+    <h2 class="section-title reveal" style="margin-bottom:0.75rem;">Privacy <em>Policy</em></h2>
+    <p class="reveal" style="font-size:0.8rem;color:var(--muted);margin-bottom:3.5rem;letter-spacing:0.05em;">Effective Date: January 1, 2025 · CompassLine LLC</p>
+
+    <div id="privacy-accordion">
+
+      <div class="priv-item reveal">
+        <button class="priv-q">What information we collect<span class="faq-icon">+</span></button>
+        <div class="priv-a"><div class="priv-body">
+          <p>When you create an account or start a free trial, we collect your name, work email address, company name, company size, and primary state of operation. When you subscribe to a paid plan, payment information is processed securely through Stripe — we never store your credit card number directly.</p>
+          <p>We also collect usage data such as which tools you access, search queries entered into the platform, and general interaction patterns. This data is used exclusively to improve the platform experience and is never sold to third parties.</p>
+        </div></div>
+      </div>
+
+      <div class="priv-item reveal">
+        <button class="priv-q">How we use your information<span class="faq-icon">+</span></button>
+        <div class="priv-a"><div class="priv-body">
+          <p>Your information is used to: create and manage your account, deliver the HR Compliance Compass service, process payments, send transactional emails (receipts, law change alerts, product updates), and improve the platform based on aggregate usage patterns.</p>
+          <p>We may contact you about product updates, new tools, or your account status. You can opt out of non-transactional emails at any time using the unsubscribe link in any message we send.</p>
+        </div></div>
+      </div>
+
+      <div class="priv-item reveal">
+        <button class="priv-q">Data sharing and third parties<span class="faq-icon">+</span></button>
+        <div class="priv-a"><div class="priv-body">
+          <p>We do not sell, rent, or trade your personal information. We share data only with the third-party services required to operate the platform:</p>
+          <ul style="margin:0.75rem 0 0.75rem 1.25rem;display:flex;flex-direction:column;gap:0.4rem;">
+            <li><strong>Stripe</strong> — payment processing</li>
+            <li><strong>Supabase</strong> — secure database and authentication</li>
+            <li><strong>Resend</strong> — transactional email delivery</li>
+            <li><strong>HubSpot</strong> — CRM and customer communications</li>
+            <li><strong>Netlify</strong> — platform hosting and deployment</li>
+          </ul>
+          <p>Each of these providers is bound by their own privacy policies and data processing agreements consistent with applicable law.</p>
+        </div></div>
+      </div>
+
+      <div class="priv-item reveal">
+        <button class="priv-q">Data security<span class="faq-icon">+</span></button>
+        <div class="priv-a"><div class="priv-body">
+          <p>All data transmitted to and from HR Compliance Compass is encrypted in transit using TLS. Account authentication is managed through Supabase with industry-standard security practices. Payment data is handled entirely by Stripe, which maintains PCI DSS Level 1 compliance — the highest level available.</p>
+          <p>We take reasonable technical and organizational measures to protect your information. No system is 100% secure, and we encourage you to use a strong, unique password for your account.</p>
+        </div></div>
+      </div>
+
+      <div class="priv-item reveal">
+        <button class="priv-q">Cookies and tracking<span class="faq-icon">+</span></button>
+        <div class="priv-a"><div class="priv-body">
+          <p>HR Compliance Compass uses essential cookies required to keep you logged in and maintain your session. We do not use advertising cookies, third-party tracking pixels, or behavioral advertising networks. We do not display ads in our products, and we do not allow advertisers to target you based on your use of this platform.</p>
+          <p>Basic analytics may be used to understand aggregate traffic patterns (pages visited, session duration). This data is not linked to your personal identity.</p>
+        </div></div>
+      </div>
+
+      <div class="priv-item reveal">
+        <button class="priv-q">Your rights and data deletion<span class="faq-icon">+</span></button>
+        <div class="priv-a"><div class="priv-body">
+          <p>You have the right to access, correct, or delete the personal information we hold about you at any time. To request a copy of your data or to request deletion of your account and associated data, contact us at <strong>privacy@compasslinellc.com</strong>.</p>
+          <p>If you are located in California, you have additional rights under the California Consumer Privacy Act (CCPA), including the right to know what data we collect and the right to opt out of any sale of your data (we do not sell data). Residents of other states with applicable privacy laws may contact us to exercise their rights under those laws.</p>
+        </div></div>
+      </div>
+
+      <div class="priv-item reveal">
+        <button class="priv-q">Changes to this policy<span class="faq-icon">+</span></button>
+        <div class="priv-a"><div class="priv-body">
+          <p>We may update this Privacy Policy from time to time. When we do, we will update the effective date at the top of this page and, for material changes, notify active subscribers by email. Continued use of the platform after any update constitutes acceptance of the revised policy.</p>
+          <p>Questions about this policy? Contact us at <strong>privacy@compasslinellc.com</strong> and we will respond within 5 business days.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CONTACT ══ -->
+<section id="contact" style="padding:7rem 3rem; background:var(--ink); position:relative; overflow:hidden;">
+  <div class="light-beam" style="opacity:0.5;"></div>
+  <div class="corner-ornament tl" style="border-color:rgba(184,134,31,0.2);"></div>
+  <div class="corner-ornament tr" style="border-color:rgba(184,134,31,0.2);"></div>
+  <div class="corner-ornament bl" style="border-color:rgba(184,134,31,0.2);"></div>
+  <div class="corner-ornament br" style="border-color:rgba(184,134,31,0.2);"></div>
+
+  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.6fr;gap:6rem;align-items:start;">
+
+    <!-- Left: info -->
+    <div>
+      <div class="section-label" style="color:var(--gold);">Get in Touch</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:1.5rem;">We read<br>every message.<br><em style="color:var(--gold-light);">Every one.</em></h2>
+      <p style="font-size:0.92rem;line-height:1.85;color:rgba(250,250,245,0.5);font-weight:300;margin-bottom:2.5rem;">Whether you have a question about the platform, a compliance topic you think we should cover, or feedback on your experience — we want to hear it.</p>
+
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="contact-info-item">
+          <div class="contact-info-label">General Inquiries</div>
+          <div class="contact-info-val">support@hrcomplaincecompass.com</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Privacy & Data Requests</div>
+          <div class="contact-info-val">support@hrcomplaincecompass.com</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Response Time</div>
+          <div class="contact-info-val">Within 2 business days</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Company</div>
+         </div>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <form id="contact-form" onsubmit="handleContactSubmit(event)">
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+        <div class="trial-field">
+          <label class="trial-label">First Name</label>
+          <input type="text" class="trial-input" placeholder="First name" required>
+        </div>
+        <div class="trial-field">
+          <label class="trial-label">Last Name</label>
+          <input type="text" class="trial-input" placeholder="Last name" required>
+        </div>
+      </div>
+
+      <div class="trial-field" style="margin-bottom:1rem;">
+        <label class="trial-label">Email Address</label>
+        <input type="email" class="trial-input" placeholder="you@yourcompany.com" required>
+      </div>
+
+      <div class="trial-field" style="margin-bottom:1rem;">
+        <label class="trial-label">Reason for Contact</label>
+        <select class="trial-input trial-select">
+          <option value="">Select a topic...</option>
+          <option>Product question</option>
+          <option>Billing or account issue</option>
+          <option>Compliance topic suggestion</option>
+          <option>Partnership or press inquiry</option>
+          <option>Privacy or data request</option>
+          <option>General feedback</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="trial-field" style="margin-bottom:2rem;">
+        <label class="trial-label">Message</label>
+        <textarea class="trial-input" rows="5" placeholder="Tell us what's on your mind..." required style="resize:vertical;min-height:130px;font-family:var(--sans);"></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:1.2rem;">
+        <span>Send Message</span>
+        <span class="arrow">→</span>
+      </button>
+
+      <div id="contact-success" style="display:none;text-align:center;padding:2rem;background:rgba(184,134,31,0.1);border:1px solid rgba(184,134,31,0.3);margin-top:1.5rem;">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">✓</div>
+        <div style="font-family:var(--serif);font-size:1.3rem;color:var(--gold-light);margin-bottom:0.5rem;">Message received.</div>
+        <div style="font-size:0.85rem;color:rgba(250,250,245,0.5);line-height:1.7;">We'll get back to you within 2 business days. Thank you for reaching out.</div>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<!-- PRIVACY + CONTACT STYLES -->
+<style>
+  /* PRIVACY ACCORDION */
+  .priv-item { border-bottom: 1px solid rgba(12,26,39,0.1); }
+  .priv-item:first-child { border-top: 1px solid rgba(12,26,39,0.1); }
+  .priv-q {
+    width:100%; background:none; border:none;
+    padding:1.4rem 0;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--serif); font-size:1.1rem; font-weight:400;
+    color:var(--ink); cursor:none; text-align:left; gap:1rem;
+    transition:color 0.2s;
+  }
+  .priv-q:hover { color:var(--gold); }
+  .priv-item.open .priv-q { color:var(--gold); }
+  .priv-item.open .priv-q .faq-icon { transform:rotate(45deg); }
+  .priv-a { max-height:0; overflow:hidden; transition:max-height 0.45s cubic-bezier(0.4,0,0.2,1); }
+  .priv-item.open .priv-a { max-height:600px; }
+  .priv-body { padding-bottom:1.5rem; display:flex; flex-direction:column; gap:0.75rem; }
+  .priv-body p { font-size:0.9rem; line-height:1.85; color:var(--muted); font-weight:300; margin:0; }
+  .priv-body ul li { font-size:0.88rem; color:var(--muted); font-weight:300; line-height:1.6; }
+  .priv-body strong { color:var(--ink); font-weight:500; }
+
+  /* CONTACT */
+  .contact-info-item { padding:1.25rem 0; border-bottom:1px solid rgba(255,255,255,0.07); }
+  .contact-info-item:first-child { border-top:1px solid rgba(255,255,255,0.07); }
+  .contact-info-label { font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:0.35rem; }
+  .contact-info-val { font-family:var(--serif); font-size:1rem; color:rgba(250,250,245,0.7); font-weight:300; line-height:1.5; }
+
+  @media(max-width:900px){
+    #contact > div > div[style*="grid-template-columns:1fr 1.6fr"] { grid-template-columns:1fr !important; gap:3rem !important; }
+    #contact-form > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
+  }
+</style>
+
+<script>
+  // Privacy accordion
+  document.querySelectorAll('.priv-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.priv-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.priv-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Contact form
+  function handleContactSubmit(e) {
+    e.preventDefault();
+    document.getElementById('contact-form').querySelectorAll('input,select,textarea,button[type=submit]').forEach(el => el.style.opacity = '0.4');
+    document.getElementById('contact-success').style.display = 'block';
+    document.getElementById('contact-success').scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">HR Compliance <span>Compass</span><br>
+    <span style="font-size: 0.72rem; color: var(--muted); font-family: var(--sans); font-weight: 300;">by CompassLine LLC</span>
+  </div>
+  <div class="footer-tagline">State law is hard. Finding answers shouldn't be.</div>
+  <div class="footer-copy">
+    © 2025 CompassLine LLC · All rights reserved<br>
+    <span style="font-size: 0.7rem;">Not legal advice. For HR reference and guidance purposes.</span>
+  </div>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
+  let cx = 0, cy = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    cx = e.clientX; cy = e.clientY;
+    cursor.style.left = cx + 'px';
+    cursor.style.top = cy + 'px';
+  });
+  function animRing() {
+    rx += (cx - rx) * 0.12;
+    ry += (cy - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+
+  // Nav scroll behavior
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Floating state tags in hero
+  const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'];
+  const field = document.getElementById('states-field');
+  states.forEach((s, i) => {
+    const el = document.createElement('div');
+    el.className = 'state-tag';
+    el.textContent = s;
+    el.style.left = (Math.random() * 90 + 5) + '%';
+    el.style.top = (Math.random() * 80 + 10) + '%';
+    el.style.animationDelay = (Math.random() * 16) + 's';
+    el.style.animationDuration = (14 + Math.random() * 8) + 's';
+    field.appendChild(el);
+  });
+
+  // High legislative activity states
+  const highActivityStates = new Set(['California','New York','Illinois','Washington','Colorado','Massachusetts','New Jersey','Connecticut','Oregon','Minnesota','Maryland','Nevada','Arizona','Vermont','Delaware','Rhode Island','Hawaii','Maine','Pennsylvania','North Carolina','Michigan','New Mexico']);
+
+  const stateNames = {
+    '01':'Alabama','02':'Alaska','04':'Arizona','05':'Arkansas','06':'California',
+    '08':'Colorado','09':'Connecticut','10':'Delaware','11':'District of Columbia',
+    '12':'Florida','13':'Georgia','15':'Hawaii','16':'Idaho','17':'Illinois',
+    '18':'Indiana','19':'Iowa','20':'Kansas','21':'Kentucky','22':'Louisiana',
+    '23':'Maine','24':'Maryland','25':'Massachusetts','26':'Michigan','27':'Minnesota',
+    '28':'Mississippi','29':'Missouri','30':'Montana','31':'Nebraska','32':'Nevada',
+    '33':'New Hampshire','34':'New Jersey','35':'New Mexico','36':'New York',
+    '37':'North Carolina','38':'North Dakota','39':'Ohio','40':'Oklahoma',
+    '41':'Oregon','42':'Pennsylvania','44':'Rhode Island','45':'South Carolina',
+    '46':'South Dakota','47':'Tennessee','48':'Texas','49':'Utah','50':'Vermont',
+    '51':'Virginia','53':'Washington','54':'West Virginia','55':'Wisconsin','56':'Wyoming'
+  };
+
+  const tooltip = document.getElementById('map-tooltip');
+  const mapSvg = document.getElementById('us-map');
+
+  fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json')
+    .then(r => r.json())
+    .then(us => {
+      const d3Script = document.createElement('script');
+      d3Script.src = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js';
+      d3Script.onload = () => {
+        const topoScript = document.createElement('script');
+        topoScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js';
+        topoScript.onload = () => {
+          const projection = d3.geoAlbersUsa().scale(1280).translate([487, 305]);
+          const path = d3.geoPath().projection(projection);
+          const svg = d3.select('#us-map');
+          const features = topojson.feature(us, us.objects.states).features;
+          svg.selectAll('path')
+            .data(features)
+            .enter().append('path')
+            .attr('d', path)
+            .attr('fill', d => {
+              const name = stateNames[d.id.toString().padStart(2,'0')];
+              return highActivityStates.has(name) ? '#D4A843' : '#0C1A27';
+            })
+            .on('mousemove', function(event, d) {
+              const name = stateNames[d.id.toString().padStart(2,'0')] || 'Unknown';
+              const isHot = highActivityStates.has(name);
+              const rect = mapSvg.getBoundingClientRect();
+              const svgRect = mapSvg.viewBox.baseVal;
+              const scaleX = svgRect.width / rect.width;
+              const scaleY = svgRect.height / rect.height;
+              tooltip.style.left = ((event.clientX - rect.left) + 10) + 'px';
+              tooltip.style.top = ((event.clientY - rect.top) - 30) + 'px';
+              tooltip.textContent = isHot ? name + ' — High Activity' : name + ' — Covered';
+              tooltip.style.opacity = '1';
+            })
+            .on('mouseleave', function() {
+              tooltip.style.opacity = '0';
+            });
+        };
+        document.head.appendChild(topoScript);
+      };
+      document.head.appendChild(d3Script);
+    })
+    .catch(() => {
+      mapSvg.innerHTML = '<text x="480" y="300" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#0C1A27">All 50 States Covered</text>';
+    });
+
+  // Intersection Observer for reveals
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal, .pain-item, .step-card, .feature-card').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Stagger pain items
+  document.querySelectorAll('.pain-item').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.12) + 's';
+  });
+
+  // Stagger step cards
+  document.querySelectorAll('.step-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.15) + 's';
+  });
+</script>
 </body>
 </html>
