@@ -385,7 +385,8 @@
   .ticker-item {
     font-family: var(--serif);
     font-size: 0.85rem;
-    font-style: italic;
+    font-style: normal;
+    font-weight: 700;
     letter-spacing: 0.05em;
     display: flex;
     align-items: center;
@@ -888,32 +889,6 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
 
-<!-- TICKER -->
-<div class="ticker" style="position:sticky; top:65px; z-index:900; margin-top:65px;">
-  <div class="ticker-inner" id="ticker">
-    <div class="ticker-item"><div class="ticker-dot"></div> Overtime Rules</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Paid Leave Mandates</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Non-Compete Laws</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Salary History Bans</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Ban the Box Policies</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Minimum Wage Updates</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Predictive Scheduling</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Anti-Harassment Training</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Final Paycheck Rules</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Drug Testing Laws</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Overtime Rules</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Paid Leave Mandates</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Non-Compete Laws</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Salary History Bans</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Ban the Box Policies</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Minimum Wage Updates</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Predictive Scheduling</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Anti-Harassment Training</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Final Paycheck Rules</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Drug Testing Laws</div>
-  </div>
-</div>
-
 <!-- HERO -->
 <nav id="main-nav">
   <a href="#" class="nav-logo">HR Compliance <span>Compass</span></a>
@@ -935,30 +910,15 @@
     <div class="corner-ornament tr"></div>
     <div class="corner-ornament bl"></div>
     <div class="corner-ornament br"></div>
-    <!-- Translucent compass watermark -->
-    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;overflow:hidden;">
-      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:75vw;max-width:780px;opacity:0.045;color:var(--ink);">
-        <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
-        <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
-        <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
-        <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
-        <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
-        <circle cx="200" cy="200" r="75" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
-        <circle cx="200" cy="200" r="22" fill="currentColor"/>
-        <circle cx="200" cy="200" r="13" fill="white"/>
-        <circle cx="200" cy="200" r="5" fill="currentColor"/>
-        <text x="200" y="36" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">N</text>
-        <text x="200" y="384" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">S</text>
-        <text x="382" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">E</text>
-        <text x="18" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">W</text>
-      </svg>
-    </div>
   </div>
   <div class="hero-content">
     <div class="hero-eyebrow">State Employment Law Intelligence</div>
     <h1 class="hero-title">
-      50 States.<br>
-      <em>One Answer.</em>
+      HR Has a tough job navigating Employee Relations<br>
+      <em>Let alone having to navigate mulitple states with ever changing laws</em><br>
+      HR Compliance Compass tracks the law in all 50 States.<br>
+      <em> and provided clear guidance with tough conversation, defensable investigation formats and more </em>
+      <em>One this is the one tool that small business can't do without.</em>
     </h1>
     <p class="hero-subtitle">
       Managing multi-state employment law is overwhelming.<br>
@@ -1408,20 +1368,6 @@ const toolData = [
 
 <!-- PROBLEM — compact strip -->
 <section style="padding: 3.5rem 3rem; background: var(--cream); position:relative; overflow:hidden;">
-  <!-- Translucent compass rose right side -->
-  <div style="position:absolute;right:-8%;top:50%;transform:translateY(-50%);pointer-events:none;opacity:0.04;">
-    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:420px;color:var(--ink);">
-      <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
-      <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
-      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
-      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
-      <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-      <circle cx="200" cy="200" r="75" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
-      <circle cx="200" cy="200" r="22" fill="currentColor"/>
-      <circle cx="200" cy="200" r="13" fill="white"/>
-      <circle cx="200" cy="200" r="5" fill="currentColor"/>
-    </svg>
-  </div>
   <div style="max-width:1300px; margin:0 auto; position:relative; z-index:1;">
 
     <!-- Top row: label + headline + one-liner -->
@@ -1488,24 +1434,6 @@ const toolData = [
 
 <!-- TRUST BAR -->
 <section class="trust-section" style="position:relative; overflow:hidden;">
-  <!-- Translucent compass rose centered behind content -->
-  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0.07;">
-    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:600px;color:var(--ink);">
-      <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
-      <polygon points="8,200 200,188 392,200 200,212" fill="currentColor"/>
-      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(45 200 200)" opacity="0.55"/>
-      <polygon points="200,55 194,200 200,345 206,200" fill="currentColor" transform="rotate(-45 200 200)" opacity="0.55"/>
-      <circle cx="200" cy="200" r="130" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-      <circle cx="200" cy="200" r="75" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
-      <circle cx="200" cy="200" r="22" fill="currentColor"/>
-      <circle cx="200" cy="200" r="13" fill="white"/>
-      <circle cx="200" cy="200" r="5" fill="currentColor"/>
-      <text x="200" y="36" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">N</text>
-      <text x="200" y="384" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">S</text>
-      <text x="382" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">E</text>
-      <text x="18" y="208" text-anchor="middle" font-size="28" font-family="Georgia,serif" font-weight="300" fill="currentColor">W</text>
-    </svg>
-  </div>
   <!-- Translucent wordmark along bottom -->
   <div style="position:absolute;bottom:-0.5rem;left:50%;transform:translateX(-50%);pointer-events:none;white-space:nowrap;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(4rem,9vw,8rem);font-weight:300;color:var(--ink);opacity:0.05;letter-spacing:0.2em;user-select:none;">HR COMPLIANCE COMPASS</div>
   <div class="trust-inner" style="position:relative;z-index:1;">
@@ -2302,6 +2230,32 @@ const toolData = [
     document.getElementById('contact-success').scrollIntoView({ behavior:'smooth', block:'nearest' });
   }
 </script>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="ticker">
+    <div class="ticker-item"><div class="ticker-dot"></div> Overtime Rules</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Paid Leave Mandates</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Non-Compete Laws</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Salary History Bans</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Ban the Box Policies</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Minimum Wage Updates</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Predictive Scheduling</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Anti-Harassment Training</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Final Paycheck Rules</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Drug Testing Laws</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Overtime Rules</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Paid Leave Mandates</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Non-Compete Laws</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Salary History Bans</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Ban the Box Policies</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Minimum Wage Updates</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Predictive Scheduling</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Anti-Harassment Training</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Final Paycheck Rules</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Drug Testing Laws</div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
