@@ -101,12 +101,20 @@
     box-shadow: 0 1px 0 rgba(30,41,59,0.08);
   }
   .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--serif);
     font-size: 1.25rem;
     font-weight: 500;
     color: var(--ink);
     text-decoration: none;
     letter-spacing: 0.02em;
+  }
+  .nav-logo img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
   }
   .nav-logo span { color: var(--gold); }
   .nav-links {
@@ -124,6 +132,18 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--gold); }
+  .nav-links a:focus-visible,
+  .btn-primary:focus-visible,
+  .btn-ghost:focus-visible,
+  .faq-q:focus-visible,
+  .priv-q:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
   .nav-cta {
     background: var(--ink);
     color: var(--cream) !important;
@@ -234,6 +254,7 @@
     text-align: center;
     max-width: 900px;
     padding: 0 2rem;
+    margin-top: -1.5rem;
   }
 
   .hero-eyebrow {
@@ -395,8 +416,7 @@
   .ticker-item {
     font-family: var(--serif);
     font-size: 0.85rem;
-    font-style: normal;
-    font-weight: 700;
+    font-style: italic;
     letter-spacing: 0.05em;
     display: flex;
     align-items: center;
@@ -878,8 +898,42 @@
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    nav { padding: 1.2rem 1.5rem; }
-    .nav-links { display: none; }
+    nav {
+      padding: 1rem 1rem 0.7rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .nav-links {
+      display: flex;
+      width: 100%;
+      gap: 1rem;
+      margin: 0;
+      padding: 0 0 0.15rem;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .nav-links li { flex: 0 0 auto; }
+    .nav-links a {
+      display: block;
+      font-size: 0.75rem;
+      padding: 0.45rem 0.15rem;
+      letter-spacing: 0.06em;
+    }
+    .nav-cta {
+      padding: 0.45rem 0.8rem;
+      font-size: 0.72rem !important;
+    }
+    .ticker[style] {
+      position: relative !important;
+      top: 0 !important;
+      margin-top: 0 !important;
+      z-index: 1 !important;
+    }
+    .hero { min-height: auto; padding-top: 8rem; }
+    .hero-content { margin-top: -0.5rem; }
     section, .features-section, .pilot-section { padding: 5rem 1.5rem; }
     .problem { grid-template-columns: 1fr; gap: 3rem; }
     .steps-grid { grid-template-columns: 1fr; }
@@ -891,6 +945,16 @@
     body { cursor: auto; }
     .cursor, .cursor-ring { display: none; }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .ticker-inner { animation: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -899,9 +963,35 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
 
+<!-- TICKER -->
+<div class="ticker" style="position:sticky; top:65px; z-index:900; margin-top:65px;">
+  <div class="ticker-inner" id="ticker">
+    <div class="ticker-item"><div class="ticker-dot"></div> Overtime Rules</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Paid Leave Mandates</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Non-Compete Laws</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Salary History Bans</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Ban the Box Policies</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Minimum Wage Updates</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Predictive Scheduling</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Anti-Harassment Training</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Final Paycheck Rules</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Drug Testing Laws</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Overtime Rules</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Paid Leave Mandates</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Non-Compete Laws</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Salary History Bans</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Ban the Box Policies</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Minimum Wage Updates</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Predictive Scheduling</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Anti-Harassment Training</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Final Paycheck Rules</div>
+    <div class="ticker-item"><div class="ticker-dot"></div> Drug Testing Laws</div>
+  </div>
+</div>
+
 <!-- HERO -->
 <nav id="main-nav">
-  <a href="#" class="nav-logo">HR Compliance <span>Compass</span></a>
+  <a href="#" class="nav-logo"><img src="/HRCC-compass-icon.png" alt="HR Compliance Compass logo">HR Compliance <span>Compass</span></a>
   <ul class="nav-links">
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faqs">FAQs</a></li>
@@ -910,73 +1000,6 @@
     <li><a href="#trial" class="nav-cta">Start Free Trial</a></li>
   </ul>
 </nav>
-
-<!-- PROBLEM — compact strip -->
-<section style="padding: 7rem 3rem 3.5rem; background: var(--cream); position:relative; overflow:hidden;">
-  <div style="max-width:1300px; margin:0 auto; position:relative; z-index:1;">
-
-    <!-- Top row: label + headline + one-liner -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-bottom:2.5rem;">
-      <div>
-        <div class="section-label reveal">The Problem</div>
-        <h2 class="section-title reveal" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Managing state employment law<br>is a <em>full-time job</em> inside your job.</h2>
-      </div>
-      <div style="display:flex; flex-direction:column; justify-content:flex-end; padding-top:1rem;">
-        <p style="font-size:0.95rem; line-height:1.75; color:var(--muted); font-weight:300;" class="reveal">50 states. 50 sets of rules. Constantly changing. One missed update is all it takes — fines, back pay, litigation. Most HR teams find out after the fact. <strong style="color:var(--ink); font-weight:400;">You don't have to.</strong></p>
-      </div>
-    </div>
-
-    <!-- Pain stats + map -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
-
-      <!-- 3 tight pain items -->
-      <div style="display:flex; flex-direction:column; gap:0.75rem;">
-        <div class="pain-item" style="padding:1rem 1.25rem;">
-          <span class="pain-icon">⚖️</span>
-          <span class="pain-text">
-            <strong>Laws differ in every state — and change without warning</strong>
-            Wages, leave, non-competes, final pay. 50 states, 50 rulesets.
-          </span>
-        </div>
-        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.1s;">
-          <span class="pain-icon">⏱️</span>
-          <span class="pain-text">
-            <strong>You don't have time to research every update</strong>
-            Hours lost to government sites, legal PDFs, and outdated blogs.
-          </span>
-        </div>
-        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.2s;">
-          <span class="pain-icon">💸</span>
-          <span class="pain-text">
-            <strong>Compliance mistakes are expensive</strong>
-            Fines, litigation, and back pay — all preventable.
-          </span>
-        </div>
-      </div>
-
-      <!-- Smaller interactive map -->
-      <div class="state-map-visual reveal" style="min-height:unset; padding:1.5rem;">
-        <div class="map-label">All 50 States + Federal Law — Interactive</div>
-        <div style="position:relative;">
-          <svg id="us-map" viewBox="0 0 960 600" style="max-height:220px;"></svg>
-          <div class="map-tooltip" id="map-tooltip"></div>
-        </div>
-        <div class="map-legend" style="margin-top:0.75rem;">
-          <div class="legend-item">
-            <div class="legend-dot" style="background:var(--ink)"></div>
-            All States Covered
-          </div>
-          <div class="legend-item">
-            <div class="legend-dot" style="background:var(--gold-light)"></div>
-            High Legislative Activity
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 
 <!-- HERO -->
 <section class="hero">
@@ -993,14 +1016,8 @@
     <h1 class="hero-title">
       HR has a tough job navigating Employee Relations<br>
       <em>Let alone having to navigate mulitple states with ever changing laws</em><br>
-      HR Compliance Compass tracks the law in all 50 States.<br>
-      <em> and provided clear guidance with tough conversation, defensable investigation formats and more </em>
-      <em>One this is the one tool that small business can't do without.</em>
     </h1>
-    <p class="hero-subtitle">
-      Managing multi-state employment law is overwhelming.<br>
-      We've already done the work — so you don't have to.
-    </p>
+    <p class="hero-subtitle" style="margin-bottom:1rem;">We can help with that. Introducing HR Compliance Compass, your one tool. Everything you need to make confident employment decisions for less than one hour of attorney fees per month.</p>
     <div class="hero-actions">
       <a href="#pilot" class="btn-primary">
         <span>Start Your Free Trial</span>
@@ -1021,8 +1038,7 @@
   <div style="position:absolute;bottom:-1rem;left:50%;transform:translateX(-50%);pointer-events:none;white-space:nowrap;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(5rem,12vw,10rem);font-weight:300;color:var(--ink);opacity:0.035;letter-spacing:0.15em;user-select:none;">COMPASSLINE</div>
   <div style="max-width: 1300px; margin: 0 auto; position:relative; z-index:1;">
     <div class="section-label reveal" style="justify-content:center; margin-bottom:0.75rem;">Your Compliance Toolkit</div>
-    <h2 class="section-title reveal" style="text-align:center; margin-bottom:0.5rem;">Everything you need.<br><em>Click a tool to explore it.</em></h2>
-    <p style="text-align:center; color:var(--muted); font-size:0.95rem; font-weight:300; margin-bottom:3rem;" class="reveal">Eleven purpose-built tools. One platform. No guessing.</p>
+    <h2 class="section-title reveal" style="text-align:center; margin-bottom:0.5rem;">Eleven purpose-built tools. One platform. No&nbsp;guessing.<br><em>Click a tool to explore.</em></h2>
 
     <!-- INFINITE MOUSE CAROUSEL -->
     <div id="carousel-viewport" style="position:relative; overflow:hidden; width:100%; padding:0.5rem 0 2rem;">
@@ -1443,6 +1459,72 @@ const toolData = [
 ];
 </script>
 
+<!-- PROBLEM — compact strip -->
+<section style="padding: 7rem 3rem 3.5rem; background: var(--cream); position:relative; overflow:hidden;">
+  <div style="max-width:1300px; margin:0 auto; position:relative; z-index:1;">
+
+    <!-- Top row: label + headline + one-liner -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-bottom:2.5rem;">
+      <div>
+        <div class="section-label reveal">The Problem</div>
+        <h2 class="section-title reveal" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Managing state employment law<br>is a <em>full-time job</em> inside your job.</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:flex-end; padding-top:1rem;">
+        <p style="font-size:0.95rem; line-height:1.75; color:var(--muted); font-weight:300;" class="reveal">50 states. 50 sets of rules. Constantly changing. One missed update is all it takes — fines, back pay, litigation. Most HR teams find out after the fact. <strong style="color:var(--ink); font-weight:400;">You don't have to.</strong></p>
+      </div>
+    </div>
+
+    <!-- Pain stats + map -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+
+      <!-- 3 tight pain items -->
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <div class="pain-item" style="padding:1rem 1.25rem;">
+          <span class="pain-icon">⚖️</span>
+          <span class="pain-text">
+            <strong>Laws differ in every state — and change without warning</strong>
+            Wages, leave, non-competes, final pay. 50 states, 50 rulesets.
+          </span>
+        </div>
+        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.1s;">
+          <span class="pain-icon">⏱️</span>
+          <span class="pain-text">
+            <strong>You don't have time to research every update</strong>
+            Hours lost to government sites, legal PDFs, and outdated blogs.
+          </span>
+        </div>
+        <div class="pain-item" style="padding:1rem 1.25rem; transition-delay:0.2s;">
+          <span class="pain-icon">💸</span>
+          <span class="pain-text">
+            <strong>Compliance mistakes are expensive</strong>
+            Fines, litigation, and back pay — all preventable.
+          </span>
+        </div>
+      </div>
+
+      <!-- Smaller interactive map -->
+      <div class="state-map-visual reveal" style="min-height:unset; padding:1.5rem;">
+        <div class="map-label">All 50 States + Federal Law — Interactive</div>
+        <div style="position:relative;">
+          <svg id="us-map" viewBox="0 0 960 600" style="max-height:220px;"></svg>
+          <div class="map-tooltip" id="map-tooltip"></div>
+        </div>
+        <div class="map-legend" style="margin-top:0.75rem;">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--ink)"></div>
+            All States Covered
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--gold-light)"></div>
+            High Legislative Activity
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- TRUST BAR -->
 <section class="trust-section" style="position:relative; overflow:hidden;">
   <!-- Translucent wordmark along bottom -->
@@ -1665,30 +1747,32 @@ const toolData = [
     <h2 class="reveal" style="font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:1rem;">Apply to the<br><em style="color:var(--gold-light);">Collaborator Program.</em></h2>
     <p class="reveal" style="color:rgba(255,255,255,0.5);font-size:0.92rem;font-weight:300;max-width:520px;margin:0 auto 3rem;line-height:1.8;">Acceptance is invite-only and based on real usage context. Not optional — we're selecting collaborators who will actually use the platform and provide honest feedback.</p>
 
-    <form id="trial-form" class="reveal" onsubmit="handleTrialSubmit(event)" style="text-align:left;">
+    <form id="trial-form" name="collaborator-application" class="reveal" data-netlify="true" data-support-email="support@hrcompliancecompass.com" method="POST" action="/thanks.html" style="text-align:left;">
+      <input type="hidden" name="form-name" value="collaborator-application">
+      <input type="hidden" name="bot-field">
 
       <!-- Name -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
         <div class="trial-field">
           <label class="trial-label">First Name <span style="color:var(--gold);">*</span></label>
-          <input type="text" class="trial-input" placeholder="First name" required>
+          <input type="text" name="firstName" class="trial-input" placeholder="First name" required>
         </div>
         <div class="trial-field">
           <label class="trial-label">Last Name <span style="color:var(--gold);">*</span></label>
-          <input type="text" class="trial-input" placeholder="Last name" required>
+          <input type="text" name="lastName" class="trial-input" placeholder="Last name" required>
         </div>
       </div>
 
       <!-- Email -->
       <div class="trial-field" style="margin-bottom:1rem;">
         <label class="trial-label">Work Email <span style="color:var(--gold);">*</span></label>
-        <input type="email" class="trial-input" placeholder="you@yourcompany.com" required>
+        <input type="email" name="email" class="trial-input" placeholder="you@yourcompany.com" required>
       </div>
 
       <!-- Company -->
       <div class="trial-field" style="margin-bottom:0.4rem;">
         <label class="trial-label">Company <span style="color:var(--gold);">*</span></label>
-        <input type="text" class="trial-input" placeholder="Your company or organization" required>
+        <input type="text" name="company" class="trial-input" placeholder="Your company or organization" required>
       </div>
       <p style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-bottom:1rem;letter-spacing:0.04em;">Not optional. Collaborators are selected based on real usage context.</p>
 
@@ -1696,7 +1780,7 @@ const toolData = [
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
         <div class="trial-field">
           <label class="trial-label">Which best describes you? <span style="color:var(--gold);">*</span></label>
-          <select class="trial-input trial-select" required>
+          <select name="roleType" class="trial-input trial-select" required>
             <option value="">Select one...</option>
             <option>New HR / early-career HR</option>
             <option>Seasoned HR / HR leader</option>
@@ -1709,7 +1793,7 @@ const toolData = [
         </div>
         <div class="trial-field">
           <label class="trial-label">Company Size <span style="color:var(--gold);">*</span></label>
-          <select class="trial-input trial-select" required>
+          <select name="companySize" class="trial-input trial-select" required>
             <option value="">Select one...</option>
             <option>1–10</option>
             <option>11–50</option>
@@ -1723,7 +1807,7 @@ const toolData = [
       <!-- Primary states -->
       <div class="trial-field" style="margin-bottom:1rem;">
         <label class="trial-label">Primary state(s) you work in <span style="color:var(--gold);">*</span></label>
-        <input type="text" class="trial-input" placeholder="e.g. Ohio, California, Texas" required>
+        <input type="text" name="primaryStates" class="trial-input" placeholder="e.g. Ohio, California, Texas" required>
       </div>
 
       <!-- How will you use it -->
@@ -1741,7 +1825,7 @@ const toolData = [
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
         <div class="trial-field">
           <label class="trial-label">Expected usage frequency <span style="color:var(--gold);">*</span></label>
-          <select class="trial-input trial-select" required>
+          <select name="usageFrequency" class="trial-input trial-select" required>
             <option value="">Select one...</option>
             <option>Daily</option>
             <option>3–5x per week</option>
@@ -1752,22 +1836,22 @@ const toolData = [
         </div>
         <div class="trial-field">
           <label class="trial-label">How did you hear about us? <span style="color:var(--gold);">*</span></label>
-          <input type="text" class="trial-input" placeholder="LinkedIn, referral, etc." required>
+          <input type="text" name="referralSource" class="trial-input" placeholder="LinkedIn, referral, etc." required>
         </div>
       </div>
 
       <div class="trial-field" style="margin-bottom:1rem;">
         <label class="trial-label">LinkedIn Profile URL <span style="color:rgba(255,255,255,0.3);font-size:0.65rem;letter-spacing:0;">(optional — helps us verify your application)</span></label>
-        <input type="url" class="trial-input" placeholder="https://linkedin.com/in/yourname">
+        <input type="url" name="linkedinUrl" class="trial-input" placeholder="https://linkedin.com/in/yourname">
       </div>
 
       <!-- Commitments -->
       <div class="trial-field" style="margin-bottom:2rem;">
         <label class="trial-label" style="margin-bottom:0.75rem;">Collaborator Commitment <span style="color:var(--gold);">*</span></label>
         <div style="display:flex;flex-direction:column;gap:0.6rem;">
-          <label class="commit-check"><input type="checkbox" required><span class="commit-text"><strong>I will provide regular feedback during the collaborator program</strong><br>Required — this program is built on usage + feedback.</span></label>
-          <label class="commit-check"><input type="checkbox" required><span class="commit-text"><strong>I understand collaborator access is $20/month and depends on my participation. Monthy feedback is required.</strong><br>Pricing and access details are confirmed at acceptance.</span></label>
-          <label class="commit-check"><input type="checkbox" required><span class="commit-text"><strong>I agree to be contacted about onboarding</strong><br>So you can be set up quickly if accepted.</span></label>
+          <label class="commit-check"><input type="checkbox" name="commitRegularFeedback" required><span class="commit-text"><strong>I will provide regular feedback during the collaborator program</strong><br>Required — this program is built on usage + feedback.</span></label>
+          <label class="commit-check"><input type="checkbox" name="commitProgramTerms" required><span class="commit-text"><strong>I understand collaborator access is $20/month and depends on my participation. Monthy feedback is required.</strong><br>Pricing and access details are confirmed at acceptance.</span></label>
+          <label class="commit-check"><input type="checkbox" name="commitContactPermission" required><span class="commit-text"><strong>I agree to be contacted about onboarding</strong><br>So you can be set up quickly if accepted.</span></label>
         </div>
       </div>
 
@@ -1790,13 +1874,13 @@ const toolData = [
 
 <style>
   /* Collaborator checkboxes */
-  .collab-check { cursor:none; }
+  .collab-check { cursor:pointer; }
   .collab-check input { display:none; }
   .collab-check-box {
     border:1px solid rgba(255,255,255,0.1);
     padding:0.9rem 1rem;
     transition:border-color 0.25s, background 0.25s;
-    cursor:none;
+    cursor:pointer;
   }
   .collab-check input:checked + .collab-check-box {
     border-color:var(--gold);
@@ -1806,12 +1890,12 @@ const toolData = [
   .collab-check-title { font-size:0.85rem; font-weight:500; color:var(--cream); margin-bottom:0.2rem; }
   .collab-check-sub { font-size:0.75rem; color:rgba(255,255,255,0.35); line-height:1.4; font-weight:300; }
 
-  .commit-check { display:flex; align-items:flex-start; gap:0.85rem; cursor:none; }
+  .commit-check { display:flex; align-items:flex-start; gap:0.85rem; cursor:pointer; }
   .commit-check input[type=checkbox] {
     flex-shrink:0; margin-top:0.2rem;
     width:16px; height:16px;
     accent-color:var(--gold);
-    cursor:none;
+    cursor:pointer;
   }
   .commit-text { font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.6; font-weight:300; }
   .commit-text strong { color:rgba(255,255,255,0.8); font-weight:500; display:block; margin-bottom:0.15rem; }
@@ -1969,7 +2053,7 @@ const toolData = [
   }
   .trial-input::placeholder { color: rgba(255,255,255,0.22); }
   .trial-input:focus { border-color: var(--gold); background: rgba(255,255,255,0.09); }
-  .trial-select { appearance: none; cursor: none; }
+  .trial-select { appearance: none; cursor: pointer; }
   .trial-select option { background: var(--ink-mid); color: var(--cream); }
 
   /* Plan radio buttons */
@@ -1980,7 +2064,7 @@ const toolData = [
     padding: 1.2rem 1rem;
     text-align: center;
     transition: border-color 0.25s, background 0.25s;
-    cursor: none;
+    cursor: pointer;
   }
   .plan-option input:checked + .plan-box {
     border-color: var(--gold);
@@ -2153,24 +2237,26 @@ const toolData = [
       </div>
     </div>
 
-    <form id="contact-form" onsubmit="handleContactSubmit(event)">
+    <form id="contact-form" name="contact" data-netlify="true" data-support-email="support@hrcompliancecompass.com" method="POST" action="/thanks.html">
+      <input type="hidden" name="form-name" value="contact">
+      <input type="hidden" name="bot-field">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
         <div class="trial-field">
           <label class="trial-label">First Name</label>
-          <input type="text" class="trial-input" placeholder="First name" required>
+          <input type="text" name="firstName" class="trial-input" placeholder="First name" required>
         </div>
         <div class="trial-field">
           <label class="trial-label">Last Name</label>
-          <input type="text" class="trial-input" placeholder="Last name" required>
+          <input type="text" name="lastName" class="trial-input" placeholder="Last name" required>
         </div>
       </div>
       <div class="trial-field" style="margin-bottom:1rem;">
         <label class="trial-label">Email Address</label>
-        <input type="email" class="trial-input" placeholder="you@yourcompany.com" required>
+        <input type="email" name="email" class="trial-input" placeholder="you@yourcompany.com" required>
       </div>
       <div class="trial-field" style="margin-bottom:1rem;">
         <label class="trial-label">Reason for Contact</label>
-        <select class="trial-input trial-select">
+        <select name="contactReason" class="trial-input trial-select">
           <option value="">Select a topic...</option>
           <option>Product question</option>
           <option>Billing or account issue</option>
@@ -2185,7 +2271,7 @@ const toolData = [
       </div>
       <div class="trial-field" style="margin-bottom:2rem;">
         <label class="trial-label">Message</label>
-        <textarea class="trial-input" rows="5" placeholder="Tell us what's on your mind..." required style="resize:vertical;min-height:130px;font-family:var(--sans);"></textarea>
+        <textarea name="message" class="trial-input" rows="5" placeholder="Tell us what's on your mind..." required style="resize:vertical;min-height:130px;font-family:var(--sans);"></textarea>
       </div>
       <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:1.2rem;">
         <span>Send Message</span>
@@ -2204,7 +2290,7 @@ const toolData = [
 <style>
   .priv-item { border-bottom: 1px solid rgba(30,41,59,0.1); }
   .priv-item:first-child { border-top: 1px solid rgba(30,41,59,0.1); }
-  .priv-q { width:100%; background:none; border:none; padding:1.4rem 0; display:flex; justify-content:space-between; align-items:center; font-family:var(--serif); font-size:1.1rem; font-weight:400; color:var(--ink); cursor:none; text-align:left; gap:1rem; transition:color 0.2s; }
+  .priv-q { width:100%; background:none; border:none; padding:1.4rem 0; display:flex; justify-content:space-between; align-items:center; font-family:var(--serif); font-size:1.1rem; font-weight:400; color:var(--ink); cursor:pointer; text-align:left; gap:1rem; transition:color 0.2s; }
   .priv-q:hover { color:var(--gold); }
   .priv-item.open .priv-q { color:var(--gold); }
   .priv-item.open .priv-q .faq-icon { transform:rotate(45deg); }
@@ -2234,39 +2320,7 @@ const toolData = [
     });
   });
 
-  function handleContactSubmit(e) {
-    e.preventDefault();
-    document.getElementById('contact-form').querySelectorAll('input,select,textarea,button[type=submit]').forEach(el => el.style.opacity = '0.4');
-    document.getElementById('contact-success').style.display = 'block';
-    document.getElementById('contact-success').scrollIntoView({ behavior:'smooth', block:'nearest' });
-  }
 </script>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner" id="ticker">
-    <div class="ticker-item"><div class="ticker-dot"></div> Overtime Rules</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Paid Leave Mandates</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Non-Compete Laws</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Salary History Bans</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Ban the Box Policies</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Minimum Wage Updates</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Predictive Scheduling</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Anti-Harassment Training</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Final Paycheck Rules</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Drug Testing Laws</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Overtime Rules</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Paid Leave Mandates</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Non-Compete Laws</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Salary History Bans</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Ban the Box Policies</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Minimum Wage Updates</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Predictive Scheduling</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Anti-Harassment Training</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Final Paycheck Rules</div>
-    <div class="ticker-item"><div class="ticker-dot"></div> Drug Testing Laws</div>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <footer>
@@ -2403,5 +2457,6 @@ const toolData = [
     el.style.transitionDelay = (i * 0.12) + 's';
   });
 </script>
+<script src="form-email.js"></script>
 </body>
 </html>

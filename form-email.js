@@ -8,6 +8,21 @@
   const forms = Array.from(document.querySelectorAll(TARGET_FORM_SELECTOR));
   if (!forms.length) return;
 
+  function validateForm(form) {
+    if (form.id !== "trial-form") return true;
+    const usageBoxes = form.querySelectorAll("input[name='usage']");
+    const hasUsage = Array.from(usageBoxes).some((box) => box.checked);
+    if (hasUsage) return true;
+
+    const firstUsage = usageBoxes[0];
+    if (firstUsage) {
+      firstUsage.setCustomValidity("Choose at least one usage option.");
+      form.reportValidity();
+      firstUsage.setCustomValidity("");
+    }
+    return false;
+  }
+
   async function sendToSheet(form) {
     const formData = new FormData(form);
     const data = { formName: form.getAttribute("name") || "contact" };
@@ -47,14 +62,28 @@
       }
 
       event.preventDefault();
+
+      if (!validateForm(form)) {
+        return;
+      }
+
       form.dataset.submitting = "true";
 
       const submitButton = form.querySelector("button[type='submit'], input[type='submit']");
-      const originalLabel = submitButton ? submitButton.textContent : "";
+      const isInputSubmit = submitButton && submitButton.tagName === "INPUT";
+      const originalLabel = submitButton
+        ? isInputSubmit
+          ? submitButton.value
+          : submitButton.textContent
+        : "";
 
       if (submitButton) {
         submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
+        if (isInputSubmit) {
+          submitButton.value = "Sending...";
+        } else {
+          submitButton.textContent = "Sending...";
+        }
       }
 
       try {
@@ -66,7 +95,11 @@
       } finally {
         if (submitButton) {
           submitButton.disabled = false;
-          submitButton.textContent = originalLabel;
+          if (isInputSubmit) {
+            submitButton.value = originalLabel;
+          } else {
+            submitButton.textContent = originalLabel;
+          }
         }
         form.dataset.submitting = "false";
       }
