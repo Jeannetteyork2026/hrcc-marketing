@@ -3,18 +3,152 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Privacy Policy | HR Compliance Compass</title>
+  <title>Privacy Policy &middot; HR Compliance Compass</title>
+  <link rel="icon" type="image/png" href="/HRCC-compass-icon.png" />
+  <style>
+    :root {
+      --ink: #0b0e14;
+      --ink-soft: #131722;
+      --cream: #f3ede1;
+      --cream-soft: #e8dfcf;
+      --gold: #d4a154;
+      --gold-light: #e6b86d;
+      --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Top nav */
+    .site-nav {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--cream);
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo img { width: 28px; height: 28px; }
+    .nav-logo span { color: var(--gold-light); font-style: italic; }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; padding: 0; margin: 0; flex-wrap: wrap; }
+    .nav-links a {
+      color: rgba(243,237,225,0.8);
+      font-size: 0.92rem;
+      letter-spacing: 0.03em;
+    }
+    .nav-links a:hover { color: var(--gold-light); text-decoration: none; }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--ink) !important;
+      padding: 0.5rem 1rem;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* Page content */
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    main h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin: 0 0 0.5rem;
+    }
+    main h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1.5rem;
+      margin: 2.5rem 0 0.75rem;
+      color: var(--ink);
+    }
+    main p, main li { font-size: 1rem; }
+    main ul { padding-left: 1.5rem; }
+    .meta {
+      color: rgba(11,14,20,0.6);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 0.6rem 1.25rem;
+      margin: 1.5rem 0;
+      background: rgba(212,161,84,0.08);
+      font-style: italic;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid rgba(11,14,20,0.12);
+      margin: 2.5rem 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--ink);
+      color: rgba(243,237,225,0.55);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--gold-light); margin: 0 0.6rem; }
+
+    @media (max-width: 600px) {
+      .site-nav { padding: 0.8rem 1rem; }
+      .nav-links { gap: 1rem; }
+      main { padding: 2.5rem 1.25rem; }
+    }
+  </style>
 </head>
-<body style="font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 24px; line-height: 1.5; max-width: 800px;">
-  <p><a href="hr-compliance-compass.html">&larr; Back to home</a></p>
+<body>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <img src="/HRCC-compass-icon.png" alt="HRCC logo" />
+    HR Compliance <span>Compass</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/faqs.html">FAQs</a></li>
+    <li><a href="/privacy.html">Privacy</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/#pricing" class="nav-cta">Start Free Trial</a></li>
+  </ul>
+</nav>
+
+<main>
   <h1>Privacy Policy</h1>
-  <p><strong>Effective:</strong> February 9, 2026 | <strong>Last updated:</strong> February 25, 2026</p>
+  <p class="meta"><strong>Effective:</strong> February 9, 2026 &middot; <strong>Last updated:</strong> February 25, 2026</p>
 
   <p>We respect your privacy. This policy explains what we collect, why we collect it, and how we handle it.</p>
 
-  <p>HR Compliance Compass (?HRCC?) is operated by <strong>CompassLine LLC</strong> (?we,? ?us,? or ?our?). Questions? Email <a href="mailto:support@hrcompliancecompass.com">support@hrcompliancecompass.com</a>.</p>
+  <p>HR Compliance Compass (&ldquo;HRCC&rdquo;) is operated by <strong>CompassLine LLC</strong> (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). Questions? Email <a href="mailto:support@hrcompliancecompass.com">support@hrcompliancecompass.com</a>.</p>
 
-  <blockquote style="border-left: 4px solid #ccc; padding-left: 16px; margin-left: 0; font-style: italic;">
+  <blockquote>
     <strong>Not legal advice:</strong> HRCC provides general guidance and tools. For legal advice, please consult a qualified attorney.
   </blockquote>
 
@@ -24,7 +158,7 @@
   <ul>
     <li><strong>Contact information you submit</strong> (for example, your name and email when you join the waitlist, apply for the collaborator program, or contact support).</li>
     <li><strong>Optional details you provide</strong> (for example, role, organization, state(s), headcount range, and the topics you want help with).</li>
-    <li><strong>Basic usage analytics</strong> (for example, page views and feature usage) to understand what?s helpful and improve the Service.</li>
+    <li><strong>Basic usage analytics</strong> (for example, page views and feature usage) to understand what&rsquo;s helpful and improve the Service.</li>
     <li><strong>Technical logs</strong> needed to run and secure the Service (for example, IP address, browser/device type, and error logs).</li>
     <li><strong>Cookies or similar technologies</strong> for basic functionality and analytics, if enabled.</li>
   </ul>
@@ -43,7 +177,7 @@
     <li>Maintain security, prevent abuse, and enforce our Terms.</li>
   </ul>
 
-  <h2>What we don?t do</h2>
+  <h2>What we don&rsquo;t do</h2>
   <ul>
     <li><strong>We do not sell your personal information.</strong></li>
     <li>We do not use your submissions to train public AI models.</li>
@@ -55,7 +189,7 @@
   <ul>
     <li><strong>Hosting and forms:</strong> Our website and form submissions may be processed by our hosting provider (for example, Netlify) and form/email routing providers.</li>
     <li><strong>Email:</strong> To send confirmations, collaborator/waitlist updates, and support responses.</li>
-    <li><strong>Payments (if/when enabled):</strong> A payment processor (for example, Stripe) to process subscriptions.</li>
+    <li><strong>Payments:</strong> A payment processor (Stripe) to process subscriptions.</li>
     <li><strong>Analytics:</strong> To understand performance and improve content.</li>
   </ul>
   <p>We may also disclose information if required by law, to protect rights and safety, or in connection with a business transaction (such as a merger or asset sale).</p>
@@ -74,14 +208,17 @@
   <p>We use reasonable safeguards. No online system is 100% secure, but we work to reduce risk.</p>
 
   <h2>Changes</h2>
-  <p>We may update this policy. When we do, we?ll update the ?Last updated? date above.</p>
+  <p>We may update this policy. When we do, we&rsquo;ll update the &ldquo;Last updated&rdquo; date above.</p>
+</main>
 
-  <hr />
-  <p style="font-size: 14px;">&copy; <span id="year"></span> CompassLine LLC.</p>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<footer>
+  &copy; <span id="year"></span> CompassLine LLC.
+  <span style="margin: 0 0.6rem;">&middot;</span>
+  <a href="/">Home</a>
+  <a href="/faqs.html">FAQs</a>
+  <a href="/contact.html">Contact</a>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
-
-
-
-

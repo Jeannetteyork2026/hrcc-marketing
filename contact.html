@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact &middot; HR Compliance Compass</title>
+  <link rel="icon" type="image/png" href="/HRCC-compass-icon.png" />
+  <style>
+    :root {
+      --ink: #0b0e14;
+      --ink-soft: #131722;
+      --cream: #f3ede1;
+      --cream-soft: #e8dfcf;
+      --gold: #d4a154;
+      --gold-light: #e6b86d;
+      --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      background: var(--ink);
+      color: var(--cream);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Top nav */
+    .site-nav {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--cream);
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo img { width: 28px; height: 28px; }
+    .nav-logo span { color: var(--gold-light); font-style: italic; }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; padding: 0; margin: 0; flex-wrap: wrap; }
+    .nav-links a {
+      color: rgba(243,237,225,0.8);
+      font-size: 0.92rem;
+      letter-spacing: 0.03em;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--ink) !important;
+      padding: 0.5rem 1rem;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* Page content */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    main h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      margin: 0 0 0.5rem;
+      line-height: 1.1;
+    }
+    main h1 em { color: var(--gold-light); font-weight: 400; }
+    main p.lede {
+      color: rgba(243,237,225,0.7);
+      font-size: 1.05rem;
+      margin: 0 0 2.5rem;
+      line-height: 1.7;
+    }
+
+    /* Form */
+    form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 600px) { .field-row { grid-template-columns: 1fr; } }
+    .trial-label {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(243,237,225,0.65);
+      margin-bottom: 0.5rem;
+    }
+    .trial-input, .trial-select, textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 2px;
+      color: var(--cream);
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .trial-input:focus, textarea:focus, .trial-select:focus {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.07);
+    }
+    .trial-select { appearance: none; cursor: pointer; }
+    textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+    button[type=submit] {
+      background: var(--gold);
+      color: var(--ink);
+      border: none;
+      padding: 1rem 1.5rem;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+    button[type=submit]:hover { background: var(--gold-light); }
+    .help-line {
+      font-size: 0.85rem;
+      color: rgba(243,237,225,0.45);
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0,0,0,0.4);
+      color: rgba(243,237,225,0.55);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer a { color: var(--gold-light); margin: 0 0.6rem; }
+
+    @media (max-width: 600px) {
+      .site-nav { padding: 0.8rem 1rem; }
+      .nav-links { gap: 1rem; }
+      main { padding: 2.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <img src="/HRCC-compass-icon.png" alt="HRCC logo" />
+    HR Compliance <span>Compass</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/faqs.html">FAQs</a></li>
+    <li><a href="/privacy.html">Privacy</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/#pricing" class="nav-cta">Start Free Trial</a></li>
+  </ul>
+</nav>
+
+<main>
+  <h1>Get in <em>touch.</em></h1>
+  <p class="lede">Product questions, billing, partnership inquiries, or feedback &mdash; we read everything that comes in. Expect a reply within one business day.</p>
+
+  <form name="contact" data-netlify="true" data-support-email="support@hrcompliancecompass.com" method="POST" action="/thanks.html">
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="bot-field" />
+
+    <div class="field-row">
+      <div>
+        <label class="trial-label">First Name</label>
+        <input type="text" name="firstName" class="trial-input" placeholder="First name" required />
+      </div>
+      <div>
+        <label class="trial-label">Last Name</label>
+        <input type="text" name="lastName" class="trial-input" placeholder="Last name" required />
+      </div>
+    </div>
+
+    <div>
+      <label class="trial-label">Email Address</label>
+      <input type="email" name="email" class="trial-input" placeholder="you@yourcompany.com" required />
+    </div>
+
+    <div>
+      <label class="trial-label">Reason for Contact</label>
+      <select name="contactReason" class="trial-input trial-select">
+        <option value="">Select a topic&hellip;</option>
+        <option>Product question</option>
+        <option>Billing or account issue</option>
+        <option>Compliance topic suggestion</option>
+        <option>Collaborator feedback</option>
+        <option>Partnership or press inquiry</option>
+        <option>Privacy or data request</option>
+        <option>Waitlist &mdash; keep me informed</option>
+        <option>General feedback</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="trial-label">Message</label>
+      <textarea name="message" rows="5" placeholder="Tell us what's on your mind&hellip;" required></textarea>
+    </div>
+
+    <button type="submit">Send Message &rarr;</button>
+    <div class="help-line">Or email us directly: <a href="mailto:support@hrcompliancecompass.com">support@hrcompliancecompass.com</a></div>
+  </form>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> CompassLine LLC.
+  <span style="margin: 0 0.6rem;">&middot;</span>
+  <a href="/">Home</a>
+  <a href="/faqs.html">FAQs</a>
+  <a href="/privacy.html">Privacy</a>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

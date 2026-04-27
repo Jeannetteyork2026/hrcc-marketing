@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FAQs &middot; HR Compliance Compass</title>
+  <link rel="icon" type="image/png" href="/HRCC-compass-icon.png" />
+  <style>
+    :root {
+      --ink: #0b0e14;
+      --ink-soft: #131722;
+      --cream: #f3ede1;
+      --cream-soft: #e8dfcf;
+      --gold: #d4a154;
+      --gold-light: #e6b86d;
+      --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Top nav */
+    .site-nav {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--cream);
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo img { width: 28px; height: 28px; }
+    .nav-logo span { color: var(--gold-light); font-style: italic; }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; padding: 0; margin: 0; flex-wrap: wrap; }
+    .nav-links a {
+      color: rgba(243,237,225,0.8);
+      font-size: 0.92rem;
+      letter-spacing: 0.03em;
+    }
+    .nav-links a:hover { color: var(--gold-light); text-decoration: none; }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--ink) !important;
+      padding: 0.5rem 1rem;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* Page content */
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .page-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    main h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      margin: 0 0 1.5rem;
+      line-height: 1.1;
+    }
+    main h1 em { color: var(--gold); font-weight: 400; }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(11,14,20,0.10);
+      padding: 1.25rem 0;
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0.5rem 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-align: left;
+    }
+    .faq-icon {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--gold);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.open .faq-a { max-height: 1000px; }
+    .faq-a p {
+      padding: 0.5rem 0 0.75rem;
+      margin: 0;
+      color: rgba(11,14,20,0.75);
+      font-size: 0.97rem;
+      line-height: 1.7;
+    }
+
+    /* CTA section */
+    .more-help {
+      margin-top: 4rem;
+      padding: 2rem;
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 2px;
+      text-align: center;
+    }
+    .more-help p { margin: 0 0 1rem; font-size: 1rem; }
+    .more-help a {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 0.7rem 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .more-help a:hover { background: var(--gold-light); text-decoration: none; }
+
+    /* Footer */
+    footer {
+      background: var(--ink);
+      color: rgba(243,237,225,0.55);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--gold-light); margin: 0 0.6rem; }
+
+    @media (max-width: 600px) {
+      .site-nav { padding: 0.8rem 1rem; }
+      .nav-links { gap: 1rem; }
+      main { padding: 2.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <img src="/HRCC-compass-icon.png" alt="HRCC logo" />
+    HR Compliance <span>Compass</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/faqs.html">FAQs</a></li>
+    <li><a href="/privacy.html">Privacy</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/#pricing" class="nav-cta">Start Free Trial</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="page-eyebrow">Common Questions</div>
+  <h1>Everything you want to know.<br><em>Answered honestly.</em></h1>
+
+  <div class="faq-item">
+    <button class="faq-q" type="button">What exactly is HR Compliance Compass?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>HR Compliance Compass is a SaaS platform that translates complex, constantly changing state and federal employment law into plain-English answers &mdash; instantly, for every state you operate in. It includes 11 purpose-built tools covering everything from manager talk tracks and complaint investigations to FLSA exemption testing and handbook policy generation. Think of it as your always-available HR compliance expert, without the retainer fees.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" type="button">Who is this built for?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>HR Compliance Compass is built specifically for two people: the solo HR professional who is the entire HR department at their company, and the small business owner who handles HR themselves without a dedicated team. If you've ever spent an afternoon digging through government websites to answer a single compliance question, this platform was designed for you.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" type="button">How current is the information?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>Employment law data is monitored and updated continuously. When a state passes new legislation, updates a regulation, or issues new agency guidance relevant to employers, the platform is updated to reflect it. High-activity states like California, New York, Illinois, and Colorado are reviewed with particular frequency. You will always see current law &mdash; not last year's version.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" type="button">Is this legal advice?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>No &mdash; and we will never tell you it is. HR Compliance Compass provides HR reference and compliance guidance based on publicly available law and regulation. It helps you understand what the law requires, identify your obligations, and document your decisions. For complex or high-stakes situations &mdash; litigation, EEOC charges, significant severance negotiations &mdash; we will tell you directly when you need an employment attorney.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" type="button">Which states are covered?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>All 50 states plus federal law. Every tool on the platform is built to account for state-specific requirements, not just federal baselines. If you operate in multiple states, you can filter results and checklists by the states that apply to your workforce. States with high legislative activity &mdash; California, New York, Illinois, Washington, Colorado, Massachusetts, and others &mdash; receive the most frequent updates.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" type="button">What's included in every plan?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>Every plan &mdash; Collaborator, Solo HR Pro, and Small Team &mdash; includes access to all 11 tools: Tough Conversations, Decision Helper, Complaint Investigation Guide, Handbook Builder, Interview Guides, Performance Guidance, FLSA Exempt Status &amp; Duties Test, Compliance Checklists, Future of Work &amp; AI, Compliance Wizard, and FAQs / Knowledge Base. The plan tiers reflect rate and seat count, not feature restrictions.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" type="button">What makes this different from just Googling?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>Google gives you 10 blue links to government PDFs, legal blogs from 2019, and forum posts that may or may not apply to your state. HR Compliance Compass gives you one clear answer, written specifically for your situation and jurisdiction, with the source citation so you can verify it. It also gives you the documentation trail &mdash; decision summaries, checklists, policy language &mdash; that Google never will.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" type="button">Can I cancel anytime?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>Yes. There are no long-term contracts and no cancellation fees. If you cancel, your access continues through the end of your billing period. Founding rates are locked for as long as you remain a subscriber &mdash; if you cancel and resubscribe later, the founding rate will no longer be available.</p></div>
+  </div>
+
+  <div class="more-help">
+    <p>Have a question we haven't answered?</p>
+    <a href="/contact.html">Get in touch &rarr;</a>
+  </div>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> CompassLine LLC.
+  <span style="margin: 0 0.6rem;">&middot;</span>
+  <a href="/">Home</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/privacy.html">Privacy</a>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  // Click-to-expand accordion behavior
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var q = item.querySelector('.faq-q');
+    if (q) q.addEventListener('click', function() { item.classList.toggle('open'); });
+  });
+</script>
+</body>
+</html>

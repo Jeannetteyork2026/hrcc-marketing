@@ -1002,9 +1002,9 @@
   <a href="#" class="nav-logo"><img src="/HRCC-compass-icon.png" alt="HR Compliance Compass logo">HR Compliance <span>Compass</span></a>
   <ul class="nav-links">
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#faqs">FAQs</a></li>
+    <li><a href="/faqs.html">FAQs</a></li>
     <li><a href="/privacy.html">Privacy</a></li>
-    <li><a href="mailto:support@hrcompliancecompass.com">Contact</a></li>
+    <li><a href="/contact.html">Contact</a></li>
     <li><a href="#pricing" class="nav-cta">Start Free Trial</a></li>
   </ul>
 </nav>
@@ -1596,7 +1596,28 @@ const toolData = [
       <span id="toggle-annual-label" style="font-size:0.85rem;color:rgba(255,255,255,0.5);letter-spacing:0.06em;">Annual <span style="background:rgba(230,126,34,0.25);color:var(--gold-light);font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.3rem;">Save ~$100</span></span>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;align-items:start;">
+
+      <div class="price-card" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);padding:3rem 2.5rem;">
+        <div style="font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;">Collaborator</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:2rem;font-weight:300;">For early adopters willing to share honest product feedback in exchange for our lowest rate. Limited spots.</div>
+        <div style="margin-bottom:0.4rem;">
+          <span style="font-family:var(--serif);font-size:3.5rem;font-weight:300;color:var(--gold-light);line-height:1;">$20</span>
+          <span style="font-size:1rem;color:rgba(255,255,255,0.35);">/month</span>
+        </div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:2rem;">Founding rate locked for 2 years</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
+          <li class="pf">Full platform access &mdash; all 11 tools</li>
+          <li class="pf">50-state employment law guidance</li>
+          <li class="pf">Compliance Wizard + templates</li>
+          <li class="pf">Direct line to Jeannette for feedback</li>
+          <li class="pf">Help shape the product roadmap</li>
+          <li class="pf">Lock in $20/month rate for 2 years</li>
+        </ul>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.25);margin-bottom:1.5rem;font-style:italic;">Application required &mdash; we review for fit before approving.</div>
+        <a href="#trial" class="price-cta" style="display:block;text-align:center;">Apply for Collaborator &#8594;</a>
+        <div style="text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.6rem;">No charge until approved &amp; activated</div>
+      </div>
 
       <div class="price-card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);padding:3rem 2.5rem;">
         <div style="font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;">Solo HR Pro</div>
@@ -1876,7 +1897,7 @@ const toolData = [
         <span class="arrow">→</span>
       </button>
 
-      <p style="font-size:0.72rem;color:rgba(255,255,255,0.25);text-align:center;margin-top:1.25rem;line-height:1.7;">Not legal advice. For legal guidance, consult qualified counsel.<br>Feedback: Contact form (Topic: Collaborator feedback) or <span style="color:rgba(255,255,255,0.4);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="02717772726d7076426a70616d6f726e6b636c6167616d6f726371712c616d6f">[email&#160;protected]</a></span> — subject: [HRCC Feedback]</p>
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.25);text-align:center;margin-top:1.25rem;line-height:1.7;">Not legal advice. For legal guidance, consult qualified counsel.</p>
 
       <div id="trial-success" style="display:none;text-align:center;padding:2rem;background:rgba(230,126,34,0.1);border:1px solid rgba(230,126,34,0.3);margin-top:1.5rem;">
         <div style="font-size:2rem;margin-bottom:0.75rem;">✓</div>
