@@ -1554,7 +1554,21 @@ const toolData = [
 </section>
 
 <!-- ═══════════════════════════════════════════ PRICING ══ -->
-<section id="pricing" style="padding:7rem 3rem; background:var(--ink); position:relative; overflow:hidden;">
+<section id="pricing" class="pricing-section" style="padding:7rem 3rem; background:var(--ink); position:relative; overflow:hidden;">
+<style>
+  /* Stack the 3 pricing cards vertically on phones/tablets so they
+     render at full readable width instead of squeezed 3-up. Also
+     tighten section padding and card padding so the layout breathes
+     on small screens. */
+  @media (max-width: 900px) {
+    .pricing-section { padding: 4rem 1.25rem !important; }
+    .pricing-section .pricing-grid {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem !important;
+    }
+    .pricing-section .price-card { padding: 2rem 1.5rem !important; }
+  }
+</style>
   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0.04;">
     <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:800px;color:white;">
       <polygon points="200,8 188,200 200,392 212,200" fill="currentColor"/>
@@ -1584,7 +1598,7 @@ const toolData = [
       <span id="toggle-annual-label" style="font-size:0.85rem;color:rgba(255,255,255,0.5);letter-spacing:0.06em;">Annual <span style="background:rgba(230,126,34,0.25);color:var(--gold-light);font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.3rem;">Save ~$100</span></span>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;align-items:start;">
+    <div class="pricing-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;align-items:start;">
 
       <div class="price-card" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);padding:3rem 2.5rem;">
         <div style="font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;">Collaborator</div>
