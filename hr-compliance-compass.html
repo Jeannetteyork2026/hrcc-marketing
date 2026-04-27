@@ -401,6 +401,14 @@
   }
 
   /* TICKER */
+  /* On phones the nav wraps to multiple rows so a hardcoded 65px top
+     overlaps the heading. Push the ticker further down on small screens. */
+  @media (max-width: 700px) {
+    .ticker[style] {
+      top: 130px !important;
+      margin-top: 130px !important;
+    }
+  }
   .ticker {
     background: var(--ink);
     color: var(--gold-pale);
@@ -995,9 +1003,9 @@
   <ul class="nav-links">
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faqs">FAQs</a></li>
-    <li><a href="#privacy">Privacy</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#trial" class="nav-cta">Start Free Trial</a></li>
+    <li><a href="/privacy.html">Privacy</a></li>
+    <li><a href="mailto:support@hrcompliancecompass.com">Contact</a></li>
+    <li><a href="#pricing" class="nav-cta">Start Free Trial</a></li>
   </ul>
 </nav>
 
@@ -1018,8 +1026,9 @@
       <em>Let alone having to navigate mulitple states with ever changing laws</em><br>
     </h1>
     <p class="hero-subtitle" style="margin-bottom:1rem;">We can help with that. Introducing HR Compliance Compass, your one tool. Everything you need to make confident employment decisions for less than one hour of attorney fees per month.</p>
+    <p class="hero-subtitle" style="margin-bottom:2rem;font-size:0.95rem;color:rgba(255,255,255,0.65);">Inside the app: 50-state law lookups, employee handbook builder, FLSA exempt-status tests, complaint investigation guides, decision-tree workflows, performance and tough-conversation playbooks, and a searchable knowledge base &mdash; 11 tools in one place.</p>
     <div class="hero-actions">
-      <a href="#pilot" class="btn-primary">
+      <a href="#pricing" class="btn-primary">
         <span>Start Your Free Trial</span>
         <span class="arrow">→</span>
       </a>
@@ -1608,7 +1617,7 @@ const toolData = [
           <li class="pf">Collaborator rate locked for 2 years</li>
         </ul>
         <div style="font-size:0.72rem;color:rgba(255,255,255,0.25);margin-bottom:1.5rem;font-style:italic;">Support covers product use. HR consulting engagements available separately.</div>
-        <a href="#trial" class="price-cta" style="display:block;text-align:center;">Start Free Trial &#8594;</a>
+        <a id="solo-cta" href="https://buy.stripe.com/3cIbIU3uu55q0ANae4bZe0i" class="price-cta" style="display:block;text-align:center;">Start Free Trial &#8594;</a>
         <div id="solo-trial-note" style="text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.6rem;">14 days free &#8226; then $29/month</div>
       </div>
 
@@ -1631,7 +1640,7 @@ const toolData = [
           <li class="pf">Founding rate locked for 2 years</li>
         </ul>
         <div style="font-size:0.72rem;color:rgba(255,255,255,0.25);margin-bottom:1.5rem;font-style:italic;">Support covers product use. HR consulting engagements available separately.</div>
-        <a href="#trial" class="price-cta price-cta-gold" style="display:block;text-align:center;">Start Free Trial &#8594;</a>
+        <a id="team-cta" href="https://buy.stripe.com/fZu00cfdceG097j4TKbZe0k" class="price-cta price-cta-gold" style="display:block;text-align:center;">Start Free Trial &#8594;</a>
         <div id="team-trial-note" style="text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.6rem;">14 days free &#8226; then $99/month</div>
       </div>
 
@@ -1667,6 +1676,13 @@ const toolData = [
     document.getElementById('team-period').textContent = isAnnual ? '/year' : '/month';
     document.getElementById('team-alt').textContent = isAnnual ? 'Or go monthly — $99/month' : 'Or save with annual — $999/year';
     document.getElementById('team-trial-note').textContent = isAnnual ? '14 days free • then $999/year' : '14 days free • then $99/month';
+    // Flip Stripe checkout URLs to match the toggled billing period.
+    document.getElementById('solo-cta').href = isAnnual
+      ? 'https://buy.stripe.com/5kQ28ke98btObfrae4bZe0j'
+      : 'https://buy.stripe.com/3cIbIU3uu55q0ANae4bZe0i';
+    document.getElementById('team-cta').href = isAnnual
+      ? 'https://buy.stripe.com/3cI3co7KK1TefvH85WbZe0l'
+      : 'https://buy.stripe.com/fZu00cfdceG097j4TKbZe0k';
   }
 </script>
 
