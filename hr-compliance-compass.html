@@ -158,7 +158,7 @@
   /* HERO */
   .hero {
     position: relative;
-    min-height: 100vh;
+    padding: 3.5rem 0 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -401,13 +401,10 @@
   }
 
   /* TICKER */
-  /* On phones the nav wraps to multiple rows so a hardcoded 65px top
-     overlaps the heading. Push the ticker further down on small screens. */
+  /* Hide the ticker entirely on phones — the nav wraps to multiple rows
+     and the ticker collides with the menu no matter what offset we use. */
   @media (max-width: 700px) {
-    .ticker[style] {
-      top: 130px !important;
-      margin-top: 130px !important;
-    }
+    .ticker[style] { display: none !important; }
   }
   .ticker {
     background: var(--ink);
@@ -1025,19 +1022,7 @@
       HR has a tough job navigating Employee Relations<br>
       <em>Let alone having to navigate mulitple states with ever changing laws</em><br>
     </h1>
-    <p class="hero-subtitle" style="margin-bottom:1rem;">We can help with that. Introducing HR Compliance Compass, your one tool. Everything you need to make confident employment decisions for less than one hour of attorney fees per month.</p>
-    <p class="hero-subtitle" style="margin-bottom:2rem;font-size:0.95rem;color:rgba(255,255,255,0.65);">Inside the app: 50-state law lookups, employee handbook builder, FLSA exempt-status tests, complaint investigation guides, decision-tree workflows, performance and tough-conversation playbooks, and a searchable knowledge base &mdash; 11 tools in one place.</p>
-    <div class="hero-actions">
-      <a href="#pricing" class="btn-primary">
-        <span>Start Your Free Trial</span>
-        <span class="arrow">→</span>
-      </a>
-      <a href="#how" class="btn-ghost">See how it works ↓</a>
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
+    <p class="hero-subtitle" style="margin-bottom:0;">We can help with that. Introducing HR Compliance Compass, your one tool. Everything you need to make confident employment decisions for less than one hour of attorney fees per month.</p>
   </div>
 </section>
 
@@ -1469,22 +1454,25 @@ const toolData = [
 </script>
 
 <!-- PROBLEM — compact strip -->
-<section style="padding: 7rem 3rem 3.5rem; background: var(--cream); position:relative; overflow:hidden;">
+<section class="problem-section" style="padding: 5rem 3rem 3.5rem; background: var(--cream); position:relative; overflow:hidden;">
+  <style>
+    /* Stack pain items + map vertically on phones so the map renders
+       at full readable width instead of a squeezed half-column. */
+    @media (max-width: 760px) {
+      .problem-section .problem-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .problem-section .state-map-visual svg { max-height: 320px !important; }
+    }
+  </style>
   <div style="max-width:1300px; margin:0 auto; position:relative; z-index:1;">
 
-    <!-- Top row: label + headline + one-liner -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-bottom:2.5rem;">
-      <div>
-        <div class="section-label reveal">The Problem</div>
-        <h2 class="section-title reveal" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Managing state employment law<br>is a <em>full-time job</em> inside your job.</h2>
-      </div>
-      <div style="display:flex; flex-direction:column; justify-content:flex-end; padding-top:1rem;">
-        <p style="font-size:0.95rem; line-height:1.75; color:var(--muted); font-weight:300;" class="reveal">50 states. 50 sets of rules. Constantly changing. One missed update is all it takes — fines, back pay, litigation. Most HR teams find out after the fact. <strong style="color:var(--ink); font-weight:400;">You don't have to.</strong></p>
-      </div>
+    <!-- Top row: label + headline only -->
+    <div style="margin-bottom:2.5rem; max-width: 720px;">
+      <div class="section-label reveal">The Problem</div>
+      <h2 class="section-title reveal" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Managing state employment law<br>is a <em>full-time job</em> inside your job.</h2>
     </div>
 
     <!-- Pain stats + map -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+    <div class="problem-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
 
       <!-- 3 tight pain items -->
       <div style="display:flex; flex-direction:column; gap:0.75rem;">
