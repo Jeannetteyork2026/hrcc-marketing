@@ -38,6 +38,23 @@
     const a = ev.target.closest && ev.target.closest('a');
     if (!a) return;
 
+    // share links use data-share attribute
+    const sharePlatform = a.getAttribute('data-share');
+    if (sharePlatform) {
+      ev.preventDefault();
+      const href = a.getAttribute('data-href') || a.href;
+      const utm = `?utm_source=${encodeURIComponent(sharePlatform)}&utm_medium=social&utm_campaign=insights`;
+      const shareUrl = href + (href.includes('?') ? '&' : '') + utm;
+      // open share window for common platforms
+      let url = shareUrl;
+      if (sharePlatform === 'twitter') url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(document.title)}&url=${encodeURIComponent(shareUrl)}`;
+      if (sharePlatform === 'linkedin') url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+      if (sharePlatform === 'facebook') url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+      window.open(url, '_blank', 'noopener');
+      sendEvent('share', {platform: sharePlatform, href: shareUrl});
+      return;
+    }
+
     // track clicks from article cards or read-more links
     if (a.classList.contains('read-more') || a.closest('.article-card')){
       const card = a.closest('.article-card');
