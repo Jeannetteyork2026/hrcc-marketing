@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The DOL Just Quietly Rescinded the 2024 Overtime Rule — Here's What Your HR Team Actually Needs to Do | HR Compliance Compass</title>
+<meta name="description" content="On May 15, 2026 the DOL formally rescinded the 2024 overtime rule. Federal salary thresholds for the FLSA white-collar exemption returned to $684/week and $107,432/year. Plain-English guidance for HR teams of one.">
+<meta property="og:title" content="The 2024 Overtime Rule Is Officially Gone. Here's What's In Effect Today.">
+<meta property="og:description" content="Plain-English federal compliance guidance from HR Compliance Compass.">
+<meta property="og:type" content="article">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy:        #1e3a5f;
+    --navy-deep:   #142a47;
+    --orange:      #f07030;
+    --gold:        #e8b84b;
+    --gold-soft:   #f4d98a;
+    --teal:        #3a9e8f;
+    --bg:          #f6f8fb;
+    --paper:       #fffdf7;
+    --ink:         #0f172a;
+    --ink-soft:    #475569;
+    --rule:        #d8dee9;
+    --warning-bg:  #fff7e6;
+    --warning-bd:  #e8b84b;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .display { font-family: 'Fraunces', Georgia, serif; font-weight: 700; letter-spacing: -0.02em; }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    background: var(--navy);
+    color: white;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  .topbar .brand {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .topbar .brand-dot { color: var(--gold); }
+  .topbar a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    margin-left: 18px;
+    font-weight: 500;
+  }
+  .topbar a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700 !important;
+    margin-left: 18px;
+  }
+  .nav-cta:hover { background: var(--gold-soft); }
+
+  /* ---------- hero ---------- */
+  .hero {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: white;
+    padding: 80px 24px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(232,184,75,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(232,184,75,0.15);
+    color: var(--gold);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 22px;
+  }
+  .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+  .hero h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 800;
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    margin: 0 0 22px;
+  }
+  .hero h1 .gold { color: var(--gold); font-style: italic; font-weight: 600; }
+  .hero p.lede {
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.55;
+    color: rgba(255,255,255,0.88);
+    max-width: 680px;
+    margin: 0 0 30px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 18px;
+    margin-top: 32px;
+  }
+  .hero-meta span strong {
+    color: white;
+    font-weight: 600;
+    display: block;
+    font-size: 14px;
+  }
+
+  /* ---------- key facts strip ---------- */
+  .facts {
+    background: var(--paper);
+    padding: 50px 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .facts-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+  .fact {
+    text-align: center;
+    padding: 20px 12px;
+  }
+  .fact-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .fact-value {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .fact-sub { font-size: 13px; color: var(--ink-soft); }
+
+  /* ---------- main body ---------- */
+  .body-wrap { max-width: 760px; margin: 0 auto; padding: 70px 24px 40px; }
+  .body-wrap h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(26px, 3vw, 34px);
+    color: var(--navy);
+    line-height: 1.2;
+    margin: 50px 0 18px;
+    letter-spacing: -0.02em;
+  }
+  .body-wrap h2:first-child { margin-top: 0; }
+  .body-wrap p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+  .body-wrap p.intro {
+    font-size: 19px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .body-wrap strong { color: var(--navy); }
+
+  /* ---------- callout (state caveat) ---------- */
+  .callout {
+    background: var(--warning-bg);
+    border-left: 4px solid var(--warning-bd);
+    padding: 22px 24px;
+    margin: 32px 0;
+    border-radius: 0 10px 10px 0;
+  }
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .callout-icon {
+    width: 22px;
+    height: 22px;
+    background: var(--gold);
+    color: var(--navy);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 14px;
+    font-family: 'Fraunces', Georgia, serif;
+  }
+  .callout p { margin: 0; font-size: 16px; line-height: 1.6; }
+  .callout ul { margin: 12px 0 0; padding-left: 22px; font-size: 15px; }
+  .callout li { margin-bottom: 6px; }
+
+  /* ---------- action list ---------- */
+  .action-list {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 28px 28px 24px;
+    margin: 30px 0;
+  }
+  .action-list ol {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: actions;
+  }
+  .action-list li {
+    counter-increment: actions;
+    padding-left: 50px;
+    position: relative;
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .action-list li:last-child { margin-bottom: 0; }
+  .action-list li::before {
+    content: counter(actions);
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 34px;
+    height: 34px;
+    background: var(--navy);
+    color: var(--gold);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  /* ---------- pipeline card ---------- */
+  .pipeline {
+    margin: 40px 0;
+    padding: 28px;
+    background: linear-gradient(180deg, #fafbfd 0%, #f1f4f9 100%);
+    border-radius: 14px;
+    border: 1px solid var(--rule);
+  }
+  .pipeline h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--navy);
+    font-size: 22px;
+    margin: 0 0 14px;
+  }
+  .pipeline-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .pipeline-item:last-child { border-bottom: 0; padding-bottom: 0; }
+  .pipeline-tag {
+    background: var(--teal);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 8px;
+    border-radius: 6px;
+    align-self: start;
+    text-align: center;
+    height: fit-content;
+  }
+  .pipeline-tag.amber { background: var(--orange); }
+  .pipeline-item strong { color: var(--navy); display: block; margin-bottom: 4px; }
+  .pipeline-item p { margin: 0; font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+
+  /* ---------- CTA section ---------- */
+  .cta-section {
+    background: var(--navy);
+    color: white;
+    padding: 80px 24px;
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -100px;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(232,184,75,0.14) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+  .cta-section h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(28px, 3.5vw, 40px);
+    margin: 0 0 16px;
+    color: white;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .cta-section h2 .accent { color: var(--gold); font-style: italic; }
+  .cta-section p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.85);
+    margin: 0 0 30px;
+    line-height: 1.6;
+  }
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 16px 36px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 180ms ease;
+    border: 2px solid var(--gold);
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .cta-button:hover {
+    background: var(--gold-soft);
+    border-color: var(--gold-soft);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(232,184,75,0.4);
+  }
+  .cta-button .arrow { transition: transform 180ms ease; }
+  .cta-button:hover .arrow { transform: translateX(4px); }
+  .cta-sub {
+    margin-top: 16px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+  }
+  .cta-secondary {
+    margin-top: 36px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .cta-secondary p { margin-bottom: 16px; font-size: 15px; }
+  .email-form {
+    display: flex;
+    gap: 8px;
+    max-width: 440px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  .email-form input {
+    flex: 1;
+    min-width: 220px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  .email-form input::placeholder { color: rgba(255,255,255,0.5); }
+  .email-form input:focus { outline: 2px solid var(--gold); }
+  .email-form button {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 150ms ease;
+  }
+  .email-form button:hover { background: rgba(255,255,255,0.08); border-color: var(--gold); }
+
+  /* ---------- FAQ ---------- */
+  .faq-section {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 70px 24px 40px;
+  }
+  .faq-section h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 32px;
+    color: var(--navy);
+    margin: 0 0 30px;
+    letter-spacing: -0.02em;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--rule);
+    padding: 4px 0;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    padding: 18px 0;
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 17px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 24px;
+    color: var(--gold);
+    transition: transform 200ms ease;
+    flex-shrink: 0;
+  }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p {
+    padding: 0 0 22px;
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ---------- about author ---------- */
+  .author-card {
+    max-width: 760px;
+    margin: 0 auto 60px;
+    padding: 28px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .author-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--teal));
+    color: var(--gold);
+    display: grid;
+    place-items: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: 26px;
+  }
+  .author-card h3 {
+    margin: 0 0 4px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+  }
+  .author-card .credentials {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .author-card p {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ---------- disclaimer ---------- */
+  .disclaimer {
+    max-width: 760px;
+    margin: 0 auto 40px;
+    padding: 20px 24px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.7);
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 13px;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 640px) {
+    .topbar { flex-wrap: wrap; gap: 10px; }
+    .topbar a:not(.nav-cta) { display: none; }
+    .hero { padding: 60px 20px 70px; }
+    .hero-meta { flex-direction: column; gap: 14px; }
+    .author-card { grid-template-columns: 1fr; text-align: center; }
+    .author-avatar { margin: 0 auto; }
+    .pipeline-item { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- gentle entrance animation ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: rise 700ms ease-out forwards;
+  }
+  .reveal.d1 { animation-delay: 100ms; }
+  .reveal.d2 { animation-delay: 200ms; }
+  .reveal.d3 { animation-delay: 300ms; }
+  .reveal.d4 { animation-delay: 400ms; }
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="brand">HR Compliance Compass<span class="brand-dot">.</span></div>
+  <nav>
+    <a href="#whats-changing">What changed</a>
+    <a href="#what-to-do">What to do</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://www.hrcompliancecompass.com/hr-compliance-compass.html#pricing" class="nav-cta">Start free trial</a>
+  </nav>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="pill reveal"><span class="pill-dot"></span> Federal Update · May 20, 2026</div>
+    <h1 class="reveal d1">
+      The 2024 overtime rule is <span class="gold">officially gone.</span> Here's what's in effect today.
+    </h1>
+    <p class="lede reveal d2">
+      On May 15, the Department of Labor formally rescinded the rule that would have raised the federal salary threshold to $58,656. Practically? Not much changed — that rule was struck down in Texas back in November 2024 and hasn't been enforced since. But the paperwork finally caught up, and there's nuance your team should know.
+    </p>
+    <div class="hero-meta reveal d3">
+      <span><strong>Effective</strong> May 15, 2026</span>
+      <span><strong>Applies to</strong> All employers covered by FLSA</span>
+      <span><strong>Action level</strong> Verify, don't panic</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KEY FACTS ============ -->
+<section class="facts">
+  <div class="facts-inner">
+    <div class="fact">
+      <div class="fact-label">Standard Exemption</div>
+      <div class="fact-value">$684</div>
+      <div class="fact-sub">per week · $35,568/year</div>
+    </div>
+    <div class="fact">
+      <div class="fact-label">Highly Compensated</div>
+      <div class="fact-value">$107,432</div>
+      <div class="fact-sub">per year</div>
+    </div>
+    <div class="fact">
+      <div class="fact-label">Effective Date</div>
+      <div class="fact-value">May 15</div>
+      <div class="fact-sub">2026 · 2019 rule restored</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BODY ============ -->
+<article class="body-wrap" id="whats-changing">
+
+  <p class="intro">
+    If you're the only HR person at your company, you've probably been ignoring this story for a year and a half — and honestly, you were right to. Let's catch you up in five minutes.
+  </p>
+
+  <h2>The short version</h2>
+  <p>
+    In April 2024, the Biden-era DOL announced a rule that would have raised the salary threshold for exempt employees from <strong>$35,568</strong> to roughly <strong>$58,656</strong>, with another bump planned for January 2025. That rule was set to change a lot of payroll math at small and mid-size companies.
+  </p>
+  <p>
+    Then in November 2024, a federal court in Texas vacated the rule nationwide. Since then, the $35,568 threshold has remained in effect — but technically, the 2024 rule still existed on paper. On May 15, 2026, the DOL finally removed it for good.
+  </p>
+  <p>
+    So nothing in your day-to-day enforcement landscape changed this week. What changed is that there's now zero regulatory ambiguity. The numbers in effect today are the same numbers that have been in effect since 2019.
+  </p>
+
+  <!-- ============ CALLOUT ============ -->
+  <div class="callout">
+    <div class="callout-title">
+      <span class="callout-icon">!</span> Your state may require more
+    </div>
+    <p>The federal threshold is a floor, not a ceiling. If you operate in any of these states, your state threshold is higher and the federal change does <strong>not</strong> lower it:</p>
+    <ul>
+      <li><strong>California:</strong> $68,640/year (most employers)</li>
+      <li><strong>New York:</strong> $62,400/year (NYC, Long Island, Westchester)</li>
+      <li><strong>Washington:</strong> $69,305/year (small employers) / $77,968 (large)</li>
+      <li><strong>Colorado &amp; Alaska:</strong> Above federal threshold</li>
+    </ul>
+  </div>
+
+  <h2 id="what-to-do">What you should actually do this week</h2>
+
+  <div class="action-list">
+    <ol>
+      <li>
+        <strong>Check your state file.</strong> If you operate in California, New York, Washington, Colorado, or Alaska, your real threshold is your state's — not the federal one. Don't accidentally drop a salary based on the federal number.
+      </li>
+      <li>
+        <strong>Audit anyone you reclassified during the brief window.</strong> If you reclassified employees as non-exempt between April 23 and November 15, 2024 (the window when the 2024 rule was technically law), verify those classifications still make sense for the role.
+      </li>
+      <li>
+        <strong>Update your handbook references.</strong> If your handbook quotes the 2024 thresholds anywhere — $844/week or $58,656/year — replace them with the current numbers. We can help with that.
+      </li>
+      <li>
+        <strong>Don't make this a big internal announcement.</strong> For most employees, nothing changed. Sending a "BIG UPDATE FROM HR" email will create confusion where none needs to exist.
+      </li>
+    </ol>
+  </div>
+
+  <h2>What's still in the pipeline</h2>
+  <p>
+    Two more federal rules are wading through the rulemaking process. Neither is law yet, but both will matter when finalized:
+  </p>
+
+  <div class="pipeline">
+    <h3>Watch list</h3>
+    <div class="pipeline-item">
+      <div class="pipeline-tag amber">Proposed</div>
+      <div>
+        <strong>Joint Employer Rule</strong>
+        <p>Comments close around June 22, 2026. Would change risk exposure for any company using staffing firms, franchises, or subcontractors. Largely restores the 2020 framework with a four-factor test.</p>
+      </div>
+    </div>
+    <div class="pipeline-item">
+      <div class="pipeline-tag">Pending</div>
+      <div>
+        <strong>Independent Contractor Rule</strong>
+        <p>Comment period closed April 28, 2026. Final rule expected later this year. Will rescind the 2024 classification rule under FLSA. <em>Important:</em> Won't change state tests like California's ABC test, or IRS classification.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Why we wrote this</h2>
+  <p>
+    This is the kind of update that ends up as a 47-page PDF on an employment law firm's website, or a 4-line summary in your SHRM newsletter. Neither one tells you what to actually <em>do</em> with the information at 7am on a Tuesday when you're the only HR person at the company.
+  </p>
+  <p>
+    HR Compliance Compass is built for that moment. It's plain-English federal and state employment law guidance, organized around how HR people actually think — not how attorneys want to bill. If this kind of writing is useful to you, our app does it for every state, every topic, every day.
+  </p>
+
+</article>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>You shouldn't have to <span class="accent">Google employment law</span> at 7am on a Tuesday.</h2>
+    <p>HR Compliance Compass gives HR teams of one and small business owners plain-English state and federal compliance guidance — fast, accurate, and built for how HR people actually work.</p>
+    <a href="https://www.hrcompliancecompass.com/hr-compliance-compass.html#pricing" class="cta-button">
+      Start your free trial
+      <span class="arrow">→</span>
+    </a>
+    <div class="cta-sub">14-day free trial · No credit card required · Cancel anytime</div>
+
+    <div class="cta-secondary">
+      <p>Not ready yet? Get the weekly federal compliance brief.</p>
+      <form class="email-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='✓ Subscribed';">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq-section" id="faq">
+  <h2>Common questions</h2>
+
+  <details class="faq-item">
+    <summary>Does this mean we should lower exempt employee salaries?</summary>
+    <p>No. The federal change just confirms what's already been in effect since November 2024. If you've been paying exempt employees at or above $35,568, you're fine. If you're in a state with a higher threshold (California, New York, etc.), your state number is what governs.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>We reclassified some employees as non-exempt last year. Should we reclassify them back?</summary>
+    <p>It depends on whether their job duties meet the exemption test and whether their salary still does. Salary alone doesn't make someone exempt — they also have to perform exempt duties. Audit the classification on its merits, not just on the salary threshold change.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>What about the Joint Employer rule? Does it apply to us yet?</summary>
+    <p>No. It's a proposed rule in the comment period. The DOL has to publish a final rule before it has legal effect, and that's still months away. Watch the space, but don't change anything yet.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>How does the Independent Contractor rule affect our 1099 workers?</summary>
+    <p>When the final rule lands, it will change how the DOL evaluates classification under the FLSA. It won't change the IRS's classification test or state-level tests like California's ABC test, both of which are usually stricter. If you're in California, the federal rule has very limited practical effect for you.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Is this legal advice?</summary>
+    <p>No. This is plain-English compliance information based on official DOL guidance and the Federal Register. For specific situations — especially anything involving termination, classification disputes, or potential litigation — talk to an employment attorney.</p>
+  </details>
+</section>
+
+<!-- ============ AUTHOR ============ -->
+<div class="author-card">
+  <div class="author-avatar">J</div>
+  <div>
+    <h3>Written by Jeannette York</h3>
+    <div class="credentials">Founder, CompassLine LLC · SHRM-CP · PHR · 15+ years HR experience</div>
+    <p>I built HR Compliance Compass because HR teams of one don't have the luxury of "let me check with legal." You're the one who has to make the call at 7am on a Tuesday. This tool is so you don't have to Google employment law in that moment.</p>
+  </div>
+</div>
+
+<!-- ============ DISCLAIMER ============ -->
+<div class="disclaimer">
+  <strong>Educational use only.</strong> HR Compliance Compass is a compliance information tool, not a law firm. The information here is current as of publication and based on official Department of Labor guidance and the Federal Register. It does not constitute legal advice and does not create an attorney-client relationship. Federal and state employment laws change frequently — always verify current requirements before making personnel decisions, and consult an employment attorney for specific situations.
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  © 2026 CompassLine LLC · HR Compliance Compass · <a href="mailto:support@hrcompliancecompass.com">support@hrcompliancecompass.com</a>
+</footer>
+
+</body>
+</html>
