@@ -3,222 +3,353 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Insights for HR professionals | HR Compliance Compass</title>
-  <meta name="description" content="Field notes from HR practice: practical articles on multi-state compliance, investigations, handbook risk, and policy updates for small HR teams." />
+  <title>Insights — HR Compliance Compass</title>
+  <meta name="description" content="Plain-English federal and state employment law guidance, written for HR teams who don't have time to read a 47-page legal brief. New posts as the law changes — usually weekly." />
   <link rel="canonical" href="https://hrcompliancecompass.com/insights.html" />
-  <meta property="og:title" content="Insights for HR professionals | HR Compliance Compass" />
-  <meta property="og:description" content="Field notes from HR practice: practical articles on multi-state compliance, investigations, handbook risk, and policy updates for small HR teams." />
+  <meta property="og:title" content="Insights — HR Compliance Compass" />
+  <meta property="og:description" content="Plain-English federal and state employment law guidance for HR teams of one." />
   <meta property="og:image" content="https://hrcompliancecompass.com/compass-share.png" />
   <meta property="og:url" content="https://hrcompliancecompass.com/insights.html" />
   <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Insights — HR Compliance Compass" />
+  <meta name="twitter:description" content="Plain-English federal and state employment law guidance for HR teams of one." />
+  <meta name="twitter:image" content="https://hrcompliancecompass.com/compass-share.png" />
   <meta name="ga-id" content="G-9CXFF6HMVN" />
   <link rel="icon" type="image/png" href="/HRCC-compass-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --ink: #0b0e14;
-      --ink-soft: #131722;
-      --cream: #f3ede1;
-      --cream-soft: #e8dfcf;
-      --gold: #d4a154;
-      --gold-light: #e6b86d;
-      --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --navy:        #1e3a5f;
+      --navy-deep:   #142a47;
+      --orange:      #f07030;
+      --gold:        #e8b84b;
+      --gold-soft:   #f4d98a;
+      --teal:        #3a9e8f;
+      --bg:          #f6f8fb;
+      --paper:       #fffdf7;
+      --ink:         #0f172a;
+      --ink-soft:    #475569;
+      --rule:        #d8dee9;
     }
+
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: var(--sans);
-      background: var(--cream);
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
       color: var(--ink);
-      line-height: 1.7;
-      font-weight: 400;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--gold); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    .display { font-family: 'Fraunces', Georgia, serif; font-weight: 700; letter-spacing: -0.02em; }
+    a { color: var(--orange); }
 
-    .site-nav {
-      background: var(--ink);
-      color: var(--cream);
-      padding: 1rem 2rem;
+    .topbar {
+      background: var(--navy);
+      color: white;
+      padding: 12px 24px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .nav-logo {
-      display: flex;
       align-items: center;
-      gap: 0.6rem;
-      color: var(--cream);
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      letter-spacing: 0.02em;
+      font-size: 14px;
     }
-    .nav-logo img { width: 28px; height: 28px; }
-    .nav-logo span { color: var(--gold-light); font-style: italic; }
-    .nav-links { display: flex; gap: 1.6rem; list-style: none; padding: 0; margin: 0; flex-wrap: wrap; }
-    .nav-links a { color: rgba(243,237,225,0.8); font-size: 0.92rem; letter-spacing: 0.03em; }
-    .nav-links a:hover { color: var(--gold-light); text-decoration: none; }
+    .topbar .brand {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: white;
+      text-decoration: none;
+    }
+    .topbar .brand-dot { color: var(--gold); }
+    .topbar nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: 500;
+    }
+    .topbar nav a:hover { color: var(--gold); }
+    .topbar nav a.active { color: var(--gold); }
     .nav-cta {
       background: var(--gold);
-      color: var(--ink) !important;
-      padding: 0.5rem 1rem;
-      border-radius: 2px;
-      font-weight: 600;
+      color: var(--navy) !important;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      margin-left: 18px;
     }
-    .nav-cta:hover { background: var(--gold-light); }
+    .nav-cta:hover { background: var(--gold-soft); }
+
+    .hero {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+      color: white;
+      padding: 70px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(232,184,75,0.16) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232,184,75,0.15);
+      color: var(--gold);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .hero h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 800;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin: 0 0 18px;
+    }
+    .hero h1 .accent { color: var(--gold); font-style: italic; font-weight: 600; }
+    .hero p.lede {
+      font-size: clamp(16px, 1.5vw, 19px);
+      line-height: 1.6;
+      color: rgba(255,255,255,0.88);
+      max-width: 640px;
+      margin: 0;
+    }
 
     main {
-      max-width: 920px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 4rem 2rem;
-    }
-    .page-eyebrow {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.8rem;
-    }
-    main h1 {
-      font-family: var(--serif);
-      font-weight: 300;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      margin: 0 0 1.2rem;
-      line-height: 1.05;
-    }
-    main h1 em { color: var(--gold); font-weight: 400; font-style: normal; }
-    .lede {
-      color: rgba(11,14,20,0.8);
-      font-size: 1.05rem;
-      margin: 0 0 3rem;
-      max-width: 760px;
+      padding: 60px 24px 40px;
     }
     .articles-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.75rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
     }
     .article-card {
-      background: #fff;
-      border-radius: 1rem;
-      padding: 1.7rem;
-      box-shadow: 0 16px 40px rgba(11,14,20,0.08);
-      min-height: 260px;
+      background: white;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+      text-decoration: none;
+      color: inherit;
     }
-    .article-card .meta {
-      font-size: 0.78rem;
-      letter-spacing: 0.15em;
+    .article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.08);
+      border-color: var(--gold-soft);
+    }
+    .article-card .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--ink-soft);
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.85rem;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .article-card .tag {
+      background: rgba(58,158,143,0.12);
+      color: var(--teal);
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+    }
+    .article-card .tag.federal { background: rgba(240,112,48,0.12); color: var(--orange); }
+    .article-card .tag.state   { background: rgba(58,158,143,0.12); color: var(--teal); }
+    .article-card .meta-sep {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--rule);
     }
     .article-card h2 {
-      font-family: var(--serif);
-      font-size: 1.45rem;
-      margin: 0 0 0.85rem;
-      line-height: 1.2;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      color: var(--navy);
+      margin: 0 0 14px;
     }
-    .article-card h2 a { color: var(--ink); }
-    .article-card p {
-      margin: 0 0 1.4rem;
-      color: rgba(11,14,20,0.7);
+    .article-card p.excerpt {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin: 0 0 22px;
       flex-grow: 1;
     }
     .article-card .read-more {
-      color: var(--gold);
+      align-self: flex-start;
+      font-size: 14px;
       font-weight: 600;
-      letter-spacing: 0.01em;
+      color: var(--orange);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
     }
-    .article-card .read-more:hover { text-decoration: underline; }
+    .article-card .read-more .arrow { transition: transform 180ms ease; }
+    .article-card:hover .read-more .arrow { transform: translateX(4px); }
+
+    .more-coming {
+      grid-column: 1 / -1;
+      margin-top: 4px;
+      padding: 32px;
+      border: 1px dashed var(--rule);
+      border-radius: 14px;
+      text-align: center;
+      color: var(--ink-soft);
+      font-size: 14px;
+      background: rgba(255,255,255,0.4);
+    }
+    .more-coming strong { color: var(--navy); font-weight: 600; }
 
     footer {
-      background: var(--ink);
-      color: rgba(243,237,225,0.55);
-      padding: 2rem;
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.7);
+      padding: 32px 24px;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 13px;
+      margin-top: 60px;
     }
-    footer a { color: var(--gold-light); margin: 0 0.6rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer .footer-links { margin-top: 10px; }
+    footer .footer-links a { margin: 0 10px; }
 
-    @media (max-width: 600px) {
-      .site-nav { padding: 0.8rem 1rem; }
-      .nav-links { gap: 1rem; }
-      main { padding: 2.5rem 1.25rem; }
+    @media (max-width: 640px) {
+      .topbar { flex-wrap: wrap; gap: 10px; }
+      .topbar nav a:not(.nav-cta) { display: none; }
+      .hero { padding: 52px 20px 60px; }
+      main { padding: 40px 20px 30px; }
+      .article-card { padding: 22px; }
     }
   </style>
 </head>
 <body>
 
-<nav class="site-nav">
-  <a class="nav-logo" href="/">
-    <img src="/HRCC-compass-icon.png" alt="HRCC logo" />
-    HR Compliance <span>Compass</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="/#pricing">Pricing</a></li>
-    <li><a href="/insights.html">Insights</a></li>
-    <li><a href="/faqs.html">FAQs</a></li>
-    <li><a href="/privacy.html">Privacy</a></li>
-    <li><a href="/contact.html">Contact</a></li>
-    <li><a href="/#pricing" class="nav-cta">Start Free Trial</a></li>
-  </ul>
-</nav>
+<div class="topbar">
+  <a class="brand" href="/">HR Compliance Compass<span class="brand-dot">.</span></a>
+  <nav>
+    <a href="/#pricing">Pricing</a>
+    <a href="/insights.html" class="active">Insights</a>
+    <a href="/faqs.html">FAQs</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/#pricing" class="nav-cta">Start Free Trial</a>
+  </nav>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="dot"></span> Field notes from HR practice</div>
+    <h1><span class="accent">Insights</span> for HR teams of one.</h1>
+    <p class="lede">
+      Plain-English federal and state employment law guidance, written for HR teams who don't have time to read a 47-page legal brief. New posts as the law changes — usually weekly.
+    </p>
+  </div>
+</section>
 
 <main>
-  <div class="page-eyebrow">Field notes from HR practice</div>
-  <h1><em>Insights</em> for HR professionals.</h1>
-  <p class="lede">A short, practical collection of HR and compliance writing that helps small teams move faster, avoid state-specific risk, and keep their policies working across multiple jurisdictions.</p>
-
   <div class="articles-grid">
-    <article class="article-card">
-      <div class="meta">Multi-State Compliance · 6 min read</div>
-      <h2><a href="/insights/multi-state-handbook-mistakes.html">Five Multi-State Handbook Mistakes That Get Employers Sued</a></h2>
-      <p>What employers miss when they use one handbook for every state — and how to keep handbook language aligned with the states where your people actually work.</p>
-      <a class="read-more" href="/insights/multi-state-handbook-mistakes.html">Read article →</a>
-    </article>
 
-    <article class="article-card">
-      <div class="meta">Investigation Practice · 5 min read</div>
-      <h2><a href="/insights/investigation-framework-small-hr.html">A Workplace Investigation Framework for Small HR Teams</a></h2>
-      <p>Every investigation should be solid, fast, and fair. Use this framework to manage evidence, witness interviews, and written findings without adding overhead.</p>
-      <a class="read-more" href="/insights/investigation-framework-small-hr.html">Read article →</a>
-    </article>
+    <a class="article-card" href="/insights/overtime-rule-rescinded-may-2026.html">
+      <div class="card-meta">
+        <span class="tag federal">Federal</span>
+        <span>May 20, 2026</span>
+        <span class="meta-sep"></span>
+        <span>5 min read</span>
+      </div>
+      <h2>The 2024 Overtime Rule Is Officially Gone. Here's What's In Effect Today.</h2>
+      <p class="excerpt">On May 15, 2026, the DOL formally rescinded the rule that would have raised federal salary thresholds. Here's what changed, what didn't, and what your team should actually do this week.</p>
+      <span class="read-more">Read article <span class="arrow">→</span></span>
+    </a>
 
-    <article class="article-card">
-      <div class="meta">Performance Documentation · 4 min read</div>
-      <h2><a href="/insights/documenting-performance-problems.html">How to Document a Performance Problem So It Actually Holds Up</a></h2>
-      <p>Documentation that survives a dispute starts with behavior, not conclusions. Learn the structure that makes coaching and progressive discipline defensible.</p>
-      <a class="read-more" href="/insights/documenting-performance-problems.html">Read article →</a>
-    </article>
+    <a class="article-card" href="/insights/multi-state-handbook-mistakes.html">
+      <div class="card-meta">
+        <span class="tag state">Multi-State</span>
+        <span>May 20, 2026</span>
+        <span class="meta-sep"></span>
+        <span>6 min read</span>
+      </div>
+      <h2>Five Multi-State Handbook Mistakes That Get Employers Sued</h2>
+      <p class="excerpt">What employers miss when they use one handbook for every state — and how to keep handbook language aligned with the states where your people actually work.</p>
+      <span class="read-more">Read article <span class="arrow">→</span></span>
+    </a>
 
-    <article class="article-card">
-      <div class="meta">Labor Law · 5 min read</div>
-      <h2><a href="/insights/overtime-rule-landing.html">The 2024 Overtime Rule Is Officially Gone — Here's What's In Effect Today</a></h2>
-      <p>What HR teams should do after the DOL rescinded the 2024 overtime rule: practical next steps, timing, and communication templates.</p>
-      <a class="read-more" href="/insights/overtime-rule-landing.html">Read article →</a>
-    </article>
+    <a class="article-card" href="/insights/investigation-framework-small-hr.html">
+      <div class="card-meta">
+        <span class="tag federal">Federal</span>
+        <span>May 24, 2026</span>
+        <span class="meta-sep"></span>
+        <span>10 min read</span>
+      </div>
+      <h2>A Workplace Investigation Framework for Small HR Teams</h2>
+      <p class="excerpt">A defensible, step-by-step investigation framework for HR teams of one — or one-and-a-half. Intake to resolution, without missing anything that matters.</p>
+      <span class="read-more">Read article <span class="arrow">→</span></span>
+    </a>
+
+    <a class="article-card" href="/insights/documenting-performance-problems.html">
+      <div class="card-meta">
+        <span class="tag federal">Federal</span>
+        <span>May 24, 2026</span>
+        <span class="meta-sep"></span>
+        <span>11 min read</span>
+      </div>
+      <h2>How to Support Performance — and Document the Process</h2>
+      <p class="excerpt">A framework for supporting employee performance — coaching, PIPs, escalation, and the documentation that protects everyone.</p>
+      <span class="read-more">Read article <span class="arrow">→</span></span>
+    </a>
+
+    <div class="more-coming">
+      <strong>More posts coming weekly.</strong> Federal and state compliance updates, written in plain English.
+    </div>
+
   </div>
 </main>
 
 <footer>
-  &copy; <span id="year"></span> CompassLine LLC.
-  <span style="margin: 0 0.6rem;">&middot;</span>
-  <a href="/">Home</a>
-  <a href="/contact.html">Contact</a>
-  <a href="/privacy.html">Privacy</a>
+  © <span id="year"></span> CompassLine LLC · HR Compliance Compass
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/faqs.html">FAQs</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </div>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-<script src="/site.js"></script>
 <script src="/analytics.js"></script>
+
 </body>
 </html>

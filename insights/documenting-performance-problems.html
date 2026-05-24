@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>How to Support Performance — and Document the Process | HR Compliance Compass</title>
+<meta name="description" content="A step-by-step framework for supporting employee performance, from coaching through PIP through separation. Documentation language and escalation guidance built for HR teams and managers." />
+<meta name="keywords" content="performance documentation, performance improvement plan, PIP template, how to document performance problems, performance management framework, supporting employee performance, performance coaching, employee documentation" />
+<link rel="canonical" href="https://hrcompliancecompass.com/insights/documenting-performance-problems.html" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="How to Support Performance — and Document the Process" />
+<meta property="og:description" content="A framework for supporting employee performance — coaching, PIPs, escalation, and the documentation that protects everyone." />
+<meta property="og:image" content="https://hrcompliancecompass.com/compass-share.png" />
+<meta property="og:url" content="https://hrcompliancecompass.com/insights/documenting-performance-problems.html" />
+<meta property="og:type" content="article" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to Support Performance — and Document the Process" />
+<meta name="twitter:description" content="A framework for supporting employee performance — coaching, PIPs, escalation, and the documentation that protects everyone." />
+<meta name="twitter:image" content="https://hrcompliancecompass.com/compass-share.png" />
+
+<!-- Article structured data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Support Performance — and Document the Process",
+  "description": "A step-by-step framework for supporting employee performance, from coaching through PIP through separation.",
+  "image": "https://hrcompliancecompass.com/compass-share.png",
+  "author": {
+    "@type": "Person",
+    "name": "Jeannette, HR Compliance Compass"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HR Compliance Compass",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hrcompliancecompass.com/HRCCcompassicon.png"
+    }
+  },
+  "mainEntityOfPage": "https://hrcompliancecompass.com/insights/documenting-performance-problems.html"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1a4a7c;
+    --sage: #6b8e6b;
+    --orange: #e67e22;
+    --teal: #2c9faf;
+    --bg-light: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --cream: var(--bg-light);
+    --ink: var(--navy);
+    --ink-mid: var(--text-main);
+    --gold: var(--orange);
+    --gold-light: var(--teal);
+    --muted: var(--text-muted);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink-mid);
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  .nav {
+    padding: 1.5rem 3rem;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav a.brand {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .nav a.brand em { color: var(--sage); font-style: italic; }
+  .nav .nav-cta {
+    background: var(--gold);
+    color: var(--white);
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav .nav-cta:hover { background: #cf6f1c; }
+
+  article {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+  .breadcrumb {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .breadcrumb a { color: var(--muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--gold); }
+
+  .post-tag {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--white);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  h1 em { color: var(--gold); font-style: italic; }
+
+  .deck {
+    font-size: 1.2rem;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  article p {
+    margin-bottom: 1.4rem;
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+  }
+
+  article h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+    font-weight: 500;
+    color: var(--ink);
+    margin: 3.5rem 0 1.2rem;
+    line-height: 1.25;
+  }
+  article h2 .step-num {
+    color: var(--gold);
+    font-style: italic;
+    margin-right: 0.3em;
+  }
+
+  article h3 {
+    font-family: var(--sans);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 2rem 0 0.8rem;
+    letter-spacing: 0.02em;
+  }
+
+  article ul, article ol {
+    margin: 0 0 1.6rem 1.4rem;
+    padding-left: 0.4rem;
+  }
+  article li {
+    margin-bottom: 0.65rem;
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+  }
+  article li::marker { color: var(--gold); }
+
+  article strong { color: var(--ink); font-weight: 500; }
+  article em { color: var(--ink); font-style: italic; }
+  article a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+  article a:hover { color: #cf6f1c; }
+
+  .callout {
+    background: var(--white);
+    border-left: 3px solid var(--gold);
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .callout .callout-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+  .callout p { margin-bottom: 0.8rem; font-size: 1rem; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.warning { border-left-color: #c0392b; }
+  .callout.warning .callout-label { color: #c0392b; }
+
+  /* GOOD/BAD DOCUMENTATION EXAMPLE BOX */
+  .doc-example {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .doc-example > div {
+    background: var(--white);
+    padding: 1.4rem 1.5rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+  }
+  .doc-example .bad {
+    border-left: 3px solid #c0392b;
+  }
+  .doc-example .good {
+    border-left: 3px solid var(--sage);
+  }
+  .doc-example .doc-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+  .doc-example .bad .doc-label { color: #c0392b; }
+  .doc-example .good .doc-label { color: var(--sage); }
+
+  @media (max-width: 600px) {
+    .doc-example { grid-template-columns: 1fr; }
+  }
+
+  .checklist {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+  }
+  .checklist h3 { margin-top: 0; color: var(--ink); }
+  .checklist ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .checklist li {
+    padding-left: 1.8rem;
+    position: relative;
+    margin-bottom: 0.7rem;
+  }
+  .checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 1.1rem;
+  }
+
+  .inline-cta {
+    background: var(--ink);
+    color: var(--white);
+    padding: 2.5rem 2rem;
+    margin: 3.5rem 0;
+    text-align: center;
+    border-radius: 4px;
+  }
+  .inline-cta h3 {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+  .inline-cta h3 em { color: var(--gold); font-style: italic; }
+  .inline-cta p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .inline-cta a.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+  .inline-cta a.btn:hover { background: #cf6f1c; }
+
+  .related {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+  }
+  .related-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .related h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .related a { color: var(--ink); text-decoration: none; }
+  .related a:hover h3 { color: var(--gold); }
+  .related p { color: var(--muted); font-size: 0.95rem; }
+
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.6);
+    padding: 3rem 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+  footer a { color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 0.8rem; }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .nav { padding: 1.2rem 1.5rem; }
+    article { padding: 2.5rem 1.5rem 4rem; }
+    .inline-cta { padding: 2rem 1.5rem; }
+    .checklist, .callout { padding: 1.4rem 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/hr-compliance-compass.html" class="brand">HR Compliance <em>Compass</em></a>
+  <a href="/hr-compliance-compass.html#pricing" class="nav-cta">See Pricing</a>
+</nav>
+
+<article>
+  <div class="breadcrumb">
+    <a href="/hr-compliance-compass.html">Home</a> &nbsp;/&nbsp; <a href="/insights/">Insights</a> &nbsp;/&nbsp; Documenting Performance
+  </div>
+
+  <div class="post-tag">Performance Management</div>
+
+  <h1>How to support performance — <em>and document the process</em></h1>
+
+  <p class="deck">Most performance problems don't get worse because the employee can't improve. They get worse because the manager waits too long, says the wrong things, and skips the documentation. Here's the framework that fixes all three.</p>
+
+  <div class="meta">11 minute read &nbsp;·&nbsp; Updated for 2026</div>
+
+  <p>Every HR professional has lived this scenario: a manager comes to you wanting to terminate an employee who has, in their words, "been a problem for months." You ask for the documentation. There is none. Or there's one vague email from six months ago. Or there are notes that say things like "bad attitude" and "not a team player" — the exact phrases that turn a defensible separation into a wrongful termination claim.</p>
+
+  <p>Performance management done well isn't about building a paper trail to fire someone. It's about giving employees a real chance to succeed, supporting managers through hard conversations, and creating the documentation that protects everyone if things don't work out. This framework walks you through the entire arc, from the first informal coaching conversation to a formal Performance Improvement Plan to separation — with the documentation language and escalation logic built in.</p>
+
+  <div class="callout">
+    <div class="callout-label">Why this matters</div>
+    <p>In an at-will employment state, you generally do not need documented cause to terminate. But "at-will" does not protect you from discrimination, retaliation, or wrongful termination claims — and those claims almost always come down to whether the documentation tells a consistent, objective story. The cost of doing this wrong is measured in five and six figures, plus the time and morale damage to your team.</p>
+  </div>
+
+  <h2><span class="step-num">1.</span> Address Performance Concerns Early — and Informally</h2>
+
+  <p>The single most common performance management mistake is waiting too long to say something. By the time the manager is frustrated enough to involve HR, the employee has often been struggling for months without clear feedback — and now feels blindsided when formal action begins.</p>
+
+  <p>The first stage isn't formal documentation. It's a coaching conversation: clear, specific, and timely. The goal is to name the gap, understand why it exists, and agree on what changes.</p>
+
+  <h3>A good coaching conversation has four parts</h3>
+  <ol>
+    <li><strong>Specific observation</strong> — "In the last three weeks, four customer escalations have come back to your queue because the initial response missed key information." Not "your work is sloppy."</li>
+    <li><strong>Impact</strong> — "This is slowing down our team's response time and creating extra work for the leads."</li>
+    <li><strong>Inquiry</strong> — "Help me understand what's getting in the way." Listen before you problem-solve.</li>
+    <li><strong>Clear expectation</strong> — "Going forward, I need every initial response to include the three required elements. Let's check in next week on how it's going."</li>
+  </ol>
+
+  <h3>Document the coaching conversation</h3>
+  <p>Even informal coaching gets a brief written record. Not a formal write-up — just a manager's note in their own file. Date, what was discussed, what was agreed to. This is the foundation everything else builds on.</p>
+
+  <div class="doc-example">
+    <div class="bad">
+      <div class="doc-label">Weak Documentation</div>
+      <p>"Talked to Jamie about attitude problems. Hope it improves."</p>
+    </div>
+    <div class="good">
+      <div class="doc-label">Strong Documentation</div>
+      <p>"3/12: Met with Jamie re: four customer escalations in past 3 weeks tied to incomplete initial responses. Reviewed required elements. Jamie agreed to include all three on every response. Follow-up scheduled 3/19."</p>
+    </div>
+  </div>
+
+  <h2><span class="step-num">2.</span> Escalate to a Written Warning When Coaching Doesn't Hold</h2>
+
+  <p>If the same concern continues after coaching — or if the conduct is more serious from the start (attendance violations, policy breaches, significant performance gaps) — the next stage is a formal written warning. This is where HR typically gets involved as a partner to the manager.</p>
+
+  <p>A written warning is not a punishment. It's a formal communication that says: <em>this is the gap, this is the expectation, this is what happens if it doesn't change.</em> Done well, it gives the employee one more clear opportunity to course-correct.</p>
+
+  <h3>Every written warning includes</h3>
+  <ul>
+    <li><strong>The specific concern</strong> — observable behaviors or outcomes, with dates and examples</li>
+    <li><strong>The relevant policy or standard</strong> — what expectation has not been met and where it's documented</li>
+    <li><strong>The prior conversations</strong> — when the concern was first raised informally and what was agreed</li>
+    <li><strong>The required change</strong> — specifically what the employee must do differently, by when</li>
+    <li><strong>The consequences</strong> — what will happen if the required change does not occur (typically: further formal action up to and including termination)</li>
+    <li><strong>Support being offered</strong> — training, mentoring, schedule adjustments, accommodations</li>
+    <li><strong>Acknowledgment</strong> — employee signature confirming receipt (not agreement — receipt)</li>
+  </ul>
+
+  <div class="callout warning">
+    <div class="callout-label">Watch for</div>
+    <p>If the employee raises a protected concern during this conversation — a medical condition, a disability, a need for accommodation, a complaint about discrimination or harassment — the performance conversation pauses. You now have parallel processes to manage, and proceeding with performance action without addressing the protected concern creates significant retaliation risk. Loop in the right partners before continuing.</p>
+  </div>
+
+  <h2><span class="step-num">3.</span> Performance Improvement Plan (PIP) — the Formal Structure</h2>
+
+  <p>A Performance Improvement Plan is the most formal stage of the performance management framework before separation. It is also one of the most commonly misused tools in HR — written too vaguely to be actionable, set up with goals the employee cannot realistically meet, or used as a checkbox before a termination decision that's already been made.</p>
+
+  <p>Used correctly, a PIP is a structured 30, 60, or 90-day plan that gives the employee a documented, fair opportunity to demonstrate sustained improvement. It is also the document that protects the organization if separation becomes necessary.</p>
+
+  <h3>A defensible PIP has six elements</h3>
+  <ol>
+    <li><strong>Specific performance gaps</strong> — the exact behaviors or outcomes that fall below expectation, with current data and prior documentation referenced</li>
+    <li><strong>SMART goals</strong> — Specific, Measurable, Achievable, Relevant, Time-bound. "Improve performance" is not a goal. "Close 90% of assigned tickets within SLA over the next 30 days" is.</li>
+    <li><strong>Defined timeline</strong> — typically 30, 60, or 90 days, with the end date stated</li>
+    <li><strong>Scheduled check-ins</strong> — weekly is best for 30-day PIPs; biweekly for longer plans. Each check-in produces written notes.</li>
+    <li><strong>Resources and support</strong> — what the organization is providing to help the employee succeed: training, tools, mentoring, additional feedback</li>
+    <li><strong>Stated outcomes</strong> — what happens at the end of the PIP depending on results: successful completion, extension (if appropriate), or separation</li>
+  </ol>
+
+  <div class="callout">
+    <div class="callout-label">The fairness test</div>
+    <p>Before issuing a PIP, ask yourself: could a reasonable, motivated employee actually meet these goals in this timeframe with the resources I'm providing? If the answer is no, you don't have a PIP — you have a paper trail for a separation decision that's already been made. That distinction matters legally and ethically.</p>
+  </div>
+
+  <h2><span class="step-num">4.</span> Documenting Every Check-In</h2>
+
+  <p>The check-in documentation throughout a PIP is what makes or breaks the case if separation becomes necessary. Each check-in note should include:</p>
+
+  <ul>
+    <li>The date of the meeting and who was present</li>
+    <li>Progress on each goal, with specific data where measurable</li>
+    <li>Areas where the employee has improved (this matters — performance management isn't only about what's wrong)</li>
+    <li>Areas where concerns remain, with specific examples</li>
+    <li>Anything the employee raised — concerns, requests, explanations</li>
+    <li>Any adjustments made to the plan or support offered</li>
+    <li>Next check-in date and any commitments before then</li>
+  </ul>
+
+  <h3>Documentation language that holds up</h3>
+
+  <p>The most important rule of performance documentation: describe observable conduct and outcomes, not personality or motive. You cannot defensibly document that someone "has a bad attitude." You can defensibly document that "during the 3/22 team meeting, the employee rolled their eyes and stated 'this is pointless' when assigned the project, and did not contribute further to the discussion."</p>
+
+  <div class="doc-example">
+    <div class="bad">
+      <div class="doc-label">Avoid</div>
+      <p>"Lazy. Doesn't care. Bad attitude. Not a culture fit. Unprofessional. Difficult to work with."</p>
+    </div>
+    <div class="good">
+      <div class="doc-label">Use</div>
+      <p>"Missed three of five committed deadlines this period. Did not respond to two follow-up requests from team lead. Arrived 25+ minutes late to four scheduled team meetings."</p>
+    </div>
+  </div>
+
+  <h2><span class="step-num">5.</span> The Escalation Decision — When to Move From Coaching to PIP to Separation</h2>
+
+  <p>One of the hardest judgment calls in HR is when to escalate. Move too fast and you skip steps that protect the organization. Move too slowly and you let performance problems damage the team and demoralize high performers who are watching.</p>
+
+  <h3>Move from informal coaching to written warning when:</h3>
+  <ul>
+    <li>The same concern has been raised informally and has not changed after a reasonable period (typically 2–4 weeks)</li>
+    <li>The conduct is serious enough on its own to warrant formal documentation (attendance, policy violations, significant errors)</li>
+    <li>Multiple separate concerns are emerging that, together, indicate a pattern</li>
+  </ul>
+
+  <h3>Move from written warning to PIP when:</h3>
+  <ul>
+    <li>The required change identified in the written warning has not occurred</li>
+    <li>The performance gap is significant enough to require a structured, multi-week improvement effort</li>
+    <li>The employee or manager has explicitly asked for a more structured path forward</li>
+  </ul>
+
+  <h3>Move from PIP to separation when:</h3>
+  <ul>
+    <li>The PIP timeline has concluded and the goals were not met, with documentation showing the gap is consistent with what was identified in the plan</li>
+    <li>The employee has explicitly refused to engage with the plan or its goals</li>
+    <li>New conduct emerges during the PIP that itself warrants separation (gross misconduct, policy violation)</li>
+  </ul>
+
+  <div class="inline-cta">
+    <h3>The right escalation, with the right documentation, <em>every time.</em></h3>
+    <p>Performance Guidance inside Compass gives you coaching conversation scripts, PIP templates with SMART goal frameworks, check-in documentation language, and an escalation decision tree built for managers who don't do this every day.</p>
+    <a href="/hr-compliance-compass.html#pricing" class="btn">See How Compass Works →</a>
+  </div>
+
+  <h2><span class="step-num">6.</span> Coaching the Manager Through the Process</h2>
+
+  <p>Most performance management problems aren't really about the employee — they're about a manager who hasn't been trained to do this well. They avoid the conversation, soften the message until it becomes meaningless, write documentation that won't hold up, or escalate too fast because they're frustrated.</p>
+
+  <p>HR's job is not just to manage the process. It's to coach the manager through it. That means:</p>
+
+  <ul>
+    <li>Helping the manager rehearse the conversation before it happens — what they'll say, what the employee might say, how to respond</li>
+    <li>Reviewing draft documentation before it's delivered — checking for vague language, motive language, or anything that sounds like a personal attack</li>
+    <li>Sitting in on the harder conversations when the manager is new to formal performance management or when the situation is sensitive</li>
+    <li>Debriefing after each step — what worked, what didn't, what to adjust for next time</li>
+  </ul>
+
+  <p>Managers who feel supported through these conversations get better at them. Managers who are left to figure it out alone produce the documentation that turns into wrongful termination claims.</p>
+
+  <h2><span class="step-num">7.</span> If Separation Becomes Necessary</h2>
+
+  <p>If the PIP concludes without sustained improvement, separation is on the table. This is not a moment to improvise. The separation decision should be reviewed against:</p>
+
+  <div class="checklist">
+    <h3>Before any separation decision:</h3>
+    <ul>
+      <li>Is the documentation complete and consistent with the framework above?</li>
+      <li>Has the employee raised any protected concerns (medical, disability, complaint of harassment or discrimination, request for accommodation) during the process?</li>
+      <li>How have similar performance situations been handled with other employees? Is this decision consistent?</li>
+      <li>Are there any factors that might suggest the performance issues are tied to a protected characteristic, a leave, or a complaint?</li>
+      <li>Has legal counsel reviewed the file if the situation is in any way ambiguous?</li>
+      <li>Have you considered offering a severance agreement with a release in exchange for a clean separation, where appropriate?</li>
+    </ul>
+  </div>
+
+  <p>The separation conversation itself should be brief, respectful, and clear. State the decision, summarize the basis (referencing the documented process), explain the logistics (final pay, benefits, COBRA, return of equipment), and end the conversation. This is not the time to debate the decision, soften the message into ambiguity, or share opinions about the employee personally.</p>
+
+  <h2>The Through-Line: Documentation That Protects Everyone</h2>
+
+  <p>The best performance documentation tells a clear, chronological, objective story. Someone reading the file should be able to see what was expected, what was observed, what was communicated to the employee, what support was offered, how the employee responded, and what the basis for each escalation decision was.</p>
+
+  <p>That documentation protects the employee, who has a record of what they were told and what they had a chance to address. It protects the manager, who isn't operating on memory or impression. And it protects the organization if the separation is ever challenged.</p>
+
+  <p>None of this is about building a case against someone. It's about being honest, in writing, about how performance has been managed — so that whatever the outcome, the process was fair, the support was real, and the record stands up.</p>
+
+  <div class="inline-cta">
+    <h3>Stop rebuilding the performance management process <em>from scratch every time.</em></h3>
+    <p>Coaching scripts. PIP templates. Documentation language. Escalation decision trees. State-aware guidance for separations. All inside HR Compliance Compass.</p>
+    <a href="/hr-compliance-compass.html#pricing" class="btn">See Pricing →</a>
+  </div>
+
+  <div class="related">
+    <div class="related-label">Related Insight</div>
+    <a href="/insights/investigation-framework-small-hr.html">
+      <h3>A Workplace Investigation Framework for Small HR Teams</h3>
+      <p>The seven-stage framework for handling workplace complaints — intake, triage, interviews, findings, resolution, and follow-up — built for HR teams that need to move fast and document everything.</p>
+    </a>
+  </div>
+</article>
+
+<footer>
+  <div>
+    <a href="/hr-compliance-compass.html">Home</a>
+    <a href="/faqs.html">FAQs</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </div>
+  <div style="margin-top:1.5rem; opacity:0.5;">© 2026 HR Compliance Compass. Clarity in chaos.</div>
+</footer>
+
+<script src="/analytics.js"></script>
+
+</body>
+</html>
