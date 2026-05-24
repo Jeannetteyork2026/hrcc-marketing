@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>A Workplace Investigation Framework for Small HR Teams | HR Compliance Compass</title>
+<meta name="description" content="A step-by-step workplace investigation framework built for solo HR practitioners and small teams. Intake, triage, interviews, documentation, and resolution — without the law firm price tag." />
+<meta name="keywords" content="workplace investigation framework, HR investigation process, small HR team investigation, complaint investigation steps, harassment investigation, workplace investigation template, HR investigation checklist" />
+<link rel="canonical" href="https://hrcompliancecompass.com/insights/investigation-framework-small-hr.html" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="A Workplace Investigation Framework for Small HR Teams" />
+<meta property="og:description" content="A defensible, step-by-step investigation framework for HR teams of one — or one-and-a-half. Intake to resolution, without missing anything that matters." />
+<meta property="og:image" content="https://hrcompliancecompass.com/compass-share.png" />
+<meta property="og:url" content="https://hrcompliancecompass.com/insights/investigation-framework-small-hr.html" />
+<meta property="og:type" content="article" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="A Workplace Investigation Framework for Small HR Teams" />
+<meta name="twitter:description" content="A defensible, step-by-step investigation framework built for solo HR practitioners and small teams." />
+<meta name="twitter:image" content="https://hrcompliancecompass.com/compass-share.png" />
+
+<!-- Article structured data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A Workplace Investigation Framework for Small HR Teams",
+  "description": "A step-by-step workplace investigation framework built for solo HR practitioners and small teams.",
+  "image": "https://hrcompliancecompass.com/compass-share.png",
+  "author": {
+    "@type": "Person",
+    "name": "Jeannette, HR Compliance Compass"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HR Compliance Compass",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hrcompliancecompass.com/HRCCcompassicon.png"
+    }
+  },
+  "mainEntityOfPage": "https://hrcompliancecompass.com/insights/investigation-framework-small-hr.html"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1a4a7c;
+    --sage: #6b8e6b;
+    --orange: #e67e22;
+    --teal: #2c9faf;
+    --bg-light: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --cream: var(--bg-light);
+    --ink: var(--navy);
+    --ink-mid: var(--text-main);
+    --gold: var(--orange);
+    --gold-light: var(--teal);
+    --muted: var(--text-muted);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink-mid);
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  /* NAV */
+  .nav {
+    padding: 1.5rem 3rem;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav a.brand {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .nav a.brand em { color: var(--sage); font-style: italic; }
+  .nav .nav-cta {
+    background: var(--gold);
+    color: var(--white);
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav .nav-cta:hover { background: #cf6f1c; }
+
+  /* ARTICLE */
+  article {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+  .breadcrumb {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .breadcrumb a { color: var(--muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--gold); }
+
+  .post-tag {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--white);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  h1 em { color: var(--gold); font-style: italic; }
+
+  .deck {
+    font-size: 1.2rem;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  article p {
+    margin-bottom: 1.4rem;
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+  }
+
+  article h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+    font-weight: 500;
+    color: var(--ink);
+    margin: 3.5rem 0 1.2rem;
+    line-height: 1.25;
+  }
+  article h2 .step-num {
+    color: var(--gold);
+    font-style: italic;
+    margin-right: 0.3em;
+  }
+
+  article h3 {
+    font-family: var(--sans);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 2rem 0 0.8rem;
+    letter-spacing: 0.02em;
+  }
+
+  article ul, article ol {
+    margin: 0 0 1.6rem 1.4rem;
+    padding-left: 0.4rem;
+  }
+  article li {
+    margin-bottom: 0.65rem;
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+  }
+  article li::marker { color: var(--gold); }
+
+  article strong { color: var(--ink); font-weight: 500; }
+  article em { color: var(--ink); font-style: italic; }
+  article a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+  article a:hover { color: #cf6f1c; }
+
+  /* CALLOUT BOX */
+  .callout {
+    background: var(--white);
+    border-left: 3px solid var(--gold);
+    padding: 1.6rem 1.8rem;
+    margin: 2rem 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .callout .callout-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+  .callout p { margin-bottom: 0.8rem; font-size: 1rem; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.warning { border-left-color: #c0392b; }
+  .callout.warning .callout-label { color: #c0392b; }
+
+  /* CHECKLIST */
+  .checklist {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+  }
+  .checklist h3 { margin-top: 0; color: var(--ink); }
+  .checklist ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .checklist li {
+    padding-left: 1.8rem;
+    position: relative;
+    margin-bottom: 0.7rem;
+  }
+  .checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 1.1rem;
+  }
+
+  /* INLINE CTA */
+  .inline-cta {
+    background: var(--ink);
+    color: var(--white);
+    padding: 2.5rem 2rem;
+    margin: 3.5rem 0;
+    text-align: center;
+    border-radius: 4px;
+  }
+  .inline-cta h3 {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+  .inline-cta h3 em { color: var(--gold); font-style: italic; }
+  .inline-cta p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .inline-cta a.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+  .inline-cta a.btn:hover { background: #cf6f1c; }
+
+  /* RELATED */
+  .related {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+  }
+  .related-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .related h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .related a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .related a:hover h3 { color: var(--gold); }
+  .related p { color: var(--muted); font-size: 0.95rem; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.6);
+    padding: 3rem 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+  footer a { color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 0.8rem; }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .nav { padding: 1.2rem 1.5rem; }
+    article { padding: 2.5rem 1.5rem 4rem; }
+    .inline-cta { padding: 2rem 1.5rem; }
+    .checklist, .callout { padding: 1.4rem 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/hr-compliance-compass.html" class="brand">HR Compliance <em>Compass</em></a>
+  <a href="/hr-compliance-compass.html#pricing" class="nav-cta">See Pricing</a>
+</nav>
+
+<article>
+  <div class="breadcrumb">
+    <a href="/hr-compliance-compass.html">Home</a> &nbsp;/&nbsp; <a href="/insights.html">Insights</a> &nbsp;/&nbsp; Investigation Framework
+  </div>
+
+  <div class="post-tag">Investigations</div>
+
+  <h1>A Workplace Investigation Framework <em>for small HR teams</em></h1>
+
+  <p class="deck">When a complaint lands on your desk and you're the entire HR department — or one of two — you don't have time to figure out the process from scratch. Here's the framework, step by step.</p>
+
+  <div class="meta">10 minute read &nbsp;·&nbsp; Updated for 2026</div>
+
+  <p>Workplace complaints are one of the highest-stakes situations a small HR team will ever handle. Harassment claims, discrimination concerns, retaliation allegations, hostile work environment reports — get the response right and you protect your people and your organization. Get it wrong and you face EEOC charges, lawsuits, regulatory penalties, and the kind of internal damage that takes years to repair.</p>
+
+  <p>The good news: a defensible investigation doesn't require a law firm on retainer or a team of specialists. It requires a clear framework, applied consistently, with the right documentation at each step. This guide walks you through the seven stages of a workplace investigation built specifically for HR teams that don't have unlimited resources — but absolutely need to get this right.</p>
+
+  <div class="callout">
+    <div class="callout-label">Before You Start</div>
+    <p>This framework is built around federal employment law baselines. State requirements — particularly in California, New York, Illinois, Washington, Colorado, and Massachusetts — may impose additional obligations on timing, reporting, or process. Always confirm jurisdiction-specific requirements before proceeding to formal investigation.</p>
+  </div>
+
+  <h2><span class="step-num">1.</span> Intake — Capture Everything in the First Conversation</h2>
+
+  <p>The intake conversation is the most important conversation in the entire investigation. It's where you establish the scope of the concern, capture the complainant's account while it's freshest, and decide what comes next. Skim this step and the whole investigation suffers.</p>
+
+  <p>Treat intake as a structured interview, not a casual chat. Sit down, take notes (or get permission to record if your state allows), and ask open-ended questions. Resist the urge to interrupt, comfort, or promise outcomes. Your job here is to listen and document.</p>
+
+  <h3>What to capture during intake</h3>
+  <ul>
+    <li><strong>Who</strong> — the complainant, the subject(s) of the complaint, and any witnesses they identify</li>
+    <li><strong>What</strong> — specific behaviors, statements, actions, with as much detail as the complainant can provide</li>
+    <li><strong>When</strong> — dates, times, frequency, whether it's ongoing</li>
+    <li><strong>Where</strong> — physical locations, virtual environments (Slack, email, video calls), public or private settings</li>
+    <li><strong>Impact</strong> — how it has affected the complainant's work, wellbeing, or employment</li>
+    <li><strong>Evidence</strong> — texts, emails, voicemails, recordings, documents the complainant has access to</li>
+    <li><strong>Prior reports</strong> — has the complainant raised this before? With whom? What was the response?</li>
+    <li><strong>Desired outcome</strong> — what is the complainant hoping happens (this informs but does not control your response)</li>
+  </ul>
+
+  <div class="callout warning">
+    <div class="callout-label">Critical</div>
+    <p>Never promise confidentiality you cannot guarantee. You can promise that information will be shared only with those who need to know — investigators, decision-makers, and witnesses on a strictly limited basis — but you cannot promise total secrecy, particularly if the matter requires reporting to leadership, legal counsel, or external authorities.</p>
+  </div>
+
+  <h2><span class="step-num">2.</span> Triage — Decide What This Actually Is</h2>
+
+  <p>Not every complaint requires a formal investigation. Some are interpersonal conflicts better resolved through coaching or facilitated conversation. Others are clear-cut policy violations that need formal investigation immediately. The triage step is where you make that call — and you need to make it within hours of intake, not days.</p>
+
+  <p>Triage runs three assessments in parallel: legal risk, severity, and the nature of the conduct alleged.</p>
+
+  <h3>Legal risk assessment</h3>
+  <ul>
+    <li>Does the alleged conduct involve a protected class (race, sex, age, disability, religion, national origin, pregnancy, sexual orientation, gender identity, or any state-protected category)?</li>
+    <li>Is retaliation alleged or possible if the complaint becomes known?</li>
+    <li>Are there mandatory reporting obligations triggered (e.g., child abuse, sexual assault under state law, workplace violence)?</li>
+    <li>Could the conduct support an EEOC charge, state agency complaint, or civil claim?</li>
+  </ul>
+
+  <h3>Severity assessment</h3>
+  <ul>
+    <li>Is the alleged conduct ongoing or imminent?</li>
+    <li>Is there risk of physical harm or workplace violence?</li>
+    <li>Is the complainant or any witness in a vulnerable position (subordinate, probationary, on leave, recent hire)?</li>
+    <li>Could the response need to include interim separation, leave, or schedule changes to protect the complainant during the investigation?</li>
+  </ul>
+
+  <p>If the matter involves a protected class, possible retaliation, or any safety concern, you are running a formal investigation. If it's a workplace friction issue with no protected-class element and no safety concern, you may be able to resolve it through coaching, mediation, or a structured conversation — but document that decision and the reasoning.</p>
+
+  <h2><span class="step-num">3.</span> Investigation Plan — Decide Who, What, and How Fast</h2>
+
+  <p>Before you interview a single witness, write the plan down. This is the document that protects you if your process is later challenged — and it forces you to think the investigation through before you start collecting evidence.</p>
+
+  <div class="checklist">
+    <h3>Investigation plan must include:</h3>
+    <ul>
+      <li>Investigator(s) — typically HR, but consider an outside investigator if the complaint involves leadership, if you've had prior contact with the parties, or if the matter is high-risk</li>
+      <li>Scope — what specific allegations are being investigated (be precise)</li>
+      <li>Timeline — when interviews will happen, when conclusions are expected (most investigations should complete in 10–30 days)</li>
+      <li>Witnesses — who needs to be interviewed and in what order (typically: complainant, then witnesses, then subject of the complaint)</li>
+      <li>Evidence to gather — emails, Slack threads, building access logs, scheduling records, prior documentation</li>
+      <li>Interim measures — any temporary changes needed to prevent further harm or contact during the investigation</li>
+      <li>Confidentiality protocol — who has access to investigation materials and on what basis</li>
+      <li>Documentation standards — how interview notes, evidence, and findings will be recorded and stored</li>
+    </ul>
+  </div>
+
+  <h2><span class="step-num">4.</span> Interviews — Structured, Documented, Defensible</h2>
+
+  <p>Witness interviews are where investigations succeed or fall apart. Run them in a structured way and you build a clear record. Run them casually and you get inconsistent recollections, missed details, and a record that won't hold up if challenged.</p>
+
+  <h3>Interview structure that works</h3>
+  <ol>
+    <li><strong>Open</strong> — explain the purpose of the interview, the confidentiality framework, the no-retaliation policy, and that the conversation is being documented</li>
+    <li><strong>Background</strong> — establish the witness's role, relationship to the parties, and relevant context</li>
+    <li><strong>Open-ended account</strong> — ask the witness to describe what they know or observed in their own words, without interruption</li>
+    <li><strong>Targeted follow-up</strong> — clarify specifics: who said what, when, where, who else was present</li>
+    <li><strong>Evidence review</strong> — show relevant documents or messages and ask the witness to confirm, contextualize, or add</li>
+    <li><strong>Additional witnesses or evidence</strong> — ask if there's anyone else you should talk to or anything else you should see</li>
+    <li><strong>Close</strong> — remind about no-retaliation, confidentiality, and how to follow up if they remember anything later</li>
+  </ol>
+
+  <h3>Documentation rules for every interview</h3>
+  <ul>
+    <li>Write notes during the interview, not from memory afterward</li>
+    <li>Use the witness's own words wherever possible — quote, don't paraphrase</li>
+    <li>Capture demeanor only where it's relevant and observable (e.g., "became visibly upset when describing X"), not your interpretation of motive</li>
+    <li>Distinguish between what the witness observed firsthand and what they heard from others</li>
+    <li>Have the witness review and sign the notes when possible, or send a summary for confirmation</li>
+  </ul>
+
+  <div class="inline-cta">
+    <h3>Stop reinventing the investigation process every time a <em>complaint comes in.</em></h3>
+    <p>Compass gives you intake checklists, witness interview templates, legal risk triage, and resolution language — all state-aware. Built for HR teams that need to move fast and document everything.</p>
+    <a href="/hr-compliance-compass.html#pricing" class="btn">See How Compass Works →</a>
+  </div>
+
+  <h2><span class="step-num">5.</span> Findings — Reach a Conclusion You Can Defend</h2>
+
+  <p>After interviews and evidence review, you need to reach findings. This is not a courtroom — you are not applying "beyond a reasonable doubt." The standard for workplace investigations is the <strong>preponderance of the evidence</strong>: based on everything you have, is it more likely than not that the alleged conduct occurred?</p>
+
+  <p>Document your findings in writing, with the reasoning. For each allegation, state:</p>
+
+  <ul>
+    <li>The specific allegation as framed in the investigation plan</li>
+    <li>Whether it is <strong>substantiated</strong>, <strong>unsubstantiated</strong>, or <strong>inconclusive</strong></li>
+    <li>The key evidence supporting the conclusion</li>
+    <li>Credibility assessments where they were relevant (and why)</li>
+    <li>Any policy violations identified</li>
+  </ul>
+
+  <p>"Unsubstantiated" is not the same as "didn't happen" — it means the evidence available does not support the allegation by a preponderance. "Inconclusive" means you cannot reach a determination either way. Both are valid outcomes when properly supported.</p>
+
+  <h2><span class="step-num">6.</span> Resolution and Corrective Action</h2>
+
+  <p>Once findings are documented, resolution decisions follow. Corrective action should be proportionate to the substantiated conduct and consistent with how similar conduct has been addressed in the past.</p>
+
+  <h3>Resolution options range across a spectrum</h3>
+  <ul>
+    <li>Coaching conversation, with documented expectations going forward</li>
+    <li>Written warning or formal performance documentation</li>
+    <li>Mandatory training (anti-harassment, anti-discrimination, leadership)</li>
+    <li>Role change, reporting structure change, or schedule change</li>
+    <li>Final warning</li>
+    <li>Suspension</li>
+    <li>Termination</li>
+  </ul>
+
+  <p>Whichever path you choose, document the reasoning, the corrective action taken, and the expectations communicated. Communicate findings to the complainant and to the subject of the complaint in separate, structured conversations — sharing the conclusion and the action taken, without breaching the confidentiality of witnesses or other employees.</p>
+
+  <div class="callout">
+    <div class="callout-label">Language matters</div>
+    <p>Resolution communication is where many otherwise solid investigations create new legal exposure. Avoid blame language, avoid promises about future conduct you can't enforce, and never characterize the complaint or complainant in dismissive terms. Stick to the conduct, the policy, the finding, and the action.</p>
+  </div>
+
+  <h2><span class="step-num">7.</span> Follow-Up — Don't Skip This Step</h2>
+
+  <p>The investigation isn't over when corrective action is delivered. Retaliation claims are one of the most common — and most expensive — outcomes of mishandled investigations, and they almost always arise from what happens <em>after</em> the formal investigation concludes.</p>
+
+  <h3>Follow-up tasks for every investigation</h3>
+  <ul>
+    <li>Check in with the complainant at 30, 60, and 90 days to assess whether the conduct has stopped and whether they've experienced any retaliation</li>
+    <li>Monitor for changes in performance ratings, work assignments, schedule, or access for the complainant — any of which could be the basis of a retaliation claim</li>
+    <li>Document each follow-up touchpoint, including the date and any concerns raised</li>
+    <li>If the corrective action was training or coaching, verify completion</li>
+    <li>If the investigation surfaced systemic issues — a manager pattern, a policy gap, a culture concern — escalate to leadership with a recommendation</li>
+  </ul>
+
+  <h2>The Documentation Trail That Protects You</h2>
+
+  <p>If your investigation is ever challenged — by an EEOC investigator, a plaintiff's attorney, an internal auditor, or a state agency — the documentation is what protects the organization. The investigation file should include:</p>
+
+  <div class="checklist">
+    <h3>Complete investigation file:</h3>
+    <ul>
+      <li>Original intake notes</li>
+      <li>Triage assessment and decision documentation</li>
+      <li>Written investigation plan</li>
+      <li>All witness interview notes</li>
+      <li>Evidence collected (emails, messages, documents, screenshots)</li>
+      <li>Written findings with reasoning</li>
+      <li>Resolution decision and corrective action documentation</li>
+      <li>Communication records (what was shared with whom, when)</li>
+      <li>Follow-up notes at each check-in</li>
+      <li>Any interim measures taken and when they were lifted</li>
+    </ul>
+  </div>
+
+  <p>Store the file securely, with restricted access. Retain it according to your record retention policy — for harassment and discrimination investigations, most employment attorneys recommend retention of at least the statute of limitations period plus a buffer, which generally means a minimum of three to four years from the conclusion of the investigation.</p>
+
+  <h2>One Last Thing</h2>
+
+  <p>The framework above gives you the structure. What it cannot give you, in a single article, is the templates, the state-specific guidance, the legal risk triage logic, or the language to use in those high-stakes resolution conversations. That's where having a tool that walks you through each step — with the documentation built in — changes how confident you can be that you've handled it right.</p>
+
+  <p>Workplace investigations are not the place to wing it. They are also not the place to spend $400 an hour on outside counsel for every complaint that lands on your desk. There is a middle path, and it starts with a framework you trust.</p>
+
+  <div class="inline-cta">
+    <h3>Run a defensible investigation, every time, <em>without the law firm price tag.</em></h3>
+    <p>The Complaint Investigation Guide inside HR Compliance Compass gives you intake checklists, witness interview templates, legal risk triage, and state-aware resolution guidance. Try it for your team.</p>
+    <a href="/hr-compliance-compass.html#pricing" class="btn">See Pricing →</a>
+  </div>
+
+  <div class="related">
+    <div class="related-label">Related Insight</div>
+    <a href="/insights/multi-state-handbook-mistakes.html">
+      <h3>Five Multi-State Handbook Mistakes That Get Employers Sued</h3>
+      <p>What employers miss when they use one handbook for every state — and how to keep handbook language aligned with the states where your people actually work.</p>
+    </a>
+  </div>
+</article>
+
+<footer>
+  <div>
+    <a href="/hr-compliance-compass.html">Home</a>
+    <a href="/faqs.html">FAQs</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </div>
+  <div style="margin-top:1.5rem; opacity:0.5;">© 2026 HR Compliance Compass. Clarity in chaos.</div>
+</footer>
+
+<script src="/analytics.js"></script>
+
+</body>
+</html>
