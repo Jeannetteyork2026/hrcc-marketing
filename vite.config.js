@@ -8,7 +8,6 @@ module.exports = {
         main: path.resolve(__dirname, "hr-compliance-compass.html"),
         privacy: path.resolve(__dirname, "privacy.html"),
         terms: path.resolve(__dirname, "terms.html"),
-        thanks: path.resolve(__dirname, "thanks.html"),
         login: path.resolve(__dirname, "Login.html"),
       },
     },

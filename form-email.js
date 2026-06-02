@@ -2,7 +2,6 @@
 
 (() => {
   const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxg-MyKPVdNQnMiV6hzGheP7q-TZmYHT6-sq21Ma-idDDm03wv6ECPqBatT2sj-XohV2A/exec";
-  const THANKS_PAGE = "thanks.html";
   const TARGET_FORM_SELECTOR = "form[data-netlify='true']";
 
   const forms = Array.from(document.querySelectorAll(TARGET_FORM_SELECTOR));
@@ -88,7 +87,12 @@
 
       try {
         await sendToSheet(form);
-        window.location.href = THANKS_PAGE;
+        const done = document.createElement("div");
+        done.className = "form-success";
+        done.setAttribute("role", "status");
+        done.style.cssText = "padding:1.5rem 0;text-align:center;font-family:var(--sans,inherit);";
+        done.innerHTML = "<p style='margin:0;font-size:1.05rem;line-height:1.6;'>Thanks &mdash; we&rsquo;ve received your message and will reply within one business day.</p>";
+        form.replaceWith(done);
       } catch (error) {
         console.error("Sheet error, falling back to native submit:", error);
         form.submit();
