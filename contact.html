@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CXFF6HMVN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9CXFF6HMVN');
+</script>
+<!-- End Google Analytics 4 -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact &middot; HR Compliance Compass</title>
@@ -183,6 +192,11 @@
   <form name="contact" data-netlify="true" data-support-email="support@hrcompliancecompass.com" method="POST" action="/thanks.html">
     <input type="hidden" name="form-name" value="contact" />
     <input type="hidden" name="bot-field" />
+    <input type="hidden" name="leadChannel" id="leadChannel" />
+    <input type="hidden" name="leadLandingSection" id="leadLandingSection" />
+    <input type="hidden" name="leadLandingPage" id="leadLandingPage" />
+    <input type="hidden" name="leadReferrer" id="leadReferrer" />
+    <input type="hidden" name="leadCampaign" id="leadCampaign" />
 
     <div class="field-row">
       <div>
@@ -236,5 +250,6 @@
 
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 <script src="/analytics.js"></script>
+<script src="/lead-source-tracker.js"></script>
 </body>
 </html>

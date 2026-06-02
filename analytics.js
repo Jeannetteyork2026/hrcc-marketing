@@ -5,22 +5,9 @@
 */
 (function(){
   'use strict';
-  const meta = document.querySelector('meta[name="ga-id"]');
-  const gaId = meta ? meta.content.trim() : '';
-
-  if (gaId && gaId !== 'G-XXXXXXXXXX') {
-    // load GA4
-    (function(){
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);} window.gtag = gtag;
-      const s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
-      document.head.appendChild(s);
-      gtag('js', new Date());
-      gtag('config', gaId);
-    })();
-  }
+  // GA4 is now loaded once from the inline tag in each page's <head>.
+  // This file only adds custom click tracking, sent via the global gtag()
+  // (with a localStorage fallback if gtag isn't present).
 
   function sendEvent(name, params){
     if (window.gtag) {

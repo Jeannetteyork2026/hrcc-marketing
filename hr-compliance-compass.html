@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CXFF6HMVN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9CXFF6HMVN');
+</script>
+<!-- End Google Analytics 4 -->
 <!-- Open Graph / Social Share Tags -->
 <meta property="og:title" content="HR Compliance Compass" />
 <meta property="og:description" content="Find Employment Law fast. All 50 states. Investigation frameworks, tough conversation talk tracks, and more." />
@@ -2281,5 +2290,207 @@ const toolData = [
 </script>
 <script src="form-email.js"></script>
 <script src="/analytics.js"></script>
+<script src="/lead-source-tracker.js"></script>
+<!-- POPUP START -->
+<div id="gdPopup" class="gd-overlay" role="dialog" aria-modal="true" aria-labelledby="gdTitle" aria-hidden="true">
+  <div class="gd-modal">
+    <button type="button" class="gd-close" id="gdClose" aria-label="Close">&times;</button>
+
+    <div class="gd-body" id="gdFormWrap">
+      <div class="gd-mark">HR</div>
+      <h2 id="gdTitle">Free: the <em>2026 50-State</em> HR Quick Reference</h2>
+      <p class="gd-lede">See how every state compares on minimum wage, overtime, paid leave, pay transparency, final pay, and more &mdash; on one screen. Enter your email and we&rsquo;ll send it over.</p>
+
+      <form name="guide-download" id="gdForm" data-netlify="true" data-netlify-honeypot="bot-field" method="POST" novalidate>
+        <input type="hidden" name="form-name" value="guide-download" />
+        <input type="hidden" name="reason" value="50-State Quick Reference download" />
+        <p class="gd-hp"><label>Don&rsquo;t fill this out: <input name="bot-field" /></label></p>
+
+        <input type="hidden" name="leadChannel" id="gdLeadChannel" />
+        <input type="hidden" name="leadLandingSection" id="gdLeadLandingSection" />
+        <input type="hidden" name="leadLandingPage" id="gdLeadLandingPage" />
+        <input type="hidden" name="leadReferrer" id="gdLeadReferrer" />
+        <input type="hidden" name="leadCampaign" id="gdLeadCampaign" />
+
+        <input type="text" name="firstName" id="gdFirst" class="gd-input" placeholder="First name (optional)" autocomplete="given-name" />
+        <input type="email" name="email" id="gdEmail" class="gd-input" placeholder="you@yourcompany.com" autocomplete="email" required />
+        <div id="gdError" class="gd-error" style="display:none;"></div>
+        <button type="submit" class="gd-submit">Send me the guide &rarr;</button>
+        <p class="gd-fine">A free resource from HR Compliance Compass. No spam.</p>
+      </form>
+    </div>
+
+    <div class="gd-body gd-success" id="gdSuccess" style="display:none;">
+      <div class="gd-mark">&#10003;</div>
+      <h2>Your guide is <em>ready.</em></h2>
+      <p class="gd-lede">Thanks! Download it right here &mdash; we&rsquo;ve also emailed you a copy.</p>
+      <a id="gdDownload" class="gd-submit" href="/HRCC-50-State-Quick-Reference-2026.xlsx" download>Download the Excel guide &darr;</a>
+      <p class="gd-fine">Didn&rsquo;t get the email? Check spam, or write support@hrcompliancecompass.com.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .gd-overlay { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center;
+    background: rgba(15,23,42,0.72); padding: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  .gd-overlay.gd-open { display: flex; animation: gdFade 0.25s ease; }
+  @keyframes gdFade { from { opacity: 0; } to { opacity: 1; } }
+  .gd-modal { position: relative; width: 100%; max-width: 440px; background: #ffffff; color: #1f2937;
+    border: 1px solid #dbe3f1; border-radius: 12px; padding: 2.25rem 2rem 2rem; text-align: center;
+    box-shadow: 0 24px 60px rgba(15,23,42,0.35); animation: gdRise 0.3s ease; }
+  @keyframes gdRise { from { transform: translateY(16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .gd-close { position: absolute; top: 0.6rem; right: 0.85rem; background: none; border: none; color: #94a3b8;
+    font-size: 1.6rem; line-height: 1; cursor: pointer; padding: 0.2rem; }
+  .gd-close:hover { color: #1e3a5f; }
+  .gd-mark { width: 50px; height: 50px; margin: 0 auto 1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at 35% 30%, #e8b84b, #d4982f 70%); color: #1e3a5f; font-weight: 800; font-size: 1.15rem; }
+  .gd-modal h2 { font-size: 1.55rem; color: #1e3a5f; font-weight: 800; margin: 0 0 0.5rem; line-height: 1.15; }
+  .gd-modal h2 em { color: #d4982f; font-style: normal; }
+  .gd-lede { color: #475569; font-size: 0.95rem; line-height: 1.55; margin: 0 0 1.4rem; }
+  .gd-input { width: 100%; box-sizing: border-box; margin-bottom: 0.75rem; padding: 0.8rem 1rem; background: #f8fafc;
+    border: 1px solid #cbd5e1; border-radius: 6px; color: #1f2937; font-size: 0.95rem; }
+  .gd-input:focus { outline: none; border-color: #e8b84b; background: #fff; }
+  .gd-error { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; font-size: 0.82rem;
+    border-radius: 6px; padding: 0.5rem 0.7rem; margin: 0 0 0.75rem; text-align: left; }
+  .gd-error a { color: #991b1b; font-weight: 700; text-decoration: underline; cursor: pointer; }
+  .gd-submit { display: block; width: 100%; box-sizing: border-box; margin-top: 0.25rem; padding: 0.85rem 1rem;
+    background: #1e3a5f; color: #fff; border: none; border-radius: 6px; font-size: 0.95rem; font-weight: 700; cursor: pointer;
+    text-decoration: none; transition: background 0.15s; }
+  .gd-submit:hover { background: #16304e; }
+  .gd-submit:disabled { opacity: 0.6; cursor: default; }
+  .gd-fine { color: #94a3b8; font-size: 0.78rem; margin: 0.9rem 0 0; }
+  .gd-hp { position: absolute; left: -5000px; }
+  @media (max-width: 460px) { .gd-modal { padding: 2rem 1.25rem 1.5rem; } .gd-modal h2 { font-size: 1.35rem; } }
+</style>
+
+<script>
+(function () {
+  // ---- Config ----
+  var SHOW_DELAY_MS = 2500;
+  var DISMISS_KEY = "hrcc_guide_dismissed";
+  var GUIDE_FILE = "HRCC-50-State-Quick-Reference-2026.xlsx";
+  var HS_PORTAL_ID = "245545744";                              // HubSpot Portal ID
+  var HS_FORM_GUID = "6106dd18-7593-4eb1-8137-a6d9eae562dd";   // HubSpot Form GUID (guide-download)
+
+  try { if (localStorage.getItem(DISMISS_KEY)) return; } catch (e) {}
+  var overlay = document.getElementById("gdPopup");
+  var form = document.getElementById("gdForm");
+  if (!overlay || !form) return;
+
+  function track(name, params) {
+    params = params || {};
+    if (typeof window.gtag === "function") { try { window.gtag("event", name, params); } catch (e) {} }
+    if (typeof window.fbq === "function") {
+      try {
+        if (name === "generate_lead") fbq("track", "Lead", { content_name: "50-State Quick Reference", source: params.lead_source });
+        else if (name === "file_download") fbq("trackCustom", "GuideDownload", { source: params.lead_source });
+        else if (name === "popup_view") fbq("trackCustom", "PopupView", { source: params.lead_source });
+      } catch (e) {}
+    }
+  }
+
+  function source() { var d = {}; try { d = JSON.parse(localStorage.getItem("hrcc_first_touch") || "{}"); } catch (e) {} return d; }
+
+  function fillSource() {
+    var d = source();
+    function set(id, v) { var el = document.getElementById(id); if (el) el.value = v || ""; }
+    set("gdLeadChannel", d.channel || "Direct / typed URL");
+    set("gdLeadLandingSection", d.landingSection || "Main site");
+    set("gdLeadLandingPage", d.landingPage || location.pathname);
+    set("gdLeadReferrer", d.referrer || "");
+    set("gdLeadCampaign", d.utm_campaign || "");
+  }
+
+  // ---- Smart email validation ----
+  var DISPOSABLE = ["mailinator.com","tempmail.com","temp-mail.org","guerrillamail.com","10minutemail.com",
+    "trashmail.com","yopmail.com","sharklasers.com","getnada.com","throwawaymail.com","fakeinbox.com","maildrop.cc"];
+  var TYPO_MAP = { "gmial.com":"gmail.com","gmai.com":"gmail.com","gmal.com":"gmail.com","gmail.con":"gmail.com",
+    "gnail.com":"gmail.com","hotnail.com":"hotmail.com","hotmial.com":"hotmail.com","yahooo.com":"yahoo.com",
+    "yaho.com":"yahoo.com","outlok.com":"outlook.com","outloo.com":"outlook.com" };
+
+  function showError(htmlMsg) {
+    var e = document.getElementById("gdError");
+    e.innerHTML = htmlMsg; e.style.display = "block";
+  }
+  function clearError() { var e = document.getElementById("gdError"); e.style.display = "none"; e.innerHTML = ""; }
+
+  // returns {ok:true} or {ok:false} (after showing message); may auto-suggest a fix
+  function validateEmail(raw) {
+    var email = (raw || "").trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { showError("Please enter a valid email address."); return { ok:false }; }
+    var domain = email.split("@")[1];
+    if (DISPOSABLE.indexOf(domain) !== -1) { showError("Please use a permanent email address so we can send your guide."); return { ok:false }; }
+    if (TYPO_MAP[domain]) {
+      var fixed = email.split("@")[0] + "@" + TYPO_MAP[domain];
+      showError('Did you mean <a id="gdFix">' + fixed + '</a>?');
+      var link = document.getElementById("gdFix");
+      if (link) link.addEventListener("click", function () { document.getElementById("gdEmail").value = fixed; clearError(); });
+      return { ok:false };
+    }
+    return { ok:true, email: email };
+  }
+
+  function getCookie(name) {
+    var m = document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)");
+    return m ? m.pop() : "";
+  }
+
+  function submitToHubSpot(email, firstName) {
+    if (!HS_PORTAL_ID || HS_PORTAL_ID === "YOUR_PORTAL_ID" || !HS_FORM_GUID || HS_FORM_GUID === "YOUR_FORM_GUID") return;
+    var url = "https://api.hsforms.com/submissions/v3/integration/submit/" + HS_PORTAL_ID + "/" + HS_FORM_GUID;
+    var fields = [{ name: "email", value: email }];
+    if (firstName) fields.push({ name: "firstname", value: firstName });
+    var payload = { fields: fields, context: { pageUri: location.href, pageName: document.title } };
+    var hutk = getCookie("hubspotutk"); if (hutk) payload.context.hutk = hutk;
+    fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) }).catch(function () {});
+  }
+
+  function open() {
+    fillSource();
+    overlay.classList.add("gd-open"); overlay.setAttribute("aria-hidden", "false");
+    track("popup_view", { popup: "guide-download", lead_source: (source().channel || "unknown") });
+  }
+  function dismiss() {
+    overlay.classList.remove("gd-open"); overlay.setAttribute("aria-hidden", "true");
+    try { localStorage.setItem(DISMISS_KEY, "1"); } catch (e) {}
+  }
+
+  setTimeout(open, SHOW_DELAY_MS);
+  document.getElementById("gdClose").addEventListener("click", dismiss);
+  overlay.addEventListener("click", function (e) { if (e.target === overlay) dismiss(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && overlay.classList.contains("gd-open")) dismiss(); });
+  document.getElementById("gdEmail").addEventListener("input", clearError);
+
+  document.getElementById("gdDownload").addEventListener("click", function () {
+    track("file_download", { file_name: GUIDE_FILE, lead_source: (source().channel || "unknown") });
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = validateEmail(document.getElementById("gdEmail").value);
+    if (!v.ok) return;
+    clearError();
+    var firstName = (document.getElementById("gdFirst").value || "").trim();
+    var btn = form.querySelector(".gd-submit");
+    if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+
+    // 1) HubSpot (creates contact + triggers the emailed copy)
+    submitToHubSpot(v.email, firstName);
+
+    // 2) Netlify backup capture (feeds admin.html)
+    var body = new URLSearchParams(new FormData(form)).toString();
+    fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body })
+      .then(finish).catch(finish);
+
+    function finish() {
+      track("generate_lead", { method: "guide_popup", lead_source: (source().channel || "unknown") });
+      document.getElementById("gdFormWrap").style.display = "none";
+      document.getElementById("gdSuccess").style.display = "block";
+      try { localStorage.setItem(DISMISS_KEY, "1"); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- POPUP END -->
 </body>
 </html>
