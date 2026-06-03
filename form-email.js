@@ -1,7 +1,6 @@
 /* eslint-env browser */
 
 (() => {
-  const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxg-MyKPVdNQnMiV6hzGheP7q-TZmYHT6-sq21Ma-idDDm03wv6ECPqBatT2sj-XohV2A/exec";
   const TARGET_FORM_SELECTOR = "form[data-netlify='true']";
 
   const forms = Array.from(document.querySelectorAll(TARGET_FORM_SELECTOR));
@@ -22,34 +21,20 @@
     return false;
   }
 
-  async function sendToSheet(form) {
-    const formData = new FormData(form);
-    const data = { formName: form.getAttribute("name") || "contact" };
-    const supportEmail = form.dataset.supportEmail;
+  async function submitToNetlify(form) {
+    // Send the submission to Netlify Forms (your real lead capture).
+    // Netlify records any POST to "/" that includes the hidden form-name field,
+    // which these forms already have.
+    const body = new URLSearchParams(new FormData(form)).toString();
 
-    if (supportEmail) {
-      data.supportEmail = supportEmail;
-    }
-
-    data.sourcePage = window.location.pathname;
-
-    formData.forEach((value, key) => {
-      if (key === "bot-field") return;
-      if (data[key]) {
-        // handle multiple checkboxes with same name
-        data[key] = data[key] + ", " + value;
-      } else {
-        data[key] = value;
-      }
-    });
-
-    const response = await fetch(GOOGLE_SHEET_URL, {
+    const response = await fetch("/", {
       method: "POST",
-      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body,
     });
 
     if (!response.ok) {
-      throw new Error("Sheet post failed: " + response.status);
+      throw new Error("Netlify post failed: " + response.status);
     }
   }
 
@@ -86,7 +71,7 @@
       }
 
       try {
-        await sendToSheet(form);
+        await submitToNetlify(form);
         const done = document.createElement("div");
         done.className = "form-success";
         done.setAttribute("role", "status");
@@ -94,7 +79,7 @@
         done.innerHTML = "<p style='margin:0;font-size:1.05rem;line-height:1.6;'>Thanks &mdash; we&rsquo;ve received your message and will reply within one business day.</p>";
         form.replaceWith(done);
       } catch (error) {
-        console.error("Sheet error, falling back to native submit:", error);
+        console.error("Netlify AJAX failed, falling back to native submit:", error);
         form.submit();
       } finally {
         if (submitButton) {
