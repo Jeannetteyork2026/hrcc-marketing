@@ -4,3 +4,6 @@ insights/*.html.vite
 # Internal lead-admin tool — must never be deployed to the public site.
 # Netlify publishes the repo root, so keeping this untracked is what keeps it private.
 /admin.html
+
+# FUSE temp files (created when a file is rewritten while open in an editor)
+.fuse_hidden*
