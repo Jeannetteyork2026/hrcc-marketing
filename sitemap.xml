@@ -24,41 +24,48 @@
 
   <url>
     <loc>https://www.hrcompliancecompass.com/insights.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.hrcompliancecompass.com/insights/hr-compliance-updates-june-2026</loc>
+    <loc>https://www.hrcompliancecompass.com/insights/hr-compliance-updates-july-2026.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hrcompliancecompass.com/insights/hr-compliance-updates-june-2026.html</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.hrcompliancecompass.com/insights/multi-state-handbook-mistakes</loc>
+    <loc>https://www.hrcompliancecompass.com/insights/multi-state-handbook-mistakes.html</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.hrcompliancecompass.com/insights/overtime-rule-rescinded-may-2026</loc>
+    <loc>https://www.hrcompliancecompass.com/insights/overtime-rule-rescinded-may-2026.html</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.hrcompliancecompass.com/insights/investigation-framework-small-hr</loc>
+    <loc>https://www.hrcompliancecompass.com/insights/investigation-framework-small-hr.html</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.hrcompliancecompass.com/insights/documenting-performance-problems</loc>
+    <loc>https://www.hrcompliancecompass.com/insights/documenting-performance-problems.html</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
