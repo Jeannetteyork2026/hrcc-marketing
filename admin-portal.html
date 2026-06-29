@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Admin &middot; HR Compliance Compass</title>
+<style>
+  :root {
+    --ink:#0b0e14; --ink-soft:#131722; --ink-card:#171c28;
+    --cream:#f3ede1; --cream-soft:#e8dfcf; --gold:#d4a154; --gold-light:#e6b86d;
+    --line:rgba(255,255,255,0.10); --line-soft:rgba(255,255,255,0.06);
+    --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    color-scheme:dark;
+    --green:#6fcf97; --red:#d98a8a; --blue:#6ea8fe; --teal:#5fd0c5;
+  }
+  * { box-sizing:border-box; }
+  html,body { margin:0; padding:0; }
+  body { font-family:var(--sans); background:var(--ink); color:var(--cream); line-height:1.6; -webkit-font-smoothing:antialiased; }
+  a { color:var(--gold-light); text-decoration:none; }
+
+  .topbar { background:var(--ink); padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line-soft); gap:1rem; flex-wrap:wrap; }
+  .brand { display:flex; align-items:center; gap:.6rem; font-family:var(--serif); font-size:1.2rem; }
+  .brand .mark { width:30px; height:30px; border-radius:50%; background:radial-gradient(circle at 35% 30%,var(--gold-light),var(--gold) 70%); display:inline-flex; align-items:center; justify-content:center; color:var(--ink); font-weight:700; font-size:.9rem; font-family:var(--sans); }
+  .brand span { color:var(--gold-light); font-style:italic; }
+  .brand small { display:block; font-family:var(--sans); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(243,237,225,0.45); }
+  .userbar { display:flex; gap:.8rem; align-items:center; font-size:.8rem; color:rgba(243,237,225,0.55); }
+
+  button,.btn { font-family:var(--sans); font-size:.85rem; font-weight:600; padding:.6rem 1rem; border-radius:3px; border:1px solid var(--line); background:transparent; color:var(--cream); cursor:pointer; transition:.15s; }
+  button:hover,.btn:hover { border-color:var(--gold); color:var(--gold-light); }
+  .btn-gold { background:var(--gold); color:var(--ink); border-color:var(--gold); }
+  .btn-gold:hover { background:var(--gold-light); color:var(--ink); border-color:var(--gold-light); }
+  button:disabled { opacity:.45; cursor:not-allowed; }
+
+  main { max-width:1240px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+  h1 { font-family:var(--serif); font-weight:300; font-size:2rem; margin:0 0 .25rem; }
+  h1 em { color:var(--gold-light); font-style:italic; }
+  .subhead { color:rgba(243,237,225,0.55); font-size:.95rem; margin:0 0 2rem; }
+
+  /* Gate */
+  .gate { background:var(--ink-card); border:1px solid var(--line-soft); border-radius:6px; padding:1.4rem; max-width:560px; }
+  .gate p { color:rgba(243,237,225,0.6); font-size:.9rem; margin:0 0 .8rem; }
+  .gate .row { display:flex; gap:.6rem; flex-wrap:wrap; }
+  input[type=password],input[type=text] { flex:1 1 240px; min-width:200px; padding:.6rem .9rem; background:rgba(255,255,255,0.04); border:1px solid var(--line); border-radius:3px; color:var(--cream); font-size:.9rem; }
+  input:focus { outline:none; border-color:var(--gold); }
+  .msg { font-size:.85rem; margin:.6rem 0; }
+  .msg.error { color:var(--red); }
+  .msg.ok { color:var(--green); }
+  .hide { display:none; }
+
+  /* Tabs */
+  .tabs { display:flex; gap:.25rem; border-bottom:1px solid var(--line-soft); margin-bottom:1.5rem; }
+  .tab { background:transparent; border:none; border-bottom:2px solid transparent; border-radius:0; padding:.85rem 1.1rem; color:rgba(243,237,225,0.6); font-weight:600; }
+  .tab:hover { color:var(--gold-light); }
+  .tab.active { color:var(--gold-light); border-bottom-color:var(--gold); }
+  .tab .badge { display:inline-block; min-width:18px; padding:0 5px; margin-left:.4rem; border-radius:9px; background:var(--gold); color:var(--ink); font-size:.72rem; font-weight:700; text-align:center; }
+  .tabpanel.hide { display:none; }
+
+  /* Stats */
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1rem; margin-bottom:2rem; }
+  .stat { background:var(--ink-card); border:1px solid var(--line-soft); border-radius:6px; padding:1.1rem 1.2rem; }
+  .stat .num { font-family:var(--serif); font-size:2.1rem; line-height:1; color:var(--cream); }
+  .stat .num.gold { color:var(--gold-light); }
+  .stat .lbl { font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(243,237,225,0.5); margin-top:.5rem; }
+
+  /* Table */
+  .table-wrap { background:var(--ink-card); border:1px solid var(--line-soft); border-radius:6px; overflow:hidden; }
+  table { width:100%; border-collapse:collapse; font-size:.88rem; }
+  thead th { text-align:left; font-size:.7rem; letter-spacing:.07em; text-transform:uppercase; color:rgba(243,237,225,0.5); padding:.85rem 1rem; border-bottom:1px solid var(--line); white-space:nowrap; }
+  tbody td { padding:.8rem 1rem; border-bottom:1px solid var(--line-soft); vertical-align:middle; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:hover { background:rgba(255,255,255,0.02); }
+  .lead-name { font-weight:600; }
+  .lead-email { color:rgba(243,237,225,0.6); font-size:.82rem; }
+  .muted { color:rgba(243,237,225,0.5); }
+  .chan-tag { display:inline-block; font-size:.78rem; padding:.2rem .6rem; border-radius:20px; background:rgba(212,161,84,0.12); color:var(--gold-light); border:1px solid rgba(212,161,84,0.25); }
+  .yes { color:var(--green); font-weight:700; }
+  .no { color:rgba(243,237,225,0.35); }
+  .empty { text-align:center; padding:3rem 1rem; color:rgba(243,237,225,0.5); }
+
+  /* Review cards */
+  .rv-card { background:var(--ink-card); border:1px solid var(--line-soft); border-radius:6px; padding:1.2rem 1.3rem; margin:0 0 1rem; }
+  .rv-meta { display:flex; gap:.6rem; align-items:center; flex-wrap:wrap; margin-bottom:.4rem; }
+  .rv-tag { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:.2rem .6rem; border-radius:20px; background:rgba(95,208,197,0.14); color:var(--teal); border:1px solid rgba(95,208,197,0.3); }
+  .rv-tag.manual { background:rgba(212,161,84,0.14); color:var(--gold-light); border-color:rgba(212,161,84,0.3); }
+  .rv-lawid { font-family:ui-monospace,Menlo,monospace; font-size:.8rem; color:rgba(243,237,225,0.55); }
+  .rv-card h3 { margin:.3rem 0 .7rem; font-size:1rem; color:var(--cream); font-weight:600; }
+  .rv-diff { background:rgba(255,255,255,0.03); border:1px solid var(--line-soft); border-radius:5px; padding:.7rem .9rem; margin:0 0 .9rem; font-size:.82rem; }
+  .rv-diff .f { font-weight:700; color:var(--gold-light); margin-top:.6rem; }
+  .rv-diff .f:first-child { margin-top:0; }
+  .rv-diff .v { display:block; white-space:pre-wrap; word-break:break-word; margin:.15rem 0; padding-left:.6rem; border-left:2px solid var(--line); }
+  .rv-diff .was { color:var(--red); }
+  .rv-diff .new { color:var(--green); }
+  .rv-src { font-size:.75rem; color:rgba(243,237,225,0.5); margin:0 0 .9rem; line-height:1.5; }
+  .rv-actions { display:flex; gap:.5rem; }
+
+  .loading { text-align:center; padding:4rem 1rem; color:rgba(243,237,225,0.5); }
+  footer { text-align:center; color:rgba(243,237,225,0.4); font-size:.8rem; padding:2rem 1rem; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <span class="mark">HR</span>
+    <div>HR Compliance <span>Compass</span><small>Admin</small></div>
+  </div>
+  <div class="userbar" id="userBar" style="display:none;">
+    <span id="whoami"></span>
+    <button id="logout" class="btn">Log out</button>
+  </div>
+</div>
+
+<main>
+  <!-- shown while we check whether you're signed in -->
+  <div id="authCheck" class="loading">Checking your sign-in&hellip;</div>
+
+  <!-- passphrase gate (shown only after Supabase login is confirmed) -->
+  <div id="gate" class="gate hide">
+    <h1 style="font-size:1.5rem;margin-bottom:.6rem;">Admin <em>sign-in</em></h1>
+    <p>You're logged in. Now enter your review passphrase (the one from the SQL setup). It unlocks both the Lead Funnel and the Review Queue. Not stored anywhere.</p>
+    <div class="row">
+      <input type="password" id="pass" placeholder="Passphrase" autocomplete="off" />
+      <button class="btn-gold" id="unlock">Unlock</button>
+    </div>
+    <p class="msg" id="gateMsg"></p>
+  </div>
+
+  <!-- app (hidden until unlocked) -->
+  <div id="app" class="hide">
+    <nav class="tabs">
+      <button class="tab active" data-tab="leads">Lead Funnel</button>
+      <button class="tab" data-tab="review">Review Queue<span class="badge" id="rvBadge" style="display:none;"></span></button>
+    </nav>
+
+    <!-- LEAD FUNNEL -->
+    <section id="tab-leads" class="tabpanel">
+      <h1>Lead <em>Funnel</em></h1>
+      <p class="subhead">Everyone who requested the 50-State Quick Reference, where they came from, and whether they went on to click Start Free Trial.</p>
+      <div class="stats" id="leadStats"></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Lead</th><th>Source</th><th>Requested guide</th><th>Clicked trial</th></tr></thead>
+          <tbody id="leadRows"></tbody>
+        </table>
+        <div class="empty" id="leadEmpty" style="display:none;">No leads yet. They appear here as people request the 50-State guide.</div>
+      </div>
+    </section>
+
+    <!-- REVIEW QUEUE -->
+    <section id="tab-review" class="tabpanel hide">
+      <h1>Review <em>Queue</em></h1>
+      <p class="subhead">Pending law-card updates. Approve to publish to the live app, or deny to dismiss. Both stay in your audit trail.</p>
+      <p class="msg" id="rvMsg"></p>
+      <div id="rvList"></div>
+    </section>
+  </div>
+</main>
+
+<footer>HR Compliance Compass &middot; CompassLine LLC &mdash; internal admin</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function () {
+  // ===== CONFIG: Supabase values (anon key is public/safe) =====
+  var SB_URL  = "https://blmnnmsrztxuwawmgkkf.supabase.co";
+  var SB_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJsbW5ubXNyenR4dXdhd21na2tmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyMjMwNjUsImV4cCI6MjA5MTc5OTA2NX0.OuCQgZQAinZDi3XHKZqrNBh3XplTuSEo7AsFCrhPZjk";
+  var LOGIN_PAGE = "/Login.html";   // where to send people who are not signed in
+  var THIS_PATH  = "/admin";        // clean URL this page is served at
+  // =============================================================
+
+  var pass = "", client = null;
+  function g(id) { return document.getElementById(id); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
+  function trunc(s, n) { s = (s === null || s === undefined) ? "(empty)" : (typeof s === "string" ? s : JSON.stringify(s)); return s.length > n ? s.slice(0, n) + "…" : s; }
+  function msg(el, kind, text) { el.className = "msg " + (kind || ""); el.textContent = text || ""; }
+  function fmtDate(s) { if (!s) return "—"; var d = new Date(s); return isNaN(d) ? "—" : d.toLocaleDateString("en-US", { month:"short", day:"numeric", year:"numeric" }); }
+
+  // ---- Lead Funnel ----
+  function renderLeads(rows) {
+    var total = rows.length;
+    var guide = 0, trial = 0;
+    rows.forEach(function (r) { if (r.requested_guide) guide++; if (r.clicked_trial) trial++; });
+    var rate = guide > 0 ? Math.round((trial / guide) * 100) : 0;
+    var cards = [
+      { num: total, lbl: "Total leads", gold: false },
+      { num: guide, lbl: "Requested guide", gold: false },
+      { num: trial, lbl: "Clicked trial", gold: true },
+      { num: rate + "%", lbl: "Guide → trial rate", gold: true }
+    ];
+    g("leadStats").innerHTML = cards.map(function (c) {
+      return '<div class="stat"><div class="num' + (c.gold ? ' gold' : '') + '">' + c.num + '</div><div class="lbl">' + c.lbl + '</div></div>';
+    }).join("");
+
+    g("leadEmpty").style.display = total ? "none" : "block";
+    g("leadRows").innerHTML = rows.map(function (r) {
+      return '<tr>' +
+        '<td><div class="lead-name">' + esc(r.first_name || "—") + '</div><div class="lead-email">' + esc(r.email || "") + '</div></td>' +
+        '<td><span class="chan-tag">' + esc(r.source_channel || "Unknown") + '</span></td>' +
+        '<td class="muted">' + fmtDate(r.guide_requested_at) + '</td>' +
+        '<td>' + (r.clicked_trial ? '<span class="yes">✓ ' + fmtDate(r.trial_clicked_at) + '</span>' : '<span class="no">—</span>') + '</td>' +
+      '</tr>';
+    }).join("");
+  }
+
+  // ---- Review Queue ----
+  function setBadge(n) { var b = g("rvBadge"); if (n > 0) { b.textContent = n; b.style.display = "inline-block"; } else { b.style.display = "none"; } }
+  function renderDiff(pc) {
+    var html = '<div class="rv-diff">';
+    Object.keys(pc).filter(function (k) { return k !== "_target_table"; }).forEach(function (k) {
+      var e = pc[k] || {};
+      html += '<div class="f">' + esc(k) + '</div>';
+      html += '<span class="v was">was: ' + esc(trunc(e.from, 240)) + '</span>';
+      html += '<span class="v new">new: ' + esc(trunc(e.to, 240)) + '</span>';
+    });
+    return html + '</div>';
+  }
+  function renderReview(rows) {
+    var list = g("rvList"); list.innerHTML = ""; setBadge(rows.length);
+    if (!rows.length) { list.innerHTML = '<div class="empty">No pending updates. You are all caught up.</div>'; return; }
+    rows.forEach(function (r) {
+      var pc = r.proposed_changes || {};
+      var manual = Object.prototype.hasOwnProperty.call(pc, "_target_table");
+      var div = document.createElement("div"); div.className = "rv-card"; div.id = "rv-" + r.id;
+      div.innerHTML =
+        '<div class="rv-meta"><span class="rv-tag' + (manual ? ' manual' : '') + '">' + (manual ? 'Manual only' : esc(r.change_type)) + '</span>' +
+        '<span class="rv-lawid">' + esc(r.law_id) + ' · ' + esc(r.state_code || '') + '</span></div>' +
+        '<h3>' + esc(r.change_summary || r.law_id) + '</h3>' + renderDiff(pc) +
+        (r.raw_source_text ? '<p class="rv-src"><strong>Source:</strong> ' + esc(trunc(r.raw_source_text, 300)) + '</p>' : '') +
+        '<div class="rv-actions">' +
+          (manual ? '<button class="btn" disabled title="Apply with the manual SQL line">Approve (manual only)</button>'
+                  : '<button class="btn-gold rv-ok" data-id="' + r.id + '">Approve &amp; publish</button>') +
+          '<button class="btn rv-no" data-id="' + r.id + '">Deny</button>' +
+        '</div>';
+      list.appendChild(div);
+    });
+  }
+  function dropReview(id) {
+    var c = g("rv-" + id); if (c) c.remove();
+    var n = g("rvList").querySelectorAll(".rv-card").length; setBadge(n);
+    if (!n) g("rvList").innerHTML = '<div class="empty">No pending updates. You are all caught up.</div>';
+  }
+  function loadReview() {
+    client.rpc("list_pending_updates", { p_passphrase: pass }).then(function (res) {
+      if (res.error) { return; }
+      renderReview(res.data || []);
+    });
+  }
+
+  // ---- Approve / Deny clicks ----
+  function bindReviewActions() {
+    document.addEventListener("click", function (e) {
+      var ok = e.target.closest ? e.target.closest(".rv-ok") : null;
+      var no = e.target.closest ? e.target.closest(".rv-no") : null;
+      if (ok) {
+        var id = ok.getAttribute("data-id");
+        if (!confirm("Approve this update and publish it to the live card?")) return;
+        client.rpc("approve_pending_update", { p_id: id, p_passphrase: pass }).then(function (res) {
+          if (res.error) { msg(g("rvMsg"), "error", "Could not approve: " + res.error.message); return; }
+          msg(g("rvMsg"), "ok", "Approved and published."); dropReview(id);
+        });
+      }
+      if (no) {
+        var id2 = no.getAttribute("data-id");
+        var note = prompt("Deny this update? Optional note:", "");
+        if (note === null) return;
+        client.rpc("reject_pending_update", { p_id: id2, p_passphrase: pass, p_notes: note || null }).then(function (res) {
+          if (res.error) { msg(g("rvMsg"), "error", "Could not deny: " + res.error.message); return; }
+          msg(g("rvMsg"), "ok", "Denied and removed from the queue."); dropReview(id2);
+        });
+      }
+    });
+  }
+
+  // ---- Tabs ----
+  function bindTabs() {
+    var tabs = document.querySelectorAll(".tab");
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].addEventListener("click", function () {
+        var name = this.getAttribute("data-tab");
+        var all = document.querySelectorAll(".tab");
+        for (var j = 0; j < all.length; j++) all[j].classList.toggle("active", all[j].getAttribute("data-tab") === name);
+        g("tab-leads").classList.toggle("hide", name !== "leads");
+        g("tab-review").classList.toggle("hide", name !== "review");
+      });
+    }
+  }
+
+  // ---- Passphrase unlock ----
+  function unlock() {
+    pass = g("pass").value.trim();
+    if (!pass) { msg(g("gateMsg"), "error", "Enter your passphrase."); return; }
+    client.rpc("list_leads", { p_passphrase: pass }).then(function (res) {
+      if (res.error) { msg(g("gateMsg"), "error", res.error.message.indexOf("passphrase") !== -1 ? "Incorrect passphrase." : ("Error: " + res.error.message)); return; }
+      g("gate").classList.add("hide");
+      g("app").classList.remove("hide");
+      renderLeads(res.data || []);
+      loadReview();
+    });
+  }
+
+  // ---- Start the admin (runs only after Supabase login is confirmed) ----
+  function startAdmin(session) {
+    g("authCheck").classList.add("hide");
+    g("gate").classList.remove("hide");
+    g("userBar").style.display = "flex";
+    g("whoami").textContent = (session && session.user && session.user.email) ? ("Signed in: " + session.user.email) : "Signed in";
+
+    g("logout").addEventListener("click", function () {
+      client.auth.signOut().then(function () { window.location.replace(LOGIN_PAGE); });
+    });
+
+    bindTabs();
+    bindReviewActions();
+    g("unlock").addEventListener("click", unlock);
+    g("pass").addEventListener("keydown", function (e) { if (e.key === "Enter") unlock(); });
+  }
+
+  // ---- Login gate: you must be signed in (Supabase) to reach this page ----
+  if (!window.supabase || typeof window.supabase.createClient !== "function") {
+    g("authCheck").textContent = "Could not load the sign-in library. Please refresh.";
+    return;
+  }
+  client = window.supabase.createClient(SB_URL, SB_ANON);
+  client.auth.getSession().then(function (res) {
+    var session = res && res.data ? res.data.session : null;
+    if (!session) {
+      window.location.replace(LOGIN_PAGE + "?next=" + encodeURIComponent(THIS_PATH));
+      return;
+    }
+    startAdmin(session);
+  }).catch(function () {
+    window.location.replace(LOGIN_PAGE + "?next=" + encodeURIComponent(THIS_PATH));
+  });
+})();
+</script>
+</body>
+</html>

@@ -270,12 +270,21 @@
         return;
       }
 
-      if (sessionStorage.getItem(REDIRECT_ONCE_KEY) === "1") {
+      // If we were sent here from a protected page (e.g. /admin), go back there.
+      // Only same-origin paths that start with a single "/" are allowed.
+      var dest = "/";
+      var nextParam = null;
+      try { nextParam = new URL(window.location.href).searchParams.get("next"); } catch (e) {}
+      var hasSafeNext = nextParam && nextParam.charAt(0) === "/" && nextParam.charAt(1) !== "/";
+
+      if (hasSafeNext) {
+        dest = nextParam;
+      } else if (sessionStorage.getItem(REDIRECT_ONCE_KEY) === "1") {
         return;
       }
 
       sessionStorage.setItem(REDIRECT_ONCE_KEY, "1");
-      window.location.assign("/");
+      window.location.assign(dest);
     }
 
     function validateSupabaseConfig() {
