@@ -175,7 +175,6 @@
 
       <div class="actions">
         <button id="loginBtn" class="btn" type="button">Log in</button>
-        <button id="resetBtn" class="btn secondary" type="button">Send password reset</button>
       </div>
     </section>
 
@@ -220,7 +219,6 @@
     const emailInput = document.getElementById("email");
     const passwordInput = document.getElementById("password");
     const loginBtn = document.getElementById("loginBtn");
-    const resetBtn = document.getElementById("resetBtn");
     const newPasswordInput = document.getElementById("newPassword");
     const confirmPasswordInput = document.getElementById("confirmPassword");
     const updatePasswordBtn = document.getElementById("updatePasswordBtn");
@@ -260,7 +258,6 @@
 
     function disableButtons(isDisabled) {
       loginBtn.disabled = isDisabled;
-      resetBtn.disabled = isDisabled;
       updatePasswordBtn.disabled = isDisabled;
       logoutBtn.disabled = isDisabled;
     }
@@ -371,30 +368,6 @@
         setUser(loginResult.data && loginResult.data.user ? loginResult.data.user : null);
         setStatus("Login successful.");
         redirectToAppOnce();
-      });
-
-      resetBtn.addEventListener("click", async function () {
-        setError("");
-        setStatus("");
-
-        const email = emailInput.value.trim();
-        if (!email) {
-          setError("Enter your email first, then send a reset link.");
-          return;
-        }
-
-        disableButtons(true);
-        const resetResult = await supabase.auth.resetPasswordForEmail(email, {
-          redirectTo: new URL("/login.html", window.location.origin).toString(),
-        });
-        disableButtons(false);
-
-        if (resetResult.error) {
-          setError(resetResult.error.message);
-          return;
-        }
-
-        setStatus("Password reset email sent. Check your inbox.");
       });
 
       updatePasswordBtn.addEventListener("click", async function () {
