@@ -96,6 +96,23 @@
   .rv-actions { display:flex; gap:.5rem; }
 
   .loading { text-align:center; padding:4rem 1rem; color:rgba(243,237,225,0.5); }
+
+  /* Tracking launchpad */
+  .track-intro { background:var(--ink-card); border:1px solid var(--line-soft); border-radius:6px; padding:1.1rem 1.3rem; margin:0 0 1.8rem; font-size:.9rem; color:rgba(243,237,225,0.7); line-height:1.65; }
+  .track-intro strong { color:var(--cream); }
+  .launch-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.1rem; margin-bottom:1rem; }
+  .launch-card { background:var(--ink-card); border:1px solid var(--line-soft); border-radius:6px; padding:1.3rem 1.4rem; display:flex; flex-direction:column; }
+  .launch-card .lc-top { display:flex; align-items:center; gap:.7rem; margin-bottom:.7rem; }
+  .launch-card .lc-dot { width:34px; height:34px; border-radius:8px; flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:.85rem; color:var(--ink); }
+  .launch-card .lc-dot.clarity { background:#5fd0c5; }
+  .launch-card .lc-dot.ga { background:#e6b86d; }
+  .launch-card .lc-dot.meta { background:#6ea8fe; }
+  .launch-card h3 { margin:0; font-size:1.05rem; color:var(--cream); font-weight:600; }
+  .launch-card .lc-sub { font-size:.72rem; letter-spacing:.05em; text-transform:uppercase; color:rgba(243,237,225,0.45); margin-top:.15rem; }
+  .launch-card p { font-size:.86rem; color:rgba(243,237,225,0.68); line-height:1.6; margin:0 0 1.1rem; flex:1 1 auto; }
+  .launch-card .lc-id { font-family:ui-monospace,Menlo,monospace; font-size:.75rem; color:rgba(243,237,225,0.45); margin:0 0 1rem; }
+  .launch-card .btn { text-align:center; text-decoration:none; }
+
   footer { text-align:center; color:rgba(243,237,225,0.4); font-size:.8rem; padding:2rem 1rem; }
 </style>
 </head>
@@ -131,6 +148,7 @@
   <div id="app" class="hide">
     <nav class="tabs">
       <button class="tab active" data-tab="leads">Lead Funnel</button>
+      <button class="tab" data-tab="tracking">Tracking</button>
       <button class="tab" data-tab="review">Review Queue<span class="badge" id="rvBadge" style="display:none;"></span></button>
     </nav>
 
@@ -145,6 +163,47 @@
           <tbody id="leadRows"></tbody>
         </table>
         <div class="empty" id="leadEmpty" style="display:none;">No leads yet. They appear here as people request the 50-State guide.</div>
+      </div>
+    </section>
+
+    <!-- TRACKING -->
+    <section id="tab-tracking" class="tabpanel hide">
+      <h1>Tracking <em>overview</em></h1>
+      <p class="subhead">One place to see how you're doing and jump straight into each tool. Your own lead numbers are below; the buttons open Clarity, Google Analytics, and Meta in a new tab (you'll sign in to each the first time).</p>
+
+      <div class="track-intro">
+        <strong>Quick guide to what each tool tells you:</strong><br>
+        &bull; <strong>Your lead funnel</strong> &mdash; the people who actually gave you their details and how many went on toward a trial. This is your data.<br>
+        &bull; <strong>Microsoft Clarity</strong> &mdash; watch recordings of real visits and see heatmaps of where people click and how far they scroll. Best for "why did they leave?"<br>
+        &bull; <strong>Google Analytics</strong> &mdash; the numbers: how many visitors, where they came from (Google, social, email), and which pages they viewed. Best for "how much and from where?"<br>
+        &bull; <strong>Meta</strong> &mdash; activity from your Facebook/Instagram pixel and any ad-driven leads. Best if you run Meta ads.
+      </div>
+
+      <div class="stats" id="trackStats"></div>
+
+      <div class="launch-grid">
+        <div class="launch-card">
+          <div class="lc-top"><span class="lc-dot clarity">C</span><div><h3>Microsoft Clarity</h3><div class="lc-sub">Recordings &amp; heatmaps</div></div></div>
+          <p>See session replays and heatmaps. You have two separate projects &mdash; one for the public website, one for the app &mdash; so their data stays clean and separate.</p>
+          <p class="lc-id">Website: x5inxh7lug &nbsp;·&nbsp; App: x9kdcg8ehp</p>
+          <a class="btn btn-gold" href="https://clarity.microsoft.com/projects/view/x5inxh7lug/dashboard" target="_blank" rel="noopener">Open Clarity — Website</a>
+          <a class="btn" style="margin-top:.5rem;" href="https://clarity.microsoft.com/projects/view/x9kdcg8ehp/dashboard" target="_blank" rel="noopener">Open Clarity — App</a>
+        </div>
+
+        <div class="launch-card">
+          <div class="lc-top"><span class="lc-dot ga">G</span><div><h3>Google Analytics</h3><div class="lc-sub">Traffic &amp; sources</div></div></div>
+          <p>Visitor counts, traffic sources, top pages, and conversions. After it opens, pick the "HR Compliance Compass" property if prompted.</p>
+          <p class="lc-id">Property ID: 117130312 &nbsp;·&nbsp; Measurement ID: G-9CXFF6HMVN</p>
+          <a class="btn btn-gold" href="https://analytics.google.com/analytics/web/#/p117130312/reports/reportinghub" target="_blank" rel="noopener">Open Google Analytics</a>
+        </div>
+
+        <div class="launch-card">
+          <div class="lc-top"><span class="lc-dot meta">M</span><div><h3>Meta (Facebook)</h3><div class="lc-sub">Pixel &amp; ad leads</div></div></div>
+          <p>Your Facebook/Instagram pixel activity &mdash; leads and guide downloads it recorded. Use Events Manager for pixel data, or Ads Manager if you're running ads.</p>
+          <p class="lc-id">Pixel ID: 1040310321899022</p>
+          <a class="btn btn-gold" href="https://business.facebook.com/events_manager2/list/pixel" target="_blank" rel="noopener">Open Meta Events Manager</a>
+          <a class="btn" style="margin-top:.5rem;" href="https://www.facebook.com/adsmanager" target="_blank" rel="noopener">Open Meta Ads Manager</a>
+        </div>
       </div>
     </section>
 
@@ -189,9 +248,11 @@
       { num: trial, lbl: "Clicked trial", gold: true },
       { num: rate + "%", lbl: "Guide → trial rate", gold: true }
     ];
-    g("leadStats").innerHTML = cards.map(function (c) {
+    var cardsHtml = cards.map(function (c) {
       return '<div class="stat"><div class="num' + (c.gold ? ' gold' : '') + '">' + c.num + '</div><div class="lbl">' + c.lbl + '</div></div>';
     }).join("");
+    g("leadStats").innerHTML = cardsHtml;
+    if (g("trackStats")) g("trackStats").innerHTML = cardsHtml;
 
     g("leadEmpty").style.display = total ? "none" : "block";
     g("leadRows").innerHTML = rows.map(function (r) {
@@ -281,8 +342,8 @@
         var name = this.getAttribute("data-tab");
         var all = document.querySelectorAll(".tab");
         for (var j = 0; j < all.length; j++) all[j].classList.toggle("active", all[j].getAttribute("data-tab") === name);
-        g("tab-leads").classList.toggle("hide", name !== "leads");
-        g("tab-review").classList.toggle("hide", name !== "review");
+        var panels = document.querySelectorAll(".tabpanel");
+        for (var k = 0; k < panels.length; k++) panels[k].classList.toggle("hide", panels[k].id !== "tab-" + name);
       });
     }
   }
