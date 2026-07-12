@@ -136,7 +136,7 @@
   <!-- passphrase gate (shown only after Supabase login is confirmed) -->
   <div id="gate" class="gate hide">
     <h1 style="font-size:1.5rem;margin-bottom:.6rem;">Admin <em>sign-in</em></h1>
-    <p>You're logged in. Now enter your review passphrase (the one from the SQL setup). It unlocks both the Lead Funnel and the Review Queue. Not stored anywhere.</p>
+    <p>You're signed in, but this account couldn't open the admin automatically. If you have a review passphrase from the SQL setup you can try it here; otherwise this account may not be on the admin list.</p>
     <div class="row">
       <input type="password" id="pass" placeholder="Passphrase" autocomplete="off" />
       <button class="btn-gold" id="unlock">Unlock</button>
@@ -348,12 +348,23 @@
     }
   }
 
-  // ---- Passphrase unlock ----
-  function unlock() {
-    pass = g("pass").value.trim();
-    if (!pass) { msg(g("gateMsg"), "error", "Enter your passphrase."); return; }
-    client.rpc("list_leads", { p_passphrase: pass }).then(function (res) {
-      if (res.error) { msg(g("gateMsg"), "error", res.error.message.indexOf("passphrase") !== -1 ? "Incorrect passphrase." : ("Error: " + res.error.message)); return; }
+  // ---- Enter the dashboard ----
+  // Access is decided by identity (is_admin) on the server, not the passphrase.
+  // enter() tries to load; on success it opens the app, on failure it shows why.
+  function enter(passphrase, fromGate) {
+    client.rpc("list_leads", { p_passphrase: passphrase || "" }).then(function (res) {
+      if (res.error) {
+        var m = res.error.message || "";
+        var friendly = m.toLowerCase().indexOf("admin") !== -1
+          ? "This account isn't authorized for the admin. If it should be, add it to admin_users."
+          : ("Couldn't load the admin: " + m);
+        // Reveal the manual gate as a fallback so there is always a way forward.
+        g("authCheck").classList.add("hide");
+        g("gate").classList.remove("hide");
+        msg(g("gateMsg"), "error", friendly);
+        return;
+      }
+      g("authCheck").classList.add("hide");
       g("gate").classList.add("hide");
       g("app").classList.remove("hide");
       renderLeads(res.data || []);
@@ -361,10 +372,11 @@
     });
   }
 
+  // Manual fallback (passphrase box) — kept in case identity load ever fails.
+  function unlock() { enter(g("pass").value.trim(), true); }
+
   // ---- Start the admin (runs only after Supabase login is confirmed) ----
   function startAdmin(session) {
-    g("authCheck").classList.add("hide");
-    g("gate").classList.remove("hide");
     g("userBar").style.display = "flex";
     g("whoami").textContent = (session && session.user && session.user.email) ? ("Signed in: " + session.user.email) : "Signed in";
 
@@ -376,6 +388,10 @@
     bindReviewActions();
     g("unlock").addEventListener("click", unlock);
     g("pass").addEventListener("keydown", function (e) { if (e.key === "Enter") unlock(); });
+
+    // Recognize the admin and go straight in — no passphrase needed.
+    g("authCheck").textContent = "Opening the admin…";
+    enter("", false);
   }
 
   // ---- Login gate: you must be signed in (Supabase) to reach this page ----
