@@ -136,7 +136,7 @@
   <!-- passphrase gate (shown only after Supabase login is confirmed) -->
   <div id="gate" class="gate hide">
     <h1 style="font-size:1.5rem;margin-bottom:.6rem;">Admin <em>sign-in</em></h1>
-    <p>You're signed in, but this account couldn't open the admin automatically. If you have a review passphrase from the SQL setup you can try it here; otherwise this account may not be on the admin list.</p>
+    <p>Enter your review passphrase to open the Lead Funnel and Review Queue. It is checked securely and not stored anywhere.</p>
     <div class="row">
       <input type="password" id="pass" placeholder="Passphrase" autocomplete="off" />
       <button class="btn-gold" id="unlock">Unlock</button>
@@ -349,22 +349,17 @@
   }
 
   // ---- Enter the dashboard ----
-  // Access is decided by identity (is_admin) on the server, not the passphrase.
-  // enter() tries to load; on success it opens the app, on failure it shows why.
-  function enter(passphrase, fromGate) {
-    client.rpc("list_leads", { p_passphrase: passphrase || "" }).then(function (res) {
+  // Access is decided by the passphrase, checked server-side. No login required.
+  function enter(passphrase) {
+    if (!passphrase) { msg(g("gateMsg"), "error", "Enter your passphrase."); return; }
+    pass = passphrase;
+    msg(g("gateMsg"), "", "Checking…");
+    client.rpc("list_leads", { p_passphrase: pass }).then(function (res) {
       if (res.error) {
-        var m = res.error.message || "";
-        var friendly = m.toLowerCase().indexOf("admin") !== -1
-          ? "This account isn't authorized for the admin. If it should be, add it to admin_users."
-          : ("Couldn't load the admin: " + m);
-        // Reveal the manual gate as a fallback so there is always a way forward.
-        g("authCheck").classList.add("hide");
-        g("gate").classList.remove("hide");
-        msg(g("gateMsg"), "error", friendly);
+        var m = (res.error.message || "").toLowerCase();
+        msg(g("gateMsg"), "error", m.indexOf("passphrase") !== -1 ? "Incorrect passphrase." : ("Error: " + res.error.message));
         return;
       }
-      g("authCheck").classList.add("hide");
       g("gate").classList.add("hide");
       g("app").classList.remove("hide");
       renderLeads(res.data || []);
@@ -372,44 +367,26 @@
     });
   }
 
-  // Manual fallback (passphrase box) — kept in case identity load ever fails.
-  function unlock() { enter(g("pass").value.trim(), true); }
+  function unlock() { enter(g("pass").value.trim()); }
 
-  // ---- Start the admin (runs only after Supabase login is confirmed) ----
-  function startAdmin(session) {
-    g("userBar").style.display = "flex";
-    g("whoami").textContent = (session && session.user && session.user.email) ? ("Signed in: " + session.user.email) : "Signed in";
-
-    g("logout").addEventListener("click", function () {
-      client.auth.signOut().then(function () { window.location.replace(LOGIN_PAGE); });
-    });
-
+  // ---- Show the passphrase gate (no login, no redirect) ----
+  function showGate() {
+    g("authCheck").classList.add("hide");
+    g("gate").classList.remove("hide");
     bindTabs();
     bindReviewActions();
     g("unlock").addEventListener("click", unlock);
     g("pass").addEventListener("keydown", function (e) { if (e.key === "Enter") unlock(); });
-
-    // Recognize the admin and go straight in — no passphrase needed.
-    g("authCheck").textContent = "Opening the admin…";
-    enter("", false);
+    try { g("pass").focus(); } catch (e) {}
   }
 
-  // ---- Login gate: you must be signed in (Supabase) to reach this page ----
   if (!window.supabase || typeof window.supabase.createClient !== "function") {
-    g("authCheck").textContent = "Could not load the sign-in library. Please refresh.";
+    g("authCheck").textContent = "Could not load a required library. Please refresh.";
     return;
   }
   client = window.supabase.createClient(SB_URL, SB_ANON);
-  client.auth.getSession().then(function (res) {
-    var session = res && res.data ? res.data.session : null;
-    if (!session) {
-      window.location.replace(LOGIN_PAGE + "?next=" + encodeURIComponent(THIS_PATH));
-      return;
-    }
-    startAdmin(session);
-  }).catch(function () {
-    window.location.replace(LOGIN_PAGE + "?next=" + encodeURIComponent(THIS_PATH));
-  });
+  // Go straight to the passphrase gate — the passphrase is the only door.
+  showGate();
 })();
 </script>
 </body>
