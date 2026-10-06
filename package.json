@@ -1,0 +1,9 @@
+{
+  "name": "hrcc-marketing",
+  "private": true,
+  "description": "Static marketing site. Dependencies here are only for the Netlify function that builds the 50-State Quick Reference.",
+  "type": "module",
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  }
+}

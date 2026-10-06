@@ -1,3 +1,7 @@
+# 50-State Quick Reference: built live from the published law cards (forced, so the
+# old static filename and links in past emails also get the current version).
+/HRCC-50-State-Quick-Reference-2026.xlsx       /.netlify/functions/quick-reference                    200!
+/50-state-quick-reference.xlsx                 /.netlify/functions/quick-reference                    200!
 /                                              /hr-compliance-compass.html                            301!
 /terms                                         /terms.html                                            200
 /about                                         /about.html                                            200
