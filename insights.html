@@ -2,6 +2,18 @@
 <html lang="en">
 <head>
 <!-- Google Analytics 4 -->
+<script>
+  // Owner opt-out: open any page once with ?hrcc_internal=1 to stop this
+  // browser from being counted (?hrcc_internal=0 turns counting back on).
+  (function () {
+    try {
+      var q = location.search;
+      if (q.indexOf("hrcc_internal=1") > -1) localStorage.setItem("hrcc_internal", "1");
+      if (q.indexOf("hrcc_internal=0") > -1) localStorage.removeItem("hrcc_internal");
+      if (localStorage.getItem("hrcc_internal") === "1") window["ga-disable-G-9CXFF6HMVN"] = true;
+    } catch (e) {}
+  })();
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9CXFF6HMVN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -590,13 +602,15 @@ src="https://www.facebook.com/tr?id=1040310321899022&ev=PageView&noscript=1"
   }
 
   function submitToHubSpot(email, firstName) {
-    if (!HS_PORTAL_ID || HS_PORTAL_ID === "YOUR_PORTAL_ID" || !HS_FORM_GUID || HS_FORM_GUID === "YOUR_FORM_GUID") return;
+    if (!HS_PORTAL_ID || HS_PORTAL_ID === "YOUR_PORTAL_ID" || !HS_FORM_GUID || HS_FORM_GUID === "YOUR_FORM_GUID") return Promise.resolve(false);
     var url = "https://api.hsforms.com/submissions/v3/integration/submit/" + HS_PORTAL_ID + "/" + HS_FORM_GUID;
     var fields = [{ name: "email", value: email }];
     if (firstName) fields.push({ name: "firstname", value: firstName });
     var payload = { fields: fields, context: { pageUri: location.href, pageName: document.title } };
     var hutk = getCookie("hubspotutk"); if (hutk) payload.context.hutk = hutk;
-    fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) }).catch(function () {});
+    // Resolves true only when HubSpot accepted the contact.
+    return fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) })
+      .then(function (res) { return res.ok; }, function () { return false; });
   }
 
   function open() {
@@ -628,16 +642,29 @@ src="https://www.facebook.com/tr?id=1040310321899022&ev=PageView&noscript=1"
     var btn = form.querySelector(".gd-submit");
     if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
 
+    // Spam bots fill the hidden field; never count those as leads.
+    var hp = form.querySelector('[name="bot-field"]');
+    var isBot = !!(hp && hp.value);
+
     // 1) HubSpot (creates contact + triggers the emailed copy)
-    submitToHubSpot(v.email, firstName);
+    var hubspot = submitToHubSpot(v.email, firstName);
 
-    // 2) Netlify backup capture (feeds admin.html)
+    // 2) Netlify backup capture
     var body = new URLSearchParams(new FormData(form)).toString();
-    fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body })
-      .then(finish).catch(finish);
+    var netlify = fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body })
+      .then(function (res) { return res.ok; }, function () { return false; });
 
-    function finish() {
-      track("generate_lead", { method: "guide_popup", lead_source: (source().channel || "unknown") });
+    Promise.all([hubspot, netlify]).then(function (saved) { finish(saved[0] || saved[1]); });
+
+    function finish(saved) {
+      if (!saved) {
+        // Nothing was stored: say so and let them try again (no lead counted).
+        if (btn) { btn.disabled = false; btn.textContent = "Try again"; }
+        showError("Something went wrong sending your guide. Please try again.");
+        return;
+      }
+      // Count the lead in Google/Meta only once the email is actually saved.
+      if (!isBot) track("generate_lead", { method: "guide_popup", lead_source: (source().channel || "unknown") });
       document.getElementById("gdFormWrap").style.display = "none";
       document.getElementById("gdSuccess").style.display = "block";
       try { localStorage.setItem(DISMISS_KEY, "1"); } catch (e) {}

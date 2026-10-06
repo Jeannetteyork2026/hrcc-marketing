@@ -49,9 +49,9 @@
       sendEvent('insight_click', {title: title, href: a.href});
     }
 
-    // track CTA / contact clicks
+    // track CTA / contact clicks (a click, not a lead: real leads are 'generate_lead')
     if (a.classList.contains('nav-cta') || a.href.includes('/contact')){
-      sendEvent('lead_click', {href: a.href});
+      sendEvent('contact_click', {href: a.href});
     }
   }, false);
 
