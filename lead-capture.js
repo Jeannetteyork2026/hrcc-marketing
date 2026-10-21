@@ -8,8 +8,8 @@
   How to use: load the Supabase client, then this file, on any page that has
   the guide popup and/or the trial buttons (your landing page and insight posts):
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/lead-capture.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.min.js"></script>
+    <script defer src="/lead-capture.js"></script>
 
   It listens for the events without touching your existing popup or button code.
 */

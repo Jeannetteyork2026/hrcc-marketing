@@ -35,10 +35,12 @@
 <meta name="twitter:description" content="Find Employment Law fast. All 50 states. Investigation frameworks, tough conversation talk tracks, and more." />
 <meta name="twitter:image" content="https://www.hrcompliancecompass.com/compass-share.png" />
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/HRCC-compass-icon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HR Compliance Compass — State Employment Law, Simplified</title>
 <meta name="description" content="HR Compliance Compass turns complex state and federal employment law into plain-English answers for all 50 states — built for solo HR pros and small businesses." />
-  <link rel="canonical" href="https://www.hrcompliancecompass.com/hr-compliance-compass.html" />
+  <link rel="canonical" href="https://www.hrcompliancecompass.com/" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -77,34 +79,6 @@
     background: var(--cream);
     color: var(--ink);
     overflow-x: hidden;
-    cursor: none;
-  }
-
-  /* CUSTOM CURSOR */
-  .cursor {
-    position: fixed;
-    width: 10px; height: 10px;
-    background: var(--gold);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
-  }
-  .cursor-ring {
-    position: fixed;
-    width: 36px; height: 36px;
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-    opacity: 0.5;
-  }
-  body:has(a:hover) .cursor, body:has(button:hover) .cursor {
-    width: 18px; height: 18px;
-    background: var(--gold-light);
   }
 
   /* NAV */
@@ -355,7 +329,7 @@
     text-decoration: none;
     padding: 1rem 2.5rem;
     border: none;
-    cursor: none;
+    cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
     position: relative;
     overflow: hidden;
@@ -567,7 +541,7 @@
     stroke: white;
     stroke-width: 0.8;
     transition: opacity 0.2s;
-    cursor: none;
+    cursor: pointer;
   }
   #us-map path:hover { opacity: 0.75; }
   .map-tooltip {
@@ -840,7 +814,7 @@
     justify-content: space-between;
     align-items: center;
     transition: background 0.3s, border-color 0.3s;
-    cursor: none;
+    cursor: pointer;
   }
   .tier-card:hover {
     background: rgba(255,255,255,0.09);
@@ -970,8 +944,6 @@
     .pilot-inner { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 3rem; }
     footer { flex-direction: column; text-align: center; }
     .hero-title { font-size: clamp(1.9rem, 6vw, 3.2rem); }
-    body { cursor: auto; }
-    .cursor, .cursor-ring { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1012,9 +984,6 @@ src="https://www.facebook.com/tr?id=1040310321899022&ev=PageView&noscript=1"
 </head>
 <body>
 
-<!-- Custom cursor -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
 
 <!-- TICKER -->
 <div class="ticker" style="position:sticky; top:65px; z-index:900; margin-top:65px;">
@@ -1176,7 +1145,7 @@ src="https://www.facebook.com/tr?id=1040310321899022&ev=PageView&noscript=1"
     <div id="tk-panel" style="max-height:0; overflow:hidden; transition:max-height 0.55s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease; opacity:0;">
       <div id="tk-panel-inner" style="padding:3rem; background:var(--ink); margin-top:1.5rem; position:relative; overflow:hidden;">
         <div style="position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(230,126,34,0.1) 0%,transparent 70%);pointer-events:none;"></div>
-        <button id="tk-close" style="position:absolute;top:1.5rem;right:1.5rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);width:32px;height:32px;cursor:none;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">✕</button>
+        <button id="tk-close" style="position:absolute;top:1.5rem;right:1.5rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);width:32px;height:32px;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">✕</button>
 
         <div style="display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:start;">
           <div>
@@ -1203,7 +1172,7 @@ src="https://www.facebook.com/tr?id=1040310321899022&ev=PageView&noscript=1"
     border: 1px solid rgba(30,41,59,0.08);
     border-bottom: 3px solid transparent;
     padding: 2rem 2rem;
-    cursor: none;
+    cursor: pointer;
     transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background 0.3s;
     position: relative;
     user-select: none;
@@ -1221,7 +1190,7 @@ src="https://www.facebook.com/tr?id=1040310321899022&ev=PageView&noscript=1"
   .tk-coming { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; background: var(--ink); color: var(--gold-pale); padding: 0.2rem 0.6rem; display: inline-block; margin-bottom: 0.75rem; }
   .tk-card-soon { opacity: 0.75; }
   .tk-card-soon:hover { opacity: 1; }
-  #carousel-viewport { cursor: none; }
+  #carousel-viewport { cursor: auto; }
   .pk-bullet { display:flex; align-items:flex-start; gap:0.75rem; }
   .pk-bullet-dot { width:6px; height:6px; background:var(--gold); border-radius:50%; flex-shrink:0; margin-top:0.45rem; }
   .pk-bullet-text { font-size:0.88rem; color:rgba(255,255,255,0.65); line-height:1.6; }
@@ -1641,7 +1610,7 @@ const toolData = [
 
     <div class="reveal" style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:3.5rem;">
       <span id="toggle-monthly-label" style="font-size:0.85rem;color:var(--cream);letter-spacing:0.06em;">Monthly</span>
-      <button id="billing-toggle" onclick="toggleBilling()" style="width:52px;height:28px;background:var(--gold);border:none;border-radius:14px;position:relative;cursor:none;transition:background 0.3s;flex-shrink:0;">
+      <button id="billing-toggle" onclick="toggleBilling()" style="width:52px;height:28px;background:var(--gold);border:none;border-radius:14px;position:relative;cursor:pointer;transition:background 0.3s;flex-shrink:0;">
         <span id="toggle-knob" style="position:absolute;top:4px;left:4px;width:20px;height:20px;background:white;border-radius:50%;transition:transform 0.3s;display:block;"></span>
       </button>
       <span id="toggle-annual-label" style="font-size:0.85rem;color:rgba(255,255,255,0.5);letter-spacing:0.06em;">Annual <span style="background:rgba(230,126,34,0.25);color:var(--gold-light);font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:2px;margin-left:0.3rem;">Save ~$100</span></span>
@@ -1905,7 +1874,7 @@ const toolData = [
     font-size: 1.15rem;
     font-weight: 400;
     color: var(--ink);
-    cursor: none;
+    cursor: pointer;
     text-align: left;
     gap: 1rem;
     transition: color 0.2s;
@@ -1960,7 +1929,7 @@ const toolData = [
   }
 </style>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -2005,7 +1974,7 @@ const toolData = [
         <button class="priv-q">Forms and collaborator applications<span class="faq-icon">+</span></button>
         <div class="priv-a"><div class="priv-body">
           <p>If you submit a form (Collaborator, Waitlist, or Contact), we may collect your name, email, company, role, LinkedIn profile, and any information you include. We use this to evaluate applications, verify professional identity, and respond to you.</p>
-          <p>Our site uses Netlify for hosting and may route form submissions through third-party form and email delivery providers so submissions are delivered to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="53202623233c2127133b21303c3e233f3a323d3036303c3e233220207d303c3e">[email&#160;protected]</a>. Applicant verification may use AI-assisted search to confirm that submitted information is consistent with a real professional identity — this is done to protect the integrity of the collaborator program and is not used for any other purpose.</p>
+          <p>Our site uses Netlify for hosting and may route form submissions through third-party form and email delivery providers so submissions are delivered to <a href="mailto:support@hrcompliancecompass.com">support@hrcompliancecompass.com</a>. Applicant verification may use AI-assisted search to confirm that submitted information is consistent with a real professional identity — this is done to protect the integrity of the collaborator program and is not used for any other purpose.</p>
         </div></div>
       </div>
 
@@ -2044,7 +2013,7 @@ const toolData = [
         <button class="priv-q">Retention and your rights<span class="faq-icon">+</span></button>
         <div class="priv-a"><div class="priv-body">
           <p>We keep information only as long as needed for the purposes above, unless we must retain it for legal or operational reasons. You have the right to request access to what you submitted, request corrections, and request deletion (subject to legal and operational needs).</p>
-          <p>California residents have additional rights under the CCPA. Residents of other states with applicable privacy laws may contact us to exercise their rights. To make any request, email <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e89b9d9898879a9ca8809a8b878598848189868b8d8b878598899b9bc68b8785">[email&#160;protected]</a></strong>.</p>
+          <p>California residents have additional rights under the CCPA. Residents of other states with applicable privacy laws may contact us to exercise their rights. To make any request, email <strong><a href="mailto:support@hrcompliancecompass.com">support@hrcompliancecompass.com</a></strong>.</p>
         </div></div>
       </div>
 
@@ -2210,24 +2179,6 @@ const toolData = [
 </footer>
 
 <script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursor-ring');
-  let cx = 0, cy = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
-    cx = e.clientX; cy = e.clientY;
-    cursor.style.left = cx + 'px';
-    cursor.style.top = cy + 'px';
-  });
-  function animRing() {
-    rx += (cx - rx) * 0.12;
-    ry += (cy - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animRing);
-  }
-  animRing();
-
   // Nav scroll behavior
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
@@ -2544,7 +2495,7 @@ const toolData = [
 })();
 </script>
 <!-- POPUP END -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/lead-capture.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.min.js"></script>
+<script defer src="/lead-capture.js"></script>
 </body>
 </html>
