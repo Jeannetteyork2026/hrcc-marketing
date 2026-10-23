@@ -2,8 +2,9 @@
 # old static filename and links in past emails also get the current version).
 /HRCC-50-State-Quick-Reference-2026.xlsx       /.netlify/functions/quick-reference                    200!
 /50-state-quick-reference.xlsx                 /.netlify/functions/quick-reference                    200!
-# Homepage served at / (rewrite, not redirect) so visitors and Google see one URL.
-/                                              /hr-compliance-compass.html                            200!
+# Homepage is index.html. The old filename redirects so past links and emails still work.
+/hr-compliance-compass.html                     /                                                      301!
+/faq                                           /faqs.html                                             301
 /terms                                         /terms.html                                            200
 /about                                         /about.html                                            200
 /insights                                      /insights.html                                         200
