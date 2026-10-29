@@ -357,6 +357,8 @@
      and the ticker collides with the menu no matter what offset we use. */
   @media (max-width: 700px) {
     .ticker[style] { display: none !important; }
+    /* No ticker on phones, so the hero clears the fixed nav itself. */
+    .hero { padding-top: calc(var(--nav-h, 96px) + 1.5rem) !important; }
   }
   .ticker {
     background: var(--ink);
@@ -883,13 +885,15 @@
       padding: 0.45rem 0.8rem;
       font-size: 0.72rem !important;
     }
+    /* The nav wraps to two rows here; the ticker scrolls with the page and
+       starts just below the nav (height measured in home.js). */
     .ticker[style] {
       position: relative !important;
       top: 0 !important;
-      margin-top: 0 !important;
+      margin-top: var(--nav-h, 96px) !important;
       z-index: 1 !important;
     }
-    .hero { min-height: auto; padding-top: 8rem; }
+    .hero { min-height: auto; padding-top: 2.5rem; }
     .hero-content { margin-top: -0.5rem; }
     section, .features-section, .pilot-section { padding: 5rem 1.5rem; }
     .problem { grid-template-columns: 1fr; gap: 3rem; }

@@ -287,7 +287,19 @@ const toolData = [
     });
   });
 
-  // Nav scroll behavior
+  // Keep the ticker just below the nav. The nav wraps to two rows on narrower
+// screens, so use its real height instead of a fixed 65px.
+(function () {
+  const navEl = document.getElementById('main-nav');
+  if (!navEl) return;
+  const setNavHeight = () =>
+    document.documentElement.style.setProperty('--nav-h', navEl.offsetHeight + 'px');
+  setNavHeight();
+  if ('ResizeObserver' in window) new ResizeObserver(setNavHeight).observe(navEl);
+  else window.addEventListener('resize', setNavHeight);
+})();
+
+// Nav scroll behavior
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
