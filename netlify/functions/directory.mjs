@@ -35,6 +35,7 @@ const CATEGORIES = {
   recruiting: "Recruiting & staffing", benefits: "Employee benefits", compliance: "HR compliance & employee relations",
   investigations: "Workplace investigations", training: "Training & leadership development",
   compensation: "Compensation & total rewards", hr_technology: "HR technology & HRIS", employment_law: "Employment law services",
+  background_screening: "Background screening", workplace_safety: "Workplace safety",
 };
 const SERVICES = {
   fractional_hr: "Fractional HR", handbooks: "Handbooks & policies", employee_relations: "Employee relations",
@@ -43,6 +44,8 @@ const SERVICES = {
   training: "Workplace training", leadership: "Leadership development", compensation: "Compensation planning",
   compliance: "Compliance reviews", hris: "HRIS implementation",
 };
+
+const SOCIAL = { linkedin: "LinkedIn", facebook: "Facebook", x: "X", instagram: "Instagram", youtube: "YouTube" };
 
 const esc = (s) =>
   String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -174,7 +177,7 @@ async function listingPage(code, slug) {
   const areas = r.nationwide ? "Nationwide" : (r.service_areas || []).map((c) => STATES[c] || c).join(", ");
   const place = [r.city, STATES[r.state_code]].filter(Boolean).join(", ");
   const social = Object.entries(r.social_links || {}).filter(([, v]) => v)
-    .map(([k, v]) => `<a href="${esc(v)}" rel="nofollow noopener" target="_blank">${esc(k[0].toUpperCase() + k.slice(1))}</a>`).join(" · ");
+    .map(([k, v]) => `<a href="${esc(v)}" rel="nofollow noopener" target="_blank">${esc(SOCIAL[k] || k)}</a>`).join(" · ");
   const jsonLd = {
     "@context": "https://schema.org", "@type": "ProfessionalService", name: r.name, url: r.website_url,
     description: r.description || undefined, telephone: r.phone || undefined, email: r.public_email || undefined,
