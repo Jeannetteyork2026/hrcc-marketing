@@ -5,6 +5,9 @@
 # Homepage is index.html. The old filename redirects so past links and emails still work.
 /hr-compliance-compass.html                     /                                                      301!
 /faq                                           /faqs.html                                             301
+# Provider directory pages are built live from Supabase.
+/directory                                     /.netlify/functions/directory                          200
+/directory/*                                   /.netlify/functions/directory                          200
 /terms                                         /terms.html                                            200
 /about                                         /about.html                                            200
 /insights                                      /insights.html                                         200
