@@ -118,7 +118,7 @@ export async function buildWorkbook(now = new Date()) {
     ["Educational guidance only. Not legal advice."],
     [""],
     ["Laws change often. Get the newest version any time:", { bold: true }],
-    [{ text: `${SITE}/hr-compliance-compass.html`, hyperlink: `${SITE}/hr-compliance-compass.html` }, { color: { argb: "FF1155CC" }, underline: true }],
+    [{ text: `${SITE}/`, hyperlink: `${SITE}/` }, { color: { argb: "FF1155CC" }, underline: true }],
     [""],
     ["What's inside", { bold: true, size: 13 }],
     ["• Quick Reference: the current rate or rule for all 51 jurisdictions across 7 topics"],
@@ -180,7 +180,7 @@ export async function buildWorkbook(now = new Date()) {
     ws.addRow([]);
     const row = ws.addRow([`Generated ${longDate(now)}. Laws change often; get the newest version at ${SITE}`]);
     row.getCell(1).font = { italic: true, color: { argb: "FF1155CC" } };
-    row.getCell(1).value = { text: row.getCell(1).value, hyperlink: `${SITE}/hr-compliance-compass.html` };
+    row.getCell(1).value = { text: row.getCell(1).value, hyperlink: `${SITE}/` };
   }
 
   return { buffer: Buffer.from(await wb.xlsx.writeBuffer()), year };
