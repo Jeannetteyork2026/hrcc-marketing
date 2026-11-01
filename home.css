@@ -869,10 +869,10 @@
       gap: 1rem;
       margin: 0;
       padding: 0 0 0.15rem;
-      overflow-x: auto;
-      flex-wrap: nowrap;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
+      /* Wrap instead of scrolling sideways, so the sign-up button is never
+         hidden off the right edge on phones. */
+      flex-wrap: wrap;
+      row-gap: 0.35rem;
     }
     .nav-links li { flex: 0 0 auto; }
     .nav-links a {
