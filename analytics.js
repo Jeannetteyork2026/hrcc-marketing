@@ -34,7 +34,7 @@
       const shareUrl = href + (href.includes('?') ? '&' : '') + utm;
       // open share window for common platforms
       let url = shareUrl;
-      if (sharePlatform === 'twitter') url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(document.title)}&url=${encodeURIComponent(shareUrl)}`;
+      if (sharePlatform === 'twitter') url = `https://x.com/intent/post?text=${encodeURIComponent(document.title)}&url=${encodeURIComponent(shareUrl)}`;
       if (sharePlatform === 'linkedin') url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
       if (sharePlatform === 'facebook') url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
       window.open(url, '_blank', 'noopener');
