@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google Analytics 4 -->
+<script>
+  // Owner opt-out: open any page once with ?hrcc_internal=1 to stop this
+  // browser from being counted (?hrcc_internal=0 turns counting back on).
+  (function () {
+    try {
+      var q = location.search;
+      if (q.indexOf("hrcc_internal=1") > -1) localStorage.setItem("hrcc_internal", "1");
+      if (q.indexOf("hrcc_internal=0") > -1) localStorage.removeItem("hrcc_internal");
+      if (localStorage.getItem("hrcc_internal") === "1") window["ga-disable-G-9CXFF6HMVN"] = true;
+    } catch (e) {}
+  })();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CXFF6HMVN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9CXFF6HMVN');
+</script>
+<!-- End Google Analytics 4 -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>How We Verify &middot; HR Compliance Compass</title>
+<meta name="description" content="How HR Compliance Compass finds employment law changes, checks every fact against official sources before publishing, and corrects mistakes." />
+  <link rel="canonical" href="https://www.hrcompliancecompass.com/how-we-verify.html" />
+<meta property="og:title" content="How We Verify · HR Compliance Compass" />
+<meta property="og:description" content="How HR Compliance Compass finds employment law changes, checks every fact against official sources before publishing, and corrects mistakes." />
+<meta property="og:image" content="https://www.hrcompliancecompass.com/compass-share.jpg" />
+<meta property="og:url" content="https://www.hrcompliancecompass.com/how-we-verify.html" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How We Verify · HR Compliance Compass" />
+<meta name="twitter:description" content="How HR Compliance Compass finds employment law changes, checks every fact against official sources before publishing, and corrects mistakes." />
+<meta name="twitter:image" content="https://www.hrcompliancecompass.com/compass-share.jpg" />
+  <link rel="icon" type="image/png" href="/hrcc-icon-64.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <style>
+    :root {
+      --ink: #0b0e14;
+      --ink-soft: #131722;
+      --cream: #f3ede1;
+      --cream-soft: #e8dfcf;
+      --gold: #d4a154;
+      --gold-light: #e6b86d;
+      --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Top nav */
+    .site-nav {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--cream);
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo img { width: 28px; height: 28px; }
+    .nav-logo span { color: var(--gold-light); font-style: italic; }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; padding: 0; margin: 0; flex-wrap: wrap; }
+    .nav-links a {
+      color: rgba(243,237,225,0.8);
+      font-size: 0.92rem;
+      letter-spacing: 0.03em;
+    }
+    .nav-links a:hover { color: var(--gold-light); text-decoration: none; }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--ink) !important;
+      padding: 0.5rem 1rem;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* Page content */
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .page-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    main h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      margin: 0 0 1.5rem;
+      line-height: 1.1;
+    }
+    main h1 em { color: var(--gold); font-weight: 400; }
+
+    /* CTA section */
+    .more-help {
+      margin-top: 4rem;
+      padding: 2rem;
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 2px;
+      text-align: center;
+    }
+    .more-help p { margin: 0 0 1rem; font-size: 1rem; }
+    .more-help a {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 0.7rem 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .more-help a:hover { background: var(--gold-light); text-decoration: none; }
+
+    /* Footer */
+    footer {
+      background: var(--ink);
+      color: rgba(243,237,225,0.55);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--gold-light); margin: 0 0.6rem; }
+
+    @media (max-width: 600px) {
+      .site-nav { padding: 0.8rem 1rem; }
+      .nav-links { gap: 1rem; }
+      main { padding: 2.5rem 1.25rem; }
+    }
+    .lede { font-size: 1.1rem; color: rgba(11,14,20,0.8); margin: 0 0 3rem; }
+    .step { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 1.75rem 0; border-top: 1px solid rgba(11,14,20,0.10); }
+    .step-num { font-family: var(--serif); font-size: 2.2rem; line-height: 1; color: var(--gold); }
+    .step h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; line-height: 1.2; margin: 0 0 0.6rem; }
+    .step p { margin: 0 0 0.75rem; color: rgba(11,14,20,0.78); }
+    .step ul { margin: 0 0 0.75rem; padding-left: 1.2rem; color: rgba(11,14,20,0.78); }
+    .step li { margin-bottom: 0.35rem; }
+    .note { background: var(--cream-soft); padding: 1.25rem 1.5rem; margin-top: 3rem; font-size: 0.95rem; color: rgba(11,14,20,0.8); }
+    .note strong { color: var(--ink); }
+    @media (max-width: 600px) { .step { grid-template-columns: 2.2rem 1fr; } .step-num { font-size: 1.7rem; } }
+  </style>
+  <meta name="ga-id" content="G-9CXFF6HMVN" />
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x5inxh7lug");
+  </script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1040310321899022');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1040310321899022&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <img src="/hrcc-icon-64.png" alt="HRCC logo" />
+    HR Compliance <span>Compass</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/insights.html">Insights</a></li>
+    <li><a href="/faqs.html">FAQs</a></li>
+    <li><a href="/privacy.html">Privacy</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="https://app.hrcompliancecompass.com/login.html" class="nav-cta">Create Free Account</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="page-eyebrow">Our Standards</div>
+  <h1>How we verify.<br><em>Every fact, every source.</em></h1>
+  <p class="lede">Employment law changes constantly, and one wrong number can cost an employer real money. Here is how HR Compliance Compass finds changes, checks them before you see them, and handles mistakes.</p>
+
+  <section class="step">
+    <div class="step-num">1</div>
+    <div>
+      <h2>We watch the official sources</h2>
+      <p>Automated monitors check the places where employment law actually changes:</p>
+      <ul>
+        <li>Federal agencies, including the Department of Labor, EEOC, OSHA, NLRB and IRS, and the Federal Register</li>
+        <li>Each state&rsquo;s labor agency, attorney general, governor and legislature</li>
+        <li>Cities and counties with their own labor ordinances, such as local minimum wage and paid leave laws</li>
+        <li>Federal and state court decisions on employment law</li>
+        <li>Newly signed bills, tracked through to their effective dates</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-num">2</div>
+    <div>
+      <h2>Only final, binding law counts</h2>
+      <p>A lot of what gets written about employment law is not law yet. We do not update our answers for:</p>
+      <ul>
+        <li>Rumors, predictions or &ldquo;expected to&rdquo; reporting</li>
+        <li>Bills that have not been signed</li>
+        <li>Lawsuits that have been filed but not decided, or rulings that can still be appealed</li>
+        <li>Non-binding agency guidance, unless we clearly label it as non-binding</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-num">3</div>
+    <div>
+      <h2>Official sources, and more than one when it matters</h2>
+      <p>Every fact has to come from an approved official source, usually the agency, legislature or court itself. The most significant changes need at least two independent official sources. Every source link has to be live when it is checked.</p>
+      <p>Social media, forums and anonymous blogs can tip us off that something is happening, but they are never cited and never the basis for an answer.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-num">4</div>
+    <div>
+      <h2>An independent check before anything is published</h2>
+      <p>Before a change reaches the app or an article, a separate reviewer re-opens every cited source itself, without relying on the original research, and confirms that each of these appears in the source exactly as written:</p>
+      <ul>
+        <li>Dollar amounts and wage rates</li>
+        <li>Effective dates and deadlines</li>
+        <li>Employer-size thresholds</li>
+        <li>Statute and section numbers</li>
+        <li>Which state, city or federal rule applies</li>
+        <li>Quotes from agencies and courts</li>
+      </ul>
+      <p>If any value does not match the source, or a key fact has no source, it is rejected. The reviewer is an AI model that is different from the one that did the research, so the same blind spot cannot approve its own work. A certified HR professional (SHRM-CP, PHR) gives final approval before anything is published.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-num">5</div>
+    <div>
+      <h2>We test our own checks</h2>
+      <p>From time to time we deliberately feed known-false findings into the review process to confirm the reviewer catches them. If one gets through, we fix the review rules before publishing anything else.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-num">6</div>
+    <div>
+      <h2>Sources are re-checked after publishing</h2>
+      <p>Government pages move and change. Source links are re-tested on a schedule, and any page that has disappeared or changed is sent back for review.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-num">7</div>
+    <div>
+      <h2>Every answer shows its source</h2>
+      <p>Answers in the app and in our articles link to the official source, so you can read the law yourself and keep the citation in your records.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-num">8</div>
+    <div>
+      <h2>When we get something wrong, we say so</h2>
+      <ul>
+        <li>If a correction changes what you should do, such as a wrong dollar amount, date or threshold, we fix it and add a visible &ldquo;Updated&rdquo; note at the top of the article saying what changed.</li>
+        <li>If something could cause real harm if relied on, we take it down right away and republish a corrected version or explain the withdrawal within 48 hours.</li>
+        <li>If you report an error, we reply within 24 hours and tell you what we changed.</li>
+      </ul>
+      <p>Typos and formatting fixes are corrected without a note.</p>
+    </div>
+  </section>
+
+  <div class="note"><strong>This is not legal advice.</strong> HR Compliance Compass is HR reference and compliance guidance based on publicly available law. For high-stakes situations, such as litigation, agency charges or significant severance negotiations, talk to an employment attorney. We will tell you when a situation calls for one.</div>
+
+  <div class="more-help">
+    <p>Spotted something that looks wrong?</p>
+    <a href="/contact.html">Report an error &rarr;</a>
+  </div>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> CompassLine LLC.
+  <span style="margin: 0 0.6rem;">&middot;</span>
+  <a href="/">Home</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/how-we-verify.html">How We Verify</a>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script src="/analytics.js"></script>
+<script src="/lead-source-tracker.js"></script>
+</body>
+</html>
