@@ -7,7 +7,8 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
-  gtag('config', 'G-9CXFF6HMVN');
+  // Live site and app only; ?notrack=1 turns tracking off in this browser (?notrack=0 back on).
+  (function(){var off=false;try{var q=location.search;if(/[?&]notrack=1\b/.test(q))localStorage.setItem('hrcc_notrack','1');if(/[?&]notrack=0\b/.test(q))localStorage.removeItem('hrcc_notrack');off=localStorage.getItem('hrcc_notrack')==='1';}catch(e){}if(!off&&/(^|\.)hrcompliancecompass\.com$/.test(location.hostname))gtag('config','G-9CXFF6HMVN');})();
 </script>
 <!-- End Google Analytics 4 -->
 <meta charset="UTF-8">
