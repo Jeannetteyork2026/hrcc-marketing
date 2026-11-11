@@ -1207,3 +1207,8 @@
   .hero-dir { border-radius: 14px; padding: 0.7rem 1rem; }
   .hero-dir-text { flex-basis: 100%; }
 }
+
+/* HR Directory band: sits under the verification strip. */
+.dir-band { background: var(--white); border-bottom: 1px solid var(--border); padding-block: 0 2.75rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; justify-content: center; }
+.dir-band .hero-dir { margin-top: 0; }
+.verify-strip:has(+ .dir-band) { border-bottom: 0; }
