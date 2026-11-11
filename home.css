@@ -1164,3 +1164,36 @@
   .gd-fine { color: #94a3b8; font-size: 0.78rem; margin: 0.9rem 0 0; }
   .gd-hp { position: absolute; left: -5000px; }
   @media (max-width: 460px) { .gd-modal { padding: 2rem 1.25rem 1.5rem; } .gd-modal h2 { font-size: 1.35rem; } }
+
+/* HOW EVERY ANSWER IS CHECKED: five steps on one track; a dot travels the
+   track and each step lights up as it passes. Stacks vertically on phones. */
+.verify-strip { background: var(--white); border-bottom: 1px solid var(--border); padding-block: 3.25rem 3rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.vs-inner { max-width: 1100px; margin: 0 auto; display: grid; gap: 1.1rem; justify-items: center; text-align: center; }
+.vs-title { font-family: var(--serif); font-weight: 600; font-size: clamp(1.6rem, 3.4vw, 2.4rem); line-height: 1.15; color: var(--ink); margin: 0; text-wrap: balance; }
+.vs-title em { color: var(--gold); font-style: italic; }
+.vs-steps { --dur: 6s; list-style: none; margin: 1.4rem 0 0.4rem; padding: 0; width: 100%; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; position: relative; }
+.vs-steps::before { content: ""; position: absolute; top: 11px; left: 10%; right: 10%; height: 2px; background: linear-gradient(90deg, var(--border), var(--gold-light), var(--border)); }
+.vs-steps::after { content: ""; position: absolute; top: 7px; left: 10%; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 5px rgba(230,126,34,0.18); animation: vs-travel var(--dur) linear infinite; }
+@keyframes vs-travel { 0% { left: 10%; opacity: 0; } 6% { opacity: 1; } 88% { opacity: 1; } 100% { left: calc(90% - 10px); opacity: 0; } }
+.vs-steps li { position: relative; z-index: 1; display: grid; gap: 0.3rem; justify-items: center; font-family: var(--sans); min-width: 0; }
+.vs-steps strong { font-size: 0.98rem; color: var(--ink); font-weight: 700; }
+.vs-steps li > span:last-child { font-size: 0.86rem; color: var(--muted); line-height: 1.45; max-width: 22ch; }
+.vs-dot { width: 24px; height: 24px; border-radius: 50%; background: var(--white); border: 2px solid var(--gold-light); margin-bottom: 0.45rem; animation: vs-light var(--dur) linear infinite; animation-delay: calc(var(--i) * var(--dur) * 0.2); }
+.vs-steps li:nth-child(4) .vs-dot { border-color: var(--gold); }
+@keyframes vs-light { 0%, 14% { background: var(--gold-light); transform: scale(1.12); } 22%, 100% { background: var(--white); transform: scale(1); } }
+.vs-rule { font-family: var(--serif); font-style: italic; font-size: 1.25rem; color: var(--ink); margin: 0.6rem 0 0; }
+.vs-link { font-family: var(--sans); font-size: 0.92rem; font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
+.vs-link:hover, .vs-link:focus-visible { color: var(--gold); }
+@media (max-width: 760px) {
+  .vs-steps { grid-template-columns: 1fr; gap: 1.1rem; max-width: 340px; margin-inline: auto; text-align: left; }
+  .vs-steps::before { top: 12px; bottom: 12px; left: 11px; right: auto; width: 2px; height: auto; background: linear-gradient(180deg, var(--border), var(--gold-light), var(--border)); }
+  .vs-steps::after { left: 7px; top: 12px; animation-name: vs-travel-down; }
+  @keyframes vs-travel-down { 0% { top: 12px; opacity: 0; } 6% { opacity: 1; } 88% { opacity: 1; } 100% { top: calc(100% - 22px); opacity: 0; } }
+  .vs-steps li { grid-template-columns: 24px 1fr; column-gap: 0.9rem; justify-items: start; align-items: start; }
+  .vs-dot { grid-row: span 2; margin: 0; }
+  .vs-steps li > span:last-child { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vs-steps::after { display: none; }
+  .vs-dot { animation: none; background: var(--gold-light); }
+}
