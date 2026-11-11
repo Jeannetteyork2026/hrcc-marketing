@@ -1197,3 +1197,13 @@
   .vs-steps::after { display: none; }
   .vs-dot { animation: none; background: var(--gold-light); }
 }
+
+/* Hero link to the HR Directory: one quiet line under the subtitle. */
+.hero-dir { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.35rem 0.5rem; margin-top: 1.4rem; padding: 0.55rem 1rem; border: 1px solid var(--border); border-radius: 999px; background: var(--white); font-family: var(--sans); font-size: 0.92rem; color: var(--ink-mid); text-decoration: none; max-width: 100%; text-align: center; position: relative; z-index: 2; }
+.hero-dir strong { color: var(--ink); }
+.hero-dir:hover, .hero-dir:focus-visible { border-color: var(--gold); color: var(--ink); }
+.hero-dir-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); background: var(--gold); border-radius: 999px; padding: 0.15rem 0.5rem; }
+@media (max-width: 600px) {
+  .hero-dir { border-radius: 14px; padding: 0.7rem 1rem; }
+  .hero-dir-text { flex-basis: 100%; }
+}
