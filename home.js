@@ -393,13 +393,27 @@ const toolData = [
       if (mapSvg) mapSvg.innerHTML = '<text x="480" y="300" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#1a4a7c">All 50 States Covered</text>';
     });
   }
-  if (mapSvg && 'IntersectionObserver' in window) {
-    const mapWatch = new IntersectionObserver((entries) => {
-      if (entries.some(e => e.isIntersecting)) { mapWatch.disconnect(); loadMap(); }
-    }, { rootMargin: '400px 0px' });
-    mapWatch.observe(mapSvg);
-  } else if (mapSvg) {
-    loadMap();
+  if (mapSvg) {
+    let mapStarted = false;
+    const startMap = () => {
+      if (mapStarted) return;
+      mapStarted = true;
+      window.removeEventListener('scroll', nearMap);
+      loadMap();
+    };
+    // Backup check on scroll, in case the observer below never reports.
+    const nearMap = () => {
+      if (mapSvg.getBoundingClientRect().top < window.innerHeight + 400) startMap();
+    };
+    window.addEventListener('scroll', nearMap, { passive: true });
+    if ('IntersectionObserver' in window) {
+      const mapWatch = new IntersectionObserver((entries) => {
+        if (entries.some(e => e.isIntersecting)) { mapWatch.disconnect(); startMap(); }
+      }, { rootMargin: '400px 0px' });
+      mapWatch.observe(mapSvg);
+    } else {
+      startMap();
+    }
   }
 
   // Intersection Observer for reveals
