@@ -433,7 +433,9 @@ const toolData = [
 
 (function () {
   // ---- Config ----
-  var SHOW_DELAY_MS = 2500;
+  // Opens once the visitor has scrolled this far down the page (not on a
+  // timer, so it doesn't slow the first view on phones; 2026-11-19).
+  var SHOW_AFTER_SCROLL = 0.35;   // share of the page
   var DISMISS_KEY = "hrcc_guide_dismissed";
   var GUIDE_FILE = "HRCC-50-State-Quick-Reference-2026.xlsx";
   var HS_PORTAL_ID = "";                              // HubSpot disabled — leads go to Supabase + Resend
@@ -524,7 +526,15 @@ const toolData = [
     try { localStorage.setItem(DISMISS_KEY, "1"); } catch (e) {}
   }
 
-  setTimeout(open, SHOW_DELAY_MS);
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max > 0 && window.scrollY / max >= SHOW_AFTER_SCROLL) {
+      window.removeEventListener("scroll", onScroll);
+      try { if (localStorage.getItem(DISMISS_KEY)) return; } catch (e) {}
+      open();
+    }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
   document.getElementById("gdClose").addEventListener("click", dismiss);
   overlay.addEventListener("click", function (e) { if (e.target === overlay) dismiss(); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && overlay.classList.contains("gd-open")) dismiss(); });
