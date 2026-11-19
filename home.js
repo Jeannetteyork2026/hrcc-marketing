@@ -53,7 +53,16 @@
     if (offset < 0)         offset += setWidth;
 
     track.style.transform = `translateX(${-offset}px)`;
-    requestAnimationFrame(animate);
+    if (onScreen) requestAnimationFrame(animate);
+  }
+  // Only run the animation while the carousel is on screen.
+  let onScreen = true;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      const was = onScreen;
+      onScreen = entries[0].isIntersecting;
+      if (onScreen && !was) requestAnimationFrame(animate);
+    }).observe(viewport);
   }
   animate();
 })();
@@ -339,6 +348,9 @@ const toolData = [
   const tooltip = document.getElementById('map-tooltip');
   const mapSvg = document.getElementById('us-map');
 
+  // Load the map data and libraries only when the map is about to scroll
+  // into view, so phones don't download them for the first screen.
+  function loadMap() {
   fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json')
     .then(r => r.json())
     .then(us => {
@@ -380,6 +392,29 @@ const toolData = [
     .catch(() => {
       if (mapSvg) mapSvg.innerHTML = '<text x="480" y="300" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#1a4a7c">All 50 States Covered</text>';
     });
+  }
+  if (mapSvg) {
+    let mapStarted = false;
+    const startMap = () => {
+      if (mapStarted) return;
+      mapStarted = true;
+      window.removeEventListener('scroll', nearMap);
+      loadMap();
+    };
+    // Backup check on scroll, in case the observer below never reports.
+    const nearMap = () => {
+      if (mapSvg.getBoundingClientRect().top < window.innerHeight + 400) startMap();
+    };
+    window.addEventListener('scroll', nearMap, { passive: true });
+    if ('IntersectionObserver' in window) {
+      const mapWatch = new IntersectionObserver((entries) => {
+        if (entries.some(e => e.isIntersecting)) { mapWatch.disconnect(); startMap(); }
+      }, { rootMargin: '400px 0px' });
+      mapWatch.observe(mapSvg);
+    } else {
+      startMap();
+    }
+  }
 
   // Intersection Observer for reveals
   const observer = new IntersectionObserver((entries) => {
