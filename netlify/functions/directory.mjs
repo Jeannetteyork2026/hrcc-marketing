@@ -8,13 +8,13 @@
 //   /directory/<state-name>         providers serving that state
 //   /directory/<state-name>/<slug>  one listing
 
-const SB_URL = "https://blmnnmsrztxuwawmgkkf.supabase.co";
+export const SB_URL = "https://blmnnmsrztxuwawmgkkf.supabase.co";
 // Public anon key (read-only; row-level security allows reading listings only).
-const SB_ANON =
+export const SB_ANON =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJsbW5ubXNyenR4dXdhd21na2tmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyMjMwNjUsImV4cCI6MjA5MTc5OTA2NX0.OuCQgZQAinZDi3XHKZqrNBh3XplTuSEo7AsFCrhPZjk";
-const SITE = "https://www.hrcompliancecompass.com";
+export const SITE = "https://www.hrcompliancecompass.com";
 
-const STATES = {
+export const STATES = {
   AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California", CO: "Colorado",
   CT: "Connecticut", DE: "Delaware", DC: "District of Columbia", FL: "Florida", GA: "Georgia",
   HI: "Hawaii", ID: "Idaho", IL: "Illinois", IN: "Indiana", IA: "Iowa", KS: "Kansas", KY: "Kentucky",
@@ -25,7 +25,7 @@ const STATES = {
   SD: "South Dakota", TN: "Tennessee", TX: "Texas", UT: "Utah", VT: "Vermont", VA: "Virginia",
   WA: "Washington", WV: "West Virginia", WI: "Wisconsin", WY: "Wyoming",
 };
-const slugify = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+export const slugify = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const STATE_BY_SLUG = Object.fromEntries(Object.entries(STATES).map(([code, name]) => [slugify(name), code]));
 const stateSlug = (code) => slugify(STATES[code] || code);
 
@@ -47,7 +47,7 @@ const SERVICES = {
 
 const SOCIAL = { linkedin: "LinkedIn", facebook: "Facebook", x: "X", instagram: "Instagram", youtube: "YouTube" };
 
-const esc = (s) =>
+export const esc = (s) =>
   String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
 async function query(params) {
@@ -254,7 +254,7 @@ function notFound() {
   }), 404);
 }
 
-function html(body, status = 200) {
+export function html(body, status = 200) {
   return new Response(body, {
     status,
     headers: {
@@ -266,7 +266,7 @@ function html(body, status = 200) {
   });
 }
 
-function page({ title, description, canonical, body, noindex = false }) {
+export function page({ title, description, canonical, body, noindex = false }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -329,6 +329,7 @@ footer a{color:var(--gold-light);margin:0 .6rem}
 <nav class="site-nav">
   <a class="nav-logo" href="/"><img src="/hrcc-icon-64.png" alt="">HR Compliance <span>Compass</span></a>
   <ul class="nav-links">
+    <li><a href="/state-laws">State Laws</a></li>
     <li><a href="/directory">Directory</a></li>
     <li><a href="/insights.html">Insights</a></li>
     <li><a href="/faqs.html">FAQs</a></li>

@@ -2,3 +2,4 @@ User-agent: *
 Disallow:
 
 Sitemap: https://www.hrcompliancecompass.com/sitemap.xml
+Sitemap: https://www.hrcompliancecompass.com/state-laws/sitemap.xml
