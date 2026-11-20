@@ -8,6 +8,9 @@
 # Provider directory pages are built live from Supabase.
 /directory                                     /.netlify/functions/directory                          200
 /directory/*                                   /.netlify/functions/directory                          200
+# State law pages are built live from the published, reviewed law cards.
+/state-laws                                    /.netlify/functions/state-laws                         200
+/state-laws/*                                  /.netlify/functions/state-laws                         200
 /terms                                         /terms.html                                            200
 /about                                         /about.html                                            200
 /insights                                      /insights.html                                         200
