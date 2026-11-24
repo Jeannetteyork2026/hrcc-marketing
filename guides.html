@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google Analytics 4 -->
+<script>
+  // Owner opt-out: open any page once with ?hrcc_internal=1 to stop this
+  // browser from being counted (?hrcc_internal=0 turns counting back on).
+  (function () {
+    try {
+      var q = location.search;
+      if (q.indexOf("hrcc_internal=1") > -1) localStorage.setItem("hrcc_internal", "1");
+      if (q.indexOf("hrcc_internal=0") > -1) localStorage.removeItem("hrcc_internal");
+      if (localStorage.getItem("hrcc_internal") === "1") window["ga-disable-G-9CXFF6HMVN"] = true;
+    } catch (e) {}
+  })();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CXFF6HMVN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  // Live site and app only; ?notrack=1 turns tracking off in this browser (?notrack=0 back on).
+  (function(){var off=false;try{var q=location.search;if(/[?&]notrack=1\b/.test(q))localStorage.setItem('hrcc_notrack','1');if(/[?&]notrack=0\b/.test(q))localStorage.removeItem('hrcc_notrack');off=localStorage.getItem('hrcc_notrack')==='1';}catch(e){}if(!off&&/(^|\.)hrcompliancecompass\.com$/.test(location.hostname))gtag('config','G-9CXFF6HMVN');})();
+</script>
+<!-- End Google Analytics 4 -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Guides | HR Compliance Compass</title>
+  <meta name="description" content="Step-by-step guides for the business side of HR: registering in a new state, payroll accounts, and the tools that can help." />
+  <link rel="canonical" href="https://www.hrcompliancecompass.com/guides.html" />
+  <meta property="og:title" content="Guides | HR Compliance Compass" />
+  <meta property="og:description" content="Step-by-step guides for the business side of HR: registering in a new state, payroll accounts, and the tools that can help." />
+  <meta property="og:image" content="https://www.hrcompliancecompass.com/compass-share.jpg" />
+  <meta property="og:url" content="https://www.hrcompliancecompass.com/guides.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Guides | HR Compliance Compass" />
+  <meta name="twitter:description" content="Step-by-step guides for the business side of HR: registering in a new state, payroll accounts, and the tools that can help." />
+  <meta name="twitter:image" content="https://www.hrcompliancecompass.com/compass-share.jpg" />
+  <meta name="ga-id" content="G-9CXFF6HMVN" />
+  <link rel="icon" type="image/png" href="/hrcc-icon-64.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:        #1e3a5f;
+      --navy-deep:   #142a47;
+      --orange:      #f07030;
+      --gold:        #e8b84b;
+      --gold-soft:   #f4d98a;
+      --teal:        #3a9e8f;
+      --bg:          #f6f8fb;
+      --paper:       #fffdf7;
+      --ink:         #0f172a;
+      --ink-soft:    #475569;
+      --rule:        #d8dee9;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .display { font-family: 'Fraunces', Georgia, serif; font-weight: 700; letter-spacing: -0.02em; }
+    a { color: var(--orange); }
+
+    .topbar {
+      background: var(--navy);
+      color: white;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+    .topbar .brand {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: white;
+      text-decoration: none;
+    }
+    .topbar .brand-dot { color: var(--gold); }
+    .topbar nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: 500;
+    }
+    .topbar nav a:hover { color: var(--gold); }
+    .topbar nav a.active { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      margin-left: 18px;
+    }
+    .nav-cta:hover { background: var(--gold-soft); }
+
+    .hero {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+      color: white;
+      padding: 70px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(232,184,75,0.16) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232,184,75,0.15);
+      color: var(--gold);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .hero h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 800;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin: 0 0 18px;
+    }
+    .hero h1 .accent { color: var(--gold); font-style: italic; font-weight: 600; }
+    .hero p.lede {
+      font-size: clamp(16px, 1.5vw, 19px);
+      line-height: 1.6;
+      color: rgba(255,255,255,0.88);
+      max-width: 640px;
+      margin: 0;
+    }
+
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+    }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .article-card {
+      background: white;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.08);
+      border-color: var(--gold-soft);
+    }
+    .article-card .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .article-card .tag {
+      background: rgba(58,158,143,0.12);
+      color: var(--teal);
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+    }
+    .article-card .tag.federal { background: rgba(240,112,48,0.12); color: var(--orange); }
+    .article-card .tag.state   { background: rgba(58,158,143,0.12); color: var(--teal); }
+    .article-card .meta-sep {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--rule);
+    }
+    .article-card h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      color: var(--navy);
+      margin: 0 0 14px;
+    }
+    .article-card p.excerpt {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin: 0 0 22px;
+      flex-grow: 1;
+    }
+    .article-card .read-more {
+      align-self: flex-start;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--orange);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .article-card .read-more .arrow { transition: transform 180ms ease; }
+    .article-card:hover .read-more .arrow { transform: translateX(4px); }
+
+    .more-coming {
+      grid-column: 1 / -1;
+      margin-top: 4px;
+      padding: 32px;
+      border: 1px dashed var(--rule);
+      border-radius: 14px;
+      text-align: center;
+      color: var(--ink-soft);
+      font-size: 14px;
+      background: rgba(255,255,255,0.4);
+    }
+    .more-coming strong { color: var(--navy); font-weight: 600; }
+
+    footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.7);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 13px;
+      margin-top: 60px;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer .footer-links { margin-top: 10px; }
+    footer .footer-links a { margin: 0 10px; }
+
+    @media (max-width: 640px) {
+      .topbar { flex-wrap: wrap; gap: 10px; }
+      .topbar nav a:not(.nav-cta) { display: none; }
+      .hero { padding: 52px 20px 60px; }
+      main { padding: 40px 20px 30px; }
+      .article-card { padding: 22px; }
+    }
+  </style>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x5inxh7lug");
+  </script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1040310321899022');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1040310321899022&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap">
+<style id="hrcc-header">
+  /* Site header, matched to the homepage: white bar, compass icon,
+     "HR Compliance" in navy and "Compass" in orange. */
+  .site-nav, .topbar { background: #ffffff !important; border-bottom: 1px solid #e2e8f0; }
+  .nav-logo, .topbar .brand { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 1.25rem !important; font-weight: 500 !important; letter-spacing: 0.02em; color: #1a4a7c !important; text-decoration: none; }
+  .nav-logo img, .topbar .brand img { width: 28px; height: 28px; object-fit: contain; }
+  .nav-logo span, .topbar .brand-accent { color: #e67e22 !important; font-style: normal !important; }
+  .site-nav .nav-links a:not(.nav-cta), .topbar nav a:not(.nav-cta) { color: #1e293b !important; text-transform: uppercase; font-size: 0.82rem; letter-spacing: 0.08em; }
+  .site-nav .nav-links a:not(.nav-cta):hover, .topbar nav a:not(.nav-cta):hover, .topbar nav a.active { color: #e67e22 !important; }
+  .site-nav .nav-cta, .topbar .nav-cta { background: #1a4a7c !important; color: #ffffff !important; border-radius: 2px; }
+  .site-nav .nav-cta:hover, .topbar .nav-cta:hover { background: #e67e22 !important; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="/"><img src="/hrcc-icon-64.png" alt="" width="28" height="28">HR Compliance <span class="brand-accent">Compass</span></a>
+  <nav>
+    <a href="/insights.html">Insights</a>
+    <a href="/directory">Directory</a>
+    <a href="/faqs.html">FAQs</a>
+    <a href="/contact.html">Contact</a>
+    <a href="https://app.hrcompliancecompass.com/login.html" class="nav-cta">Create Free Account</a>
+  </nav>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="dot"></span> How-to guides</div>
+    <h1><span class="accent">Guides</span> for the business side of HR.</h1>
+    <p class="lede">
+      Step-by-step help with the paperwork around hiring and running a business, with the official source for each step.
+    </p>
+    <p class="lede" style="font-size:0.95rem;">
+      Some guides contain paid links. We earn a commission if you buy through them, at no extra cost to you. It never affects our <a href="/directory">HR Directory</a> or our law content.
+    </p>
+  </div>
+</section>
+
+<main>
+  <div class="articles-grid">
+
+    <a class="article-card" href="/guides/hiring-first-employee-another-state-registrations.html">
+      <div class="card-meta">
+        <span class="tag state">Multi-State</span>
+        <span>November 23, 2026</span>
+        <span class="meta-sep"></span>
+        <span>3 min read</span>
+      </div>
+      <h2>Hiring Your First Employee in Another State? Check These Five Things First</h2>
+      <p class="excerpt">A remote hire in a new state can mean registering your business there, opening state payroll tax accounts, reporting the new hire and checking workers&#039; compensation. Here are five things to check, each with its official source.</p>
+      <span class="read-more">Read guide <span class="arrow">→</span></span>
+    </a>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> CompassLine LLC · HR Compliance Compass
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/faqs.html">FAQs</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/how-we-verify.html">How We Verify</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script src="/analytics.js"></script>
+
+<script src="/lead-source-tracker.js"></script>
+<!-- POPUP START -->
+<div id="gdPopup" class="gd-overlay" role="dialog" aria-modal="true" aria-labelledby="gdTitle" aria-hidden="true">
+  <div class="gd-modal">
+    <button type="button" class="gd-close" id="gdClose" aria-label="Close">&times;</button>
+
+    <div class="gd-body" id="gdFormWrap">
+      <div class="gd-mark">HR</div>
+      <h2 id="gdTitle">Free: the <em>2026 50-State</em> HR Quick Reference</h2>
+      <p class="gd-lede">See how every state compares on minimum wage, overtime, paid leave, pay transparency, final pay, and more &mdash; on one screen. Enter your email and we&rsquo;ll send it over.</p>
+
+      <form name="guide-download" id="gdForm" data-netlify="true" data-netlify-honeypot="bot-field" method="POST" novalidate>
+        <input type="hidden" name="form-name" value="guide-download" />
+        <input type="hidden" name="reason" value="50-State Quick Reference download" />
+        <p class="gd-hp"><label>Don&rsquo;t fill this out: <input name="bot-field" /></label></p>
+
+        <input type="hidden" name="leadChannel" id="gdLeadChannel" />
+        <input type="hidden" name="leadLandingSection" id="gdLeadLandingSection" />
+        <input type="hidden" name="leadLandingPage" id="gdLeadLandingPage" />
+        <input type="hidden" name="leadReferrer" id="gdLeadReferrer" />
+        <input type="hidden" name="leadCampaign" id="gdLeadCampaign" />
+
+        <input type="text" name="firstName" id="gdFirst" class="gd-input" placeholder="First name (optional)" autocomplete="given-name" />
+        <input type="email" name="email" id="gdEmail" class="gd-input" placeholder="you@yourcompany.com" autocomplete="email" required />
+        <div id="gdError" class="gd-error" style="display:none;"></div>
+        <button type="submit" class="gd-submit">Send me the guide &rarr;</button>
+        <p class="gd-fine">A free resource from HR Compliance Compass. No spam.</p>
+      </form>
+    </div>
+
+    <div class="gd-body gd-success" id="gdSuccess" style="display:none;">
+      <div class="gd-mark">&#10003;</div>
+      <h2>Your guide is <em>ready.</em></h2>
+      <p class="gd-lede">Thanks! Download it right here &mdash; we&rsquo;ve also emailed you a copy.</p>
+      <a id="gdDownload" class="gd-submit" href="/HRCC-50-State-Quick-Reference-2026.xlsx" download>Download the Excel guide &darr;</a>
+      <p class="gd-fine">Didn&rsquo;t get the email? Check spam, or write support@hrcompliancecompass.com.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .gd-overlay { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center;
+    background: rgba(15,23,42,0.72); padding: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  .gd-overlay.gd-open { display: flex; animation: gdFade 0.25s ease; }
+  @keyframes gdFade { from { opacity: 0; } to { opacity: 1; } }
+  .gd-modal { position: relative; width: 100%; max-width: 440px; background: #ffffff; color: #1f2937;
+    border: 1px solid #dbe3f1; border-radius: 12px; padding: 2.25rem 2rem 2rem; text-align: center;
+    box-shadow: 0 24px 60px rgba(15,23,42,0.35); animation: gdRise 0.3s ease; }
+  @keyframes gdRise { from { transform: translateY(16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .gd-close { position: absolute; top: 0.6rem; right: 0.85rem; background: none; border: none; color: #94a3b8;
+    font-size: 1.6rem; line-height: 1; cursor: pointer; padding: 0.2rem; }
+  .gd-close:hover { color: #1e3a5f; }
+  .gd-mark { width: 50px; height: 50px; margin: 0 auto 1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at 35% 30%, #e8b84b, #d4982f 70%); color: #1e3a5f; font-weight: 800; font-size: 1.15rem; }
+  .gd-modal h2 { font-size: 1.55rem; color: #1e3a5f; font-weight: 800; margin: 0 0 0.5rem; line-height: 1.15; }
+  .gd-modal h2 em { color: #d4982f; font-style: normal; }
+  .gd-lede { color: #475569; font-size: 0.95rem; line-height: 1.55; margin: 0 0 1.4rem; }
+  .gd-input { width: 100%; box-sizing: border-box; margin-bottom: 0.75rem; padding: 0.8rem 1rem; background: #f8fafc;
+    border: 1px solid #cbd5e1; border-radius: 6px; color: #1f2937; font-size: 0.95rem; }
+  .gd-input:focus { outline: none; border-color: #e8b84b; background: #fff; }
+  .gd-error { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; font-size: 0.82rem;
+    border-radius: 6px; padding: 0.5rem 0.7rem; margin: 0 0 0.75rem; text-align: left; }
+  .gd-error a { color: #991b1b; font-weight: 700; text-decoration: underline; cursor: pointer; }
+  .gd-submit { display: block; width: 100%; box-sizing: border-box; margin-top: 0.25rem; padding: 0.85rem 1rem;
+    background: #1e3a5f; color: #fff; border: none; border-radius: 6px; font-size: 0.95rem; font-weight: 700; cursor: pointer;
+    text-decoration: none; transition: background 0.15s; }
+  .gd-submit:hover { background: #16304e; }
+  .gd-submit:disabled { opacity: 0.6; cursor: default; }
+  .gd-fine { color: #94a3b8; font-size: 0.78rem; margin: 0.9rem 0 0; }
+  .gd-hp { position: absolute; left: -5000px; }
+  @media (max-width: 460px) { .gd-modal { padding: 2rem 1.25rem 1.5rem; } .gd-modal h2 { font-size: 1.35rem; } }
+</style>
+
+<script>
+(function () {
+  // ---- Config ----
+  var SHOW_DELAY_MS = 2500;
+  var DISMISS_KEY = "hrcc_guide_dismissed";
+  var GUIDE_FILE = "HRCC-50-State-Quick-Reference-2026.xlsx";
+  var HS_PORTAL_ID = "";                              // HubSpot disabled — leads go to Supabase + Resend
+  var HS_FORM_GUID = "6106dd18-7593-4eb1-8137-a6d9eae562dd";   // HubSpot Form GUID (guide-download)
+
+  try { if (localStorage.getItem(DISMISS_KEY)) return; } catch (e) {}
+  var overlay = document.getElementById("gdPopup");
+  var form = document.getElementById("gdForm");
+  if (!overlay || !form) return;
+
+  function track(name, params) {
+    params = params || {};
+    if (typeof window.gtag === "function") { try { window.gtag("event", name, params); } catch (e) {} }
+    if (typeof window.fbq === "function") {
+      try {
+        if (name === "generate_lead") fbq("track", "Lead", { content_name: "50-State Quick Reference", source: params.lead_source });
+        else if (name === "file_download") fbq("trackCustom", "GuideDownload", { source: params.lead_source });
+        else if (name === "popup_view") fbq("trackCustom", "PopupView", { source: params.lead_source });
+      } catch (e) {}
+    }
+  }
+
+  function source() { var d = {}; try { d = JSON.parse(localStorage.getItem("hrcc_first_touch") || "{}"); } catch (e) {} return d; }
+
+  function fillSource() {
+    var d = source();
+    function set(id, v) { var el = document.getElementById(id); if (el) el.value = v || ""; }
+    set("gdLeadChannel", d.channel || "Direct / typed URL");
+    set("gdLeadLandingSection", d.landingSection || "Main site");
+    set("gdLeadLandingPage", d.landingPage || location.pathname);
+    set("gdLeadReferrer", d.referrer || "");
+    set("gdLeadCampaign", d.utm_campaign || "");
+  }
+
+  // ---- Smart email validation ----
+  var DISPOSABLE = ["mailinator.com","tempmail.com","temp-mail.org","guerrillamail.com","10minutemail.com",
+    "trashmail.com","yopmail.com","sharklasers.com","getnada.com","throwawaymail.com","fakeinbox.com","maildrop.cc"];
+  var TYPO_MAP = { "gmial.com":"gmail.com","gmai.com":"gmail.com","gmal.com":"gmail.com","gmail.con":"gmail.com",
+    "gnail.com":"gmail.com","hotnail.com":"hotmail.com","hotmial.com":"hotmail.com","yahooo.com":"yahoo.com",
+    "yaho.com":"yahoo.com","outlok.com":"outlook.com","outloo.com":"outlook.com" };
+
+  function showError(htmlMsg) {
+    var e = document.getElementById("gdError");
+    e.innerHTML = htmlMsg; e.style.display = "block";
+  }
+  function clearError() { var e = document.getElementById("gdError"); e.style.display = "none"; e.innerHTML = ""; }
+
+  // returns {ok:true} or {ok:false} (after showing message); may auto-suggest a fix
+  function validateEmail(raw) {
+    var email = (raw || "").trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { showError("Please enter a valid email address."); return { ok:false }; }
+    var domain = email.split("@")[1];
+    if (DISPOSABLE.indexOf(domain) !== -1) { showError("Please use a permanent email address so we can send your guide."); return { ok:false }; }
+    if (TYPO_MAP[domain]) {
+      var fixed = email.split("@")[0] + "@" + TYPO_MAP[domain];
+      showError('Did you mean <a id="gdFix">' + fixed + '</a>?');
+      var link = document.getElementById("gdFix");
+      if (link) link.addEventListener("click", function () { document.getElementById("gdEmail").value = fixed; clearError(); });
+      return { ok:false };
+    }
+    return { ok:true, email: email };
+  }
+
+  function getCookie(name) {
+    var m = document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)");
+    return m ? m.pop() : "";
+  }
+
+  function submitToHubSpot(email, firstName) {
+    if (!HS_PORTAL_ID || HS_PORTAL_ID === "YOUR_PORTAL_ID" || !HS_FORM_GUID || HS_FORM_GUID === "YOUR_FORM_GUID") return Promise.resolve(false);
+    var url = "https://api.hsforms.com/submissions/v3/integration/submit/" + HS_PORTAL_ID + "/" + HS_FORM_GUID;
+    var fields = [{ name: "email", value: email }];
+    if (firstName) fields.push({ name: "firstname", value: firstName });
+    var payload = { fields: fields, context: { pageUri: location.href, pageName: document.title } };
+    var hutk = getCookie("hubspotutk"); if (hutk) payload.context.hutk = hutk;
+    // Resolves true only when HubSpot accepted the contact.
+    return fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) })
+      .then(function (res) { return res.ok; }, function () { return false; });
+  }
+
+  function open() {
+    fillSource();
+    overlay.classList.add("gd-open"); overlay.setAttribute("aria-hidden", "false");
+    track("popup_view", { popup: "guide-download", lead_source: (source().channel || "unknown") });
+  }
+  function dismiss() {
+    overlay.classList.remove("gd-open"); overlay.setAttribute("aria-hidden", "true");
+    try { localStorage.setItem(DISMISS_KEY, "1"); } catch (e) {}
+  }
+
+  setTimeout(open, SHOW_DELAY_MS);
+  document.getElementById("gdClose").addEventListener("click", dismiss);
+  overlay.addEventListener("click", function (e) { if (e.target === overlay) dismiss(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && overlay.classList.contains("gd-open")) dismiss(); });
+  document.getElementById("gdEmail").addEventListener("input", clearError);
+
+  document.getElementById("gdDownload").addEventListener("click", function () {
+    track("file_download", { file_name: GUIDE_FILE, lead_source: (source().channel || "unknown") });
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = validateEmail(document.getElementById("gdEmail").value);
+    if (!v.ok) return;
+    clearError();
+    var firstName = (document.getElementById("gdFirst").value || "").trim();
+    var btn = form.querySelector(".gd-submit");
+    if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+
+    // Spam bots fill the hidden field; never count those as leads.
+    var hp = form.querySelector('[name="bot-field"]');
+    var isBot = !!(hp && hp.value);
+
+    // 1) HubSpot (creates contact + triggers the emailed copy)
+    var hubspot = submitToHubSpot(v.email, firstName);
+
+    // 2) Netlify backup capture
+    var body = new URLSearchParams(new FormData(form)).toString();
+    var netlify = fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body })
+      .then(function (res) { return res.ok; }, function () { return false; });
+
+    Promise.all([hubspot, netlify]).then(function (saved) { finish(saved[0] || saved[1]); });
+
+    function finish(saved) {
+      if (!saved) {
+        // Nothing was stored: say so and let them try again (no lead counted).
+        if (btn) { btn.disabled = false; btn.textContent = "Try again"; }
+        showError("Something went wrong sending your guide. Please try again.");
+        return;
+      }
+      // Count the lead in Google/Meta only once the email is actually saved.
+      if (!isBot) track("generate_lead", { method: "guide_popup", lead_source: (source().channel || "unknown") });
+      document.getElementById("gdFormWrap").style.display = "none";
+      document.getElementById("gdSuccess").style.display = "block";
+      try { localStorage.setItem(DISMISS_KEY, "1"); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- POPUP END -->
+<script defer src="/lead-capture.js"></script>
+</body>
+</html>
