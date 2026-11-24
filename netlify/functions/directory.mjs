@@ -59,12 +59,9 @@ export const PARTNERS = [
     goodFor: "registering your business in another state before you hire there.",
     href: "https://www.awin1.com/cread.php?awinmid=99103&awinaffid=2651266",
   },
-  {
-    name: "BizFilings",
-    blurb: "LLC and corporation formation, registered agent service, EIN filing, foreign qualification and payroll tax registration. A Wolters Kluwer business.",
-    goodFor: "forming an LLC and getting your EIN before your first hire.",
-    href: "https://www.awin1.com/cread.php?awinmid=125528&awinaffid=2651266",
-  },
+  // BizFilings passed the checks too, but its program terms (read 2026-11-23)
+  // require its written consent before any written material refers to it.
+  // Add it back here only after that consent is on file.
   {
     name: "BusinessAnywhere",
     blurb: "LLC formation, registered agent, virtual mailbox, online notary and EIN filing, managed in one online dashboard.",
