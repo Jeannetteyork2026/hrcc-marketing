@@ -47,6 +47,49 @@ const SERVICES = {
 
 const SOCIAL = { linkedin: "LinkedIn", facebook: "Facebook", x: "X", instagram: "Instagram", youtube: "YouTube" };
 
+// Affiliate partners shown in a labeled strip above the listings. They are NOT
+// directory listings and never appear in search results. A company goes here
+// only after passing the same checks as a listing (state registration, its own
+// Google profile at 4.0+, its own website) and with Jeannette's OK.
+// Facts below were read on each company's own site on 2026-11-23.
+export const PARTNERS = [
+  {
+    name: "Harbor Compliance",
+    blurb: "Registered agent service, foreign qualification and payroll tax registration for businesses and nonprofits.",
+    goodFor: "registering your business in another state before you hire there.",
+    href: "https://www.awin1.com/cread.php?awinmid=99103&awinaffid=2651266",
+  },
+  {
+    name: "BizFilings",
+    blurb: "LLC and corporation formation, registered agent service, EIN filing, foreign qualification and payroll tax registration. A Wolters Kluwer business.",
+    goodFor: "forming an LLC and getting your EIN before your first hire.",
+    href: "https://www.awin1.com/cread.php?awinmid=125528&awinaffid=2651266",
+  },
+  {
+    name: "BusinessAnywhere",
+    blurb: "LLC formation, registered agent, virtual mailbox, online notary and EIN filing, managed in one online dashboard.",
+    goodFor: "owners who run their business remotely and want their mail and filings in one place.",
+    href: "https://www.awin1.com/cread.php?awinmid=39136&awinaffid=2651266",
+  },
+];
+
+// The commission sentence sits right above the links, where readers see it
+// before they click (FTC: clear, conspicuous and close to the recommendation).
+export function partnerStrip() {
+  if (!PARTNERS.length) return "";
+  return `<section class="partners" aria-labelledby="partners-h">
+    <h2 id="partners-h">Affiliate partners</h2>
+    <p class="partners-note"><strong>These are paid links.</strong> We earn a commission if you buy through them, at no extra cost to you. They are business services, not HR providers, and they are separate from the directory listings below. Each one passed the same registration, Google rating and website checks we use for listings.</p>
+    <div class="partner-cards">${PARTNERS.map((p) => `<div class="partner">
+      <span class="badge sponsor">Paid link</span>
+      <strong>${esc(p.name)}</strong>
+      <span class="desc">${esc(p.blurb)}</span>
+      <span class="desc"><b>Good for:</b> ${esc(p.goodFor)}</span>
+      <a href="${esc(p.href)}" target="_blank" rel="sponsored noopener">Visit ${esc(p.name)} &rarr;</a>
+    </div>`).join("")}</div>
+  </section>`;
+}
+
 export const esc = (s) =>
   String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
@@ -131,6 +174,7 @@ async function homePage(url) {
       <label>Service<select name="service"><option value="">Any service</option>${serviceOptions}</select></label>
       <button type="submit">Search</button>
     </form>
+    ${isSearch ? "" : partnerStrip()}
     ${list.length ? `<div class="results">${list.map((r) => card(r)).join("")}</div>` : emptyState()}
     ${!isSearch && Object.keys(counts).length ? `<h2>Browse by state</h2><ul class="states">${Object.keys(counts).sort((a, b) => STATES[a].localeCompare(STATES[b]))
       .map((c) => `<li><a href="/directory/${stateSlug(c)}">${STATES[c]}</a> <span>${counts[c]}</span></li>`).join("")}</ul>` : ""}
@@ -313,6 +357,11 @@ h2{font-family:var(--serif);font-weight:400;font-size:1.7rem;margin:2.5rem 0 1re
 .badges{display:flex;gap:6px;flex-wrap:wrap}
 .badge{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--cream-soft);padding:2px 8px;border-radius:999px}
 .badge.top{background:#dcfce7;color:#166534}.badge.sponsor{background:#fef3c7;color:#92400e}
+.partners{background:#fffbeb;border:1px solid #fde68a;padding:16px;margin:0 0 1.75rem}
+.partners h2{font-family:var(--sans);font-weight:700;font-size:1.05rem;margin:0 0 .35rem}.partners-note{font-size:.85rem;color:#334155;margin:0 0 .9rem}
+.partner-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.partner{display:grid;gap:6px;align-content:start;background:white;border:1px solid rgba(11,14,20,.1);padding:14px}
+.partner .badge{justify-self:start}.partner a{font-size:.9rem;font-weight:600}
 .states{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
 .states span{color:#64748b;font-size:.85rem}
 .listing{display:flex;gap:16px;align-items:center}.logo{border-radius:8px;background:white;object-fit:contain}
