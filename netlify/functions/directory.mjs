@@ -47,7 +47,9 @@ const SERVICES = {
 
 const SOCIAL = { linkedin: "LinkedIn", facebook: "Facebook", x: "X", instagram: "Instagram", youtube: "YouTube" };
 
-// Affiliate partners shown in a labeled strip above the listings. They are NOT
+// Paid (affiliate) links shown in a labeled strip above the listings. Do not
+// call these companies "partners": Harbor Compliance's affiliate agreement
+// (s. 17) forbids any statement that implies a partnership. They are NOT
 // directory listings and never appear in search results. A company goes here
 // only after passing the same checks as a listing (state registration, its own
 // Google profile at 4.0+, its own website) and with Jeannette's OK.
@@ -75,7 +77,7 @@ export const PARTNERS = [
 export function partnerStrip() {
   if (!PARTNERS.length) return "";
   return `<section class="partners" aria-labelledby="partners-h">
-    <h2 id="partners-h">Affiliate partners</h2>
+    <h2 id="partners-h">Paid links: business services</h2>
     <p class="partners-note"><strong>These are paid links.</strong> We earn a commission if you buy through them, at no extra cost to you. They are business services, not HR providers, and they are separate from the directory listings below. Each one passed the same registration, Google rating and website checks we use for listings.</p>
     <div class="partner-cards">${PARTNERS.map((p) => `<div class="partner">
       <span class="badge sponsor">Paid link</span>
